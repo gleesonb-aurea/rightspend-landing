@@ -9,7 +9,7 @@ A modern, responsive landing page for CloudFix RightSpend, showcasing AWS cost o
 - Optimized for performance
 - Smooth scrolling navigation
 - Mobile-friendly interface
-- Automated deployment to AWS S3
+- Automated deployment to AWS S3 with CloudFront CDN
 
 ## Getting Started
 
@@ -46,7 +46,14 @@ The project uses Tailwind CSS for styling. The development server will watch for
 
 ## Deployment
 
-### AWS S3 Setup
+### AWS Infrastructure
+
+The site is deployed using:
+- S3 for static file hosting
+- CloudFront for CDN and HTTPS
+- GitHub Actions for automated deployment
+
+#### S3 Setup
 
 1. Create an S3 bucket:
    - Go to AWS Console > S3
@@ -70,20 +77,38 @@ The project uses Tailwind CSS for styling. The development server will watch for
    }
    ```
 
-3. Set up GitHub Secrets:
-   - AWS_ACCESS_KEY_ID
-   - AWS_SECRET_ACCESS_KEY
-   - AWS_REGION
-   - S3_BUCKET
+#### CloudFront Setup
+
+The site is served through CloudFront for:
+- Global CDN distribution
+- HTTPS support
+- Better performance
+- Edge caching
+
+Distribution ID: `E25JJXN5IK80N1`
+
+### GitHub Actions Configuration
+
+The following secrets are required:
+- `AWS_ACCESS_KEY_ID`: IAM user access key
+- `AWS_SECRET_ACCESS_KEY`: IAM user secret key
+- `AWS_REGION`: AWS region (e.g., `us-east-1`)
+- `S3_BUCKET`: S3 bucket name
 
 ### Manual Deployment
 ```bash
+# Build the site
 npm run build
+
+# Deploy to S3
 aws s3 sync . s3://your-bucket-name --exclude "*" --include "index.html" --include "dist/*" --delete
+
+# Invalidate CloudFront cache
+aws cloudfront create-invalidation --distribution-id E25JJXN5IK80N1 --paths "/*"
 ```
 
 ### Automatic Deployment
-The site automatically deploys to S3 when changes are pushed to the main branch.
+The site automatically deploys to S3 and invalidates CloudFront cache when changes are pushed to the main branch.
 
 ## Building for Production
 

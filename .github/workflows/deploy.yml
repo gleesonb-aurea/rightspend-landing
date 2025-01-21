@@ -1,4 +1,4 @@
-name: Deploy to S3
+name: Deploy to S3 and Invalidate CloudFront
 
 on:
   push:
@@ -37,3 +37,9 @@ jobs:
             --include "index.html" \
             --include "dist/*" \
             --delete
+
+      - name: Invalidate CloudFront
+        run: |
+          aws cloudfront create-invalidation \
+            --distribution-id E25JJXN5IK80N1 \
+            --paths "/*"
