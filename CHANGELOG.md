@@ -28,6 +28,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Comprehensive SEO meta tags and Open Graph support
 - Enhanced contact form with additional fields
 - Decorative elements in hero section
+- Automated deployment workflow with GitHub Actions
+- S3 static website hosting configuration
+- CloudFront CDN integration with HTTPS support
 
 ### Changed
 - Improved visual design with gradient backgrounds and animations
@@ -35,8 +38,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Separated JavaScript logic into dedicated main.js file
 - Updated Tailwind configuration with custom colors and animations
 - Improved code organization and maintainability
+- Enhanced deployment process with proper content type handling
 
 ### Fixed
 - Optimized performance with better CSS organization
 - Enhanced accessibility with proper ARIA labels
-- Improved semantic HTML structure
+- Corrected S3 and CloudFront configuration for proper content serving
+- Fixed content type issues for static assets
