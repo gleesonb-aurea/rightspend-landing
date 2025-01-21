@@ -48,20 +48,15 @@ jobs:
           aws s3api put-bucket-policy --bucket ${{ secrets.S3_BUCKET }} --policy '{
             "Version": "2012-10-17",
             "Statement": [
-              {
-                "Sid": "AllowCloudFrontAccess",
-                "Effect": "Allow",
-                "Principal": {
-                  "Service": "cloudfront.amazonaws.com"
-                },
-                "Action": "s3:GetObject",
-                "Resource": "arn:aws:s3:::${{ secrets.S3_BUCKET }}/*",
-                "Condition": {
-                  "StringEquals": {
-                    "AWS:SourceArn": "arn:aws:cloudfront::${{ secrets.AWS_ACCOUNT_ID }}:distribution/E25JJXN5IK80N1"
-                  }
+                {
+                    "Sid": "AllowCloudFrontServicePrincipal",
+                    "Effect": "Allow",
+                    "Principal": {
+                        "Service": "cloudfront.amazonaws.com"
+                    },
+                    "Action": "s3:GetObject",
+                    "Resource": "arn:aws:s3:::${{ secrets.S3_BUCKET }}/*"
                 }
-              }
             ]
           }'
 
