@@ -30,18 +30,32 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: ${{ secrets.AWS_REGION }}
 
-      - name: Deploy to S3
+      - name: Configure S3 website
+        run: |
+          aws s3 website s3://${{ secrets.S3_BUCKET }}/ --index-document index.html
+
+      - name: Deploy HTML files to S3
         run: |
           aws s3 sync . s3://${{ secrets.S3_BUCKET }} \
             --exclude "*" \
             --include "index.html" \
-            --include "dist/*" \
-            --include "src/*" \
-            --include "*.js" \
-            --content-type "text/html:html" \
-            --content-type "text/css:css" \
-            --content-type "application/javascript:js" \
+            --content-type "text/html" \
             --delete
+
+      - name: Deploy CSS files to S3
+        run: |
+          aws s3 sync . s3://${{ secrets.S3_BUCKET }} \
+            --exclude "*" \
+            --include "dist/*.css" \
+            --content-type "text/css"
+
+      - name: Deploy JavaScript files to S3
+        run: |
+          aws s3 sync . s3://${{ secrets.S3_BUCKET }} \
+            --exclude "*" \
+            --include "src/*.js" \
+            --include "*.js" \
+            --content-type "application/javascript"
 
       - name: Update S3 bucket policy
         run: |
@@ -49,11 +63,9 @@ jobs:
             "Version": "2012-10-17",
             "Statement": [
                 {
-                    "Sid": "AllowCloudFrontServicePrincipal",
+                    "Sid": "PublicReadGetObject",
                     "Effect": "Allow",
-                    "Principal": {
-                        "Service": "cloudfront.amazonaws.com"
-                    },
+                    "Principal": "*",
                     "Action": "s3:GetObject",
                     "Resource": "arn:aws:s3:::${{ secrets.S3_BUCKET }}/*"
                 }
