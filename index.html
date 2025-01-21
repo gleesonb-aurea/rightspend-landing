@@ -24,7 +24,7 @@
     <!-- Scripts -->
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script defer src="./src/main.js"></script>
+    <script src="./src/main.js"></script>
 </head>
 <body class="font-sans text-dark" x-data>
     <!-- Initialize AOS -->
@@ -98,6 +98,63 @@
             </div>
         </div>
     </section>
+
+<!-- Pricing Comparison -->
+<section class="py-24 bg-white">
+    <div class="container mx-auto px-6">
+        <div class="max-w-4xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-8" data-aos="fade-up">Compare Our Pricing</h2>
+                <p class="text-xl text-gray-600" data-aos="fade-up">Our CFD discount rates offer significant savings over 1-year Compute Savings plans – all without commitment.</p>
+            </div>
+            
+            <div class="overflow-x-auto mb-16" data-aos="fade-up">
+                <table class="w-full border-separate border-spacing-0">
+                    <thead>
+                        <tr>
+                            <th class="bg-gray-50 text-gray-700 font-semibold p-6 text-left rounded-tl-xl">Discount Approach</th>
+                            <th class="bg-gray-50 text-gray-700 font-semibold p-6 text-left">Discount</th>
+                            <th class="bg-gray-50 text-gray-700 font-semibold p-6 text-left rounded-tr-xl">Flexibility</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="hover:bg-gray-50 transition-colors">
+                            <td class="border-b border-gray-100 p-6">On-Demand</td>
+                            <td class="border-b border-gray-100 p-6 text-red-500">No Discount</td>
+                            <td class="border-b border-gray-100 p-6">Full Flexibility</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50 transition-colors">
+                            <td class="border-b border-gray-100 p-6">1 YR Savings Plans</td>
+                            <td class="border-b border-gray-100 p-6 text-yellow-600">Moderate Discounts</td>
+                            <td class="border-b border-gray-100 p-6">No Flexibility</td>
+                        </tr>
+                        <tr class="bg-primary/5 hover:bg-primary/10 transition-colors">
+                            <td class="border-b border-gray-100 p-6 font-bold">RightSpend</td>
+                            <td class="border-b border-gray-100 p-6 text-primary font-bold">Large Discounts</td>
+                            <td class="border-b border-gray-100 p-6 font-bold">Full Flexibility</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50 transition-colors">
+                            <td class="border-b border-gray-100 p-6 rounded-bl-xl">3 YR Savings Plans</td>
+                            <td class="border-b border-gray-100 p-6 text-green-600">Max Discounts</td>
+                            <td class="border-b border-gray-100 p-6 rounded-br-xl">No Flexibility</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8" data-aos="fade-up">
+                <div class="bg-white p-8 rounded-xl shadow-lg">
+                    <h3 class="text-xl font-bold mb-4">Always Better Than On-Demand</h3>
+                    <p class="text-gray-600">RightSpend offers 20-55% discounts (net of fees) over on-demand instance pricing with no commitment.</p>
+                </div>
+                <div class="bg-white p-8 rounded-xl shadow-lg">
+                    <h3 class="text-xl font-bold mb-4">Better Than 1Yr Commitments</h3>
+                    <p class="text-gray-600">Switch to RightSpend to gain an additional 17-30% discount (net of fees) without the need to commit.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
     <!-- Calculator Section -->
     <section id="calculator" class="py-24" x-data="calculator">

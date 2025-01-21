@@ -7,9 +7,10 @@ const calculateSavings = (currentSpend) => {
 // Testimonials data
 const testimonials = [
     {
-        quote: "We saved $27.8 Million with CloudFix RightSpend without changing our infrastructure.",
-        author: "EdTech Company CTO",
-        company: "Leading EdTech Provider"
+        quote: "CloudFix saves us $27.8 million in our first 3 years, unlocking cash flow to invest in new high-growth projects.",
+        author: "EdTech Company Executive",
+        company: "$1B+ Revenue EdTech Company",
+        source: "https://cloudfix.com/resources/edtech-company-saved-14-5-million-with-cloudfix-rightspend/"
     },
     {
         quote: "RightSpend helped us optimize our AWS costs while maintaining complete flexibility.",
