@@ -9,6 +9,7 @@ dist/
 build/
 .next/
 out/
+tools/
 
 # Environment variables
 .env
@@ -42,3 +43,10 @@ coverage/
 
 # Development notes
 NOTES.md
+.windsurfrules
+
+# Python
+venv/
+__pycache__/
+*.pyc
+*.pyo
