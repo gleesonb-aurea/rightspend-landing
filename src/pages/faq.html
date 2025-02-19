@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RightSpend FAQ - Common Questions About AWS Cost Optimization</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Find answers to common questions about RightSpend's AWS cost optimization solution - from integration to savings calculations.">
+    <meta name="keywords" content="AWS cost optimization FAQ, RightSpend questions, cloud savings help, AWS discount programs">
+    
+    <!-- Open Graph / Social Media Meta Tags -->
+    <meta property="og:title" content="RightSpend FAQ - AWS Cost Optimization Questions">
+    <meta property="og:description" content="Get answers to common questions about optimizing your AWS costs with RightSpend.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://rightspend.ai/faq">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/src/assets/images/favicon.png">
+    
+    <!-- Styles -->
+    <link href="/dist/css/styles.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Scripts -->
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="/src/scripts/main.js"></script>
+</head>
+<body class="font-sans bg-gray-50">
+    <!-- Header -->
+    <div x-data="{ includeFile: '/src/components/shared/header.html' }" x-init="fetch(includeFile).then(response => response.text()).then(html => { $el.innerHTML = html })"></div>
+
+    <!-- Hero Section -->
+    <section class="relative bg-gradient-to-r from-primary to-secondary overflow-hidden py-24">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto text-center text-white">
+                <h1 class="text-4xl md:text-6xl font-bold mb-8" data-aos="fade-up">
+                    Frequently Asked Questions
+                </h1>
+                <p class="text-xl md:text-2xl mb-12" data-aos="fade-up" data-aos-delay="100">
+                    Find answers to common questions about RightSpend
+                </p>
+            </div>
+        </div>
+        <!-- Decorative elements -->
+        <div class="absolute inset-0 overflow-hidden pointer-events-none">
+            <div class="absolute top-0 right-0 w-1/2 h-1/2 bg-white opacity-5 rounded-full transform translate-x-1/2 -translate-y-1/2"></div>
+            <div class="absolute bottom-0 left-0 w-1/3 h-1/3 bg-white opacity-5 rounded-full transform -translate-x-1/2 translate-y-1/2"></div>
+        </div>
+    </section>
+
+    <!-- FAQ Categories -->
+    <section class="py-24">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto">
+                <!-- Getting Started -->
+                <div class="mb-16" data-aos="fade-up">
+                    <h2 class="text-2xl md:text-3xl font-bold mb-8">Getting Started</h2>
+                    <div class="space-y-6">
+                        <div class="card">
+                            <h3 class="text-xl font-semibold mb-4">How does RightSpend work?</h3>
+                            <p class="text-gray-600">RightSpend uses advanced AI to analyze your AWS usage patterns and automatically optimize your coverage. Our system continuously monitors your environment and makes real-time adjustments to maximize savings while maintaining complete flexibility.</p>
+                        </div>
+                        <div class="card">
+                            <h3 class="text-xl font-semibold mb-4">What do I need to get started?</h3>
+                            <p class="text-gray-600">Getting started with RightSpend is simple. We just need read-only access to your AWS account through a secure IAM role. Our team will guide you through the setup process, which typically takes less than 30 minutes.</p>
+                        </div>
+                        <div class="card">
+                            <h3 class="text-xl font-semibold mb-4">Is there a minimum AWS spend requirement?</h3>
+                            <p class="text-gray-600">While RightSpend can benefit AWS users of all sizes, we typically work with organizations spending at least $10,000 per month on AWS to ensure meaningful savings.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Savings & Coverage -->
+                <div class="mb-16" data-aos="fade-up">
+                    <h2 class="text-2xl md:text-3xl font-bold mb-8">Savings & Coverage</h2>
+                    <div class="space-y-6">
+                        <div class="card">
+                            <h3 class="text-xl font-semibold mb-4">How much can I save with RightSpend?</h3>
+                            <p class="text-gray-600">Customers typically achieve 20-55% savings on their AWS costs. The exact amount depends on your current coverage and usage patterns. Our calculator can provide a personalized estimate based on your specific situation.</p>
+                        </div>
+                        <div class="card">
+                            <h3 class="text-xl font-semibold mb-4">Can I use RightSpend alongside Savings Plans?</h3>
+                            <p class="text-gray-600">Yes! RightSpend works seamlessly with existing Savings Plans and Reserved Instances. We can optimize your uncovered usage or complement your existing discount strategy for maximum savings.</p>
+                        </div>
+                        <div class="card">
+                            <h3 class="text-xl font-semibold mb-4">Which AWS services are supported?</h3>
+                            <p class="text-gray-600">RightSpend currently optimizes EC2 instances and RDS databases. We're continuously expanding our coverage to include more AWS services based on customer demand.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Flexibility & Commitments -->
+                <div class="mb-16" data-aos="fade-up">
+                    <h2 class="text-2xl md:text-3xl font-bold mb-8">Flexibility & Commitments</h2>
+                    <div class="space-y-6">
+                        <div class="card">
+                            <h3 class="text-xl font-semibold mb-4">Are there any long-term commitments?</h3>
+                            <p class="text-gray-600">No. Unlike AWS Savings Plans or Reserved Instances, RightSpend doesn't require any long-term commitments. You maintain complete flexibility to change or scale your resources as needed.</p>
+                        </div>
+                        <div class="card">
+                            <h3 class="text-xl font-semibold mb-4">Can I change my coverage at any time?</h3>
+                            <p class="text-gray-600">Yes! You have full control over your coverage and can adjust it at any time without penalties. Our AI automatically adapts to your changes to maintain optimal savings.</p>
+                        </div>
+                        <div class="card">
+                            <h3 class="text-xl font-semibold mb-4">What happens if my usage changes?</h3>
+                            <p class="text-gray-600">RightSpend's AI continuously monitors your usage patterns and automatically adjusts optimization strategies in real-time. You don't need to worry about over-committing or missing savings opportunities.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Security & Integration -->
+                <div class="mb-16" data-aos="fade-up">
+                    <h2 class="text-2xl md:text-3xl font-bold mb-8">Security & Integration</h2>
+                    <div class="space-y-6">
+                        <div class="card">
+                            <h3 class="text-xl font-semibold mb-4">Is RightSpend secure?</h3>
+                            <p class="text-gray-600">Yes. We maintain strict security standards and only require read-only access to your AWS account. We never modify your resources or store sensitive data. Our platform is regularly audited and complies with industry security standards.</p>
+                        </div>
+                        <div class="card">
+                            <h3 class="text-xl font-semibold mb-4">How does integration work?</h3>
+                            <p class="text-gray-600">Integration is simple and secure through AWS IAM roles. We provide detailed documentation and support to ensure a smooth setup process. Most customers are up and running in less than 30 minutes.</p>
+                        </div>
+                        <div class="card">
+                            <h3 class="text-xl font-semibold mb-4">Do you offer API access?</h3>
+                            <p class="text-gray-600">Yes, we provide a comprehensive API for customers who want to integrate RightSpend with their existing tools and workflows. Our API documentation includes detailed examples and support for common use cases.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Still Have Questions -->
+    <section class="py-24 bg-gray-100">
+        <div class="container mx-auto px-6 text-center">
+            <div class="max-w-3xl mx-auto">
+                <h2 class="text-3xl md:text-4xl font-bold mb-8">Still Have Questions?</h2>
+                <p class="text-xl text-gray-600 mb-12">Our team is here to help you understand how RightSpend can optimize your AWS costs.</p>
+                <div class="flex flex-col sm:flex-row justify-center gap-4">
+                    <a href="https://app.apollo.io/#/meet/tim_galloway_f2d" class="btn-primary text-lg">Find Out More</a>
+                    <a href="/engine" class="btn-outline text-lg">Learn How It Works</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Calculator Section -->
+    <section id="calculator" class="py-24">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto">
+                <div x-data="{ includeFile: '/src/components/calculator.html' }" x-init="fetch(includeFile).then(response => response.text()).then(html => { $el.innerHTML = html })"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <div x-data="{ includeFile: '/src/components/shared/footer.html' }" x-init="fetch(includeFile).then(response => response.text()).then(html => { $el.innerHTML = html })"></div>
+
+    <!-- Initialize AOS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            AOS.init({
+                duration: 800,
+                once: true
+            });
+        });
+    </script>
+</body>
+</html>

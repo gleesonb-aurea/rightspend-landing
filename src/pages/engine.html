@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How the RightSpend Engine Works - AI-Driven AWS Cost Optimization</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Discover how RightSpend's AI engine optimizes your AWS costs through intelligent coverage management, automated decisions, and real-time adjustments.">
+    <meta name="keywords" content="AWS cost optimization, RightSpend engine, cloud coverage, AI optimization, automated decisions">
+    
+    <!-- Open Graph / Social Media Meta Tags -->
+    <meta property="og:title" content="How the RightSpend Engine Works - AI-Driven AWS Cost Optimization">
+    <meta property="og:description" content="Learn how RightSpend's AI engine delivers optimal AWS savings through intelligent coverage management and automated decisions.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://rightspend.ai/engine">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/src/assets/images/favicon.png">
+    
+    <!-- Styles -->
+    <link href="/dist/css/styles.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Scripts -->
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="/src/scripts/main.js"></script>
+</head>
+<body class="font-sans bg-gray-50">
+    <!-- Header -->
+    <div x-data="{ includeFile: '/src/components/shared/header.html' }" x-init="fetch(includeFile).then(response => response.text()).then(html => { $el.innerHTML = html })"></div>
+
+    <!-- Hero Section -->
+    <section class="relative bg-gradient-to-r from-primary to-secondary overflow-hidden py-24">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto text-center text-white">
+                <h1 class="text-4xl md:text-6xl font-bold mb-8" data-aos="fade-up">
+                    The RightSpend Engine
+                </h1>
+                <p class="text-xl md:text-2xl mb-12" data-aos="fade-up" data-aos-delay="100">
+                    AI-driven optimization that makes complex decisions simple
+                </p>
+            </div>
+        </div>
+        <!-- Decorative elements -->
+        <div class="absolute inset-0 overflow-hidden pointer-events-none">
+            <div class="absolute top-0 right-0 w-1/2 h-1/2 bg-white opacity-5 rounded-full transform translate-x-1/2 -translate-y-1/2"></div>
+            <div class="absolute bottom-0 left-0 w-1/3 h-1/3 bg-white opacity-5 rounded-full transform -translate-x-1/2 translate-y-1/2"></div>
+        </div>
+    </section>
+
+    <!-- Engine Overview Section -->
+    <section class="py-24">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-16" data-aos="fade-up">
+                    Intelligent Coverage Management
+                </h2>
+                
+                <div class="grid md:grid-cols-2 gap-12">
+                    <!-- Commitment Right Instances (cRIs) -->
+                    <div class="card" data-aos="fade-up" data-aos-delay="100">
+                        <div class="text-primary text-4xl mb-4">🎯</div>
+                        <h3 class="text-xl font-semibold mb-4">Commitment Right Instances (cRIs)</h3>
+                        <p class="text-gray-600 mb-4">Our innovative approach to AWS coverage that provides maximum flexibility with optimal savings.</p>
+                        <ul class="space-y-2 text-gray-600">
+                            <li class="flex items-start">
+                                <span class="text-primary mr-2">✓</span>
+                                Dynamic adjustments based on usage
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-primary mr-2">✓</span>
+                                Automatic optimization across regions
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-primary mr-2">✓</span>
+                                Flexible commitment periods
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- AI Decision Engine -->
+                    <div class="card" data-aos="fade-up" data-aos-delay="200">
+                        <div class="text-primary text-4xl mb-4">🧠</div>
+                        <h3 class="text-xl font-semibold mb-4">AI Decision Engine</h3>
+                        <p class="text-gray-600 mb-4">Advanced algorithms that make complex coverage decisions simple and efficient.</p>
+                        <ul class="space-y-2 text-gray-600">
+                            <li class="flex items-start">
+                                <span class="text-primary mr-2">✓</span>
+                                Real-time usage analysis
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-primary mr-2">✓</span>
+                                Predictive optimization
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-primary mr-2">✓</span>
+                                Automated risk management
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Features Section -->
+    <section class="py-24 bg-gray-100">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-16" data-aos="fade-up">
+                Advanced Features
+            </h2>
+
+            <div class="grid md:grid-cols-3 gap-12 max-w-6xl mx-auto">
+                <!-- Region Management -->
+                <div class="card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="text-primary text-4xl mb-4">🌍</div>
+                    <h3 class="text-xl font-semibold mb-4">Region Management</h3>
+                    <ul class="space-y-3 text-gray-600">
+                        <li class="flex items-start">
+                            <span class="text-primary mr-2">✓</span>
+                            Cross-region optimization
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-primary mr-2">✓</span>
+                            Region-specific strategies
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-primary mr-2">✓</span>
+                            Global coverage management
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Account Management -->
+                <div class="card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="text-primary text-4xl mb-4">👥</div>
+                    <h3 class="text-xl font-semibold mb-4">Account Management</h3>
+                    <ul class="space-y-3 text-gray-600">
+                        <li class="flex items-start">
+                            <span class="text-primary mr-2">✓</span>
+                            Multi-account support
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-primary mr-2">✓</span>
+                            Account-level controls
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-primary mr-2">✓</span>
+                            Organization-wide optimization
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Platform Support -->
+                <div class="card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="text-primary text-4xl mb-4">💻</div>
+                    <h3 class="text-xl font-semibold mb-4">Platform Support</h3>
+                    <ul class="space-y-3 text-gray-600">
+                        <li class="flex items-start">
+                            <span class="text-primary mr-2">✓</span>
+                            Multiple OS support
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-primary mr-2">✓</span>
+                            Service-specific optimization
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-primary mr-2">✓</span>
+                            Custom platform configurations
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technical Details Section -->
+    <section class="py-24">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-16" data-aos="fade-up">
+                Technical Details
+            </h2>
+
+            <div class="grid md:grid-cols-2 gap-12 max-w-5xl mx-auto">
+                <!-- Configuration Parameters -->
+                <div class="card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="text-primary text-4xl mb-4">⚙️</div>
+                    <h3 class="text-xl font-semibold mb-4">Configuration Parameters</h3>
+                    <p class="text-gray-600 mb-6">Fine-tune the engine to match your specific needs and requirements.</p>
+                    <ul class="space-y-4">
+                        <li class="flex items-start">
+                            <span class="text-primary mr-2">✓</span>
+                            <div>
+                                <strong class="block text-gray-800">Region Controls</strong>
+                                <span class="text-gray-600">Specify allowed regions for optimization</span>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-primary mr-2">✓</span>
+                            <div>
+                                <strong class="block text-gray-800">Account Management</strong>
+                                <span class="text-gray-600">Define account-level permissions and limits</span>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-primary mr-2">✓</span>
+                            <div>
+                                <strong class="block text-gray-800">Platform Settings</strong>
+                                <span class="text-gray-600">Configure platform-specific optimizations</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Optimization Controls -->
+                <div class="card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="text-primary text-4xl mb-4">🎚️</div>
+                    <h3 class="text-xl font-semibold mb-4">Optimization Controls</h3>
+                    <p class="text-gray-600 mb-6">Advanced settings for precise control over optimization behavior.</p>
+                    <ul class="space-y-4">
+                        <li class="flex items-start">
+                            <span class="text-primary mr-2">✓</span>
+                            <div>
+                                <strong class="block text-gray-800">Commitment Management</strong>
+                                <span class="text-gray-600">Control maximum commitment levels and durations</span>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-primary mr-2">✓</span>
+                            <div>
+                                <strong class="block text-gray-800">Rate Controls</strong>
+                                <span class="text-gray-600">Adjust increase and decrease rates for commitments</span>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-primary mr-2">✓</span>
+                            <div>
+                                <strong class="block text-gray-800">Threshold Settings</strong>
+                                <span class="text-gray-600">Define optimization thresholds and buffers</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-24 bg-gray-100">
+        <div class="container mx-auto px-6 text-center">
+            <div class="max-w-3xl mx-auto">
+                <h2 class="text-3xl md:text-4xl font-bold mb-8">Ready to See the Engine in Action?</h2>
+                <p class="text-xl text-gray-600 mb-12">Schedule a demo to see how RightSpend can optimize your AWS costs</p>
+                <div class="flex flex-col sm:flex-row justify-center gap-4">
+                    <a href="https://app.apollo.io/#/meet/tim_galloway_f2d" class="btn-primary text-lg">Find Out More</a>
+                    <a href="/use-cases" class="btn-outline text-lg">View Use Cases</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <div x-data="{ includeFile: '/src/components/shared/footer.html' }" x-init="fetch(includeFile).then(response => response.text()).then(html => { $el.innerHTML = html })"></div>
+
+    <!-- Initialize AOS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            AOS.init({
+                duration: 800,
+                once: true
+            });
+        });
+    </script>
+</body>
+</html>

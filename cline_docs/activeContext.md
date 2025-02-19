@@ -1,104 +1,46 @@
-# Active Context - RightSpend Website Revamp
+# Active Context
 
 ## Current Work Focus
-1. Development Environment Setup:
-   - Node.js installation and configuration
-   - Project dependencies installation
-   - Local development server setup
-   - Build process configuration
-
-2. Project Structure Implementation:
-   - Multi-page architecture setup
-   - Component development
-   - Styling system implementation
-   - Interactive features development
-
-3. Content Development:
-   - Landing page implementation
-   - Component creation
-   - Responsive design implementation
-   - Interactive features integration
-
-## Project Status
-
-1. Documentation:
-   - Core documentation structure established
-   - Project brief updated with new scope
-   - Product context refined
-   - Dependency tracking in place
-
-2. Development:
-   - Repository: https://github.com/gleesonb-aurea/rightspend-landing
-   - Branch: feature/website-revamp
-   - Project structure created
-   - Initial components developed:
-     - Header
-     - Footer
-     - Calculator
-     - Testimonials
-
-3. Implementation Progress:
-   - Project scaffolding complete
-   - Core components created
-   - Styling system configured
-   - Build process defined
-
-## Immediate Priorities
-
-1. Environment Setup:
-   - Complete Node.js installation
-   - Verify development environment
-   - Test build process
-   - Configure local server
-
-2. Development Tasks:
-   - Build remaining pages
-   - Implement responsive design
-   - Add interactive features
-   - Optimize performance
-
-3. Testing & Validation:
-   - Local development testing
-   - Component functionality
-   - Responsive design verification
-   - Cross-browser testing
+- Completed initial website structure and content
+- Standardized CTAs across all pages to "Find Out More" with Apollo.io integration
+- Set up dependency tracking and documentation
 
 ## Recent Decisions
+1. Standardized primary CTA to "Find Out More" linking to Apollo.io meeting scheduler
+2. Created consistent layout components (header, footer) for reuse across pages
+3. Organized content into clear sections focusing on key value propositions
+4. Added placeholder images for logo and diagrams
+5. Updated .gitignore to exclude project documentation and instructions
 
-1. Technical Setup:
-   - Node.js-based development environment
-   - Tailwind CSS for styling
-   - Alpine.js for interactivity
-   - Component-based architecture
+## Immediate Next Steps
+1. Create calculator component for ROI estimation
+2. Create testimonials component for social proof
+3. Implement features page
+4. Add proper images to replace placeholders:
+   - rightspend-diagram.png
+   - Rightspend-cool.png (logo)
+   - favicon.png
 
-2. Project Structure:
-   - Organized component hierarchy
-   - Modular file organization
-   - Clear dependency management
-   - Scalable build process
+## Dependencies
+- All pages depend on shared components in src/components
+- All pages depend on assets in src/assets/images
+- All content aligned with productContext.md guidelines
+- Engine page content based on howitworks.md documentation
 
-3. Development Workflow:
-   - Feature branch development
-   - Local testing first
-   - Progressive enhancement
-   - Mobile-first approach
+## Technical State
+- Basic HTML structure in place
+- Tailwind CSS for styling
+- Alpine.js for interactivity
+- AOS for scroll animations
+- Chart.js ready for calculator implementation
 
-## Next Steps
+## Open Questions
+1. Need actual customer testimonials for testimonials component
+2. Need final branding assets (logo, diagram, favicon)
+3. Need calculator logic and formulas for ROI calculations
 
-1. Environment Setup:
-   - Complete Node.js installation
-   - Install project dependencies
-   - Build Tailwind CSS styles
-   - Start development server
-
-2. Development:
-   - Complete remaining pages
-   - Implement responsive design
-   - Add interactive features
-   - Optimize performance
-
-3. Testing:
-   - Verify all components
-   - Test responsive design
-   - Check interactive features
-   - Cross-browser testing
+## Notes
+- All CTAs standardized to Apollo.io meeting scheduler
+- Mobile-responsive design implemented
+- SEO meta tags in place
+- Social sharing meta tags configured

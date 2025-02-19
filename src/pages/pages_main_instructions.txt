@@ -1,47 +1,160 @@
+# Main Instructions for pages Directory
+
+## Overview
+This directory contains the main HTML pages for the RightSpend website. Each page focuses on a specific aspect of the product and follows consistent design patterns.
+
+## Mini Dependency Tracker
 {
   "files": {
     "F1": {
-      "dependsOn": ["F6", "F7", "F8", "F9"],
+      "dependsOn": ["F6", "F7", "F8", "F9", "F10"],
       "dependedOnBy": []
     },
     "F2": {
-      "dependsOn": ["F6", "F7", "F8"],
-      "dependedOnBy": []
+      "dependsOn": ["F6", "F7", "F8", "F9"],
+      "dependedOnBy": ["F1", "F3", "F4"]
     },
     "F3": {
-      "dependsOn": ["F6", "F7", "F8"],
-      "dependedOnBy": []
+      "dependsOn": ["F6", "F7", "F8", "F9", "F10"],
+      "dependedOnBy": ["F1"]
     },
     "F4": {
-      "dependsOn": ["F6", "F7", "F8"],
-      "dependedOnBy": []
+      "dependsOn": ["F6", "F7", "F8", "F9", "F10"],
+      "dependedOnBy": ["F1"]
     },
     "F5": {
-      "dependsOn": ["F6", "F7"],
-      "dependedOnBy": []
+      "dependsOn": ["F6", "F7", "F8", "F9", "F10"],
+      "dependedOnBy": ["F1"]
     }
   },
-  "externalDependencies": [
-    {
-      "type": "cdn",
-      "resources": [
-        "https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js",
-        "https://unpkg.com/aos@2.3.1/dist/aos.js",
-        "https://unpkg.com/aos@2.3.1/dist/aos.css",
-        "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap",
-        "https://cdn.jsdelivr.net/npm/chart.js"
-      ]
-    }
-  ],
   "index": {
-    "F1": "src/pages/index.html",
-    "F2": "src/pages/how-it-works.html",
-    "F3": "src/pages/use-cases.html",
-    "F4": "src/pages/features.html",
-    "F5": "src/pages/faq.html",
-    "F6": "src/components/shared/header.html",
-    "F7": "src/components/shared/footer.html",
-    "F8": "src/components/calculator.html",
-    "F9": "src/components/testimonials.html"
+    "F1": "index.html",
+    "F2": "engine.html",
+    "F3": "use-cases.html",
+    "F4": "faq.html",
+    "F5": "features.html",
+    "F6": "../components/shared/header.html",
+    "F7": "../components/shared/footer.html",
+    "F8": "../scripts/main.js",
+    "F9": "../assets/images/Rightspend-cool.png",
+    "F10": "../components/calculator.html"
   }
 }
+
+## Page-Specific Guidelines
+
+1. index.html (Landing Page):
+   - Primary entry point
+   - Clear value proposition
+   - Key benefits section
+   - How it works section
+   - Integration with calculator
+   - Strong CTAs
+
+2. engine.html (Engine Details):
+   - Technical deep-dive
+   - Feature explanations
+   - Integration diagram
+   - Configuration details
+   - Use case links
+
+3. use-cases.html (Use Cases):
+   - Real-world scenarios
+   - Customer examples
+   - ROI calculator
+   - Testimonials
+   - Clear benefits
+
+4. faq.html (FAQ):
+   - Organized by topic
+   - Clear answers
+   - Related links
+   - Contact options
+   - Calculator integration
+
+5. features.html (Features):
+   - Comprehensive feature list
+   - Technical details
+   - Integration options
+   - Comparison tables
+   - Use case links
+
+## Shared Requirements
+
+1. Meta Tags:
+   - Title
+   - Description
+   - Keywords
+   - Open Graph tags
+   - Twitter cards
+
+2. Scripts:
+   - Alpine.js
+   - Chart.js
+   - AOS animations
+   - main.js
+
+3. Components:
+   - Header
+   - Footer
+   - Calculator (where applicable)
+   - Testimonials (where applicable)
+
+4. Design Elements:
+   - Consistent spacing
+   - Card layouts
+   - Gradient backgrounds
+   - Icon usage
+   - Responsive design
+
+5. CTAs:
+   - Primary: "Find Out More" → Apollo.io
+   - Secondary: Context-specific links
+   - Clear hierarchy
+   - Consistent styling
+
+## Content Guidelines
+
+1. Headings:
+   - H1: Page title
+   - H2: Major sections
+   - H3: Subsections
+   - Clear hierarchy
+
+2. Text:
+   - Clear, concise language
+   - Technical accuracy
+   - Benefit-focused
+   - Action-oriented
+
+3. Images:
+   - Optimized for web
+   - Alt text
+   - Lazy loading
+   - Responsive sizing
+
+4. Animations:
+   - Subtle transitions
+   - Scroll-based reveals
+   - Performance-conscious
+   - Mobile-friendly
+
+## Performance Requirements
+
+1. Loading:
+   - Fast initial load
+   - Progressive enhancement
+   - Resource optimization
+   - Caching strategy
+
+2. Interactivity:
+   - Smooth scrolling
+   - Quick responses
+   - Error handling
+   - Form validation
+
+3. Accessibility:
+   - ARIA labels
+   - Keyboard navigation
+   - Screen reader support
+   - Color contrast
