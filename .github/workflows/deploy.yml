@@ -31,21 +31,22 @@ jobs:
           aws-region: ${{ secrets.AWS_REGION }}
 
       - name: Deploy to S3
-        run: |
-          aws s3 sync . s3://${{ secrets.S3_BUCKET }} \
-            --delete \
-            --exclude "*" \
-            --include "index.html" \
-            --content-type "text/html" \
-            --exclude "*" \
-            --include "*.html" \
-            --content-type "text/html" \
-            --exclude "*" \
-            --include "*.css" \
-            --content-type "text/css" \
-            --exclude "*" \
-            --include "*.js" \
-            --content-type "application/javascript"
+  run: |
+    aws s3 sync dist/ s3://${{ secrets.S3_BUCKET }} \
+    --delete \
+    --exclude "*" \
+    --include "*.html" \
+    --include "*.css" \
+    --include "*.js" \
+    --cache-control "max-age=31536000" \
+    --metadata-directive REPLACE
+
+- name: Deploy index.html with no caching
+  run: |
+    aws s3 cp dist/index.html s3://${{ secrets.S3_BUCKET }}/index.html \
+    --cache-control "no-cache" \
+    --content-type "text/html" \
+    --metadata-directive REPLACE
 
       - name: Configure S3 website
         run: |
