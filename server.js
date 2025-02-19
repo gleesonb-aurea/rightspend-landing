@@ -1,22 +1,36 @@
 const express = require('express');
 const path = require('path');
+const fs = require('fs');
 const app = express();
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3005;
 
 // Serve static files from dist directory
 app.use(express.static(path.join(__dirname, 'dist'), {
-  setHeaders: (res, filePath) => {
-    if (filePath.endsWith('.css')) {
-      res.setHeader('Content-Type', 'text/css');
-    }
-  }
+    extensions: ['html', 'htm'],
+    index: 'index.html'
 }));
 
-// Handle client-side routing
+// Handle all routes
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'dist', 'index.html'));
+    // Remove leading slash and try to find the file
+    const filePath = path.join(__dirname, 'dist', req.path.replace(/^\//, ''));
+    
+    // If it's a directory, look for index.html
+    if (fs.existsSync(filePath) && fs.statSync(filePath).isDirectory()) {
+        res.sendFile(path.join(filePath, 'index.html'));
+        return;
+    }
+    
+    // Try to send the file
+    if (fs.existsSync(filePath)) {
+        res.sendFile(filePath);
+        return;
+    }
+    
+    // If file doesn't exist, send 404
+    res.status(404).sendFile(path.join(__dirname, 'dist', '404.html'));
 });
 
 app.listen(port, () => {
-  console.log(`Server running on port ${port}`);
+    console.log(`Server running on port ${port}`);
 });

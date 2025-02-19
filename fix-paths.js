@@ -1,41 +1,58 @@
 const fs = require('fs');
 const path = require('path');
+const glob = require('glob');
 
-// Get all HTML files in dist directory
-const htmlFiles = fs.readdirSync('dist').filter(file => file.endsWith('.html'));
+// Function to fix paths in HTML files
+function fixPaths() {
+    const distDir = path.join(__dirname, 'dist');
+    
+    // Find all HTML files in dist directory
+    glob.sync('**/*.html', { cwd: distDir }).forEach(file => {
+        const filePath = path.join(distDir, file);
+        let content = fs.readFileSync(filePath, 'utf8');
+        
+        // Fix paths to match dist directory structure
+        content = content
+            // Fix CSS paths
+            .replace(/\.\.\/styles\/input\.css/g, '/css/styles.css')
+            .replace(/\.\/styles\/styles\.css/g, '/css/styles.css')
+            // Fix component paths
+            .replace(/\.\/components\//g, '/components/')
+            .replace(/\/components\//g, '/components/')
+            .replace(/\/src\/components\//g, '/components/')
+            // Fix asset paths - prevent double assets and handle all variations
+            .replace(/\/assets\/assets\//g, '/assets/')
+            .replace(/\/assets\/assets\/images\//g, '/assets/images/')
+            .replace(/\.\.\/assets\/images\//g, '/assets/images/')
+            .replace(/\.\/assets\/images\//g, '/assets/images/')
+            .replace(/\/src\/assets\/images\//g, '/assets/images/')
+            .replace(/\/images\//g, '/assets/images/')
+            // Fix script paths
+            .replace(/\.\.\/scripts\//g, '/scripts/')
+            .replace(/\.\/scripts\//g, '/scripts/')
+            .replace(/\/src\/scripts\//g, '/scripts/')
+            // Fix page paths
+            .replace(/\.\/pages\//g, '/')
+            .replace(/\/src\/pages\//g, '/');
+        
+        // Final cleanup pass for any remaining double assets
+        content = content.replace(/\/assets\/assets\//g, '/assets/');
+        
+        fs.writeFileSync(filePath, content);
+        console.log(`Fixed paths in ${file}`);
+        
+        // Debug: Log the image paths in the file
+        const imagePaths = content.match(/src="[^"]*\.(png|jpg|jpeg|gif|svg)"/g);
+        if (imagePaths) {
+            console.log(`Image paths in ${file}:`, imagePaths);
+        }
+    });
+}
 
-htmlFiles.forEach(file => {
-    const filePath = path.join('dist', file);
-    let content = fs.readFileSync(filePath, 'utf8');
-
-    // Update paths
-    content = content
-        // Update CSS path patterns
-        .replace(/href=["']\.\.\/styles\/input\.css["']/gi, 'href="/css/styles.css"')
-        // Update image paths with case normalization
-        .replace(/(src|href)=["'](?:\.\.\/)*assets\/images\/([^"']+)["']/gi, (match, attr, filename) => {
-            return `${attr}="/images/${filename.toLowerCase()}"`;
-        })
-        // Update script paths
-        .replace(/(src|href)=["'](?:\.\.\/)*scripts\/([^"']+)["']/gi, (match, attr, path) => {
-            return `${attr}="/${path.toLowerCase()}"`;
-        })
-        // Update component paths
-        .replace(/includeFile: ["'](?:\.\.\/)*components\/shared\/([^"']+)["']/gi, 'includeFile: \'/shared/$1\'')
-        // Update page links and normalize case
-        .replace(/(href)=["'](.*?)pages\/([^"']+)["']/gi, (match, attr, prefix, path) => {
-            return `${attr}="/${path.toLowerCase()}"`;
-        })
-        // Add base href for production
-        .replace(/(<head>)/i, '$1\n<base href="/">')
-        // General case normalization for all file references
-        .replace(/(href|src)=["']\/([^"']+)["']/gi, (match, attr, path) => {
-            const ext = path.split('.').pop();
-            const basePath = path.replace(`.${ext}`, '').toLowerCase();
-            return `${attr}="/${basePath}.${ext}"`;
-        });
-
-    fs.writeFileSync(filePath, content);
-});
-
-console.log('Paths updated in all HTML files');
+try {
+    fixPaths();
+    console.log('Paths fixed successfully!');
+} catch (error) {
+    console.error('Error fixing paths:', error);
+    process.exit(1);
+}

@@ -16,20 +16,20 @@
     <meta property="og:url" content="https://rightspend.ai/use-cases">
     
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href="/src/assets/images/favicon.png">
+    <link rel="icon" type="image/png" href="./assets/images/favicon.png">
     
     <!-- Styles -->
-    <link href="/dist/css/styles.css" rel="stylesheet">
+    <link href="./styles/styles.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     
     <!-- Scripts -->
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="/src/scripts/main.js"></script>
+    <script src="./scripts/main.js"></script>
 </head>
 <body class="font-sans bg-gray-50">
     <!-- Header -->
-    <div x-data="{ includeFile: '/src/components/shared/header.html' }" x-init="fetch(includeFile).then(response => response.text()).then(html => { $el.innerHTML = html })"></div>
+    <div x-data="{ includeFile: './components/header.html' }" x-init="fetch(includeFile).then(response => response.text()).then(html => { $el.innerHTML = html })"></div>
 
     <!-- Hero Section -->
     <section class="relative bg-gradient-to-r from-primary to-secondary overflow-hidden py-24">
@@ -187,7 +187,7 @@
             <h2 class="text-3xl md:text-4xl font-bold text-center mb-16" data-aos="fade-up">
                 Customer Success Stories
             </h2>
-            <div x-data="{ includeFile: '/src/components/testimonials.html' }" x-init="fetch(includeFile).then(response => response.text()).then(html => { $el.innerHTML = html })"></div>
+            <div x-data="{ includeFile: './components/testimonials.html' }" x-init="fetch(includeFile).then(response => response.text()).then(html => { $el.innerHTML = html })"></div>
         </div>
     </section>
 
@@ -195,7 +195,7 @@
     <section id="calculator" class="py-24">
         <div class="container mx-auto px-6">
             <div class="max-w-4xl mx-auto">
-                <div x-data="{ includeFile: '/src/components/calculator.html' }" x-init="fetch(includeFile).then(response => response.text()).then(html => { $el.innerHTML = html })"></div>
+                <div x-data="{ includeFile: './components/calculator.html' }" x-init="fetch(includeFile).then(response => response.text()).then(html => { $el.innerHTML = html })"></div>
             </div>
         </div>
     </section>
@@ -215,7 +215,7 @@
     </section>
 
     <!-- Footer -->
-    <div x-data="{ includeFile: '/src/components/shared/footer.html' }" x-init="fetch(includeFile).then(response => response.text()).then(html => { $el.innerHTML = html })"></div>
+    <div x-data="{ includeFile: './components/footer.html' }" x-init="fetch(includeFile).then(response => response.text()).then(html => { $el.innerHTML = html })"></div>
 
     <!-- Initialize AOS -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
