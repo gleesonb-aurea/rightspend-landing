@@ -10,11 +10,16 @@ htmlFiles.forEach(file => {
 
     // Update paths
     content = content
-        // Update CSS path
-        .replace(/href="\/dist\/css\/styles\.css"/g, 'href="/css/styles.css"')
-        // Update image paths
-        .replace(/src="\.\.\/assets\/images\//g, 'src="/images/')
-        .replace(/href="\.\.\/assets\/images\//g, 'href="/images/')
+        // Update CSS path patterns
+        .replace(/href=["']\.\.\/styles\/input\.css["']/gi, 'href="/css/styles.css"')
+        .replace(/href=["']\/dist\/css\/styles\.css["']/gi, 'href="/css/styles.css"')
+        // Update image paths with case-insensitive matching
+        .replace(/src="\.\.\/assets\/images\/(.*?)"/gi, 'src="/images/$1"')
+        .replace(/href="\.\.\/assets\/images\/(.*?)"/gi, 'href="/images/$1"')
+        // Force lowercase filenames for PNGs
+        .replace(/(src|href)="\/images\/([^"]+\.png)"/gi, (match, attr, filename) => {
+            return `${attr}="/images/${filename.toLowerCase()}"`;
+        })
         // Update script paths
         .replace(/src="\.\.\/scripts\//g, 'src="/')
         // Update component paths
