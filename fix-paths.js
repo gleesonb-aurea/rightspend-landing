@@ -12,20 +12,28 @@ htmlFiles.forEach(file => {
     content = content
         // Update CSS path patterns
         .replace(/href=["']\.\.\/styles\/input\.css["']/gi, 'href="/css/styles.css"')
-        .replace(/href=["']\/dist\/css\/styles\.css["']/gi, 'href="/css/styles.css"')
-        // Update image paths with case-insensitive matching
-        .replace(/src="\.\.\/assets\/images\/(.*?)"/gi, 'src="/images/$1"')
-        .replace(/href="\.\.\/assets\/images\/(.*?)"/gi, 'href="/images/$1"')
-        // Force lowercase filenames for PNGs
-        .replace(/(src|href)="\/images\/([^"]+\.png)"/gi, (match, attr, filename) => {
+        // Update image paths with case normalization
+        .replace(/(src|href)=["'](?:\.\.\/)*assets\/images\/([^"']+)["']/gi, (match, attr, filename) => {
             return `${attr}="/images/${filename.toLowerCase()}"`;
         })
         // Update script paths
-        .replace(/src="\.\.\/scripts\//g, 'src="/')
+        .replace(/(src|href)=["'](?:\.\.\/)*scripts\/([^"']+)["']/gi, (match, attr, path) => {
+            return `${attr}="/${path.toLowerCase()}"`;
+        })
         // Update component paths
-        .replace(/includeFile: '\.\.\/components\/shared\//g, 'includeFile: \'/shared/')
-        // Update page links
-        .replace(/href="\.\.\/pages\//g, 'href="/');
+        .replace(/includeFile: ["'](?:\.\.\/)*components\/shared\/([^"']+)["']/gi, 'includeFile: \'/shared/$1\'')
+        // Update page links and normalize case
+        .replace(/(href)=["'](?:\.\.\/|src\/)*pages\/([^"']+)["']/gi, (match, attr, path) => {
+            return `${attr}="/${path.toLowerCase().replace('.html','')}"`;
+        })
+        // Add base href for production
+        .replace(/(<head>)/i, '$1\n<base href="/">')
+        // General case normalization for all file references
+        .replace(/(href|src)=["']\/([^"']+)["']/gi, (match, attr, path) => {
+            const ext = path.split('.').pop();
+            const basePath = path.replace(`.${ext}`, '').toLowerCase();
+            return `${attr}="/${basePath}.${ext}"`;
+        });
 
     fs.writeFileSync(filePath, content);
 });
