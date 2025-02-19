@@ -1,0 +1,28 @@
+{
+  "files": {
+    "F1": {
+      "dependsOn": ["F2", "F3"],
+      "dependedOnBy": []
+    },
+    "F2": {
+      "dependsOn": [],
+      "dependedOnBy": ["F1"]
+    }
+  },
+  "externalDependencies": [
+    {
+      "type": "cdn",
+      "resources": [
+        "https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js",
+        "https://unpkg.com/aos@2.3.1/dist/aos.js",
+        "https://unpkg.com/aos@2.3.1/dist/aos.css",
+        "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      ]
+    }
+  ],
+  "index": {
+    "F1": "index.html",
+    "F2": "src/input.css",
+    "F3": "dist/output.css"
+  }
+}

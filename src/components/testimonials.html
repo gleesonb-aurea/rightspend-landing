@@ -1,0 +1,124 @@
+<div class="testimonials bg-white rounded-xl shadow-lg p-8" x-data="testimonialSlider">
+    <div class="text-center mb-12">
+        <h3 class="text-2xl md:text-3xl font-bold mb-4">What Our Customers Say</h3>
+        <p class="text-gray-600">Learn how RightSpend is helping companies optimize their AWS costs</p>
+    </div>
+
+    <div class="relative">
+        <!-- Testimonial Slides -->
+        <div class="overflow-hidden">
+            <template x-for="(testimonial, index) in testimonials" :key="index">
+                <div x-show="currentIndex === index"
+                     x-transition:enter="transition duration-300 ease-out"
+                     x-transition:enter-start="opacity-0 transform translate-x-4"
+                     x-transition:enter-end="opacity-100 transform translate-x-0"
+                     x-transition:leave="transition duration-300 ease-in"
+                     x-transition:leave-start="opacity-100 transform translate-x-0"
+                     x-transition:leave-end="opacity-0 transform -translate-x-4"
+                     class="testimonial-slide">
+                    
+                    <!-- Testimonial Content -->
+                    <div class="max-w-3xl mx-auto text-center">
+                        <div class="mb-8">
+                            <svg class="w-12 h-12 mx-auto text-gray-400" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
+                            </svg>
+                        </div>
+                        <blockquote class="text-xl md:text-2xl text-gray-800 mb-8" x-text="testimonial.quote"></blockquote>
+                        <div class="flex items-center justify-center space-x-4">
+                            <img :src="testimonial.avatar" :alt="testimonial.author" class="w-12 h-12 rounded-full">
+                            <div class="text-left">
+                                <div class="font-semibold" x-text="testimonial.author"></div>
+                                <div class="text-gray-600" x-text="testimonial.title"></div>
+                                <div class="text-primary" x-text="testimonial.company"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </template>
+        </div>
+
+        <!-- Navigation Arrows -->
+        <div class="absolute inset-y-0 left-0 flex items-center">
+            <button @click="prev" 
+                    class="p-2 rounded-full bg-white shadow-lg text-gray-800 hover:text-primary transition transform -translate-x-4"
+                    aria-label="Previous testimonial">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+                </svg>
+            </button>
+        </div>
+        <div class="absolute inset-y-0 right-0 flex items-center">
+            <button @click="next"
+                    class="p-2 rounded-full bg-white shadow-lg text-gray-800 hover:text-primary transition transform translate-x-4"
+                    aria-label="Next testimonial">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                </svg>
+            </button>
+        </div>
+
+        <!-- Navigation Dots -->
+        <div class="flex justify-center mt-8 space-x-2">
+            <template x-for="(testimonial, index) in testimonials" :key="index">
+                <button @click="currentIndex = index"
+                        :class="currentIndex === index ? 'bg-primary' : 'bg-gray-300'"
+                        class="w-3 h-3 rounded-full transition-colors duration-200"
+                        :aria-label="'Go to testimonial ' + (index + 1)"></button>
+            </template>
+        </div>
+    </div>
+</div>
+
+<!-- Testimonials Alpine.js Component -->
+<script>
+document.addEventListener('alpine:init', () => {
+    Alpine.data('testimonialSlider', () => ({
+        currentIndex: 0,
+        testimonials: [
+            {
+                quote: "RightSpend has transformed how we manage our AWS costs. The flexibility and automated optimization have helped us achieve significant savings without any long-term commitments.",
+                author: "Sarah Chen",
+                title: "Cloud Infrastructure Manager",
+                company: "TechCorp Solutions",
+                avatar: "/src/assets/testimonials/avatar-1.jpg"
+            },
+            {
+                quote: "The ability to optimize our AWS spend while maintaining complete flexibility has been game-changing. RightSpend's automated approach takes the guesswork out of cost optimization.",
+                author: "Michael Rodriguez",
+                title: "Director of Cloud Operations",
+                company: "DataFlow Systems",
+                avatar: "/src/assets/testimonials/avatar-2.jpg"
+            },
+            {
+                quote: "We've seen a 45% reduction in our AWS costs since implementing RightSpend. The best part is the zero-risk approach - we only pay for actual savings achieved.",
+                author: "Emily Watson",
+                title: "VP of Engineering",
+                company: "CloudScale Inc",
+                avatar: "/src/assets/testimonials/avatar-3.jpg"
+            }
+        ],
+
+        prev() {
+            this.currentIndex = this.currentIndex === 0 
+                ? this.testimonials.length - 1 
+                : this.currentIndex - 1;
+        },
+
+        next() {
+            this.currentIndex = this.currentIndex === this.testimonials.length - 1 
+                ? 0 
+                : this.currentIndex + 1;
+        },
+
+        init() {
+            // Auto-advance every 5 seconds
+            setInterval(() => {
+                if (!document.hidden) {
+                    this.next();
+                }
+            }, 5000);
+        }
+    }));
+});
+</script>

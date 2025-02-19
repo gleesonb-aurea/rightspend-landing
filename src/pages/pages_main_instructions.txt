@@ -1,0 +1,47 @@
+{
+  "files": {
+    "F1": {
+      "dependsOn": ["F6", "F7", "F8", "F9"],
+      "dependedOnBy": []
+    },
+    "F2": {
+      "dependsOn": ["F6", "F7", "F8"],
+      "dependedOnBy": []
+    },
+    "F3": {
+      "dependsOn": ["F6", "F7", "F8"],
+      "dependedOnBy": []
+    },
+    "F4": {
+      "dependsOn": ["F6", "F7", "F8"],
+      "dependedOnBy": []
+    },
+    "F5": {
+      "dependsOn": ["F6", "F7"],
+      "dependedOnBy": []
+    }
+  },
+  "externalDependencies": [
+    {
+      "type": "cdn",
+      "resources": [
+        "https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js",
+        "https://unpkg.com/aos@2.3.1/dist/aos.js",
+        "https://unpkg.com/aos@2.3.1/dist/aos.css",
+        "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap",
+        "https://cdn.jsdelivr.net/npm/chart.js"
+      ]
+    }
+  ],
+  "index": {
+    "F1": "src/pages/index.html",
+    "F2": "src/pages/how-it-works.html",
+    "F3": "src/pages/use-cases.html",
+    "F4": "src/pages/features.html",
+    "F5": "src/pages/faq.html",
+    "F6": "src/components/shared/header.html",
+    "F7": "src/components/shared/footer.html",
+    "F8": "src/components/calculator.html",
+    "F9": "src/components/testimonials.html"
+  }
+}

@@ -1,0 +1,55 @@
+<header class="relative bg-gradient-to-r from-primary to-secondary" x-data="{ mobileMenuOpen: false }">
+    <nav class="container mx-auto px-6 py-4">
+        <div class="flex items-center justify-between">
+            <!-- Logo -->
+            <a href="/" class="text-white text-2xl font-bold">RightSpend</a>
+
+            <!-- Desktop Navigation -->
+            <div class="hidden md:flex space-x-8">
+                <a href="/how-it-works.html" class="text-white hover:text-gray-200 transition">How It Works</a>
+                <a href="/use-cases.html" class="text-white hover:text-gray-200 transition">Use Cases</a>
+                <a href="/features.html" class="text-white hover:text-gray-200 transition">Features</a>
+                <a href="/faq.html" class="text-white hover:text-gray-200 transition">FAQ</a>
+            </div>
+
+            <!-- CTA Button -->
+            <div class="hidden md:block">
+                <a href="#calculator" class="btn-primary">Calculate Savings</a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button @click="mobileMenuOpen = !mobileMenuOpen" 
+                    class="md:hidden text-white focus:outline-none"
+                    aria-label="Toggle mobile menu">
+                <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path x-show="!mobileMenuOpen" 
+                          stroke-linecap="round" 
+                          stroke-linejoin="round" 
+                          stroke-width="2" 
+                          d="M4 6h16M4 12h16M4 18h16"/>
+                    <path x-show="mobileMenuOpen" 
+                          stroke-linecap="round" 
+                          stroke-linejoin="round" 
+                          stroke-width="2" 
+                          d="M6 18L18 6M6 6l12 12"/>
+                </svg>
+            </button>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div x-show="mobileMenuOpen"
+             x-transition:enter="transition ease-out duration-200"
+             x-transition:enter-start="opacity-0 -translate-y-4"
+             x-transition:enter-end="opacity-100 translate-y-0"
+             x-transition:leave="transition ease-in duration-150"
+             x-transition:leave-start="opacity-100 translate-y-0"
+             x-transition:leave-end="opacity-0 -translate-y-4"
+             class="md:hidden absolute inset-x-0 top-full bg-primary-600 py-4 px-6 space-y-4">
+            <a href="/how-it-works.html" class="block text-white hover:text-gray-200 transition">How It Works</a>
+            <a href="/use-cases.html" class="block text-white hover:text-gray-200 transition">Use Cases</a>
+            <a href="/features.html" class="block text-white hover:text-gray-200 transition">Features</a>
+            <a href="/faq.html" class="block text-white hover:text-gray-200 transition">FAQ</a>
+            <a href="#calculator" class="btn-primary w-full text-center">Calculate Savings</a>
+        </div>
+    </nav>
+</header>
