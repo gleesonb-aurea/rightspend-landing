@@ -23,8 +23,8 @@ htmlFiles.forEach(file => {
         // Update component paths
         .replace(/includeFile: ["'](?:\.\.\/)*components\/shared\/([^"']+)["']/gi, 'includeFile: \'/shared/$1\'')
         // Update page links and normalize case
-        .replace(/(href)=["'](?:\.\.\/|src\/)*pages\/([^"']+)["']/gi, (match, attr, path) => {
-            return `${attr}="/${path.toLowerCase().replace('.html','')}"`;
+        .replace(/(href)=["'](.*?)pages\/([^"']+)["']/gi, (match, attr, prefix, path) => {
+            return `${attr}="/${path.toLowerCase()}"`;
         })
         // Add base href for production
         .replace(/(<head>)/i, '$1\n<base href="/">')
