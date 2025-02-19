@@ -17,52 +17,38 @@
     <meta property="og:url" content="https://rightspend.ai">
     
     <!-- Styles -->
-    <link href="./dist/output.css" rel="stylesheet">
+    <link href="dist/css/styles.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     
     <!-- Scripts -->
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="./src/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="src/scripts/main.js"></script>
 </head>
-<body class="font-sans text-dark" x-data>
-    <!-- Initialize AOS -->
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            AOS.init({
-                duration: 800,
-                once: true
-            });
-        });
-    </script>
+<body class="font-sans bg-gray-50">
+    <!-- Header -->
+    <div x-data="{ includeFile: 'src/components/shared/header.html' }" x-init="fetch(includeFile).then(response => response.text()).then(html => { $el.innerHTML = html })"></div>
 
     <!-- Hero Section -->
-    <header class="relative bg-gradient-to-r from-primary to-secondary overflow-hidden">
-        <nav class="container mx-auto px-6 py-4">
-            <div class="flex items-center justify-between">
-                <div class="text-white text-2xl font-bold">RightSpend</div>
-                <div class="hidden md:flex space-x-8">
-                    <a href="#features" class="text-white hover:text-gray-200 transition">Features</a>
-                    <a href="#calculator" class="text-white hover:text-gray-200 transition">Calculator</a>
-                    <a href="#testimonials" class="text-white hover:text-gray-200 transition">Testimonials</a>
-                    <a href="#contact" class="text-white hover:text-gray-200 transition">Contact</a>
-                </div>
-            </div>
-        </nav>
-        
+    <section class="relative bg-gradient-to-r from-primary to-secondary overflow-hidden">
         <div class="container mx-auto px-6 py-24 text-center relative">
-            <div data-aos="fade-up">
+            <div data-aos="fade-up" class="max-w-4xl mx-auto">
                 <h1 class="text-4xl md:text-6xl font-bold text-white mb-8">
-                    The Discount Optimization Solution for AWS
+                    Maximize AWS Savings Without Commitments
                 </h1>
                 <p class="text-xl md:text-2xl text-white mb-12">
-                    Achieve up to 55% more savings without restrictive commitments
+                    Achieve up to 55% savings with complete flexibility and automated optimization
                 </p>
-                <a href="#calculator" 
-                   class="inline-block bg-white text-primary px-8 py-4 rounded-full font-semibold hover:bg-gray-100 transition duration-300 transform hover:scale-105">
-                    Calculate Your Savings
-                </a>
+                <div class="flex flex-col sm:flex-row justify-center gap-4">
+                    <a href="#calculator" 
+                       class="btn-primary text-lg">
+                        Calculate Your Savings
+                    </a>
+                    <a href="#how-it-works"
+                       class="btn-outline border-white text-white hover:bg-white hover:text-primary text-lg">
+                        Learn How It Works
+                    </a>
+                </div>
             </div>
             
             <!-- Decorative elements -->
@@ -71,253 +57,120 @@
                 <div class="absolute bottom-0 left-0 w-1/3 h-1/3 bg-white opacity-5 rounded-full transform -translate-x-1/2 translate-y-1/2"></div>
             </div>
         </div>
-    </header>
+    </section>
 
-    <!-- Features Section -->
-    <section id="features" class="py-24 bg-gray-50">
+    <!-- Key Benefits Section -->
+    <section class="py-24">
         <div class="container mx-auto px-6">
-            <h2 class="text-3xl md:text-4xl font-bold text-center mb-16" data-aos="fade-up">
-                Unparalleled Savings, Zero Commitment
-            </h2>
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Why Choose RightSpend?</h2>
+                <p class="text-xl text-gray-600">Optimize your AWS costs with confidence</p>
+            </div>
+
             <div class="grid md:grid-cols-3 gap-12">
-                <div class="bg-white p-8 rounded-xl shadow-lg transform hover:-translate-y-1 transition duration-300" data-aos="fade-up" data-aos-delay="100">
-                    <div class="text-primary text-4xl mb-4">📊</div>
-                    <h3 class="text-xl font-semibold mb-4">Maximum Flexibility</h3>
-                    <p class="text-gray-600">Optimize AWS discount programs while maintaining complete instance and commitment flexibility.</p>
+                <!-- Flexibility -->
+                <div class="card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="text-primary text-4xl mb-4">🔄</div>
+                    <h3 class="text-xl font-semibold mb-4">Complete Flexibility</h3>
+                    <p class="text-gray-600">No long-term commitments. Change or scale your resources anytime without penalties.</p>
                 </div>
-                <div class="bg-white p-8 rounded-xl shadow-lg transform hover:-translate-y-1 transition duration-300" data-aos="fade-up" data-aos-delay="200">
-                    <div class="text-primary text-4xl mb-4">🚀</div>
-                    <h3 class="text-xl font-semibold mb-4">Zero Impact</h3>
-                    <p class="text-gray-600">No impact on your deployments or technical operations. Your strategy remains under your control.</p>
+
+                <!-- Coverage -->
+                <div class="card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="text-primary text-4xl mb-4">🛡️</div>
+                    <h3 class="text-xl font-semibold mb-4">Greater Coverage</h3>
+                    <p class="text-gray-600">Optimize across multiple AWS services. Get comprehensive coverage without the complexity.</p>
                 </div>
-                <div class="bg-white p-8 rounded-xl shadow-lg transform hover:-translate-y-1 transition duration-300" data-aos="fade-up" data-aos-delay="300">
-                    <div class="text-primary text-4xl mb-4">💰</div>
-                    <h3 class="text-xl font-semibold mb-4">Immediate Savings</h3>
-                    <p class="text-gray-600">Start saving immediately on your AWS On-Demand costs without long-term commitments.</p>
+
+                <!-- Automation -->
+                <div class="card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="text-primary text-4xl mb-4">🤖</div>
+                    <h3 class="text-xl font-semibold mb-4">Smart Automation</h3>
+                    <p class="text-gray-600">AI-driven optimization that automatically adjusts to your usage patterns.</p>
                 </div>
             </div>
         </div>
     </section>
 
-<!-- Pricing Comparison -->
-<section class="py-24 bg-white">
-    <div class="container mx-auto px-6">
-        <div class="max-w-4xl mx-auto">
+    <!-- How It Works Section -->
+    <section id="how-it-works" class="py-24 bg-gray-100">
+        <div class="container mx-auto px-6">
             <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold mb-8" data-aos="fade-up">Compare Our Pricing</h2>
-                <p class="text-xl text-gray-600" data-aos="fade-up">Our CFD discount rates offer significant savings over 1-year Compute Savings plans – all without commitment.</p>
-            </div>
-            
-            <div class="overflow-x-auto mb-16" data-aos="fade-up">
-                <table class="w-full border-separate border-spacing-0">
-                    <thead>
-                        <tr>
-                            <th class="bg-gray-50 text-gray-700 font-semibold p-6 text-left rounded-tl-xl">Discount Approach</th>
-                            <th class="bg-gray-50 text-gray-700 font-semibold p-6 text-left">Discount</th>
-                            <th class="bg-gray-50 text-gray-700 font-semibold p-6 text-left rounded-tr-xl">Flexibility</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr class="hover:bg-gray-50 transition-colors">
-                            <td class="border-b border-gray-100 p-6">On-Demand</td>
-                            <td class="border-b border-gray-100 p-6 text-red-500">No Discount</td>
-                            <td class="border-b border-gray-100 p-6">Full Flexibility</td>
-                        </tr>
-                        <tr class="hover:bg-gray-50 transition-colors">
-                            <td class="border-b border-gray-100 p-6">1 YR Savings Plans</td>
-                            <td class="border-b border-gray-100 p-6 text-yellow-600">Moderate Discounts</td>
-                            <td class="border-b border-gray-100 p-6">No Flexibility</td>
-                        </tr>
-                        <tr class="bg-primary/5 hover:bg-primary/10 transition-colors">
-                            <td class="border-b border-gray-100 p-6 font-bold">RightSpend</td>
-                            <td class="border-b border-gray-100 p-6 text-primary font-bold">Large Discounts</td>
-                            <td class="border-b border-gray-100 p-6 font-bold">Full Flexibility</td>
-                        </tr>
-                        <tr class="hover:bg-gray-50 transition-colors">
-                            <td class="border-b border-gray-100 p-6 rounded-bl-xl">3 YR Savings Plans</td>
-                            <td class="border-b border-gray-100 p-6 text-green-600">Max Discounts</td>
-                            <td class="border-b border-gray-100 p-6 rounded-br-xl">No Flexibility</td>
-                        </tr>
-                    </tbody>
-                </table>
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">How RightSpend Works</h2>
+                <p class="text-xl text-gray-600">Simple, automated, and effective cost optimization</p>
             </div>
 
-            <div class="grid md:grid-cols-2 gap-8" data-aos="fade-up">
-                <div class="bg-white p-8 rounded-xl shadow-lg">
-                    <h3 class="text-xl font-bold mb-4">Always Better Than On-Demand</h3>
-                    <p class="text-gray-600">RightSpend offers 20-55% discounts (net of fees) over on-demand instance pricing with no commitment.</p>
+            <div class="grid md:grid-cols-4 gap-8">
+                <div class="card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="text-4xl mb-4">1️⃣</div>
+                    <h3 class="text-lg font-semibold mb-2">Connect</h3>
+                    <p class="text-gray-600">Quick and secure integration with your AWS account</p>
                 </div>
-                <div class="bg-white p-8 rounded-xl shadow-lg">
-                    <h3 class="text-xl font-bold mb-4">Better Than 1Yr Commitments</h3>
-                    <p class="text-gray-600">Switch to RightSpend to gain an additional 17-30% discount (net of fees) without the need to commit.</p>
+
+                <div class="card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="text-4xl mb-4">2️⃣</div>
+                    <h3 class="text-lg font-semibold mb-2">Analyze</h3>
+                    <p class="text-gray-600">AI analyzes your usage patterns and identifies optimization opportunities</p>
+                </div>
+
+                <div class="card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="text-4xl mb-4">3️⃣</div>
+                    <h3 class="text-lg font-semibold mb-2">Optimize</h3>
+                    <p class="text-gray-600">Automated optimization adjusts in real-time to maximize savings</p>
+                </div>
+
+                <div class="card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="text-4xl mb-4">4️⃣</div>
+                    <h3 class="text-lg font-semibold mb-2">Save</h3>
+                    <p class="text-gray-600">Start seeing immediate savings with zero risk</p>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
     <!-- Calculator Section -->
-    <section id="calculator" class="py-24" x-data="calculator">
+    <section id="calculator" class="py-24">
         <div class="container mx-auto px-6">
-            <div class="max-w-3xl mx-auto text-center" data-aos="fade-up">
-                <h2 class="text-3xl md:text-4xl font-bold mb-8">Calculate Your Potential Savings</h2>
-                <p class="text-xl text-gray-600 mb-12">See how much you could save with RightSpend's optimization technology</p>
-                
-                <div class="bg-white rounded-xl shadow-lg p-8">
-                    <div class="mb-6">
-                        <label for="monthlySpend" class="block text-sm font-medium text-gray-700 mb-2">
-                            Your Current Monthly AWS Spend
-                        </label>
-                        <div class="relative">
-                            <span class="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-500">$</span>
-                            <input type="number" 
-                                   id="monthlySpend"
-                                   x-model="monthlySpend"
-                                   class="w-full px-8 py-4 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
-                                   placeholder="Enter amount">
-                        </div>
-                        <p x-show="error" x-text="error" class="text-red-500 mt-2"></p>
-                    </div>
-                    
-                    <button @click="calculate()"
-                            :disabled="calculating"
-                            class="w-full bg-primary text-white px-8 py-4 rounded-lg font-semibold hover:bg-primary/90 transition duration-300 disabled:opacity-50">
-                        <span x-show="!calculating">Calculate Savings</span>
-                        <span x-show="calculating">Calculating...</span>
-                    </button>
-                    
-                    <div x-show="savings > 0" 
-                         x-transition
-                         class="mt-8 p-6 bg-gray-50 rounded-lg">
-                        <h3 class="text-2xl font-bold text-primary mb-2">
-                            Estimated Annual Savings
-                        </h3>
-                        <p class="text-4xl font-bold">
-                            $<span x-text="(savings * 12).toLocaleString()"></span>
-                        </p>
-                        <p class="text-gray-600 mt-2">Based on conservative 35% optimization</p>
-                    </div>
-                </div>
+            <div class="max-w-4xl mx-auto">
+                <div x-data="{ includeFile: 'src/components/calculator.html' }" x-init="fetch(includeFile).then(response => response.text()).then(html => { $el.innerHTML = html })"></div>
             </div>
         </div>
     </section>
 
     <!-- Testimonials Section -->
-    <section id="testimonials" class="py-24 bg-gray-50" x-data="testimonialSlider">
+    <section class="py-24 bg-gray-100">
         <div class="container mx-auto px-6">
-            <h2 class="text-3xl md:text-4xl font-bold text-center mb-16" data-aos="fade-up">
-                Customer Success Stories
-            </h2>
-            
-            <div class="max-w-4xl mx-auto relative" data-aos="fade-up">
-                <div class="bg-white rounded-xl shadow-lg p-8 md:p-12">
-                    <template x-for="(testimonial, index) in testimonials" :key="index">
-                        <div x-show="currentIndex === index"
-                             x-transition:enter="transition duration-300 ease-out"
-                             x-transition:enter-start="opacity-0 transform translate-x-4"
-                             x-transition:enter-end="opacity-100 transform translate-x-0"
-                             x-transition:leave="transition duration-300 ease-in"
-                             x-transition:leave-start="opacity-100 transform translate-x-0"
-                             x-transition:leave-end="opacity-0 transform -translate-x-4">
-                            <blockquote class="text-xl md:text-2xl mb-8" x-text="testimonial.quote"></blockquote>
-                            <div class="font-semibold" x-text="testimonial.author"></div>
-                            <div class="text-gray-600" x-text="testimonial.company"></div>
-                        </div>
-                    </template>
-                    
-                    <div class="flex justify-between mt-8">
-                        <button @click="prev" class="text-primary hover:text-primary/80 transition">
-                            ← Previous
-                        </button>
-                        <button @click="next" class="text-primary hover:text-primary/80 transition">
-                            Next →
-                        </button>
-                    </div>
-                </div>
-            </div>
+            <div x-data="{ includeFile: 'src/components/testimonials.html' }" x-init="fetch(includeFile).then(response => response.text()).then(html => { $el.innerHTML = html })"></div>
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="py-24">
+    <!-- CTA Section -->
+    <section class="py-24">
         <div class="container mx-auto px-6 text-center">
-            <div data-aos="fade-up">
+            <div class="max-w-3xl mx-auto">
                 <h2 class="text-3xl md:text-4xl font-bold mb-8">Ready to Optimize Your AWS Costs?</h2>
-                <p class="text-xl mb-12">Contact us today to learn how we can help you achieve maximum savings.</p>
-                
-                <form class="max-w-lg mx-auto">
-                    <div class="space-y-6">
-                        <div>
-                            <input type="text" 
-                                   placeholder="Your Name" 
-                                   class="w-full px-6 py-4 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent">
-                        </div>
-                        <div>
-                            <input type="email" 
-                                   placeholder="Your Email" 
-                                   class="w-full px-6 py-4 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent">
-                        </div>
-                        <div>
-                            <textarea placeholder="Tell us about your AWS environment" 
-                                      class="w-full px-6 py-4 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
-                                      rows="4"></textarea>
-                        </div>
-                        <button type="submit" 
-                                class="w-full bg-primary text-white px-8 py-4 rounded-lg font-semibold hover:bg-primary/90 transition duration-300 transform hover:scale-105">
-                            Get Started
-                        </button>
-                    </div>
-                </form>
+                <p class="text-xl text-gray-600 mb-12">Join the companies saving millions on AWS with RightSpend</p>
+                <div class="flex flex-col sm:flex-row justify-center gap-4">
+                    <a href="#calculator" class="btn-primary text-lg">Calculate Your Savings</a>
+                    <button class="btn-outline text-lg">Contact Sales</button>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-dark text-white py-12">
-        <div class="container mx-auto px-6">
-            <div class="grid md:grid-cols-4 gap-8">
-                <div>
-                    <h4 class="text-xl font-bold mb-4">RightSpend</h4>
-                    <p class="text-gray-400">Optimize your AWS costs without compromise</p>
-                </div>
-                <div>
-                    <h4 class="text-xl font-bold mb-4">Quick Links</h4>
-                    <ul class="space-y-2">
-                        <li><a href="#features" class="text-gray-400 hover:text-white transition">Features</a></li>
-                        <li><a href="#calculator" class="text-gray-400 hover:text-white transition">Calculator</a></li>
-                        <li><a href="#testimonials" class="text-gray-400 hover:text-white transition">Testimonials</a></li>
-                        <li><a href="#contact" class="text-gray-400 hover:text-white transition">Contact</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="text-xl font-bold mb-4">Contact</h4>
-                    <ul class="space-y-2">
-                        <li class="text-gray-400">Email: info@rightspend.ai</li>
-                        <li class="text-gray-400">Phone: (555) 123-4567</li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="text-xl font-bold mb-4">Follow Us</h4>
-                    <div class="flex space-x-4">
-                        <a href="#" class="text-gray-400 hover:text-white transition">
-                            <span class="sr-only">Twitter</span>
-                            <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"></path>
-                            </svg>
-                        </a>
-                        <a href="#" class="text-gray-400 hover:text-white transition">
-                            <span class="sr-only">LinkedIn</span>
-                            <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
-                            </svg>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400">
-                <p>&copy; 2025 RightSpend. All rights reserved.</p>
-            </div>
-        </div>
-    </footer>
+    <div x-data="{ includeFile: 'src/components/shared/footer.html' }" x-init="fetch(includeFile).then(response => response.text()).then(html => { $el.innerHTML = html })"></div>
+
+    <!-- Initialize AOS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            AOS.init({
+                duration: 800,
+                once: true
+            });
+        });
+    </script>
 </body>
 </html>

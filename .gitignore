@@ -1,15 +1,12 @@
 # Dependencies
 node_modules/
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
+package-lock.json
+yarn.lock
 
 # Build output
 dist/
 build/
-.next/
 out/
-tools/
 
 # Environment variables
 .env
@@ -17,36 +14,29 @@ tools/
 .env.*.local
 
 # IDE and editor files
-.idea/
 .vscode/
+.idea/
 *.swp
 *.swo
 .DS_Store
 Thumbs.db
 
-# Temporary files
+# Project documentation and instructions
+cline_docs/
+*_main_instructions.txt
+*_instructions.txt
+
+# Logs
 *.log
-*.tmp
-.cache/
-.temp/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
 
 # Testing
 coverage/
 .nyc_output/
 
-# Misc
-.DS_Store
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
-
-# Development notes
-NOTES.md
-.windsurfrules
-
-# Python
-venv/
-__pycache__/
-*.pyc
-*.pyo
+# Temporary files
+*.tmp
+*.temp
+.cache/

@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RightSpend - Maximize AWS Savings Without Lock-in</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Achieve up to 55% AWS savings with complete flexibility and automated coverage optimization. No lock-in, real-time adjustments, and AI-driven decision making.">
+    <meta name="keywords" content="AWS cost optimization, cloud savings, RightSpend, automated optimization, cloud coverage">
+    
+    <!-- Open Graph / Social Media Meta Tags -->
+    <meta property="og:title" content="RightSpend - Maximize AWS Savings Without Lock-in">
+    <meta property="og:description" content="Achieve up to 55% AWS savings with complete flexibility and automated coverage optimization.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://rightspend.ai">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/src/assets/images/favicon.png">
+    
+    <!-- Styles -->
+    <link href="/dist/css/styles.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Scripts -->
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="/src/scripts/main.js"></script>
+</head>
+<body class="font-sans bg-gray-50">
+    <!-- Header -->
+    <div x-data="{ includeFile: '/src/components/shared/header.html' }" x-init="fetch(includeFile).then(response => response.text()).then(html => { $el.innerHTML = html })"></div>
+
+    <!-- Hero Section -->
+    <section class="relative bg-gradient-to-r from-primary to-secondary overflow-hidden py-24">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto text-center text-white">
+                <h1 class="text-4xl md:text-6xl font-bold mb-8" data-aos="fade-up">
+                    Maximize AWS Savings Without the Lock-in
+                </h1>
+                <p class="text-xl md:text-2xl mb-12" data-aos="fade-up" data-aos-delay="100">
+                    Up to 55% savings with complete flexibility and automated coverage optimization
+                </p>
+                <a href="https://app.apollo.io/#/meet/tim_galloway_f2d" class="btn-primary text-lg" data-aos="fade-up" data-aos-delay="200">
+                    Find Out More
+                </a>
+            </div>
+        </div>
+        <!-- Decorative elements -->
+        <div class="absolute inset-0 overflow-hidden pointer-events-none">
+            <div class="absolute top-0 right-0 w-1/2 h-1/2 bg-white opacity-5 rounded-full transform translate-x-1/2 -translate-y-1/2"></div>
+            <div class="absolute bottom-0 left-0 w-1/3 h-1/3 bg-white opacity-5 rounded-full transform -translate-x-1/2 translate-y-1/2"></div>
+        </div>
+    </section>
+
+    <!-- Key Benefits Section -->
+    <section class="py-24">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-12">
+                <!-- Flexibility -->
+                <div class="card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="text-primary text-4xl mb-4">🔄</div>
+                    <h3 class="text-xl font-semibold mb-4">Unmatched Flexibility</h3>
+                    <ul class="space-y-3 text-gray-600">
+                        <li class="flex items-start">
+                            <span class="text-primary mr-2">✓</span>
+                            No long-term commitments
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-primary mr-2">✓</span>
+                            Dynamic resource adjustments
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-primary mr-2">✓</span>
+                            Scale up or down anytime
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-primary mr-2">✓</span>
+                            Zero lock-in period
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Coverage -->
+                <div class="card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="text-primary text-4xl mb-4">🎯</div>
+                    <h3 class="text-xl font-semibold mb-4">Greater Coverage</h3>
+                    <ul class="space-y-3 text-gray-600">
+                        <li class="flex items-start">
+                            <span class="text-primary mr-2">✓</span>
+                            Comprehensive service support
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-primary mr-2">✓</span>
+                            Cross-region optimization
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-primary mr-2">✓</span>
+                            Intelligent gap analysis
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-primary mr-2">✓</span>
+                            Maximum resource utilization
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Savings -->
+                <div class="card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="text-primary text-4xl mb-4">💰</div>
+                    <h3 class="text-xl font-semibold mb-4">Higher Effective Savings</h3>
+                    <ul class="space-y-3 text-gray-600">
+                        <li class="flex items-start">
+                            <span class="text-primary mr-2">✓</span>
+                            Up to 55% off on-demand pricing
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-primary mr-2">✓</span>
+                            Optimized coverage strategies
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-primary mr-2">✓</span>
+                            Reduced waste and overcommitment
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-primary mr-2">✓</span>
+                            Continuous cost optimization
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Automation -->
+                <div class="card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="text-primary text-4xl mb-4">🤖</div>
+                    <h3 class="text-xl font-semibold mb-4">Full Automation</h3>
+                    <ul class="space-y-3 text-gray-600">
+                        <li class="flex items-start">
+                            <span class="text-primary mr-2">✓</span>
+                            AI-driven decision making
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-primary mr-2">✓</span>
+                            Real-time adjustments
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-primary mr-2">✓</span>
+                            Automated risk management
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-primary mr-2">✓</span>
+                            Continuous optimization
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="py-24 bg-gray-100">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-16" data-aos="fade-up">
+                How RightSpend Works
+            </h2>
+
+            <div class="grid md:grid-cols-4 gap-8 max-w-5xl mx-auto">
+                <!-- Connect -->
+                <div class="relative" data-aos="fade-up" data-aos-delay="100">
+                    <div class="card h-full">
+                        <div class="text-4xl mb-4">1️⃣</div>
+                        <h3 class="text-xl font-semibold mb-4">Connect</h3>
+                        <ul class="space-y-2 text-gray-600">
+                            <li class="flex items-start">
+                                <span class="text-primary mr-2">✓</span>
+                                Quick AWS integration
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-primary mr-2">✓</span>
+                                Read-only access
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-primary mr-2">✓</span>
+                                Secure setup
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="hidden md:block absolute top-1/2 left-full w-full h-1 bg-primary transform -translate-y-1/2 -z-10"></div>
+                </div>
+
+                <!-- Analyze -->
+                <div class="relative" data-aos="fade-up" data-aos-delay="200">
+                    <div class="card h-full">
+                        <div class="text-4xl mb-4">2️⃣</div>
+                        <h3 class="text-xl font-semibold mb-4">Analyze</h3>
+                        <ul class="space-y-2 text-gray-600">
+                            <li class="flex items-start">
+                                <span class="text-primary mr-2">✓</span>
+                                AI-powered assessment
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-primary mr-2">✓</span>
+                                Usage pattern analysis
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-primary mr-2">✓</span>
+                                Coverage gap identification
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="hidden md:block absolute top-1/2 left-full w-full h-1 bg-primary transform -translate-y-1/2 -z-10"></div>
+                </div>
+
+                <!-- Optimize -->
+                <div class="relative" data-aos="fade-up" data-aos-delay="300">
+                    <div class="card h-full">
+                        <div class="text-4xl mb-4">3️⃣</div>
+                        <h3 class="text-xl font-semibold mb-4">Optimize</h3>
+                        <ul class="space-y-2 text-gray-600">
+                            <li class="flex items-start">
+                                <span class="text-primary mr-2">✓</span>
+                                Automated adjustments
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-primary mr-2">✓</span>
+                                Real-time optimization
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-primary mr-2">✓</span>
+                                Risk management
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="hidden md:block absolute top-1/2 left-full w-full h-1 bg-primary transform -translate-y-1/2 -z-10"></div>
+                </div>
+
+                <!-- Save -->
+                <div data-aos="fade-up" data-aos-delay="400">
+                    <div class="card h-full">
+                        <div class="text-4xl mb-4">4️⃣</div>
+                        <h3 class="text-xl font-semibold mb-4">Save</h3>
+                        <ul class="space-y-2 text-gray-600">
+                            <li class="flex items-start">
+                                <span class="text-primary mr-2">✓</span>
+                                Immediate cost reduction
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-primary mr-2">✓</span>
+                                Ongoing optimization
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-primary mr-2">✓</span>
+                                Regular savings reports
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why RightSpend Section -->
+    <section class="py-24">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-16" data-aos="fade-up">
+                Stop Wrestling with Complex AWS Cost Decisions
+            </h2>
+
+            <div class="grid md:grid-cols-3 gap-12 max-w-6xl mx-auto">
+                <!-- Eliminate Decision Fatigue -->
+                <div class="card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="text-primary text-4xl mb-4">🎯</div>
+                    <h3 class="text-xl font-semibold mb-4">Eliminate Decision Fatigue</h3>
+                    <ul class="space-y-3 text-gray-600">
+                        <li class="flex items-start">
+                            <span class="text-primary mr-2">✓</span>
+                            No more guessing coverage levels
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-primary mr-2">✓</span>
+                            Automated commitment decisions
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-primary mr-2">✓</span>
+                            Dynamic usage adjustments
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-primary mr-2">✓</span>
+                            Intelligent forecasting
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Reduce Risk -->
+                <div class="card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="text-primary text-4xl mb-4">🛡️</div>
+                    <h3 class="text-xl font-semibold mb-4">Reduce Risk</h3>
+                    <ul class="space-y-3 text-gray-600">
+                        <li class="flex items-start">
+                            <span class="text-primary mr-2">✓</span>
+                            No long-term commitments
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-primary mr-2">✓</span>
+                            Automatic adjustments
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-primary mr-2">✓</span>
+                            Waste prevention
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-primary mr-2">✓</span>
+                            Usage-based optimization
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Maximize Coverage -->
+                <div class="card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="text-primary text-4xl mb-4">📊</div>
+                    <h3 class="text-xl font-semibold mb-4">Maximize Coverage</h3>
+                    <ul class="space-y-3 text-gray-600">
+                        <li class="flex items-start">
+                            <span class="text-primary mr-2">✓</span>
+                            Multi-service support
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-primary mr-2">✓</span>
+                            Cross-region optimization
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-primary mr-2">✓</span>
+                            Gap analysis
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-primary mr-2">✓</span>
+                            Comprehensive coverage
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technical Integration Section -->
+    <section class="py-24 bg-gray-100">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto text-center">
+                <h2 class="text-3xl md:text-4xl font-bold mb-8" data-aos="fade-up">
+                    Seamless Integration, Immediate Results
+                </h2>
+                <p class="text-xl text-gray-600 mb-12" data-aos="fade-up" data-aos-delay="100">
+                    Get started in minutes with our secure, read-only integration
+                </p>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="card" data-aos="fade-up" data-aos-delay="200">
+                        <div class="text-primary text-4xl mb-4">⚡</div>
+                        <h3 class="text-lg font-semibold mb-4">Quick Setup</h3>
+                        <p class="text-gray-600">Start optimizing your AWS costs in minutes, not days</p>
+                    </div>
+                    <div class="card" data-aos="fade-up" data-aos-delay="300">
+                        <div class="text-primary text-4xl mb-4">🔒</div>
+                        <h3 class="text-lg font-semibold mb-4">Secure Access</h3>
+                        <p class="text-gray-600">Read-only integration ensures your infrastructure stays safe</p>
+                    </div>
+                    <div class="card" data-aos="fade-up" data-aos-delay="400">
+                        <div class="text-primary text-4xl mb-4">📈</div>
+                        <h3 class="text-lg font-semibold mb-4">Immediate Results</h3>
+                        <p class="text-gray-600">See savings opportunities from day one</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-24">
+        <div class="container mx-auto px-6 text-center">
+            <div class="max-w-3xl mx-auto">
+                <h2 class="text-3xl md:text-4xl font-bold mb-8">Ready to Optimize Your AWS Costs?</h2>
+                <p class="text-xl text-gray-600 mb-12">Schedule a call to learn how RightSpend can help you achieve maximum savings with complete flexibility</p>
+                <div class="flex flex-col sm:flex-row justify-center gap-4">
+                    <a href="https://app.apollo.io/#/meet/tim_galloway_f2d" class="btn-primary text-lg">Find Out More</a>
+                    <a href="/how-it-works" class="btn-outline text-lg">View Technical Details</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <div x-data="{ includeFile: '/src/components/shared/footer.html' }" x-init="fetch(includeFile).then(response => response.text()).then(html => { $el.innerHTML = html })"></div>
+
+    <!-- Initialize AOS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            AOS.init({
+                duration: 800,
+                once: true
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,112 @@
+# Main Instructions for src Directory
+
+## Overview
+This directory contains all source files for the RightSpend website, organized into subdirectories for pages, components, assets, and scripts.
+
+## Mini Dependency Tracker
+{
+  "files": {
+    "F1": {
+      "dependsOn": ["F2", "F3", "F4", "F5", "F6", "F7"],
+      "dependedOnBy": []
+    },
+    "F2": {
+      "dependsOn": ["F3", "F4", "F5"],
+      "dependedOnBy": ["F1"]
+    },
+    "F3": {
+      "dependsOn": ["F4", "F5"],
+      "dependedOnBy": ["F1", "F2"]
+    },
+    "F4": {
+      "dependsOn": [],
+      "dependedOnBy": ["F1", "F2", "F3"]
+    },
+    "F5": {
+      "dependsOn": [],
+      "dependedOnBy": ["F1", "F2", "F3"]
+    },
+    "F6": {
+      "dependsOn": ["F4", "F5"],
+      "dependedOnBy": ["F1"]
+    },
+    "F7": {
+      "dependsOn": ["F4", "F5"],
+      "dependedOnBy": ["F1"]
+    }
+  },
+  "index": {
+    "F1": "pages/index.html",
+    "F2": "pages/engine.html",
+    "F3": "pages/use-cases.html",
+    "F4": "components/shared/header.html",
+    "F5": "components/shared/footer.html",
+    "F6": "components/calculator.html",
+    "F7": "components/testimonials.html"
+  }
+}
+
+## Directory Structure
+- pages/: Main HTML pages
+- components/: Reusable UI components
+  - shared/: Components used across multiple pages
+  - calculator/: ROI calculator component
+  - testimonials/: Customer testimonials component
+- assets/: Static assets
+  - images/: Image files
+- scripts/: JavaScript files
+- styles/: CSS files
+
+## File Naming Conventions
+- Use lowercase with hyphens for file names
+- HTML files: descriptive-name.html
+- Components: component-name.html
+- Scripts: script-name.js
+- Styles: style-name.css
+
+## Component Guidelines
+1. Header/Footer:
+   - Consistent across all pages
+   - Managed through Alpine.js includes
+   - Logo and navigation in header
+   - Company info and links in footer
+
+2. Calculator:
+   - Interactive ROI estimation
+   - Uses Chart.js for visualizations
+   - Requires user input validation
+   - Shows savings projections
+
+3. Testimonials:
+   - Customer success stories
+   - Consistent formatting
+   - Image, quote, and attribution
+
+## Page Guidelines
+1. All pages must include:
+   - Proper meta tags
+   - Header component
+   - Footer component
+   - AOS animations
+   - Responsive design
+   - Primary CTA (Find Out More)
+
+2. Content sections:
+   - Clear headings (h1, h2, h3)
+   - Consistent spacing
+   - Card-based layouts
+   - Icon usage for visual appeal
+
+## Script Guidelines
+1. main.js:
+   - Initialize AOS
+   - Handle calculator logic
+   - Manage form submissions
+   - Track analytics
+
+## Style Guidelines
+1. input.css:
+   - Tailwind CSS utilities
+   - Custom component styles
+   - Responsive breakpoints
+   - Animation classes
