@@ -1,88 +1,38 @@
 # RightSpend Landing Page
 
-A modern, responsive landing page for RightSpend by CloudFix, showcasing AWS cost optimization services.
+The official landing page for RightSpend, showcasing our AWS cost optimization services.
 
-## Features
-
-- Responsive design with Tailwind CSS
-- Interactive components with Alpine.js
-- Smooth animations with AOS
-- Interactive savings calculator
-- Customer testimonials slider
-- Contact form
-- SEO optimized
-
-## Development Setup
+## Quick Start
 
 1. Install Node.js (v22.14.0 or later)
+2. Install dependencies: `npm install`
+3. Build the site: `npm run build`
+4. Start the server: `npm run serve`
 
-2. Clone the repository:
-```bash
-git clone https://github.com/gleesonb-aurea/rightspend-landing.git
-cd rightspend-landing
-```
+The site will be available at http://localhost:3005
 
-3. Install dependencies:
-```bash
-npm install
-```
+## Development
 
-4. Start the development server:
-```bash
-npm run dev
-```
-
-This will:
-- Start a local development server
-- Watch for changes in source files
-- Compile Tailwind CSS
-- Auto-reload the browser
+- `npm run build` - Build the site (cleans dist, builds CSS, copies files)
+- `npm run serve` - Start the local server
+- `npm run clean` - Clean the dist directory
 
 ## Project Structure
 
 ```
-rightspend-landing/
+rightspend.ai/
 ├── src/
-│   ├── components/      # Reusable components
-│   │   ├── shared/     # Shared components (header, footer)
-│   │   ├── calculator.html
-│   │   └── testimonials.html
-│   ├── scripts/        # JavaScript files
-│   └── styles/         # CSS files
-├── dist/               # Compiled assets
-├── index.html         # Main landing page
-└── package.json
+│   ├── pages/         # HTML pages
+│   ├── components/    # Reusable HTML components
+│   ├── scripts/       # JavaScript files
+│   ├── styles/        # CSS files (Tailwind)
+│   └── assets/        # Images and other static files
+├── dist/             # Built files (generated)
+└── server.js        # Express server for serving the site
 ```
 
-## Deployment
+## Technologies
 
-The site is automatically deployed to AWS S3 and served via CloudFront when changes are pushed to the main branch. For development:
-
-1. Create a feature branch:
-```bash
-git checkout -b feature/your-feature-name
-```
-
-2. Make your changes and test locally
-
-3. Push your changes:
-```bash
-git add .
-git commit -m "Description of changes"
-git push origin feature/your-feature-name
-```
-
-4. Create a pull request to merge into main
-
-## Development Guidelines
-
-- Use Tailwind CSS for styling
-- Follow BEM naming convention for custom CSS
-- Keep components modular and reusable
-- Test across different screen sizes
-- Optimize images before committing
-- Run lighthouse audits regularly
-
-## License
-
-Copyright © 2025 CloudFix. All rights reserved.
+- Tailwind CSS for styling
+- Alpine.js for interactivity
+- Express.js for serving the site
