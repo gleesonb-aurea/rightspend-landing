@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="RightSpend blog - Expert insights on AWS cost optimization and cloud infrastructure management">
+    <title>Blog - RightSpend</title>
+    <link href="/dist/output.css" rel="stylesheet">
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script src="/src/scripts/main.js"></script>
+</head>
+<body class="bg-gray-50">
+    <!-- Header -->
+    <div x-data="{ includeFile: '../components/header.html' }" x-init="fetch(includeFile).then(response => response.text()).then(html => { $el.innerHTML = html })"></div>
+
+    <!-- Blog Header -->
+    <section class="py-20 bg-gray-900 text-white">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto text-center">
+                <h1 class="text-4xl md:text-5xl font-bold mb-6">Latest Insights</h1>
+                <p class="text-xl text-gray-300">Expert analysis and insights on AWS cost optimization, cloud infrastructure, and more.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Posts Grid -->
+    <section class="py-16">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Blog Post Card -->
+                <article class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
+                    <div class="p-6">
+                        <div class="text-sm text-gray-500 mb-2">February 20, 2025</div>
+                        <h2 class="text-xl font-bold mb-3">
+                            <a href="blog/no-break-even-worries.html" class="text-gray-900 hover:text-primary transition">
+                                No Break-Even Worries with Automated EC2 CRI Purchases
+                            </a>
+                        </h2>
+                        <p class="text-gray-600 mb-4">One of the common concerns when adopting Reserved Instances (RIs) for your AWS EC2 spend is the dreaded "break-even point." Learn how RightSpend eliminates this worry completely.</p>
+                        <a href="blog/no-break-even-worries.html" class="text-primary hover:text-primary-dark font-medium inline-flex items-center">
+                            Read More <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                        </a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <div x-data="{ includeFile: '../components/footer.html' }" x-init="fetch(includeFile).then(response => response.text()).then(html => { $el.innerHTML = html })"></div>
+</body>
+</html>

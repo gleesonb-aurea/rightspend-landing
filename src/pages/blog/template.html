@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Post Title - RightSpend</title>
+    <link href="/dist/output.css" rel="stylesheet">
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script src="/src/scripts/main.js"></script>
+</head>
+<body class="bg-gray-50">
+    <!-- Header -->
+    <div x-data="{ includeFile: '../components/header.html' }" x-init="fetch(includeFile).then(response => response.text()).then(html => { $el.innerHTML = html })"></div>
+
+    <!-- Article -->
+    <article class="py-16">
+        <div class="container mx-auto px-6">
+            <div class="max-w-3xl mx-auto">
+                <!-- Article Header -->
+                <header class="mb-12">
+                    <h1 class="text-4xl font-bold mb-4">Blog Post Title</h1>
+                    <div class="flex items-center text-gray-600 mb-6">
+                        <time datetime="2025-02-20">February 20, 2025</time>
+                        <span class="mx-2">•</span>
+                        <span>5 min read</span>
+                    </div>
+                    <div class="prose max-w-none">
+                        <p class="text-xl text-gray-600">Article summary or introduction goes here. This should be a compelling overview that draws readers in and sets up the main points of the article.</p>
+                    </div>
+                </header>
+
+                <!-- Article Content -->
+                <div class="prose max-w-none">
+                    <!-- Content goes here -->
+                    <h2>Section Title</h2>
+                    <p>Section content...</p>
+                </div>
+
+                <!-- Article Footer -->
+                <footer class="mt-12 pt-8 border-t border-gray-200">
+                    <div class="flex flex-col md:flex-row justify-between items-center">
+                        <div class="text-gray-600 mb-4 md:mb-0">
+                            Share this article:
+                            <div class="inline-flex space-x-4 ml-4">
+                                <a href="#" class="text-gray-400 hover:text-gray-600">Twitter</a>
+                                <a href="#" class="text-gray-400 hover:text-gray-600">LinkedIn</a>
+                            </div>
+                        </div>
+                        <a href="/src/pages/blog.html" class="text-primary hover:text-primary-dark">← Back to Blog</a>
+                    </div>
+                </footer>
+            </div>
+        </div>
+    </article>
+
+    <!-- Footer -->
+    <div x-data="{ includeFile: '../components/footer.html' }" x-init="fetch(includeFile).then(response => response.text()).then(html => { $el.innerHTML = html })"></div>
+</body>
+</html>

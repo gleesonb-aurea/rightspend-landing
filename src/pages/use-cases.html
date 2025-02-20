@@ -195,7 +195,11 @@
     <section id="calculator" class="py-24">
         <div class="container mx-auto px-6">
             <div class="max-w-4xl mx-auto">
-                <div x-data="{ includeFile: './components/calculator.html' }" x-init="fetch(includeFile).then(response => response.text()).then(html => { $el.innerHTML = html })"></div>
+                <div class="text-center">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-8">Calculate Your Potential Savings</h2>
+                    <p class="text-xl text-gray-600 mb-8">Use our savings calculator to estimate how much you could save on your AWS costs.</p>
+                    <a href="https://spconsultant.ai" target="_blank" rel="noopener noreferrer" class="btn-primary text-lg">Calculate Savings</a>
+                </div>
             </div>
         </div>
     </section>
