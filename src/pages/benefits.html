@@ -15,33 +15,33 @@
     <meta property="og:description" content="See how RightSpend delivers immediate AWS cost savings through AI-driven optimization and automated management.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://rightspend.ai/benefits">
-    <meta property="og:image" content="/images/rightspend-benefits-og.jpg">
+    <meta property="og:image" content="../images/rightspend-benefits-og.jpg">
     
     <!-- Twitter Card Tags -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="RightSpend Benefits - Immediate AWS Cost Optimization">
     <meta name="twitter:description" content="See how RightSpend delivers immediate AWS cost savings through AI-driven optimization.">
-    <meta name="twitter:image" content="/images/rightspend-benefits-og.jpg">
+    <meta name="twitter:image" content="../images/rightspend-benefits-og.jpg">
     
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
     
     <!-- Styles -->
-    <link href="/styles/styles.css" rel="stylesheet">
+    <link href="../styles/styles.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     
     <!-- Scripts -->
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-    <script src="/scripts/main.js"></script>
+    <script src="../scripts/main.js"></script>
     
     <!-- AOS Styles -->
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 </head>
 <body class="font-sans bg-gray-50">
     <!-- Header -->
-    <div x-data="{ includeFile: './components/header.html' }" x-init="fetch(includeFile).then(response => response.text()).then(html => { $el.innerHTML = html })"></div>
+    <div x-data="{ includeFile: '../components/header.html' }" x-init="fetch(includeFile).then(response => response.text()).then(html => { $el.innerHTML = html })"></div>
 
     <!-- Hero Section -->
     <div class="py-20 bg-gray-900 text-white">
@@ -90,6 +90,9 @@
             </div>
         </div>
     </div>
+
+    <!-- Footer -->
+    <div x-data="{ includeFile: '../components/footer.html' }" x-init="fetch(includeFile).then(response => response.text()).then(html => { $el.innerHTML = html })"></div>
 
     <script>
         // Graph initialization

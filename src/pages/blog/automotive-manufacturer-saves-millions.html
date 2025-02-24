@@ -15,33 +15,33 @@
     <meta property="og:description" content="Discover how RightSpend helped a major automotive manufacturer optimize their cloud costs and save millions annually.">
     <meta property="og:type" content="article">
     <meta property="og:url" content="https://rightspend.ai/blog/automotive-manufacturer-saves-millions">
-    <meta property="og:image" content="/images/case-study-automotive-og.jpg">
+    <meta property="og:image" content="../../images/case-study-automotive-og.jpg">
     
     <!-- Twitter Card Tags -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Automotive Manufacturer Saves $25K Daily with RightSpend.ai">
     <meta name="twitter:description" content="See how RightSpend helped an automotive manufacturer save $25K daily on AWS costs.">
-    <meta name="twitter:image" content="/images/case-study-automotive-og.jpg">
+    <meta name="twitter:image" content="../../images/case-study-automotive-og.jpg">
     
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="../../images/favicon.ico">
     
     <!-- Styles -->
-    <link href="/styles/styles.css" rel="stylesheet">
+    <link href="../../styles/styles.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     
     <!-- Scripts -->
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-    <script src="/scripts/main.js"></script>
+    <script src="../../scripts/main.js"></script>
     
     <!-- AOS Styles -->
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 </head>
 <body class="font-sans bg-gray-50" x-data>
     <!-- Header -->
-    <div x-data="{ includeFile: '/components/shared/header.html' }" x-init="fetch(includeFile).then(response => response.text()).then(html => { $el.innerHTML = html })"></div>
+    <div x-data="{ includeFile: '../../components/header.html' }" x-init="fetch(includeFile).then(response => response.text()).then(html => { $el.innerHTML = html })"></div>
 
     <!-- Blog Content -->
     <div class="max-w-4xl mx-auto px-4 py-12">
@@ -140,6 +140,9 @@
             </div>
         </article>
     </div>
+
+    <!-- Footer -->
+    <div x-data="{ includeFile: '../../components/footer.html' }" x-init="fetch(includeFile).then(response => response.text()).then(html => { $el.innerHTML = html })"></div>
 
     <script>
         // Graph initialization

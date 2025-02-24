@@ -27,66 +27,66 @@
     <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
     
     <!-- Styles -->
-    <link href="/styles/styles.css" rel="stylesheet">
+    <link href="../styles/styles.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     
     <!-- Scripts -->
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-    <script src="/scripts/main.js"></script>
+    <script src="../scripts/main.js"></script>
     
     <!-- AOS Styles -->
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 </head>
 <body class="font-sans bg-gray-50" x-data>
     <!-- Header -->
-    <div x-data="{ includeFile: '/components/shared/header.html' }" x-init="fetch(includeFile).then(response => response.text()).then(html => { $el.innerHTML = html })"></div>
+    <div x-data="{ includeFile: '../components/header.html' }" x-init="fetch(includeFile).then(response => response.text()).then(html => { $el.innerHTML = html })"></div>
 
     <!-- Blog Header -->
-    <section class="py-20 bg-gray-900 text-white">
+    <section class="py-20 bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 text-white">
         <div class="container mx-auto px-6">
             <div class="max-w-4xl mx-auto text-center" data-aos="fade-up">
-                <h1 class="text-4xl md:text-5xl font-bold mb-6">Latest Insights</h1>
+                <h1 class="text-4xl md:text-5xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-indigo-600">Latest Insights</h1>
                 <p class="text-xl text-gray-300">Expert analysis and insights on AWS cost optimization, cloud infrastructure, and more.</p>
             </div>
         </div>
     </section>
 
     <!-- Blog Posts Grid -->
-    <section class="py-16">
+    <section class="py-16 bg-gray-50">
         <div class="container mx-auto px-6">
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Blog Post Card -->
-                <article class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
-                    <div class="p-6">
-                        <div class="text-sm text-gray-500 mb-2">February 20, 2025</div>
-                        <h2 class="text-xl font-bold mb-3">
-                            <a href="/no-break-even-worries.html" class="text-gray-900 hover:text-primary transition">
-                                No Break-Even Worries with Automated EC2 CRI Purchases
-                            </a>
-                        </h2>
-                        <p class="text-gray-600 mb-4">One of the common concerns when adopting Reserved Instances (RIs) for your AWS EC2 spend is the dreaded "break-even point." Learn how RightSpend eliminates this worry completely.</p>
-                        <a href="/no-break-even-worries.html" class="text-primary hover:text-primary-dark font-medium inline-flex items-center">
-                            Read More <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
-                        </a>
-                    </div>
-                </article>
-
                 <!-- New Case Study -->
-                <article class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
+                <article class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1 transition-transform duration-300">
                     <div class="bg-gradient-to-r from-blue-50 to-indigo-50 p-4">
                         <canvas id="previewGraph" class="w-full h-48"></canvas>
                     </div>
                     <div class="p-6">
                         <div class="text-sm text-gray-500 mb-2">February 24, 2025</div>
                         <h2 class="text-xl font-bold mb-3">
-                            <a href="./blog/automotive-manufacturer-saves-millions.html" class="text-gray-900 hover:text-primary transition">
+                            <a href="./blog/automotive-manufacturer-saves-millions.html" class="text-gray-900 hover:text-blue-600 transition">
                                 Automotive Manufacturer Saves $25K Daily with RightSpend
                             </a>
                         </h2>
                         <p class="text-gray-600 mb-4">Discover how one of North America's largest automotive manufacturers achieved immediate cost savings and optimized their cloud infrastructure with RightSpend's AI-driven solution.</p>
-                        <a href="./blog/automotive-manufacturer-saves-millions.html" class="text-primary hover:text-primary-dark font-medium inline-flex items-center">
+                        <a href="./blog/automotive-manufacturer-saves-millions.html" class="text-blue-600 hover:text-blue-800 font-medium inline-flex items-center">
+                            Read More <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Existing Blog Post -->
+                <article class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1 transition-transform duration-300">
+                    <div class="p-6">
+                        <div class="text-sm text-gray-500 mb-2">February 20, 2025</div>
+                        <h2 class="text-xl font-bold mb-3">
+                            <a href="./no-break-even-worries.html" class="text-gray-900 hover:text-blue-600 transition">
+                                No Break-Even Worries with Automated EC2 CRI Purchases
+                            </a>
+                        </h2>
+                        <p class="text-gray-600 mb-4">One of the common concerns when adopting Reserved Instances (RIs) for your AWS EC2 spend is the dreaded "break-even point." Learn how RightSpend eliminates this worry completely.</p>
+                        <a href="./no-break-even-worries.html" class="text-blue-600 hover:text-blue-800 font-medium inline-flex items-center">
                             Read More <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
                         </a>
                     </div>
@@ -96,9 +96,17 @@
     </section>
 
     <!-- Footer -->
-    <div x-data="{ includeFile: '/components/shared/footer.html' }" x-init="fetch(includeFile).then(response => response.text()).then(html => { $el.innerHTML = html })"></div>
+    <div x-data="{ includeFile: '../components/footer.html' }" x-init="fetch(includeFile).then(response => response.text()).then(html => { $el.innerHTML = html })"></div>
 
     <script>
+        // Initialize AOS
+        document.addEventListener('DOMContentLoaded', () => {
+            AOS.init({
+                duration: 800,
+                once: true
+            });
+        });
+
         // Preview Graph initialization
         const previewCtx = document.getElementById('previewGraph').getContext('2d');
         new Chart(previewCtx, {
