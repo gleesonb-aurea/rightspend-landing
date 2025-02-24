@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RightSpend Benefits - Immediate Cost Optimization</title>
+    <link href="../styles/output.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex justify-between h-16">
+                <div class="flex">
+                    <a href="/" class="flex items-center">
+                        <span class="text-xl font-bold text-gray-800">RightSpend.ai</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="bg-gradient-to-r from-blue-600 to-indigo-700 text-white py-20">
+        <div class="max-w-7xl mx-auto px-4">
+            <h1 class="text-4xl font-bold mb-4">Immediate Cost Optimization</h1>
+            <p class="text-xl">See the dramatic impact of RightSpend on your cloud costs from day one</p>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="max-w-7xl mx-auto px-4 py-12">
+        <!-- Cost Savings Graph Section -->
+        <div class="bg-white rounded-lg shadow-xl p-6 mb-12">
+            <h2 class="text-2xl font-semibold mb-6">Instant Cost Reduction</h2>
+            <div class="mb-8">
+                <canvas id="costGraph" class="w-full" height="400"></canvas>
+            </div>
+            <div class="grid md:grid-cols-2 gap-8 mt-8">
+                <div class="bg-blue-50 p-6 rounded-lg">
+                    <h3 class="text-xl font-semibold text-blue-800 mb-3">Reserved Instances Optimization</h3>
+                    <p class="text-gray-700">RightSpend automatically converts eligible on-demand instances to reserved instances, providing immediate cost savings of up to 30-40%.</p>
+                </div>
+                <div class="bg-yellow-50 p-6 rounded-lg">
+                    <h3 class="text-xl font-semibold text-yellow-800 mb-3">On-Demand Cost Reduction</h3>
+                    <p class="text-gray-700">Watch your on-demand costs drop significantly as RightSpend intelligently optimizes your resource allocation and usage patterns.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Key Benefits -->
+        <div class="grid md:grid-cols-3 gap-8">
+            <div class="bg-white p-6 rounded-lg shadow-lg">
+                <div class="text-3xl text-blue-600 mb-4">⚡</div>
+                <h3 class="text-xl font-semibold mb-3">Immediate Impact</h3>
+                <p class="text-gray-600">See cost reductions from day one of implementation, with no disruption to your operations.</p>
+            </div>
+            <div class="bg-white p-6 rounded-lg shadow-lg">
+                <div class="text-3xl text-blue-600 mb-4">📊</div>
+                <h3 class="text-xl font-semibold mb-3">Automated Optimization</h3>
+                <p class="text-gray-600">Our AI continuously monitors and optimizes your cloud resource allocation for maximum efficiency.</p>
+            </div>
+            <div class="bg-white p-6 rounded-lg shadow-lg">
+                <div class="text-3xl text-blue-600 mb-4">💰</div>
+                <h3 class="text-xl font-semibold mb-3">Sustained Savings</h3>
+                <p class="text-gray-600">Maintain optimal cloud costs through continuous monitoring and adjustment of resources.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Graph initialization
+        const ctx = document.getElementById('costGraph').getContext('2d');
+        new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Before RightSpend', 'After RightSpend'],
+                datasets: [
+                    {
+                        label: 'Reserved Instances',
+                        data: [0, 125],
+                        backgroundColor: 'rgb(59, 130, 246)',
+                    },
+                    {
+                        label: 'On-Demand Costs',
+                        data: [220, 25],
+                        backgroundColor: 'rgb(251, 191, 36)',
+                    }
+                ]
+            },
+            options: {
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'Daily Cloud Costs (USD)',
+                        font: {
+                            size: 16
+                        }
+                    }
+                },
+                responsive: true,
+                scales: {
+                    x: {
+                        stacked: true,
+                    },
+                    y: {
+                        stacked: true,
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: 'Cost in USD'
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
