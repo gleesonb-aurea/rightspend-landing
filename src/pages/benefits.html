@@ -3,40 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RightSpend Benefits - Immediate Cost Optimization</title>
+    <title>RightSpend Benefits - Immediate AWS Cost Optimization</title>
     
     <!-- SEO Meta Tags -->
-    <meta name="description" content="See the immediate benefits and cost savings achieved with RightSpend's AI-driven AWS cost optimization.">
-    <meta name="keywords" content="AWS cost optimization, cloud savings, immediate benefits, cost reduction">
-    <meta name="author" content="CloudFix">
+    <meta name="description" content="Discover the immediate benefits of RightSpend's AI-driven AWS cost optimization. See real-time savings and automated cloud cost management in action.">
+    <meta name="keywords" content="AWS cost optimization, cloud cost savings, immediate ROI, automated cost management, cloud infrastructure optimization">
+    <meta name="author" content="RightSpend">
     
-    <!-- Open Graph / Social Media Meta Tags -->
+    <!-- Open Graph Tags -->
     <meta property="og:title" content="RightSpend Benefits - Immediate AWS Cost Optimization">
-    <meta property="og:description" content="Discover the immediate cost savings and benefits of using RightSpend for AWS optimization.">
+    <meta property="og:description" content="See how RightSpend delivers immediate AWS cost savings through AI-driven optimization and automated management.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://rightspend.ai/benefits">
+    <meta property="og:image" content="/images/rightspend-benefits-og.jpg">
+    
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="RightSpend Benefits - Immediate AWS Cost Optimization">
+    <meta name="twitter:description" content="See how RightSpend delivers immediate AWS cost savings through AI-driven optimization.">
+    <meta name="twitter:image" content="/images/rightspend-benefits-og.jpg">
     
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="./images/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
     
     <!-- Styles -->
-    <link href="./styles/styles.css" rel="stylesheet">
+    <link href="/styles/styles.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     
     <!-- Scripts -->
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="./scripts/main.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script src="/scripts/main.js"></script>
+    
+    <!-- AOS Styles -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 </head>
 <body class="font-sans bg-gray-50">
     <!-- Header -->
     <div x-data="{ includeFile: './components/header.html' }" x-init="fetch(includeFile).then(response => response.text()).then(html => { $el.innerHTML = html })"></div>
 
     <!-- Hero Section -->
-    <div class="bg-gradient-to-r from-blue-600 to-indigo-700 text-white py-20">
+    <div class="py-20 bg-gray-900 text-white">
         <div class="max-w-7xl mx-auto px-4">
             <h1 class="text-4xl font-bold mb-4">Immediate Cost Optimization</h1>
-            <p class="text-xl">See the dramatic impact of RightSpend on your cloud costs from day one</p>
+            <p class="text-xl text-gray-300">See the dramatic impact of RightSpend on your cloud costs from day one</p>
         </div>
     </div>
 
