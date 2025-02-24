@@ -1,25 +1,36 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RightSpend Benefits - Immediate Cost Optimization</title>
-    <link href="../styles/output.css" rel="stylesheet">
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="See the immediate benefits and cost savings achieved with RightSpend's AI-driven AWS cost optimization.">
+    <meta name="keywords" content="AWS cost optimization, cloud savings, immediate benefits, cost reduction">
+    <meta name="author" content="CloudFix">
+    
+    <!-- Open Graph / Social Media Meta Tags -->
+    <meta property="og:title" content="RightSpend Benefits - Immediate AWS Cost Optimization">
+    <meta property="og:description" content="Discover the immediate cost savings and benefits of using RightSpend for AWS optimization.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://rightspend.ai/benefits">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="./images/favicon.ico">
+    
+    <!-- Styles -->
+    <link href="./styles/styles.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Scripts -->
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="./scripts/main.js"></script>
 </head>
-<body class="bg-gray-50">
-    <!-- Navigation -->
-    <nav class="bg-white shadow-lg">
-        <div class="max-w-7xl mx-auto px-4">
-            <div class="flex justify-between h-16">
-                <div class="flex">
-                    <a href="/" class="flex items-center">
-                        <span class="text-xl font-bold text-gray-800">RightSpend.ai</span>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </nav>
+<body class="font-sans bg-gray-50">
+    <!-- Header -->
+    <div x-data="{ includeFile: './components/header.html' }" x-init="fetch(includeFile).then(response => response.text()).then(html => { $el.innerHTML = html })"></div>
 
     <!-- Hero Section -->
     <div class="bg-gradient-to-r from-blue-600 to-indigo-700 text-white py-20">

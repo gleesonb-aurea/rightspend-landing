@@ -8,6 +8,7 @@
     <link href="/css/styles.css" rel="stylesheet">
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <script src="/src/scripts/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body class="bg-gray-50">
     <!-- Header -->
@@ -42,11 +43,83 @@
                         </a>
                     </div>
                 </article>
+
+                <!-- New Case Study -->
+                <article class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
+                    <div class="bg-gradient-to-r from-blue-50 to-indigo-50 p-4">
+                        <canvas id="previewGraph" class="w-full h-48"></canvas>
+                    </div>
+                    <div class="p-6">
+                        <div class="text-sm text-gray-500 mb-2">February 24, 2025</div>
+                        <h2 class="text-xl font-bold mb-3">
+                            <a href="/src/pages/blog/automotive-manufacturer-saves-millions.html" class="text-gray-900 hover:text-primary transition">
+                                Automotive Manufacturer Saves $25K Daily with RightSpend
+                            </a>
+                        </h2>
+                        <p class="text-gray-600 mb-4">Discover how one of North America's largest automotive manufacturers achieved immediate cost savings and optimized their cloud infrastructure with RightSpend's AI-driven solution.</p>
+                        <a href="/src/pages/blog/automotive-manufacturer-saves-millions.html" class="text-primary hover:text-primary-dark font-medium inline-flex items-center">
+                            Read More <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                        </a>
+                    </div>
+                </article>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
     <div x-data="{ includeFile: '../components/footer.html' }" x-init="fetch(includeFile).then(response => response.text()).then(html => { $el.innerHTML = html })"></div>
+
+    <script>
+        // Preview Graph initialization
+        const previewCtx = document.getElementById('previewGraph').getContext('2d');
+        new Chart(previewCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Before RightSpend', 'After RightSpend'],
+                datasets: [
+                    {
+                        label: 'Reserved Instances',
+                        data: [0, 1250],
+                        backgroundColor: 'rgb(59, 130, 246)',
+                    },
+                    {
+                        label: 'On-Demand Costs',
+                        data: [2200, 250],
+                        backgroundColor: 'rgb(251, 191, 36)',
+                    }
+                ]
+            },
+            options: {
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'Daily Cloud Costs (USD)',
+                        font: {
+                            size: 14
+                        }
+                    },
+                    legend: {
+                        display: true,
+                        position: 'bottom'
+                    }
+                },
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    x: {
+                        stacked: true,
+                    },
+                    y: {
+                        stacked: true,
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: 'Cost in USD'
+                        }
+                    }
+                }
+            }
+        });
+    </script>
 </body>
 </html>
