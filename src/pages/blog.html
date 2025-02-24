@@ -15,33 +15,33 @@
     <meta property="og:description" content="Expert analysis and insights on AWS cost optimization, cloud infrastructure, and real customer success stories.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://rightspend.ai/blog">
-    <meta property="og:image" content="/images/blog-og.jpg">
+    <meta property="og:image" content="../images/blog-og.jpg">
     
     <!-- Twitter Card Tags -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="RightSpend Blog - Cloud Cost Optimization Insights">
     <meta name="twitter:description" content="Expert insights on AWS cost optimization and cloud management.">
-    <meta name="twitter:image" content="/images/blog-og.jpg">
+    <meta name="twitter:image" content="../images/blog-og.jpg">
     
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
     
     <!-- Styles -->
-    <link href="/src/styles/styles.css" rel="stylesheet">
+    <link href="../styles/styles.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     
     <!-- Scripts -->
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-    <script src="/src/scripts/main.js"></script>
+    <script src="../scripts/main.js"></script>
     
     <!-- AOS Styles -->
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 </head>
 <body class="font-sans bg-gray-50" x-data>
     <!-- Header -->
-    <div x-data="{ includeFile: '/src/components/header.html' }" x-init="fetch(includeFile).then(response => response.text()).then(html => { $el.innerHTML = html })"></div>
+    <div x-data="{ includeFile: './components/header.html' }" x-init="fetch(includeFile).then(response => response.text()).then(html => { $el.innerHTML = html })"></div>
 
     <!-- Blog Header -->
     <section class="py-20 bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 text-white">
@@ -96,7 +96,7 @@
     </section>
 
     <!-- Footer -->
-    <div x-data="{ includeFile: '/src/components/footer.html' }" x-init="fetch(includeFile).then(response => response.text()).then(html => { $el.innerHTML = html })"></div>
+    <div x-data="{ includeFile: './components/footer.html' }" x-init="fetch(includeFile).then(response => response.text()).then(html => { $el.innerHTML = html })"></div>
 
     <script>
         // Initialize AOS
