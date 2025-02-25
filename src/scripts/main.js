@@ -1,3 +1,22 @@
+// Initialize Google Analytics
+function initGoogleAnalytics() {
+    console.log('Initializing Google Analytics...');
+    
+    // Load GA script
+    var gaScript = document.createElement('script');
+    gaScript.async = true;
+    gaScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-9Z5L1G47QC';
+    document.head.appendChild(gaScript);
+    
+    // Initialize dataLayer and gtag
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-9Z5L1G47QC');
+    
+    console.log('Google Analytics initialized');
+}
+
 // Check if tracking is blocked
 function isTrackingBlocked() {
     return window.doNotTrack === "1" || 
@@ -91,7 +110,8 @@ function handleTrackingBlocked() {
 document.addEventListener('DOMContentLoaded', () => {
     console.log('DOM loaded, initializing tracking scripts...');
     
-    // Initialize tracking scripts
+    // Initialize all tracking scripts
+    initGoogleAnalytics();
     initApollo();
     initReb2b();
     
