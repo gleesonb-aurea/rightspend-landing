@@ -1,20 +1,29 @@
 // Initialize Apollo Tracking
 function initApollo() {
+    console.log('Initializing Apollo tracking...');
     var n = Math.random().toString(36).substring(7);
     var o = document.createElement("script");
     o.src = "https://assets.apollo.io/micro/website-tracker/tracker.iife.js?nocache=" + n;
     o.async = true;
     o.defer = true;
     o.onload = function() {
+        console.log('Apollo script loaded successfully');
         window.trackingFunctions.onLoad({appId: "6602e615b2af9b0439deed0c"});
+    };
+    o.onerror = function() {
+        console.error('Failed to load Apollo script');
     };
     document.head.appendChild(o);
 }
 
 // Initialize RevenueBase (reb2b) Tracking
 function initReb2b() {
+    console.log('Initializing RevenueBase tracking...');
     var reb2b = window.reb2b = window.reb2b || [];
-    if (reb2b.invoked) return;
+    if (reb2b.invoked) {
+        console.log('RevenueBase already initialized');
+        return;
+    }
     reb2b.invoked = true;
     reb2b.methods = ["identify", "collect"];
     reb2b.factory = function(method) {
@@ -30,10 +39,17 @@ function initReb2b() {
         reb2b[key] = reb2b.factory(key);
     }
     reb2b.load = function(key) {
+        console.log('Loading RevenueBase script...');
         var script = document.createElement("script");
         script.type = "text/javascript";
         script.async = true;
         script.src = "https://s3-us-west-2.amazonaws.com/b2bjsstore/b/" + key + "/LNKLDHP2G1OJ.js.gz";
+        script.onload = function() {
+            console.log('RevenueBase script loaded successfully');
+        };
+        script.onerror = function() {
+            console.error('Failed to load RevenueBase script');
+        };
         var first = document.getElementsByTagName("script")[0];
         first.parentNode.insertBefore(script, first);
     };
@@ -43,11 +59,13 @@ function initReb2b() {
 
 // Initialize AOS and tracking scripts
 document.addEventListener('DOMContentLoaded', () => {
+    console.log('DOM loaded, initializing tracking scripts...');
+    
     // Initialize tracking scripts
     initApollo();
     initReb2b();
     
     // Any initialization code can go here
-    console.log('Main.js loaded successfully');
+    console.log('Main.js initialization complete');
     // TODO: Add accessibility features
 });
