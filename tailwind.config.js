@@ -72,5 +72,6 @@ module.exports = {
       }
     }
   },
-  plugins: []
+  plugins: [],
+  // TODO: Review and optimize Tailwind CSS configuration
 }
