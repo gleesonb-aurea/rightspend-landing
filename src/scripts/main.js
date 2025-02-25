@@ -17,6 +17,89 @@ function initGoogleAnalytics() {
     console.log('Google Analytics initialized');
 }
 
+// Track Events Helper
+function trackEvent(category, action, label = null, value = null) {
+    if (window.gtag) {
+        gtag('event', action, {
+            'event_category': category,
+            'event_label': label,
+            'value': value
+        });
+        console.log(`Tracked event: ${category} - ${action} - ${label}`);
+    }
+}
+
+// Setup Event Tracking
+function setupEventTracking() {
+    console.log('Setting up event tracking...');
+    
+    // Track CTA Clicks
+    document.querySelectorAll('a.btn-primary').forEach(button => {
+        button.addEventListener('click', function(e) {
+            const buttonText = this.textContent.trim();
+            const destination = this.href;
+            trackEvent('CTA', 'click', buttonText);
+            
+            // Track specific conversions
+            if (buttonText.includes('Find Out More')) {
+                trackEvent('Conversion', 'demo_request', destination);
+            } else if (buttonText.includes('Calculate')) {
+                trackEvent('Conversion', 'calculator_use', destination);
+            }
+        });
+    });
+
+    // Track Navigation
+    document.querySelectorAll('nav a').forEach(link => {
+        link.addEventListener('click', function(e) {
+            trackEvent('Navigation', 'click', this.textContent.trim());
+        });
+    });
+
+    // Track Scroll Depth
+    let scrollDepths = [25, 50, 75, 100];
+    let scrolledDepths = new Set();
+    
+    window.addEventListener('scroll', function() {
+        const scrollPercent = (window.scrollY + window.innerHeight) / document.documentElement.scrollHeight * 100;
+        
+        scrollDepths.forEach(depth => {
+            if (scrollPercent >= depth && !scrolledDepths.has(depth)) {
+                scrolledDepths.add(depth);
+                trackEvent('Scroll', 'depth_reached', `${depth}%`);
+            }
+        });
+    });
+
+    // Track Time on Page
+    let timeIntervals = [30, 60, 180, 300]; // seconds
+    timeIntervals.forEach(interval => {
+        setTimeout(() => {
+            trackEvent('Engagement', 'time_on_page', `${interval}s`);
+        }, interval * 1000);
+    });
+
+    // Track External Links
+    document.querySelectorAll('a[target="_blank"]').forEach(link => {
+        link.addEventListener('click', function(e) {
+            trackEvent('External Link', 'click', this.href);
+        });
+    });
+
+    // Track Blog Engagement (if on blog page)
+    if (window.location.pathname.includes('/blog')) {
+        // Track article clicks
+        document.querySelectorAll('article').forEach(article => {
+            article.addEventListener('click', function(e) {
+                const title = this.querySelector('h2, h3')?.textContent || 'Untitled';
+                trackEvent('Blog', 'article_click', title);
+            });
+        });
+    }
+
+    console.log('Event tracking setup complete');
+}
+
 // Check if tracking is blocked
 function isTrackingBlocked() {
     return window.doNotTrack === "1" || 
@@ -114,6 +197,9 @@ document.addEventListener('DOMContentLoaded', () => {
     initGoogleAnalytics();
     initApollo();
     initReb2b();
+    
+    // Setup event tracking after analytics are loaded
+    setTimeout(setupEventTracking, 1000);
     
     console.log('Main.js initialization complete');
 });
