@@ -4,25 +4,37 @@ const fs = require('fs');
 const app = express();
 const port = process.env.PORT || 3005;
 
-// Serve static files from dist directory
+// Serve static files from 'dist' directory
 app.use(express.static(path.join(__dirname, 'dist'), {
     extensions: ['html', 'htm'],
     index: 'index.html'
 }));
 
+// Serve static files from the root directory
+app.use(express.static(__dirname, {
+    extensions: ['html', 'htm', 'xml'],
+    index: 'index.html'
+}));
+
 // Handle all routes
 app.get('*', (req, res) => {
-    // Remove leading slash and try to find the file
-    const filePath = path.join(__dirname, 'dist', req.path.replace(/^\//, ''));
+    let filePath = path.join(__dirname, 'dist', req.path.replace(/^\//, ''));
     
-    // If it's a directory, look for index.html
-    if (fs.existsSync(filePath) && fs.statSync(filePath).isDirectory()) {
-        res.sendFile(path.join(filePath, 'index.html'));
+    // Check if the file exists in the 'dist' directory
+    if (fs.existsSync(filePath)) {
+        if (fs.statSync(filePath).isDirectory()) {
+            filePath = path.join(filePath, 'index.html');
+        }
+        res.sendFile(filePath);
         return;
     }
-    
-    // Try to send the file
+
+    // If not found in 'dist', check the root directory
+    filePath = path.join(__dirname, req.path.replace(/^\//, ''));
     if (fs.existsSync(filePath)) {
+        if (fs.statSync(filePath).isDirectory()) {
+            filePath = path.join(filePath, 'index.html');
+        }
         res.sendFile(filePath);
         return;
     }

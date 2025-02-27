@@ -2,61 +2,61 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
         <loc>https://rightspend.ai/</loc>
-        <lastmod>2025-02-25</lastmod>
+        <lastmod>2025-02-27</lastmod>
         <changefreq>weekly</changefreq>
         <priority>1.0</priority>
     </url>
     <url>
-        <loc>https://rightspend.ai/engine</loc>
-        <lastmod>2025-02-25</lastmod>
+        <loc>https://rightspend.ai/engine.html</loc>
+        <lastmod>2025-02-27</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
     </url>
     <url>
-        <loc>https://rightspend.ai/how-it-works</loc>
-        <lastmod>2025-02-25</lastmod>
+        <loc>https://rightspend.ai/how-it-works.html</loc>
+        <lastmod>2025-02-27</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
     </url>
     <url>
-        <loc>https://rightspend.ai/benefits</loc>
-        <lastmod>2025-02-25</lastmod>
+        <loc>https://rightspend.ai/benefits.html</loc>
+        <lastmod>2025-02-27</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://rightspend.ai/features</loc>
-        <lastmod>2025-02-25</lastmod>
+        <loc>https://rightspend.ai/features.html</loc>
+        <lastmod>2025-02-27</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://rightspend.ai/use-cases</loc>
-        <lastmod>2025-02-25</lastmod>
+        <loc>https://rightspend.ai/use-cases.html</loc>
+        <lastmod>2025-02-27</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://rightspend.ai/faq</loc>
-        <lastmod>2025-02-25</lastmod>
+        <loc>https://rightspend.ai/faq.html</loc>
+        <lastmod>2025-02-27</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://rightspend.ai/blog</loc>
-        <lastmod>2025-02-25</lastmod>
+        <loc>https://rightspend.ai/blog.html</loc>
+        <lastmod>2025-02-27</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://rightspend.ai/automotive-manufacturer-saves-millions</loc>
-        <lastmod>2025-02-25</lastmod>
+        <loc>https://rightspend.ai/automotive-manufacturer-saves-millions.html</loc>
+        <lastmod>2025-02-27</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://rightspend.ai/no-break-even-worries</loc>
-        <lastmod>2025-02-25</lastmod>
+        <loc>https://rightspend.ai/no-break-even-worries.html</loc>
+        <lastmod>2025-02-27</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
