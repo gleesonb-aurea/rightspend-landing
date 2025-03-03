@@ -44,12 +44,22 @@
     <div x-data="{ includeFile: './components/header.html' }" x-init="fetch(includeFile).then(response => response.text()).then(html => { $el.innerHTML = html })"></div>
 
     <!-- Blog Header -->
-    <section class="py-20 bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 text-white">
+
+    <section class="relative bg-gradient-to-r from-primary to-secondary overflow-hidden py-24">
         <div class="container mx-auto px-6">
-            <div class="max-w-4xl mx-auto text-center" data-aos="fade-up">
-                <h1 class="text-4xl md:text-5xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-indigo-600">Latest Insights</h1>
-                <p class="text-xl text-gray-300">Expert analysis and insights on AWS cost optimization, cloud infrastructure, and more.</p>
+            <div class="max-w-4xl mx-auto text-center text-white">
+                <h1 class="text-4xl md:text-6xl font-bold mb-8" data-aos="fade-up">
+                    Latest Insights
+                </h1>
+                <p class="text-xl md:text-2xl mb-12" data-aos="fade-up" data-aos-delay="100">
+                    Expert analysis and insights on AWS cost optimization, cloud infrastructure, and more.
+                </p>
             </div>
+        </div>
+        <!-- Decorative elements -->
+        <div class="absolute inset-0 overflow-hidden pointer-events-none">
+            <div class="absolute top-0 right-0 w-1/2 h-1/2 bg-white opacity-5 rounded-full transform translate-x-1/2 -translate-y-1/2"></div>
+            <div class="absolute bottom-0 left-0 w-1/3 h-1/3 bg-white opacity-5 rounded-full transform -translate-x-1/2 translate-y-1/2"></div>
         </div>
     </section>
 
