@@ -8,6 +8,7 @@
     <!-- SEO Meta Tags -->
     <meta name="description" content="Find answers to common questions about RightSpend's AWS cost optimization solution - from integration to savings calculations.">
     <meta name="keywords" content="AWS cost optimization FAQ, RightSpend questions, cloud savings help, AWS discount programs">
+    <meta name="author" content="CloudFix">
     
     <!-- Open Graph / Social Media Meta Tags -->
     <meta property="og:title" content="RightSpend FAQ - AWS Cost Optimization Questions">
@@ -19,17 +20,123 @@
     <link rel="icon" type="image/png" href="./assets/images/favicon.png">
     
     <!-- Styles -->
-    <link href="./styles/styles.css" rel="stylesheet">
+    <link href="/css/styles.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     
     <!-- Scripts -->
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="/src/scripts/main.js"></script>
+    
+    <!-- Schema.org QAPage Markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How does RightSpend work?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "RightSpend uses advanced AI to analyze your AWS usage patterns and automatically optimize your coverage. Our system continuously monitors your environment and makes real-time adjustments to reservations to maximize savings while maintaining complete flexibility."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What do I need to get started?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Getting started with RightSpend is simple. Initially, we just need read-only access to your AWS account through a secure IAM role. Our team will guide you through the setup process, which typically takes less than 30 minutes. When you're ready to begin, we switch to a role that allows Rightspend to make the required adjustments to coverage."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is there a minimum AWS spend requirement?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "While RightSpend can benefit AWS users of all sizes, we typically work with organizations spending at least $10,000 per month on EC2 Compute to ensure meaningful savings."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How much can I save with RightSpend?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Customers typically achieve 20-55% savings on their AWS costs. The exact amount depends on your current coverage and usage patterns."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I use RightSpend alongside Savings Plans?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes! RightSpend works seamlessly with existing Savings Plans and Reserved Instances. We can optimize your uncovered usage or complement your existing discount strategy for maximum savings."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Which AWS services are supported?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "RightSpend currently optimizes EC2 instances. Check out the recommendations in Cloudfix to see reservation recommendations for RDS, Opensearch, CloudFront and many more AWS services."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Are there any long-term commitments?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Unlike AWS Savings Plans or Reserved Instances, RightSpend doesn't require any long-term commitments. You maintain complete flexibility to change or scale your resources as needed. Scale all the way to zero!"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I change my coverage at any time?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes! You have full control over your coverage and can adjust it at any time without penalties. Our AI automatically adapts to your changes to maintain optimal savings."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What happens if my usage changes?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "RightSpend's AI continuously monitors your usage patterns and automatically adjusts optimization strategies in real-time. You don't need to worry about over-committing or missing savings opportunities."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is RightSpend secure?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. We maintain strict security standards and only require least-privilige access to your AWS account. We never modify your resources or store sensitive data. Our platform is regularly audited and complies with industry security standards."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How does integration work?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Integration is simple and secure through AWS IAM roles. We provide detailed documentation and support to ensure a smooth setup process. Most customers are up and running in less than 30 minutes."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do you offer API access?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Not at this point"
+          }
+        }
+      ]
+    }
+    </script>
 </head>
 <body class="font-sans bg-gray-50">
     <!-- Header -->
-    <div x-data="{ includeFile: './components/header.html' }" x-init="fetch(includeFile).then(response => response.text()).then(html => { $el.innerHTML = html })"></div>
+    <div x-data="{ includeFile: '/components/header.html' }" x-init="fetch(includeFile).then(response => response.text()).then(html => { $el.innerHTML = html })"></div>
 
     <!-- Hero Section -->
     <section class="relative bg-gradient-to-r from-primary to-secondary overflow-hidden py-24">
@@ -79,7 +186,7 @@
                     <div class="space-y-6">
                         <div class="card">
                             <h3 class="text-xl font-semibold mb-4">How much can I save with RightSpend?</h3>
-                            <p class="text-gray-600">Customers typically achieve 20-55% savings on their AWS costs. The exact amount depends on your current coverage and usage patterns. Our <a href="https://spconsulant  .ai">calculator</a> can provide a personalized estimate based on your specific situation.</p>
+                            <p class="text-gray-600">Customers typically achieve 20-55% savings on their AWS costs. The exact amount depends on your current coverage and usage patterns. Our <a href="https://spconsultant.ai">calculator</a> can provide a personalized estimate based on your specific situation.</p>
                         </div>
                         <div class="card">
                             <h3 class="text-xl font-semibold mb-4">Can I use RightSpend alongside Savings Plans?</h3>

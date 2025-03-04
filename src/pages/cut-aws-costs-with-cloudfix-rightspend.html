@@ -27,20 +27,21 @@
     <link rel="icon" type="image/x-icon" href="/assets/images/favicon.ico">
     
     <!-- Styles -->
+    <!-- Styles -->
     <link href="/css/styles.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     
     <!-- Scripts -->
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="/src/scripts/main.js"></script>
+    <script src="/scripts/main.js"></script>
     
     <!-- AOS Styles -->
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 </head>
 <body class="font-sans bg-gray-50" x-data>
     <!-- Header -->
-    <div x-data="{ includeFile: '../../components/header.html' }" x-init="fetch(includeFile).then(response => response.text()).then(html => { $el.innerHTML = html })"></div>
+    <div x-data="{ includeFile: '/components/header.html' }" x-init="fetch(includeFile).then(response => response.text()).then(html => { $el.innerHTML = html })"></div>
 
     <!-- Blog Content -->
     <div class="max-w-4xl mx-auto px-4 py-12">
@@ -163,7 +164,7 @@
     </div>
 
     <!-- Footer -->
-    <div x-data="{ includeFile: '../../components/header.html' }" x-init="fetch(includeFile).then(response => response.text()).then(html => { $el.innerHTML = html })"></div>
+    <div x-data="{ includeFile: '/components/header.html' }" x-init="fetch(includeFile).then(response => response.text()).then(html => { $el.innerHTML = html })"></div>
 
     <!-- Initialize AOS -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>

@@ -8,6 +8,7 @@
     <!-- SEO Meta Tags -->
     <meta name="description" content="Explore how RightSpend helps companies optimize AWS costs in various scenarios - from last-mile coverage to complete optimization strategies.">
     <meta name="keywords" content="AWS cost optimization, cloud savings, RightSpend use cases, AWS coverage optimization">
+    <meta name="author" content="CloudFix">
     
     <!-- Open Graph / Social Media Meta Tags -->
     <meta property="og:title" content="RightSpend Use Cases - AWS Cost Optimization Solutions">
@@ -19,17 +20,17 @@
     <link rel="icon" type="image/png" href="./assets/images/favicon.png">
     
     <!-- Styles -->
-    <link href="./styles/styles.css" rel="stylesheet">
+    <link href="/css/styles.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     
     <!-- Scripts -->
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="/src/scripts/main.js"></script>
+    <script src="/scripts/main.js"></script>
 </head>
 <body class="font-sans bg-gray-50">
     <!-- Header -->
-    <div x-data="{ includeFile: './components/header.html' }" x-init="fetch(includeFile).then(response => response.text()).then(html => { $el.innerHTML = html })"></div>
+    <div x-data="{ includeFile: '/components/header.html' }" x-init="fetch(includeFile).then(response => response.text()).then(html => { $el.innerHTML = html })"></div>
 
     <!-- Hero Section -->
     <section class="relative bg-gradient-to-r from-primary to-secondary overflow-hidden py-24">
