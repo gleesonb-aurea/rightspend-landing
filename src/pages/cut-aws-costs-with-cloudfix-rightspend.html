@@ -8,32 +8,31 @@
     <!-- SEO Meta Tags -->
     <meta name="description" content="Discover how CloudFix RightSpend maximizes AWS savings without long-term commitments, delivering 3-year Savings Plan equivalent discounts with complete flexibility.">
     <meta name="keywords" content="AWS cost optimization, cloud savings, CloudFix RightSpend, Effective Savings Rate, ESR, cloud cost management">
-    <meta name="author" content="Dmitry Degtyarev">
+    <meta name="author" content="CloudFix">
     
     <!-- Open Graph Tags -->
     <meta property="og:title" content="Cut AWS Costs with CloudFix RightSpend — No Long-Term Commitment">
     <meta property="og:description" content="Maximize AWS savings without long-term commitments using CloudFix RightSpend's intelligent automation.">
     <meta property="og:type" content="article">
     <meta property="og:url" content="https://rightspend.ai/blog/cut-aws-costs-with-cloudfix-rightspend">
-    <meta property="og:image" content="../assets/images/cloud-savings-icon.svg">
+    <meta property="og:image" content="../assets/images/RightSpend-cool.png">
     
     <!-- Twitter Card Tags -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Cut AWS Costs with CloudFix RightSpend — No Long-Term Commitment">
     <meta name="twitter:description" content="Get 3-year Savings Plan equivalent discounts with complete flexibility using CloudFix RightSpend.">
-    <meta name="twitter:image" content="../assets/images/cloud-savings-icon.svg">
+    <meta name="twitter:image" content="../assets/images/RightSpend-cool.png">
     
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="/assets/images/favicon.ico">
     
     <!-- Styles -->
-    <link href="../../styles/styles.css" rel="stylesheet">
+    <link href="/css/styles.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     
     <!-- Scripts -->
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script src="/src/scripts/main.js"></script>
     
     <!-- AOS Styles -->
@@ -78,6 +77,7 @@
                         The Effective Savings Rate (ESR) is a critical metric for understanding your AWS cost efficiency. It measures the percentage 
                         discount achieved on compute usage by utilizing discount instruments such as RIs, SPs, and Spot Instances compared to On-Demand pricing.
                     </p>
+                    <img src="../assets/images/Cut AWS Costs with CloudFix RightSpend — No Long-Term Commitment - visual selection.png" alt="Effective Savings Rate" class="mb-6">
 
                     <div class="bg-blue-50 border-l-4 border-blue-500 p-6 my-8">
                         <p class="text-lg font-semibold text-blue-800">
@@ -91,6 +91,7 @@
                         approaches, RightSpend dynamically optimizes cRIs to achieve discounts equivalent to 3-year all-upfront Compute Savings Plans 
                         without requiring a long-term commitment.
                     </p>
+                    <img src="../assets/images/Cut AWS Costs with CloudFix RightSpend — No Long-Term Commitment - visual selection (1).png" alt="CloudFix RightSpend" class="mb-6">
 
                     <h3 class="text-xl font-semibold text-gray-900 mt-8 mb-4">How RightSpend Works</h3>
                     <div class="bg-gray-50 rounded-lg p-6 mb-8">
@@ -162,10 +163,12 @@
     </div>
 
     <!-- Footer -->
-    <div x-data="{ includeFile: '../../components/footer.html' }" x-init="fetch(includeFile).then(response => response.text()).then(html => { $el.innerHTML = html })"></div>
+    <div x-data="{ includeFile: '../../components/header.html' }" x-init="fetch(includeFile).then(response => response.text()).then(html => { $el.innerHTML = html })"></div>
 
+    <!-- Initialize AOS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script>
-        // Initialize AOS
         document.addEventListener('DOMContentLoaded', () => {
             AOS.init({
                 duration: 800,
