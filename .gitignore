@@ -25,6 +25,7 @@ Thumbs.db
 cline_docs/
 *_main_instructions.txt
 *_instructions.txt
+.clinerules
 
 # Logs
 *.log
