@@ -36,3 +36,16 @@ rightspend.ai/
 - Tailwind CSS for styling
 - Alpine.js for interactivity
 - Express.js for serving the site
+
+## Menu Structure
+
+*   Features
+*   Benefits (with Use Cases as a sub-item)
+*   Pricing
+*   Resources
+    *   How it Works
+        *   Engine
+        *   Admin Panel
+    *   Use Cases
+    *   FAQ
+    *   Blog

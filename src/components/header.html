@@ -7,25 +7,31 @@
                 <span class="text-2xl font-bold text-primary">RightSpend</span>
             </a>
 
-           <!-- Desktop Navigation -->
-            <div class="hidden md:flex items-center space-x-8" x-data="{ open: false }">
-                <div class="relative">
-                    <button @click="open = !open" class="text-gray-600 hover:text-primary transition flex items-center space-x-2">
-                        <span>Resources</span>
-                        <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                            <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
-                        </svg>
+            <!-- Desktop Navigation -->
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="/src/pages/features.html" class="text-gray-600 hover:text-primary transition">Features</a>
+                <div class="relative" x-data="{ benefitsOpen: false }">
+                    <button @click="benefitsOpen = !benefitsOpen" class="text-gray-600 hover:text-primary transition flex items-center space-x-2">
+                        <span>Benefits</span>
+                        <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
                     </button>
-                    <div x-show="open" @click.away="open = false" class="absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 ring-1 ring-black ring-opacity-5">
-                        <a href="/src/pages/how-it-works.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">How It Works</a>
-                        <a href="/src/pages/benefits.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Benefits</a>
+                    <div x-show="benefitsOpen" @click.away="benefitsOpen = false" class="absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 ring-1 ring-black ring-opacity-5">
                         <a href="/src/pages/use-cases.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Use Cases</a>
-                        <a href="/src/pages/features.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Features</a>
+                    </div>
+                </div>
+                <a href="/src/pages/pricing.html" class="text-gray-600 hover:text-primary transition">Pricing</a>
+                <div class="relative" x-data="{ resourcesOpen: false }">
+                    <button @click="resourcesOpen = !resourcesOpen" class="text-gray-600 hover:text-primary transition flex items-center space-x-2">
+                        <span>Resources</span>
+                        <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+                    </button>
+                    <div x-show="resourcesOpen" @click.away="resourcesOpen = false" class="absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 ring-1 ring-black ring-opacity-5">
+                        <a href="/src/pages/how-it-works.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">How It Works</a>
+                        <a href="/src/pages/engine.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 pl-8">Engine</a>
+                        <a href="/src/pages/admin-panel.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 pl-8">Admin Panel</a>
+                        <a href="/src/pages/use-cases.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Use Cases</a>
                         <a href="/src/pages/faq.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">FAQ</a>
-                        <a href="/src/pages/engine.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Engine</a>
-                        <a href="/src/pages/pricing.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Pricing</a>
                         <a href="/src/pages/blog.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Blog</a>
-                        <a href="/src/pages/admin-panel.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Admin Panel</a>
                     </div>
                 </div>
                 <a href="https://app.apollo.io/#/meet/tim_galloway_f2d" target="_blank" rel="noopener noreferrer" class="btn-primary">Find Out More</a>
@@ -52,6 +58,19 @@
                      x-transition:leave-start="opacity-100 transform scale-100"
                      x-transition:leave-end="opacity-0 transform scale-95"
                      class="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 ring-1 ring-black ring-opacity-5">
+                    <a href="/src/pages/features.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Features</a>
+                    <div x-data="{ benefitsOpen: false }">
+                        <button @click="benefitsOpen = !benefitsOpen" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 w-full text-left">
+                            Benefits
+                            <svg class="fill-current h-4 w-4 inline-block" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                                <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
+                            </svg>
+                        </button>
+                        <div x-show="benefitsOpen" class="pl-4">
+                            <a href="/src/pages/use-cases.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Use Cases</a>
+                        </div>
+                    </div>
+                    <a href="/src/pages/pricing.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Pricing</a>
                     <div x-data="{ resourcesOpen: false }">
                         <button @click="resourcesOpen = !resourcesOpen" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 w-full text-left">
                             Resources
@@ -61,16 +80,11 @@
                         </button>
                         <div x-show="resourcesOpen" class="pl-4">
                             <a href="/src/pages/how-it-works.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">How It Works</a>
-                            <a href="/src/pages/benefits.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Benefits</a>
+                            <a href="/src/pages/engine.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 pl-8">Engine</a>
+                            <a href="/src/pages/admin-panel.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 pl-8">Admin Panel</a>
                             <a href="/src/pages/use-cases.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Use Cases</a>
-                            <a href="/src/pages/features.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Features</a>
                             <a href="/src/pages/faq.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">FAQ</a>
-                            <a href="/src/pages/pricing.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Pricing</a>
                             <a href="/src/pages/blog.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Blog</a>
-                            <a href="/src/pages/engine.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Engine</a>
-                            <a href="/src/pages/pricing.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Pricing</a>
-                            <a href="/src/pages/blog.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Blog</a>
-                            <a href="/src/pages/admin-panel.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Admin Panel</a>
                         </div>
                     </div>
                     <a href="https://app.apollo.io/#/meet/tim_galloway_f2d" target="_blank" rel="noopener noreferrer" class="block px-4 py-2 text-sm text-primary font-medium">Find Out More</a>
