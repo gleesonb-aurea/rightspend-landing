@@ -126,13 +126,11 @@ function initApollo() {
     };
     o.onerror = function(error) {
         console.log('Apollo script loading failed. This is normal if you have an ad blocker or privacy extension enabled.');
-        // Optionally show a user-friendly message if needed
-        // handleTrackingBlocked();
     };
     document.head.appendChild(o);
 }
 
-// Initialize RevenueBase (reb2b) Tracking
+// Initialize RevenueBase (rb2b) Tracking
 function initReb2b() {
     if (isTrackingBlocked()) {
         console.log('Tracking appears to be blocked by browser settings or extensions');
@@ -170,8 +168,6 @@ function initReb2b() {
         };
         script.onerror = function() {
             console.log('RevenueBase script loading failed. This is normal if you have an ad blocker or privacy extension enabled.');
-            // Optionally show a user-friendly message if needed
-            // handleTrackingBlocked();
         };
         var first = document.getElementsByTagName("script")[0];
         first.parentNode.insertBefore(script, first);
@@ -180,26 +176,32 @@ function initReb2b() {
     reb2b.load("LNKLDHP2G1OJ");
 }
 
-// Optional: Function to handle blocked tracking
-/*
-function handleTrackingBlocked() {
-    // You could show a subtle notification to users about tracking being blocked
-    // Only enable if you really need users to allow tracking
-    console.log('Tracking is blocked - handling gracefully');
-}
-*/
-
-// Initialize AOS and tracking scripts
+// Initialize tracking scripts
 document.addEventListener('DOMContentLoaded', () => {
     console.log('DOM loaded, initializing tracking scripts...');
     
     // Initialize all tracking scripts
-    initGoogleAnalytics();
-    initApollo();
-    initReb2b();
-    
-    // Setup event tracking after analytics are loaded
-    setTimeout(setupEventTracking, 1000);
+    Promise.all([
+        new Promise(resolve => {
+            initGoogleAnalytics();
+            resolve();
+        }),
+        new Promise(resolve => {
+            initApollo();
+            resolve();
+        }),
+        new Promise(resolve => {
+            initReb2b();
+            resolve();
+        })
+    ]).then(() => {
+        // Setup event tracking after all scripts are loaded
+        setupEventTracking();
+    }).catch(error => {
+        console.error('Error initializing tracking:', error);
+        // Still setup event tracking even if some trackers fail
+        setupEventTracking();
+    });
     
     console.log('Main.js initialization complete');
 });

@@ -1,194 +1,206 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Leading Automotive Manufacturer Saves $25K Daily with RightSpend.ai | Case Study</title>
-    
-    <!-- SEO Meta Tags -->
-    <meta name="description" content="Learn how a major automotive manufacturer achieved $25,000 in daily cloud cost savings using RightSpend's AI-driven optimization - a real-world AWS cost optimization case study.">
-    <meta name="keywords" content="AWS cost optimization, automotive industry, cloud cost savings, case study, cloud infrastructure optimization, RightSpend success story">
+    <title>Case Study: Automotive Manufacturer Saves Millions with RightSpend</title>
+    <meta name="description" content="Learn how a Fortune 500 automotive manufacturer achieved over $2.5M in annual AWS savings using RightSpend's automated optimization.">
+    <meta name="keywords" content="AWS cost optimization, case study, automotive manufacturer, cloud savings, success story">
     <meta name="author" content="CloudFix">
-    
-    <!-- Open Graph Tags -->
-    <meta property="og:title" content="Automotive Manufacturer Saves $25K Daily with RightSpend.ai">
-    <meta property="og:description" content="Discover how RightSpend helped a major automotive manufacturer optimize their cloud costs and save millions annually.">
-    <meta property="og:type" content="article">
-    <meta property="og:url" content="https://rightspend.ai/blog/automotive-manufacturer-saves-millions">
-    <meta property="og:image" content="../../images/case-study-automotive-og.jpg">
-    
+
+    <!-- Open Graph / Social Media Meta Tags -->
+    <meta property="og:title" content="Case Study: Automotive Manufacturer Saves Millions with RightSpend">
+    <meta property="og:description" content="Learn how a Fortune 500 automotive manufacturer achieved over $2.5M in annual AWS savings using RightSpend's automated optimization.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://rightspend.ai/automotive-manufacturer-saves-millions">
+    <meta property="og:image" content="../assets/images/cloud-savings-icon.svg">
+
     <!-- Twitter Card Tags -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Automotive Manufacturer Saves $25K Daily with RightSpend.ai">
-    <meta name="twitter:description" content="See how RightSpend helped an automotive manufacturer save $25K daily on AWS costs.">
-    <meta name="twitter:image" content="../../images/case-study-automotive-og.jpg">
-    
+    <meta name="twitter:title" content="Case Study: Automotive Manufacturer Saves Millions with RightSpend">
+    <meta name="twitter:description" content="Learn how a Fortune 500 automotive manufacturer achieved over $2.5M in annual AWS savings using RightSpend's automated optimization.">
+    <meta name="twitter:image" content="../assets/images/cloud-savings-icon.svg">
+
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="../../images/favicon.ico">
-    
+    <link rel="icon" type="image/svg+xml" href="../assets/images/favicon.svg">
+
     <!-- Styles -->
-    <link href="/css/styles.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Scripts -->
-    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <link href="/css/styles.css" rel="stylesheet">
     <script src="/src/scripts/main.js"></script>
-    
-    <!-- AOS Styles -->
-    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 </head>
-<body class="font-sans bg-gray-50" x-data>
+<body class="font-sans bg-gray-50">
     <!-- Header -->
-    <div x-data="{ includeFile: '../../components/header.html' }" x-init="fetch(includeFile).then(response => response.text()).then(html => { $el.innerHTML = html })"></div>
+    <div x-data="{ includeFile: '/components/header.html' }" x-init="fetch(includeFile).then(response => response.text()).then(html => { $el.innerHTML = html })"></div>
 
-    <!-- Blog Content -->
-    <div class="max-w-4xl mx-auto px-4 py-12">
-        <article class="bg-white rounded-xl shadow-lg overflow-hidden">
-            <!-- Header Image -->
-            <div class="h-64 bg-gray-900 flex items-center justify-center" data-aos="fade-up">
-                <h1 class="text-3xl md:text-4xl font-bold text-white text-center px-6">
-                    How a Leading Automotive Manufacturer Saved $25,000 Daily with RightSpend.ai
-                </h1>
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-r from-primary to-secondary text-white py-24">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto">
+                <h1 class="text-4xl md:text-5xl font-bold mb-8">Fortune 500 Automotive Manufacturer Saves $2.5M Annually</h1>
+                <p class="text-xl md:text-2xl mb-12">A Case Study in AWS Cost Optimization</p>
             </div>
+        </div>
+    </section>
 
-            <!-- Article Content -->
-            <div class="p-8">
-                <!-- Meta Information -->
-                <div class="flex items-center text-gray-600 text-sm mb-8">
-                    <span>Published: February 24, 2025</span>
-                    <span class="mx-2">•</span>
-                    <span>5 min read</span>
-                    <span class="mx-2">•</span>
-                    <span>Case Study</span>
-                </div>
-
-                <!-- Introduction -->
-                <div class="prose max-w-none">
-                    <p class="text-xl text-gray-700 mb-8">
-                        When one of North America's largest automotive manufacturers approached us about optimizing their cloud costs, 
-                        we knew we could make a significant impact. What we didn't expect was how quickly and dramatically those savings would materialize.
-                    </p>
-
-                    <h2 class="text-2xl font-semibold text-gray-900 mt-12 mb-6">The Challenge</h2>
-                    <p class="mb-6">
-                        With over 2,000 instances running across multiple regions, our client was struggling to optimize their cloud spend 
-                        while maintaining the high performance needed for their critical manufacturing and design systems. Their daily cloud 
-                        costs were averaging $2,200, primarily from on-demand instances.
-                    </p>
-
-                    <h2 class="text-2xl font-semibold text-gray-900 mt-12 mb-6">The Immediate Impact</h2>
-                    <div class="bg-white rounded-lg shadow-xl p-6 my-8">
-                        <canvas id="costGraph" class="w-full" height="400"></canvas>
+    <!-- Overview Section -->
+    <section class="py-24">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-3xl font-bold mb-8">Overview</h2>
+                <p class="text-gray-600 text-lg mb-8">
+                    A leading Fortune 500 automotive manufacturer was looking to optimize their AWS costs without compromising their operational efficiency. With a complex, multi-region infrastructure supporting critical manufacturing operations, they needed a solution that could deliver significant savings while maintaining reliability and performance.
+                </p>
+                
+                <div class="grid md:grid-cols-3 gap-8 mb-12">
+                    <div class="card text-center">
+                        <div class="text-primary text-4xl mb-4">$2.5M+</div>
+                        <p class="text-gray-600">Annual AWS Savings</p>
                     </div>
-
-                    <p class="mb-6">
-                        Within 24 hours of implementing RightSpend.ai, we observed:
-                    </p>
-                    <ul class="list-disc pl-6 mb-6">
-                        <li>A reduction in on-demand instance costs from $2,200 to $250 per day</li>
-                        <li>Conversion of eligible workloads to reserved instances, saving $1,250 daily</li>
-                        <li>Total daily savings of approximately $700</li>
-                        <li>Projected annual savings of over $255,500</li>
-                    </ul>
-
-                    <h2 class="text-2xl font-semibold text-gray-900 mt-12 mb-6">How We Did It</h2>
-                    <p class="mb-6">
-                        RightSpend.ai's AI-driven platform immediately began analyzing usage patterns and identifying opportunities for optimization:
-                    </p>
-                    <ul class="list-disc pl-6 mb-6">
-                        <li>Automated identification of conversion candidates for reserved instances</li>
-                        <li>Real-time workload analysis to optimize instance types and sizes</li>
-                        <li>Intelligent scheduling of non-production workloads</li>
-                        <li>Continuous monitoring and adjustment of resource allocation</li>
-                    </ul>
-
-                    <h2 class="text-2xl font-semibold text-gray-900 mt-12 mb-6">Long-Term Benefits</h2>
-                    <p class="mb-6">
-                        Beyond the immediate cost savings, our client experienced:
-                    </p>
-                    <ul class="list-disc pl-6 mb-6">
-                        <li>Improved resource utilization across their cloud infrastructure</li>
-                        <li>Enhanced visibility into cloud spending patterns</li>
-                        <li>Automated optimization requiring no manual intervention</li>
-                        <li>Zero impact on production workloads or performance</li>
-                    </ul>
-
-                    <div class="bg-blue-50 border-l-4 border-blue-500 p-6 my-8">
-                        <p class="text-lg font-semibold text-blue-800">
-                            "RightSpend.ai delivered immediate value to our organization. The day-one cost savings were impressive, 
-                            but what really stands out is how the system continues to optimize our cloud spend automatically."
-                        </p>
-                        <p class="text-gray-600 mt-2">- Chief Technology Officer</p>
+                    <div class="card text-center">
+                        <div class="text-primary text-4xl mb-4">45%</div>
+                        <p class="text-gray-600">Cost Reduction</p>
                     </div>
-
-                    <h2 class="text-2xl font-semibold text-gray-900 mt-12 mb-6">Ready to See Similar Results?</h2>
-                    <p class="mb-6">
-                        If you're looking to achieve significant cloud cost savings without compromising performance, 
-                        RightSpend.ai can help. Contact us today to learn how we can optimize your cloud infrastructure 
-                        and start saving from day one.
-                    </p>
-                </div>
-
-                <!-- Call to Action -->
-                <div class="mt-12">
-                    <a href="/contact" class="inline-block bg-blue-600 text-white px-8 py-4 rounded-lg font-semibold hover:bg-blue-700 transition-colors">
-                        Schedule a Demo
-                    </a>
+                    <div class="card text-center">
+                        <div class="text-primary text-4xl mb-4">0</div>
+                        <p class="text-gray-600">Operational Impact</p>
+                    </div>
                 </div>
             </div>
-        </article>
-    </div>
+        </div>
+    </section>
+
+    <!-- Challenge Section -->
+    <section class="py-24 bg-gray-100">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-3xl font-bold mb-8">The Challenge</h2>
+                <div class="space-y-6 text-gray-600 text-lg">
+                    <p>
+                        The manufacturer faced several key challenges in optimizing their AWS costs:
+                    </p>
+                    <ul class="space-y-4 list-disc pl-6">
+                        <li>Complex infrastructure spanning multiple AWS regions</li>
+                        <li>Critical manufacturing operations requiring high availability</li>
+                        <li>Dynamic workload patterns making manual optimization ineffective</li>
+                        <li>Risk of overcommitment with traditional savings plans</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solution Section -->
+    <section class="py-24">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-3xl font-bold mb-8">The Solution</h2>
+                <div class="space-y-8">
+                    <p class="text-gray-600 text-lg">
+                        RightSpend provided an AI-powered solution that automatically optimized AWS costs while maintaining operational efficiency:
+                    </p>
+                    
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div class="card">
+                            <div class="text-primary text-4xl mb-4">🤖</div>
+                            <h3 class="text-xl font-semibold mb-4">AI-Driven Analysis</h3>
+                            <p class="text-gray-600">
+                                Continuous analysis of usage patterns across all regions to identify optimization opportunities.
+                            </p>
+                        </div>
+                        
+                        <div class="card">
+                            <div class="text-primary text-4xl mb-4">⚙️</div>
+                            <h3 class="text-xl font-semibold mb-4">Automated Optimization</h3>
+                            <p class="text-gray-600">
+                                Real-time adjustments to coverage levels based on actual usage and demand.
+                            </p>
+                        </div>
+                        
+                        <div class="card">
+                            <div class="text-primary text-4xl mb-4">🛡️</div>
+                            <h3 class="text-xl font-semibold mb-4">Risk Management</h3>
+                            <p class="text-gray-600">
+                                Intelligent algorithms prevent overcommitment while maximizing savings.
+                            </p>
+                        </div>
+                        
+                        <div class="card">
+                            <div class="text-primary text-4xl mb-4">📊</div>
+                            <h3 class="text-xl font-semibold mb-4">Detailed Reporting</h3>
+                            <p class="text-gray-600">
+                                Comprehensive insights into savings and optimization opportunities.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Results Section -->
+    <section class="py-24 bg-gray-100">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-3xl font-bold mb-8">The Results</h2>
+                <div class="space-y-8">
+                    <p class="text-gray-600 text-lg">
+                        Within the first year of implementing RightSpend, the manufacturer achieved:
+                    </p>
+                    
+                    <ul class="space-y-6 text-gray-600 text-lg">
+                        <li class="flex items-start">
+                            <span class="text-primary mr-4">✓</span>
+                            Over $2.5M in annual AWS cost savings
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-primary mr-4">✓</span>
+                            45% reduction in overall AWS costs
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-primary mr-4">✓</span>
+                            Zero impact on operational performance
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-primary mr-4">✓</span>
+                            Improved resource utilization across all regions
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-primary mr-4">✓</span>
+                            Complete flexibility to scale up or down as needed
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-24">
+        <div class="container mx-auto px-6 text-center">
+            <div class="max-w-3xl mx-auto">
+                <h2 class="text-3xl md:text-4xl font-bold mb-8">Ready to Achieve Similar Results?</h2>
+                <p class="text-xl text-gray-600 mb-12">Schedule a call to learn how RightSpend can help you maximize AWS savings with complete flexibility</p>
+                <div class="flex flex-col sm:flex-row justify-center gap-4">
+                    <a href="https://app.apollo.io/#/meet/tim_galloway_f2d" class="btn-primary text-lg">Find Out More</a>
+                    <a href="/engine" class="btn-outline text-lg">Learn How It Works</a>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- Footer -->
-    <div x-data="{ includeFile: '../../components/footer.html' }" x-init="fetch(includeFile).then(response => response.text()).then(html => { $el.innerHTML = html })"></div>
+    <div x-data="{ includeFile: '/components/footer.html' }" x-init="fetch(includeFile).then(response => response.text()).then(html => { $el.innerHTML = html })"></div>
 
+    <!-- Initialize AOS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script>
-        // Graph initialization
-        const ctx = document.getElementById('costGraph').getContext('2d');
-        new Chart(ctx, {
-            type: 'bar',
-            data: {
-                labels: ['Before RightSpend', 'After RightSpend'],
-                datasets: [
-                    {
-                        label: 'Reserved Instances',
-                        data: [0, 1250],
-                        backgroundColor: 'rgb(59, 130, 246)',
-                    },
-                    {
-                        label: 'On-Demand Costs',
-                        data: [2200, 250],
-                        backgroundColor: 'rgb(251, 191, 36)',
-                    }
-                ]
-            },
-            options: {
-                plugins: {
-                    title: {
-                        display: true,
-                        text: 'Daily Cloud Costs (USD)',
-                        font: {
-                            size: 16
-                        }
-                    }
-                },
-                responsive: true,
-                scales: {
-                    x: {
-                        stacked: true,
-                    },
-                    y: {
-                        stacked: true,
-                        beginAtZero: true,
-                        title: {
-                            display: true,
-                            text: 'Cost in USD'
-                        }
-                    }
-                }
-            }
+        document.addEventListener('DOMContentLoaded', () => {
+            AOS.init({
+                duration: 800,
+                once: true
+            });
         });
     </script>
 </body>

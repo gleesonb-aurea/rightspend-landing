@@ -1,226 +1,257 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>How RightSpend Works - AWS Cost Optimization Without Commitments</title>
-    
-    <!-- SEO Meta Tags -->
-    <meta name="description" content="Learn how RightSpend's AI-driven optimization engine helps you achieve up to 55% savings on AWS without restrictive commitments.">
-    <meta name="keywords" content="AWS cost optimization, cloud savings, RightSpend process, automated optimization">
+    <title>How RightSpend Works - AI-Powered AWS Cost Optimization</title>
+    <meta name="description" content="Learn how RightSpend's AI-powered solution automatically optimizes your AWS costs with no long-term commitments.">
+    <meta name="keywords" content="AWS cost optimization, RightSpend, how it works, cloud savings, AI automation">
     <meta name="author" content="CloudFix">
-    
+
     <!-- Open Graph / Social Media Meta Tags -->
-    <meta property="og:title" content="How RightSpend Works - Automated AWS Cost Optimization">
-    <meta property="og:description" content="Discover how RightSpend's AI-driven engine optimizes your AWS costs while maintaining complete flexibility.">
+    <meta property="og:title" content="How RightSpend Works - AI-Powered AWS Cost Optimization">
+    <meta property="og:description" content="Learn how RightSpend's AI-powered solution automatically optimizes your AWS costs with no long-term commitments.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://rightspend.ai/how-it-works">
-    
+    <meta property="og:image" content="../assets/images/rightspend-diagram.png">
+
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="How RightSpend Works - AI-Powered AWS Cost Optimization">
+    <meta name="twitter:description" content="Learn how RightSpend's AI-powered solution automatically optimizes your AWS costs with no long-term commitments.">
+    <meta name="twitter:image" content="../assets/images/rightspend-diagram.png">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="../assets/images/favicon.svg">
+
     <!-- Styles -->
-    <link href="/css/styles.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Scripts -->
-    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="/scripts/main.js"></script>
+    <link href="/css/styles.css" rel="stylesheet">
+    <script src="/src/scripts/main.js"></script>
 </head>
 <body class="font-sans bg-gray-50">
     <!-- Header -->
     <div x-data="{ includeFile: '/components/header.html' }" x-init="fetch(includeFile).then(response => response.text()).then(html => { $el.innerHTML = html })"></div>
 
     <!-- Hero Section -->
-    <section class="relative bg-gradient-to-r from-primary to-secondary overflow-hidden py-24">
+    <section class="bg-gradient-to-r from-primary to-secondary text-white py-24">
         <div class="container mx-auto px-6">
-            <div class="max-w-4xl mx-auto text-center text-white">
-                <h1 class="text-4xl md:text-6xl font-bold mb-8" data-aos="fade-up">
-                    How RightSpend Works
-                </h1>
-                <p class="text-xl md:text-2xl mb-12" data-aos="fade-up" data-aos-delay="100">
-                    Our AI-driven engine continuously analyzes your AWS usage patterns and automatically optimizes your coverage. <a href="/src/pages/engine.html" class="text-blue-600 hover:text-blue-800">Learn more about our engine</a>.
+            <div class="max-w-4xl mx-auto text-center">
+                <h1 class="text-4xl md:text-5xl font-bold mb-8">How RightSpend Works</h1>
+                <p class="text-xl md:text-2xl mb-12">AI-Powered AWS Cost Optimization</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Overview Section -->
+    <section class="py-24">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-8">Simple, Automated Cost Optimization</h2>
+                <p class="text-xl text-gray-600">
+                    RightSpend uses advanced AI to automatically optimize your AWS costs, delivering maximum savings with zero operational impact.
                 </p>
             </div>
-        </div>
-        <!-- Decorative elements -->
-        <div class="absolute inset-0 overflow-hidden pointer-events-none">
-            <div class="absolute top-0 right-0 w-1/2 h-1/2 bg-white opacity-5 rounded-full transform translate-x-1/2 -translate-y-1/2"></div>
-            <div class="absolute bottom-0 left-0 w-1/3 h-1/3 bg-white opacity-5 rounded-full transform -translate-x-1/2 translate-y-1/2"></div>
+
+            <div class="grid md:grid-cols-4 gap-8 max-w-5xl mx-auto">
+                <!-- Step 1: Connect -->
+                <div class="relative">
+                    <div class="card h-full">
+                        <div class="text-4xl mb-4">1️⃣</div>
+                        <h3 class="text-xl font-semibold mb-4">Connect</h3>
+                        <ul class="space-y-3 text-gray-600">
+                            <li class="flex items-start">
+                                <span class="text-primary mr-2">✓</span>
+                                Quick AWS integration
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-primary mr-2">✓</span>
+                                Read-only access
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-primary mr-2">✓</span>
+                                Secure setup
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="hidden md:block absolute top-1/2 left-full w-full h-1 bg-primary transform -translate-y-1/2 -z-10"></div>
+                </div>
+
+                <!-- Step 2: Analyze -->
+                <div class="relative">
+                    <div class="card h-full">
+                        <div class="text-4xl mb-4">2️⃣</div>
+                        <h3 class="text-xl font-semibold mb-4">Analyze</h3>
+                        <ul class="space-y-3 text-gray-600">
+                            <li class="flex items-start">
+                                <span class="text-primary mr-2">✓</span>
+                                AI-powered assessment
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-primary mr-2">✓</span>
+                                Usage pattern analysis
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-primary mr-2">✓</span>
+                                Gap identification
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="hidden md:block absolute top-1/2 left-full w-full h-1 bg-primary transform -translate-y-1/2 -z-10"></div>
+                </div>
+
+                <!-- Step 3: Optimize -->
+                <div class="relative">
+                    <div class="card h-full">
+                        <div class="text-4xl mb-4">3️⃣</div>
+                        <h3 class="text-xl font-semibold mb-4">Optimize</h3>
+                        <ul class="space-y-3 text-gray-600">
+                            <li class="flex items-start">
+                                <span class="text-primary mr-2">✓</span>
+                                Automated adjustments
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-primary mr-2">✓</span>
+                                Real-time optimization
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-primary mr-2">✓</span>
+                                Risk management
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="hidden md:block absolute top-1/2 left-full w-full h-1 bg-primary transform -translate-y-1/2 -z-10"></div>
+                </div>
+
+                <!-- Step 4: Save -->
+                <div>
+                    <div class="card h-full">
+                        <div class="text-4xl mb-4">4️⃣</div>
+                        <h3 class="text-xl font-semibold mb-4">Save</h3>
+                        <ul class="space-y-3 text-gray-600">
+                            <li class="flex items-start">
+                                <span class="text-primary mr-2">✓</span>
+                                Immediate savings
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-primary mr-2">✓</span>
+                                Ongoing optimization
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-primary mr-2">✓</span>
+                                Regular reports
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
-    <!-- The Engine Section -->
-    <section class="py-24">
+    <!-- Technical Details Section -->
+    <section class="py-24 bg-gray-100">
         <div class="container mx-auto px-6">
             <div class="max-w-4xl mx-auto">
-                <h2 class="text-3xl md:text-4xl font-bold text-center mb-16" data-aos="fade-up">
-                    The RightSpend Engine
-                </h2>
-
-                <!-- Diagram -->
-                <div class="mb-16 text-center" data-aos="fade-up">
-                    <img src="/assets/images/rightspend-diagram.png" alt="RightSpend Engine Diagram" class="max-w-3xl mx-auto">
-                </div>
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-16">Technical Details</h2>
                 
                 <div class="grid md:grid-cols-2 gap-12">
-                    <!-- AI Analysis -->
-                    <div class="card" data-aos="fade-up" data-aos-delay="100">
-                        <div class="text-primary text-4xl mb-4">🧠</div>
-                        <h3 class="text-xl font-semibold mb-4">AI-Driven Analysis</h3>
-                        <p class="text-gray-600 mb-4">Our advanced AI engine continuously analyzes your AWS usage patterns to identify optimization opportunities.</p>
-                        <ul class="space-y-2 text-gray-600">
+                    <!-- Integration -->
+                    <div>
+                        <h3 class="text-2xl font-semibold mb-6">Secure Integration</h3>
+                        <ul class="space-y-4 text-gray-600">
                             <li class="flex items-start">
                                 <span class="text-primary mr-2">✓</span>
-                                Usage pattern recognition
+                                Read-only AWS access
                             </li>
                             <li class="flex items-start">
                                 <span class="text-primary mr-2">✓</span>
-                                Workload analysis
+                                No infrastructure changes required
                             </li>
                             <li class="flex items-start">
                                 <span class="text-primary mr-2">✓</span>
-                                Cost optimization modeling
+                                Enterprise-grade security
                             </li>
                         </ul>
                     </div>
 
-                    <!-- Real-time Optimization -->
-                    <div class="card" data-aos="fade-up" data-aos-delay="200">
-                        <div class="text-primary text-4xl mb-4">⚡</div>
-                        <h3 class="text-xl font-semibold mb-4">Real-time Optimization</h3>
-                        <p class="text-gray-600 mb-4">Automated adjustments ensure you're always getting the best possible savings without manual intervention.</p>
-                        <ul class="space-y-2 text-gray-600">
+                    <!-- AI Engine -->
+                    <div>
+                        <h3 class="text-2xl font-semibold mb-6">AI Engine</h3>
+                        <ul class="space-y-4 text-gray-600">
                             <li class="flex items-start">
                                 <span class="text-primary mr-2">✓</span>
-                                Dynamic coverage adjustments
+                                Advanced machine learning algorithms
                             </li>
                             <li class="flex items-start">
                                 <span class="text-primary mr-2">✓</span>
-                                Automated decision making
+                                Real-time pattern analysis
                             </li>
                             <li class="flex items-start">
                                 <span class="text-primary mr-2">✓</span>
-                                Continuous optimization
+                                Predictive optimization
                             </li>
                         </ul>
                     </div>
+                </div>
+
+                <div class="mt-12">
+                    <img src="../assets/images/rightspend-diagram.png" alt="RightSpend Technical Architecture" class="w-full rounded-lg shadow-lg">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Process Flow Section -->
-    <section class="py-24 bg-gray-100">
-        <div class="container mx-auto px-6">
-            <h2 class="text-3xl md:text-4xl font-bold text-center mb-16" data-aos="fade-up">
-                The RightSpend Process
-            </h2>
-
-            <div class="max-w-5xl mx-auto">
-                <div class="grid md:grid-cols-4 gap-8">
-                    <!-- Connect -->
-                    <div class="relative" data-aos="fade-up" data-aos-delay="100">
-                        <div class="card h-full">
-                            <div class="text-4xl mb-4">1️⃣</div>
-                            <h3 class="text-xl font-semibold mb-4">Connect</h3>
-                            <p class="text-gray-600">Quick and secure integration with your AWS account through our read-only access.</p>
-                        </div>
-                        <div class="hidden md:block absolute top-1/2 left-full w-full h-1 bg-primary transform -translate-y-1/2 -z-10"></div>
-                    </div>
-
-                    <!-- Analyze -->
-                    <div class="relative" data-aos="fade-up" data-aos-delay="200">
-                        <div class="card h-full">
-                            <div class="text-4xl mb-4">2️⃣</div>
-                            <h3 class="text-xl font-semibold mb-4">Analyze</h3>
-                            <p class="text-gray-600">Our AI engine analyzes your usage patterns and identifies optimization opportunities.</p>
-                        </div>
-                        <div class="hidden md:block absolute top-1/2 left-full w-full h-1 bg-primary transform -translate-y-1/2 -z-10"></div>
-                    </div>
-
-                    <!-- Optimize -->
-                    <div class="relative" data-aos="fade-up" data-aos-delay="300">
-                        <div class="card h-full">
-                            <div class="text-4xl mb-4">3️⃣</div>
-                            <h3 class="text-xl font-semibold mb-4">Optimize</h3>
-                            <p class="text-gray-600">Automated optimization adjusts in real-time to maximize your savings.</p>
-                        </div>
-                        <div class="hidden md:block absolute top-1/2 left-full w-full h-1 bg-primary transform -translate-y-1/2 -z-10"></div>
-                    </div>
-
-                    <!-- Save -->
-                    <div data-aos="fade-up" data-aos-delay="400">
-                        <div class="card h-full">
-                            <div class="text-4xl mb-4">4️⃣</div>
-                            <h3 class="text-xl font-semibold mb-4">Save</h3>
-                            <p class="text-gray-600">Start seeing immediate savings with zero risk and complete flexibility.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Key Features Section -->
+    <!-- Benefits Section -->
     <section class="py-24">
         <div class="container mx-auto px-6">
-            <h2 class="text-3xl md:text-4xl font-bold text-center mb-16" data-aos="fade-up">
-                Key Features
-            </h2>
-
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-16">Key Benefits</h2>
             <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-                <!-- Automated Decisions -->
-                <div class="card" data-aos="fade-up" data-aos-delay="100">
-                    <div class="text-primary text-4xl mb-4">🤖</div>
-                    <h3 class="text-xl font-semibold mb-4">Automated Decisions</h3>
-                    <p class="text-gray-600">Let our AI handle complex optimization decisions while you focus on your business.</p>
+                <!-- Savings -->
+                <div class="card">
+                    <div class="text-primary text-4xl mb-4">💰</div>
+                    <h3 class="text-xl font-semibold mb-4">Maximum Savings</h3>
+                    <p class="text-gray-600">
+                        Achieve up to 55% savings on your AWS costs through intelligent optimization.
+                    </p>
                 </div>
 
-                <!-- Zero Lock-in -->
-                <div class="card" data-aos="fade-up" data-aos-delay="200">
-                    <div class="text-primary text-4xl mb-4">🔓</div>
-                    <h3 class="text-xl font-semibold mb-4">Zero Lock-in</h3>
-                    <p class="text-gray-600">Maintain complete flexibility with no long-term commitments or restrictive contracts.</p>
+                <!-- Flexibility -->
+                <div class="card">
+                    <div class="text-primary text-4xl mb-4">🔄</div>
+                    <h3 class="text-xl font-semibold mb-4">Complete Flexibility</h3>
+                    <p class="text-gray-600">
+                        No long-term commitments or lock-in periods. Scale up or down anytime.
+                    </p>
                 </div>
 
-                <!-- Real-time Monitoring -->
-                <div class="card" data-aos="fade-up" data-aos-delay="300">
-                    <div class="text-primary text-4xl mb-4">📊</div>
-                    <h3 class="text-xl font-semibold mb-4">Real-time Monitoring</h3>
-                    <p class="text-gray-600">Track your savings and optimization performance in real-time through our dashboard.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Calculator Section -->
-    <section class="py-24 bg-gray-100">
-        <div class="container mx-auto px-6">
-            <div class="max-w-4xl mx-auto">
-                <div class="text-center">
-                    <h2 class="text-3xl md:text-4xl font-bold mb-8">Calculate Your Potential Savings</h2>
-                    <p class="text-xl text-gray-600 mb-8">Use our savings calculator to estimate how much you could save on your AWS costs.</p>
-                    <a href="https://spconsultant.ai" target="_blank" rel="noopener noreferrer" class="btn-primary text-lg">Calculate Savings</a>
+                <!-- Automation -->
+                <div class="card">
+                    <div class="text-primary text-4xl mb-4">⚙️</div>
+                    <h3 class="text-xl font-semibold mb-4">Full Automation</h3>
+                    <p class="text-gray-600">
+                        Set it and forget it. Our AI handles everything automatically.
+                    </p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- CTA Section -->
-    <section class="py-24">
+    <section class="py-24 bg-gray-100">
         <div class="container mx-auto px-6 text-center">
             <div class="max-w-3xl mx-auto">
-                <h2 class="text-3xl md:text-4xl font-bold mb-8">Ready to Start Saving?</h2>
-                <p class="text-xl text-gray-600 mb-12">Join the companies saving millions on AWS with RightSpend's automated optimization.</p>
+                <h2 class="text-3xl md:text-4xl font-bold mb-8">Ready to Get Started?</h2>
+                <p class="text-xl text-gray-600 mb-12">Schedule a call to learn how RightSpend can help you achieve maximum savings with complete flexibility</p>
                 <div class="flex flex-col sm:flex-row justify-center gap-4">
-                    <a href="https://app.apollo.io/#/meet/tim_galloway_f2d" target="_blank" rel="noopener noreferrer" class="btn-primary text-lg">Find Out More</a>
-                    <a href="/engine" class="btn-outline text-lg">Learn How It Works</a>
+                    <a href="https://app.apollo.io/#/meet/tim_galloway_f2d" class="btn-primary text-lg">Find Out More</a>
+                    <a href="/use-cases" class="btn-outline text-lg">View Use Cases</a>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <div x-data="{ includeFile: './components/footer.html' }" x-init="fetch(includeFile).then(response => response.text()).then(html => { $el.innerHTML = html })"></div>
+    <div x-data="{ includeFile: '/components/footer.html' }" x-init="fetch(includeFile).then(response => response.text()).then(html => { $el.innerHTML = html })"></div>
 
     <!-- Initialize AOS -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>

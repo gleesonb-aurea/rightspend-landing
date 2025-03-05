@@ -1,82 +1,235 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RightSpend Pricing - AWS Cost Optimization</title>
-    
-    <!-- SEO Meta Tags -->
-    <meta name="description" content="Learn about RightSpend's pricing model based on a percentage of net new savings. Contracted through AWS Marketplace, billed after savings are realized.">
-    <meta name="keywords" content="AWS cost optimization, cloud cost savings, immediate ROI, automated cost management, cloud infrastructure optimization">
+    <title>RightSpend Pricing - Flexible AWS Cost Optimization</title>
+    <meta name="description" content="Discover RightSpend's flexible pricing model with no long-term commitments. Start optimizing your AWS costs today.">
+    <meta name="keywords" content="AWS cost optimization, RightSpend pricing, cloud savings, no lock-in">
     <meta name="author" content="CloudFix">
-    
-    <!-- Open Graph Tags -->
-    <meta property="og:title" content="RightSpend Pricing - AWS Cost Optimization">
-    <meta property="og:description" content="Learn about RightSpend's pricing model based on a percentage of net new savings. Contracted through AWS Marketplace, billed after savings are realized.">
+
+    <!-- Open Graph / Social Media Meta Tags -->
+    <meta property="og:title" content="RightSpend Pricing - Flexible AWS Cost Optimization">
+    <meta property="og:description" content="Discover RightSpend's flexible pricing model with no long-term commitments. Start optimizing your AWS costs today.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://rightspend.ai/pricing">
-    <meta property="og:image" content="../images/rightspend-pricing-og.jpg">
-    
+    <meta property="og:image" content="../assets/images/RightSpend-cool.png">
+
     <!-- Twitter Card Tags -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="RightSpend Pricing - AWS Cost Optimization">
-    <meta name="twitter:description" content="Learn about RightSpend's pricing model based on a percentage of net new savings.">
-    <meta name="twitter:image" content="../images/rightspend-pricing-og.jpg">
-    
+    <meta name="twitter:title" content="RightSpend Pricing - Flexible AWS Cost Optimization">
+    <meta name="twitter:description" content="Discover RightSpend's flexible pricing model with no long-term commitments. Start optimizing your AWS costs today.">
+    <meta name="twitter:image" content="../assets/images/RightSpend-cool.png">
+
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
-    
+    <link rel="icon" type="image/svg+xml" href="../assets/images/favicon.svg">
+
     <!-- Styles -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link href="/css/styles.css" rel="stylesheet">
-    
-    <!-- Apollo Tracking Script -->
-    <script>
-        function initApollo(){var n=Math.random().toString(36).substring(7),o=document.createElement("script");
-        o.src="https://assets.apollo.io/micro/website-tracker/tracker.iife.js?nocache="+n,o.async=!0,o.defer=!0,
-        o.onload=function(){window.trackingFunctions.onLoad({appId:"6602e615b2af9b0439deed0c"})},
-        document.head.appendChild(o)}initApollo();
-    </script>
+    <script src="/src/scripts/main.js"></script>
 </head>
 <body class="font-sans bg-gray-50">
     <!-- Header -->
-    <div x-data="{ includeFile: '../components/header.html' }" x-init="fetch(includeFile).then(response => response.text()).then(html => { $el.innerHTML = html })"></div>
+    <div x-data="{ includeFile: '/components/header.html' }" x-init="fetch(includeFile).then(response => response.text()).then(html => { $el.innerHTML = html })"></div>
 
     <!-- Hero Section -->
-    <section class="relative bg-gradient-to-r from-primary to-secondary overflow-hidden py-24">
+    <section class="bg-gradient-to-r from-primary to-secondary text-white py-24">
         <div class="container mx-auto px-6">
-            <div class="max-w-4xl mx-auto text-center text-white">
-                <h1 class="text-4xl md:text-6xl font-bold mb-8" data-aos="fade-up">
-                    RightSpend Pricing
-                </h1>
-                <p class="text-xl md:text-2xl mb-12" data-aos="fade-up" data-aos-delay="100">
-                    Transparent pricing based on a percentage of your AWS savings.
-                </p>
+            <div class="max-w-4xl mx-auto text-center">
+                <h1 class="text-4xl md:text-5xl font-bold mb-8">Simple, Flexible Pricing</h1>
+                <p class="text-xl md:text-2xl mb-12">No long-term commitments. Pay only for what you save.</p>
             </div>
-        </div>
-        <!-- Decorative elements -->
-        <div class="absolute inset-0 overflow-hidden pointer-events-none">
-            <div class="absolute top-0 right-0 w-1/2 h-1/2 bg-white opacity-5 rounded-full transform translate-x-1/2 -translate-y-1/2"></div>
-            <div class="absolute bottom-0 left-0 w-1/3 h-1/3 bg-white opacity-5 rounded-full transform -translate-x-1/2 translate-y-1/2"></div>
         </div>
     </section>
 
-    <!-- Pricing Details Section -->
-    <section class="py-12">
+    <!-- Pricing Model Section -->
+    <section class="py-24">
         <div class="container mx-auto px-6">
-            <div class="max-w-3xl mx-auto bg-white shadow-lg rounded-lg p-8">
-                <h2 class="text-2xl font-semibold mb-4">Key Pricing Details</h2>
-                <ul class="list-disc list-inside text-gray-600">
-                    <li><strong>Percentage of Savings:</strong> Typically 25% of net new AWS savings.</li>
-                    <li><strong>AWS Marketplace:</strong> Contracted and billed directly through the AWS Marketplace for seamless integration.</li>
-                    <li><strong>Billed After Savings:</strong> You are only billed after savings are realized. For example, if RightSpend saves you $100k in January, that appears on your February bill, to be paid in March.</li>
-                    <li><strong>EDOP Contribution:</strong> All RightSpend fees contribute to your Enterprise Discount Program (EDOP) as RightSpend is 100% built on AWS.</li>
-                </ul>
+            <div class="max-w-4xl mx-auto text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-8">Success-Based Pricing</h2>
+                <p class="text-xl text-gray-600">
+                    Our pricing is simple: we only make money when you save money. No upfront costs, no fixed fees.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                <!-- What You Get -->
+                <div class="card">
+                    <div class="text-primary text-4xl mb-4">📦</div>
+                    <h3 class="text-xl font-semibold mb-4">What You Get</h3>
+                    <ul class="space-y-3 text-gray-600">
+                        <li class="flex items-start">
+                            <span class="text-primary mr-2">✓</span>
+                            AI-powered optimization
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-primary mr-2">✓</span>
+                            Full automation
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-primary mr-2">✓</span>
+                            Real-time adjustments
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-primary mr-2">✓</span>
+                            Detailed reporting
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- How It Works -->
+                <div class="card">
+                    <div class="text-primary text-4xl mb-4">💰</div>
+                    <h3 class="text-xl font-semibold mb-4">How It Works</h3>
+                    <ul class="space-y-3 text-gray-600">
+                        <li class="flex items-start">
+                            <span class="text-primary mr-2">✓</span>
+                            No upfront costs
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-primary mr-2">✓</span>
+                            Pay only for savings
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-primary mr-2">✓</span>
+                            Monthly billing
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-primary mr-2">✓</span>
+                            Cancel anytime
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- What You Save -->
+                <div class="card">
+                    <div class="text-primary text-4xl mb-4">📈</div>
+                    <h3 class="text-xl font-semibold mb-4">What You Save</h3>
+                    <ul class="space-y-3 text-gray-600">
+                        <li class="flex items-start">
+                            <span class="text-primary mr-2">✓</span>
+                            Up to 55% AWS savings
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-primary mr-2">✓</span>
+                            Immediate cost reduction
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-primary mr-2">✓</span>
+                            Continuous optimization
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-primary mr-2">✓</span>
+                            Risk-free optimization
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="py-24 bg-gray-100">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-16">Why Choose Our Pricing Model</h2>
+            <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                <!-- No Risk -->
+                <div class="card">
+                    <div class="text-primary text-4xl mb-4">🛡️</div>
+                    <h3 class="text-xl font-semibold mb-4">No Risk</h3>
+                    <p class="text-gray-600">
+                        You only pay when we deliver actual savings. No savings, no cost.
+                    </p>
+                </div>
+
+                <!-- No Lock-in -->
+                <div class="card">
+                    <div class="text-primary text-4xl mb-4">🔓</div>
+                    <h3 class="text-xl font-semibold mb-4">No Lock-in</h3>
+                    <p class="text-gray-600">
+                        Complete flexibility to scale up or down. Cancel anytime with no penalties.
+                    </p>
+                </div>
+
+                <!-- Transparent -->
+                <div class="card">
+                    <div class="text-primary text-4xl mb-4">👁️</div>
+                    <h3 class="text-xl font-semibold mb-4">Transparent</h3>
+                    <p class="text-gray-600">
+                        Clear, simple pricing based on actual savings achieved.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-24">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-16">Common Questions</h2>
+                
+                <div class="space-y-8">
+                    <div>
+                        <h3 class="text-xl font-semibold mb-4">Are there any upfront costs?</h3>
+                        <p class="text-gray-600">
+                            No, there are no upfront costs or fixed fees. You only pay based on the actual savings we deliver.
+                        </p>
+                    </div>
+
+                    <div>
+                        <h3 class="text-xl font-semibold mb-4">What if we don't save money?</h3>
+                        <p class="text-gray-600">
+                            If we don't generate savings, you don't pay anything. Our success is directly tied to your savings.
+                        </p>
+                    </div>
+
+                    <div>
+                        <h3 class="text-xl font-semibold mb-4">How long is the commitment?</h3>
+                        <p class="text-gray-600">
+                            There is no long-term commitment. You can cancel the service at any time without penalties.
+                        </p>
+                    </div>
+
+                    <div>
+                        <h3 class="text-xl font-semibold mb-4">How is billing handled?</h3>
+                        <p class="text-gray-600">
+                            Billing is handled monthly based on the actual savings achieved during the previous month.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-24 bg-gray-100">
+        <div class="container mx-auto px-6 text-center">
+            <div class="max-w-3xl mx-auto">
+                <h2 class="text-3xl md:text-4xl font-bold mb-8">Ready to Start Saving?</h2>
+                <p class="text-xl text-gray-600 mb-12">Schedule a call to learn how RightSpend can help you achieve maximum savings with complete flexibility</p>
+                <div class="flex flex-col sm:flex-row justify-center gap-4">
+                    <a href="https://app.apollo.io/#/meet/tim_galloway_f2d" class="btn-primary text-lg">Find Out More</a>
+                    <a href="/use-cases" class="btn-outline text-lg">View Use Cases</a>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <div x-data="{ includeFile: '../components/footer.html' }" x-init="fetch(includeFile).then(response => response.text()).then(html => { $el.innerHTML = html })"></div>
-    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <div x-data="{ includeFile: '/components/footer.html' }" x-init="fetch(includeFile).then(response => response.text()).then(html => { $el.innerHTML = html })"></div>
+
+    <!-- Initialize AOS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            AOS.init({
+                duration: 800,
+                once: true
+            });
+        });
+    </script>
 </body>
 </html>

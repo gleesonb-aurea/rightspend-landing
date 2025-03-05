@@ -1,190 +1,155 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog - RightSpend Cloud Cost Optimization Insights</title>
-    
-    <!-- SEO Meta Tags -->
-    <meta name="description" content="Expert insights, case studies, and best practices for AWS cost optimization and cloud infrastructure management from RightSpend.">
-    <meta name="keywords" content="AWS cost optimization, cloud management, case studies, cloud infrastructure, cost savings, RightSpend blog">
-    <meta name="author" content="RightSpend">
-    
-    <!-- Open Graph Tags -->
-    <meta property="og:title" content="RightSpend Blog - Cloud Cost Optimization Insights">
-    <meta property="og:description" content="Expert analysis and insights on AWS cost optimization, cloud infrastructure, and real customer success stories.">
+    <title>RightSpend Blog - AWS Cost Optimization Insights</title>
+    <meta name="description" content="Stay up to date with the latest insights, tips, and best practices for AWS cost optimization from the RightSpend team.">
+    <meta name="keywords" content="AWS cost optimization, cloud savings, RightSpend blog, cloud computing insights">
+    <meta name="author" content="CloudFix">
+
+    <!-- Open Graph / Social Media Meta Tags -->
+    <meta property="og:title" content="RightSpend Blog - AWS Cost Optimization Insights">
+    <meta property="og:description" content="Stay up to date with the latest insights, tips, and best practices for AWS cost optimization from the RightSpend team.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://rightspend.ai/blog">
-    <meta property="og:image" content="../images/blog-og.jpg">
-    
+    <meta property="og:image" content="../assets/images/RightSpend-cool.png">
+
     <!-- Twitter Card Tags -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="RightSpend Blog - RightSpend Cloud Cost Optimization Insights">
-    <meta name="twitter:description" content="Expert insights on AWS cost optimization and cloud management.">
-    <meta name="twitter:image" content="../images/blog-og.jpg">
-    
+    <meta name="twitter:title" content="RightSpend Blog - AWS Cost Optimization Insights">
+    <meta name="twitter:description" content="Stay up to date with the latest insights, tips, and best practices for AWS cost optimization from the RightSpend team.">
+    <meta name="twitter:image" content="../assets/images/RightSpend-cool.png">
+
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
-    
+    <link rel="icon" type="image/svg+xml" href="../assets/images/favicon.svg">
+
     <!-- Styles -->
-    <link href="../styles/styles.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Scripts -->
-    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <link href="/css/styles.css" rel="stylesheet">
     <script src="/src/scripts/main.js"></script>
-    
-    <!-- AOS Styles -->
-    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 </head>
-<body class="font-sans bg-gray-50" x-data>
+<body class="font-sans bg-gray-50">
     <!-- Header -->
-    <div x-data="{ includeFile: './components/header.html' }" x-init="fetch(includeFile).then(response => response.text()).then(html => { $el.innerHTML = html })"></div>
+    <div x-data="{ includeFile: '/components/header.html' }" x-init="fetch(includeFile).then(response => response.text()).then(html => { $el.innerHTML = html })"></div>
 
-    <!-- Blog Header -->
-
-    <section class="relative bg-gradient-to-r from-primary to-secondary overflow-hidden py-24">
-        <div class="container mx-auto px-6">
-            <div class="max-w-4xl mx-auto text-center text-white">
-                <h1 class="text-4xl md:text-6xl font-bold mb-8" data-aos="fade-up">
-                    Latest Insights
-                </h1>
-                <p class="text-xl md:text-2xl mb-12" data-aos="fade-up" data-aos-delay="100">
-                    Expert analysis and insights on AWS cost optimization, cloud infrastructure, and more.
-                </p>
-            </div>
-        </div>
-        <!-- Decorative elements -->
-        <div class="absolute inset-0 overflow-hidden pointer-events-none">
-            <div class="absolute top-0 right-0 w-1/2 h-1/2 bg-white opacity-5 rounded-full transform translate-x-1/2 -translate-y-1/2"></div>
-            <div class="absolute bottom-0 left-0 w-1/3 h-1/3 bg-white opacity-5 rounded-full transform -translate-x-1/2 translate-y-1/2"></div>
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-r from-primary to-secondary text-white py-24">
+        <div class="container mx-auto px-6 text-center">
+            <h1 class="text-4xl md:text-5xl font-bold mb-8">RightSpend Blog</h1>
+            <p class="text-xl md:text-2xl mb-12">Insights and Best Practices for AWS Cost Optimization</p>
         </div>
     </section>
 
-    <!-- Blog Posts Grid -->
-    <section class="py-16 bg-gray-50">
+    <!-- Featured Post Section -->
+    <section class="py-24">
         <div class="container mx-auto px-6">
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <article class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1 transition-transform duration-300">
-                    <div class="h-48 bg-gradient-to-r from-blue-900 to-indigo-900 flex items-center justify-center p-4">
-                        <img src="/src/assets/images/cloud-savings-icon.svg" alt="Cloud Cost Savings" class="h-32">
-                    </div>
-                    <div class="p-6">
-                        <div class="text-sm text-gray-500 mb-2">March 3, 2025</div>
-                        <h2 class="text-xl font-bold mb-3">
-                            <a href="./cut-aws-costs-with-cloudfix-rightspend.html" class="text-gray-900 hover:text-blue-600 transition">
-                                Cut AWS Costs with CloudFix RightSpend — No Long-Term Commitment
-                            </a>
-                        </h2>
-                        <p class="text-gray-600 mb-4">Learn how CloudFix RightSpend maximizes your AWS Effective Savings Rate without long-term commitments or upfront investments.</p>
-                        <a href="./cut-aws-costs-with-cloudfix-rightspend.html" class="text-blue-600 hover:text-blue-800 font-medium inline-flex items-center">
-                            Read More <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+            <h2 class="text-3xl font-bold mb-16">Featured Post</h2>
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h3 class="text-2xl font-semibold mb-4">
+                        <a href="/automotive-manufacturer-saves-millions.html" class="hover:text-primary">
+                            How a Fortune 500 Manufacturer Saved $2.5M on AWS Costs
                         </a>
+                    </h3>
+                    <p class="text-gray-600 mb-6">
+                        Learn how a leading automotive manufacturer achieved significant AWS savings while maintaining operational efficiency using RightSpend's automated optimization.
+                    </p>
+                    <div class="flex items-center text-gray-500 mb-6">
+                        <span class="mr-4">March 5, 2025</span>
+                        <span>5 min read</span>
                     </div>
-                </article>
+                    <a href="/automotive-manufacturer-saves-millions.html" class="btn-primary inline-block">Read Case Study</a>
+                </div>
+                <div class="relative">
+                    <img src="../assets/images/cloud-savings-icon.svg" alt="AWS Cost Savings" class="w-full rounded-lg shadow-lg">
+                </div>
+            </div>
+        </div>
+    </section>
 
-                <article class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1 transition-transform duration-300">
-                    <div class="h-48 bg-gradient-to-r from-blue-900 to-indigo-900 flex items-center justify-center p-4">
-                        <img src="/src/assets/images/cloud-savings-icon.svg" alt="Cloud Cost Savings" class="h-32">
-                    </div>
-                    <div class="p-6">
-                        <div class="text-sm text-gray-500 mb-2">February 24, 2025</div>
-                        <h2 class="text-xl font-bold mb-3">
-                            <a href="./automotive-manufacturer-saves-millions.html" class="text-gray-900 hover:text-blue-600 transition">
-                                Automotive Manufacturer Saves $25K Daily with RightSpend
-                            </a>
-                        </h2>
-                        <p class="text-gray-600 mb-4">Discover how one of North America's largest automotive manufacturers achieved immediate cost savings and optimized their cloud infrastructure with RightSpend's AI-driven solution.</p>
-                        <a href="./automotive-manufacturer-saves-millions.html" class="text-blue-600 hover:text-blue-800 font-medium inline-flex items-center">
-                            Read More <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+    <!-- Latest Posts Section -->
+    <section class="py-24 bg-gray-100">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold mb-16">Latest Posts</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Post 1 -->
+                <div class="card">
+                    <h3 class="text-xl font-semibold mb-4">
+                        <a href="/cut-aws-costs-with-cloudfix-rightspend.html" class="hover:text-primary">
+                            Cut AWS Costs with CloudFix RightSpend
                         </a>
+                    </h3>
+                    <p class="text-gray-600 mb-6">
+                        Discover how RightSpend's AI-powered solution can help you achieve up to 55% savings on your AWS costs without long-term commitments.
+                    </p>
+                    <div class="flex items-center text-gray-500">
+                        <span class="mr-4">March 1, 2025</span>
+                        <span>4 min read</span>
                     </div>
-                </article>
+                </div>
 
-                <article class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1 transition-transform duration-300">
-                     <div class="h-48 bg-gradient-to-r from-blue-900 to-indigo-900 flex items-center justify-center p-4">
-                        <img src="/src/assets/images/cloud-savings-icon.svg" alt="Cloud Cost Savings" class="h-32">
-                    </div>
-                    <div class="p-6">
-                        <div class="text-sm text-gray-500 mb-2">February 20, 2025</div>
-                        <h2 class="text-xl font-bold mb-3">
-                            <a href="./no-break-even-worries.html" class="text-gray-900 hover:text-blue-600 transition">
-                                No Break-Even Worries with Automated EC2 CRI Purchases
-                            </a>
-                        </h2>
-                        <p class="text-gray-600 mb-4">One of the common concerns when adopting Reserved Instances (RIs) for your AWS EC2 spend is the dreaded "break-even point." Learn how RightSpend eliminates this worry completely.</p>
-                        <a href="./no-break-even-worries.html" class="text-blue-600 hover:text-blue-800 font-medium inline-flex items-center">
-                            Read More <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                <!-- Post 2 -->
+                <div class="card">
+                    <h3 class="text-xl font-semibold mb-4">
+                        <a href="/no-break-even-worries.html" class="hover:text-primary">
+                            No Break-Even Worries with RightSpend
                         </a>
+                    </h3>
+                    <p class="text-gray-600 mb-6">
+                        Learn why traditional AWS savings plans can lead to break-even anxiety and how RightSpend eliminates this concern.
+                    </p>
+                    <div class="flex items-center text-gray-500">
+                        <span class="mr-4">February 28, 2025</span>
+                        <span>3 min read</span>
                     </div>
-                </article>
+                </div>
+
+                <!-- Post 3 -->
+                <div class="card">
+                    <h3 class="text-xl font-semibold mb-4">
+                        <a href="/blog/template.html" class="hover:text-primary">
+                            The Future of Cloud Cost Optimization
+                        </a>
+                    </h3>
+                    <p class="text-gray-600 mb-6">
+                        Explore how AI and automation are revolutionizing the way organizations approach AWS cost optimization.
+                    </p>
+                    <div class="flex items-center text-gray-500">
+                        <span class="mr-4">February 25, 2025</span>
+                        <span>6 min read</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="py-24">
+        <div class="container mx-auto px-6 text-center">
+            <div class="max-w-3xl mx-auto">
+                <h2 class="text-3xl md:text-4xl font-bold mb-8">Stay Updated</h2>
+                <p class="text-xl text-gray-600 mb-12">Subscribe to our newsletter for the latest insights on AWS cost optimization</p>
+                <div class="flex flex-col sm:flex-row justify-center gap-4">
+                    <a href="https://app.apollo.io/#/meet/tim_galloway_f2d" class="btn-primary text-lg">Contact Us</a>
+                    <a href="/features" class="btn-outline text-lg">Explore Features</a>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <div x-data="{ includeFile: './components/footer.html' }" x-init="fetch(includeFile).then(response => response.text()).then(html => { $el.innerHTML = html })"></div>
+    <div x-data="{ includeFile: '/components/footer.html' }" x-init="fetch(includeFile).then(response => response.text()).then(html => { $el.innerHTML = html })"></div>
 
+    <!-- Initialize AOS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script>
-        // Initialize AOS
         document.addEventListener('DOMContentLoaded', () => {
             AOS.init({
                 duration: 800,
                 once: true
             });
-        });
-
-        // Preview Graph initialization
-        const previewCtx = document.getElementById('previewGraph').getContext('2d');
-        new Chart(previewCtx, {
-            type: 'bar',
-            data: {
-                labels: ['Before RightSpend', 'After RightSpend'],
-                datasets: [
-                    {
-                        label: 'Reserved Instances',
-                        data: [0, 1250],
-                        backgroundColor: 'rgb(59, 130, 246)',
-                    },
-                    {
-                        label: 'On-Demand Costs',
-                        data: [2200, 250],
-                        backgroundColor: 'rgb(251, 191, 36)',
-                    }
-                ]
-            },
-            options: {
-                plugins: {
-                    title: {
-                        display: true,
-                        text: 'Daily Cloud Costs (USD)',
-                        font: {
-                            size: 14
-                        }
-                    },
-                    legend: {
-                        display: true,
-                        position: 'bottom'
-                    }
-                },
-                responsive: true,
-                maintainAspectRatio: false,
-                scales: {
-                    x: {
-                        stacked: true,
-                    },
-                    y: {
-                        stacked: true,
-                        beginAtZero: true,
-                        title: {
-                            display: true,
-                            text: 'Cost in USD'
-                        }
-                    }
-                }
-            }
         });
     </script>
 </body>

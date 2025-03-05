@@ -10,9 +10,11 @@
     "copy:components": "copyfiles -f \"src/components/*.html\" dist/components",
     "copy:assets": "copyfiles -u 1 \"src/assets/**/*\" dist",
     "copy:scripts": "copyfiles -f \"src/scripts/**/*\" dist/scripts",
+    "copy:sitemap": "aws s3 cp sitemap.xml s3://rightspend.ai/sitemap.xml --acl public-read",
     "build:copy": "npm-run-all copy:*",
     "fix-paths": "node fix-paths.js",
     "build": "npm-run-all clean mkdir build:css build:copy fix-paths",
+    "deploy": "npm run build && npm run copy:sitemap",
     "serve": "node server.js"
   },
   "devDependencies": {

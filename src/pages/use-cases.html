@@ -1,205 +1,149 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RightSpend Use Cases - Flexible AWS Cost Optimization Solutions</title>
-    
-    <!-- SEO Meta Tags -->
-    <meta name="description" content="Explore how RightSpend helps companies optimize AWS costs in various scenarios - from last-mile coverage to complete optimization strategies.">
-    <meta name="keywords" content="AWS cost optimization, cloud savings, RightSpend use cases, AWS coverage optimization">
+    <title>RightSpend Use Cases - AWS Cost Optimization Success Stories</title>
+    <meta name="description" content="Explore real-world examples of how organizations use RightSpend to optimize their AWS costs and achieve significant savings.">
+    <meta name="keywords" content="AWS cost optimization, RightSpend use cases, cloud savings, success stories, case studies">
     <meta name="author" content="CloudFix">
-    
+
     <!-- Open Graph / Social Media Meta Tags -->
-    <meta property="og:title" content="RightSpend Use Cases - AWS Cost Optimization Solutions">
-    <meta property="og:description" content="Discover how RightSpend helps companies achieve maximum AWS savings in different scenarios while maintaining flexibility.">
+    <meta property="og:title" content="RightSpend Use Cases - AWS Cost Optimization Success Stories">
+    <meta property="og:description" content="Explore real-world examples of how organizations use RightSpend to optimize their AWS costs and achieve significant savings.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://rightspend.ai/use-cases">
-    
+    <meta property="og:image" content="../assets/images/RightSpend-cool.png">
+
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="RightSpend Use Cases - AWS Cost Optimization Success Stories">
+    <meta name="twitter:description" content="Explore real-world examples of how organizations use RightSpend to optimize their AWS costs and achieve significant savings.">
+    <meta name="twitter:image" content="../assets/images/RightSpend-cool.png">
+
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href="./assets/images/favicon.png">
-    
+    <link rel="icon" type="image/svg+xml" href="../assets/images/favicon.svg">
+
     <!-- Styles -->
-    <link href="/css/styles.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Scripts -->
-    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="/scripts/main.js"></script>
+    <link href="/css/styles.css" rel="stylesheet">
+    <script src="/src/scripts/main.js"></script>
 </head>
 <body class="font-sans bg-gray-50">
     <!-- Header -->
     <div x-data="{ includeFile: '/components/header.html' }" x-init="fetch(includeFile).then(response => response.text()).then(html => { $el.innerHTML = html })"></div>
 
     <!-- Hero Section -->
-    <section class="relative bg-gradient-to-r from-primary to-secondary overflow-hidden py-24">
-        <div class="container mx-auto px-6">
-            <div class="max-w-4xl mx-auto text-center text-white">
-                <h1 class="text-4xl md:text-6xl font-bold mb-8" data-aos="fade-up">
-                    RightSpend Use Cases
-                </h1>
-                <p class="text-xl md:text-2xl mb-12" data-aos="fade-up" data-aos-delay="100">
-                    Discover how RightSpend optimizes AWS costs in any scenario
-                </p>
-            </div>
-        </div>
-        <!-- Decorative elements -->
-        <div class="absolute inset-0 overflow-hidden pointer-events-none">
-            <div class="absolute top-0 right-0 w-1/2 h-1/2 bg-white opacity-5 rounded-full transform translate-x-1/2 -translate-y-1/2"></div>
-            <div class="absolute bottom-0 left-0 w-1/3 h-1/3 bg-white opacity-5 rounded-full transform -translate-x-1/2 translate-y-1/2"></div>
+    <section class="bg-gradient-to-r from-primary to-secondary text-white py-24">
+        <div class="container mx-auto px-6 text-center">
+            <h1 class="text-4xl md:text-5xl font-bold mb-8">Use Cases</h1>
+            <p class="text-xl md:text-2xl mb-12">Real-World AWS Cost Optimization Success Stories</p>
         </div>
     </section>
 
-    <!-- Use Cases Grid -->
+    <!-- Use Cases Section -->
     <section class="py-24">
         <div class="container mx-auto px-6">
-            <div class="grid md:grid-cols-2 gap-12 max-w-6xl mx-auto">
-                <!-- Last Mile Coverage -->
-                <div class="card" data-aos="fade-up" data-aos-delay="100">
-                    <div class="text-primary text-4xl mb-4">🎯</div>
-                    <h3 class="text-2xl font-semibold mb-4">Last Mile Coverage</h3>
-                    <p class="text-gray-600 mb-6">Optimize the uncovered portions of your EC2 spend with RightSpend's flexible approach.</p>
-                    <ul class="space-y-4 mb-8">
-                        <li class="flex items-start">
-                            <span class="text-primary mr-2">✓</span>
-                            <div>
-                                <strong class="block text-gray-800">Fill Coverage Gaps</strong>
-                                <span class="text-gray-600">Identify and optimize uncovered instances without long-term commitments</span>
-                            </div>
-                        </li>
-                        <li class="flex items-start">
-                            <span class="text-primary mr-2">✓</span>
-                            <div>
-                                <strong class="block text-gray-800">Dynamic Optimization</strong>
-                                <span class="text-gray-600">Automatically adjust coverage based on usage patterns</span>
-                            </div>
-                        </li>
-                        <li class="flex items-start">
-                            <span class="text-primary mr-2">✓</span>
-                            <div>
-                                <strong class="block text-gray-800">Risk-Free Implementation</strong>
-                                <span class="text-gray-600">Start saving immediately with no upfront commitments</span>
-                            </div>
-                        </li>
-                    </ul>
-                    <a href="https://app.apollo.io/#/meet/tim_galloway_f2d" target="_blank" rel="noopener noreferrer" class="btn-primary">Find Out More</a>
-                </div>
-
-                <!-- Complete Coverage -->
-                <div class="card" data-aos="fade-up" data-aos-delay="200">
-                    <div class="text-primary text-4xl mb-4">💯</div>
-                    <h3 class="text-2xl font-semibold mb-4">Complete Coverage</h3>
-                    <p class="text-gray-600 mb-6">Maximize your EC2 savings with RightSpend's comprehensive optimization strategy.</p>
-                    <ul class="space-y-4 mb-8">
-                        <li class="flex items-start">
-                            <span class="text-primary mr-2">✓</span>
-                            <div>
-                                <strong class="block text-gray-800">Full Environment Coverage</strong>
-                                <span class="text-gray-600">Optimize all eligible EC2 instances across your AWS environment</span>
-                            </div>
-                        </li>
-                        <li class="flex items-start">
-                            <span class="text-primary mr-2">✓</span>
-                            <div>
-                                <strong class="block text-gray-800">Maximum Flexibility</strong>
-                                <span class="text-gray-600">Change or scale resources anytime without penalties</span>
-                            </div>
-                        </li>
-                        <li class="flex items-start">
-                            <span class="text-primary mr-2">✓</span>
-                            <div>
-                                <strong class="block text-gray-800">Automated Management</strong>
-                                <span class="text-gray-600">AI-driven optimization handles all the complexity</span>
-                            </div>
-                        </li>
-                    </ul>
-                    <a href="https://app.apollo.io/#/meet/tim_galloway_f2d" target="_blank" rel="noopener noreferrer" class="btn-primary">Find Out More</a>
-                </div>
-
-                <!-- Enhanced Coverage -->
-                <div class="card" data-aos="fade-up" data-aos-delay="300">
-                    <div class="text-primary text-4xl mb-4">🚀</div>
-                    <h3 class="text-2xl font-semibold mb-4">Enhanced Coverage</h3>
-                    <p class="text-gray-600 mb-6">Improve your existing Savings Plan strategy with RightSpend's flexible approach.</p>
-                    <ul class="space-y-4 mb-8">
-                        <li class="flex items-start">
-                            <span class="text-primary mr-2">✓</span>
-                            <div>
-                                <strong class="block text-gray-800">Complement Existing Plans</strong>
-                                <span class="text-gray-600">Add flexibility to your current Savings Plan ladder</span>
-                            </div>
-                        </li>
-                        <li class="flex items-start">
-                            <span class="text-primary mr-2">✓</span>
-                            <div>
-                                <strong class="block text-gray-800">Risk Reduction</strong>
-                                <span class="text-gray-600">Minimize overcommitment risk with dynamic adjustments</span>
-                            </div>
-                        </li>
-                        <li class="flex items-start">
-                            <span class="text-primary mr-2">✓</span>
-                            <div>
-                                <strong class="block text-gray-800">Optimization Analysis</strong>
-                                <span class="text-gray-600">Get insights into coverage effectiveness and opportunities</span>
-                            </div>
-                        </li>
-                    </ul>
-                    <a href="https://app.apollo.io/#/meet/tim_galloway_f2d" target="_blank" rel="noopener noreferrer" class="btn-primary">Find Out More</a>
-                </div>
-
-                <!-- Migration Support -->
-                <div class="card" data-aos="fade-up" data-aos-delay="400">
-                    <div class="text-primary text-4xl mb-4">🔄</div>
-                    <h3 class="text-2xl font-semibold mb-4">Migration Support</h3>
-                    <p class="text-gray-600 mb-6">Maintain optimal coverage during migrations and transitions.</p>
-                    <ul class="space-y-4 mb-8">
-                        <li class="flex items-start">
-                            <span class="text-primary mr-2">✓</span>
-                            <div>
-                                <strong class="block text-gray-800">Flexible Transitions</strong>
-                                <span class="text-gray-600">Easily adapt coverage during payer consolidations or migrations</span>
-                            </div>
-                        </li>
-                        <li class="flex items-start">
-                            <span class="text-primary mr-2">✓</span>
-                            <div>
-                                <strong class="block text-gray-800">Usage Optimization</strong>
-                                <span class="text-gray-600">Optimize costs as you ramp down or scale up EC2 usage</span>
-                            </div>
-                        </li>
-                        <li class="flex items-start">
-                            <span class="text-primary mr-2">✓</span>
-                            <div>
-                                <strong class="block text-gray-800">Zero Lock-in</strong>
-                                <span class="text-gray-600">Change your coverage strategy anytime without penalties</span>
-                            </div>
-                        </li>
-                    </ul>
-                    <a href="https://app.apollo.io/#/meet/tim_galloway_f2d" target="_blank" rel="noopener noreferrer" class="btn-primary">Find Out More</a>
+            <!-- Enterprise Case Study -->
+            <div class="mb-24">
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-16">Enterprise Success Stories</h2>
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <h3 class="text-2xl font-semibold mb-4">Fortune 500 Manufacturer</h3>
+                        <p class="text-gray-600 mb-6">
+                            A leading automotive manufacturer achieved over $2.5M in annual AWS savings by implementing RightSpend's automated optimization strategies.
+                        </p>
+                        <ul class="space-y-3 text-gray-600">
+                            <li class="flex items-start">
+                                <span class="text-primary mr-2">✓</span>
+                                45% reduction in AWS costs
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-primary mr-2">✓</span>
+                                Automated coverage optimization
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-primary mr-2">✓</span>
+                                Zero operational impact
+                            </li>
+                        </ul>
+                        <a href="/automotive-manufacturer-saves-millions.html" class="btn-primary inline-block mt-8">Read Case Study</a>
+                    </div>
+                    <div class="relative">
+                        <img src="../assets/images/cloud-savings-icon.svg" alt="Enterprise Savings" class="w-full rounded-lg shadow-lg">
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
 
-    <!-- Success Stories -->
-    <section class="py-24 bg-gray-100">
-        <div class="container mx-auto px-6">
-            <h2 class="text-3xl md:text-4xl font-bold text-center mb-16" data-aos="fade-up">
-                Customer Success Stories
-            </h2>
-            <div x-data="{ includeFile: './components/testimonials.html' }" x-init="fetch(includeFile).then(response => response.text()).then(html => { $el.innerHTML = html })"></div>
-        </div>
-    </section>
+            <!-- Industry Solutions -->
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Technology -->
+                <div class="card">
+                    <div class="text-primary text-4xl mb-4">💻</div>
+                    <h3 class="text-xl font-semibold mb-4">Technology Companies</h3>
+                    <p class="text-gray-600 mb-6">
+                        Fast-growing tech companies use RightSpend to optimize their rapidly scaling AWS infrastructure.
+                    </p>
+                    <ul class="space-y-3 text-gray-600">
+                        <li class="flex items-start">
+                            <span class="text-primary mr-2">✓</span>
+                            Scale with confidence
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-primary mr-2">✓</span>
+                            Dynamic optimization
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-primary mr-2">✓</span>
+                            Maximum flexibility
+                        </li>
+                    </ul>
+                </div>
 
-    <!-- Calculator Section -->
-    <section id="calculator" class="py-24">
-        <div class="container mx-auto px-6">
-            <div class="max-w-4xl mx-auto">
-                <div class="text-center">
-                    <h2 class="text-3xl md:text-4xl font-bold mb-8">Calculate Your Potential Savings</h2>
-                    <p class="text-xl text-gray-600 mb-8">Use our savings calculator to estimate how much you could save on your AWS costs.</p>
-                    <a href="https://spconsultant.ai" target="_blank" rel="noopener noreferrer" class="btn-primary text-lg">Calculate Savings</a>
+                <!-- Enterprise -->
+                <div class="card">
+                    <div class="text-primary text-4xl mb-4">🏢</div>
+                    <h3 class="text-xl font-semibold mb-4">Enterprise Organizations</h3>
+                    <p class="text-gray-600 mb-6">
+                        Large enterprises leverage RightSpend to optimize complex, multi-region AWS deployments.
+                    </p>
+                    <ul class="space-y-3 text-gray-600">
+                        <li class="flex items-start">
+                            <span class="text-primary mr-2">✓</span>
+                            Cross-region optimization
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-primary mr-2">✓</span>
+                            Comprehensive coverage
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-primary mr-2">✓</span>
+                            Enterprise-grade security
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Startups -->
+                <div class="card">
+                    <div class="text-primary text-4xl mb-4">🚀</div>
+                    <h3 class="text-xl font-semibold mb-4">Growing Startups</h3>
+                    <p class="text-gray-600 mb-6">
+                        Startups rely on RightSpend to maintain cost efficiency while focusing on rapid growth.
+                    </p>
+                    <ul class="space-y-3 text-gray-600">
+                        <li class="flex items-start">
+                            <span class="text-primary mr-2">✓</span>
+                            Quick implementation
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-primary mr-2">✓</span>
+                            No lock-in period
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-primary mr-2">✓</span>
+                            Immediate savings
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>
@@ -209,10 +153,10 @@
     <section class="py-24 bg-gray-100">
         <div class="container mx-auto px-6 text-center">
             <div class="max-w-3xl mx-auto">
-                <h2 class="text-3xl md:text-4xl font-bold mb-8">Find Your Perfect Solution</h2>
-                <p class="text-xl text-gray-600 mb-12">Let us help you discover the best way to optimize your AWS costs.</p>
+                <h2 class="text-3xl md:text-4xl font-bold mb-8">Ready to Join Our Success Stories?</h2>
+                <p class="text-xl text-gray-600 mb-12">Schedule a call to learn how RightSpend can help you achieve maximum savings with complete flexibility</p>
                 <div class="flex flex-col sm:flex-row justify-center gap-4">
-                    <a href="https://app.apollo.io/#/meet/tim_galloway_f2d" target="_blank" rel="noopener noreferrer" class="btn-primary text-lg">Find Out More</a>
+                    <a href="https://app.apollo.io/#/meet/tim_galloway_f2d" class="btn-primary text-lg">Find Out More</a>
                     <a href="/engine" class="btn-outline text-lg">Learn How It Works</a>
                 </div>
             </div>
@@ -220,7 +164,7 @@
     </section>
 
     <!-- Footer -->
-    <div x-data="{ includeFile: './components/footer.html' }" x-init="fetch(includeFile).then(response => response.text()).then(html => { $el.innerHTML = html })"></div>
+    <div x-data="{ includeFile: '/components/footer.html' }" x-init="fetch(includeFile).then(response => response.text()).then(html => { $el.innerHTML = html })"></div>
 
     <!-- Initialize AOS -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
