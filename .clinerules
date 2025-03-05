@@ -1,0 +1,15 @@
+Key Insights:
+- The extension uses hardcoded credentials for development, which should be replaced with secure credential handling in production.
+- The chatbot interface is a good way to provide users with a more interactive way to access the extension's functionality.
+- The new design palette improves the look and feel of the extension.
+- The extension manifest must have a secure content security policy.
+- GitHub Actions workflows must be carefully configured to ensure credentials are available to all steps that require them.
+
+Tool Usage Patterns:
+- The replace_in_file tool is useful for making targeted edits to existing files.
+- The write_to_file tool is useful for creating new files or overwriting existing files.
+
+Project-Specific Patterns:
+- The extension uses a modular architecture, with distinct components for the popup UI, background script, and content scripts.
+- The extension interacts with AWS services via the AWS SDK, following a service-oriented approach.
+- The deployment process relies on GitHub Actions to automate the build and deployment steps.
