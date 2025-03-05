@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RightSpend Pricing - AWS Cost Optimization</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Learn about RightSpend's pricing model based on a percentage of net new savings. Contracted through AWS Marketplace, billed after savings are realized.">
+    <meta name="keywords" content="AWS cost optimization, cloud cost savings, immediate ROI, automated cost management, cloud infrastructure optimization">
+    <meta name="author" content="CloudFix">
+    
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="RightSpend Pricing - AWS Cost Optimization">
+    <meta property="og:description" content="Learn about RightSpend's pricing model based on a percentage of net new savings. Contracted through AWS Marketplace, billed after savings are realized.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://rightspend.ai/pricing">
+    <meta property="og:image" content="../images/rightspend-pricing-og.jpg">
+    
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="RightSpend Pricing - AWS Cost Optimization">
+    <meta name="twitter:description" content="Learn about RightSpend's pricing model based on a percentage of net new savings.">
+    <meta name="twitter:image" content="../images/rightspend-pricing-og.jpg">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+    
+    <!-- Styles -->
+    <link href="/css/styles.css" rel="stylesheet">
+</head>
+<body class="font-sans bg-gray-50">
+    <!-- Header -->
+    <div x-data="{ includeFile: '../components/header.html' }" x-init="fetch(includeFile).then(response => response.text()).then(html => { $el.innerHTML = html })"></div>
+
+    <!-- Hero Section -->
+    <section class="relative bg-gradient-to-r from-primary to-secondary overflow-hidden py-24">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto text-center text-white">
+                <h1 class="text-4xl md:text-6xl font-bold mb-8" data-aos="fade-up">
+                    RightSpend Pricing
+                </h1>
+                <p class="text-xl md:text-2xl mb-12" data-aos="fade-up" data-aos-delay="100">
+                    Transparent pricing based on a percentage of your AWS savings.
+                </p>
+            </div>
+        </div>
+        <!-- Decorative elements -->
+        <div class="absolute inset-0 overflow-hidden pointer-events-none">
+            <div class="absolute top-0 right-0 w-1/2 h-1/2 bg-white opacity-5 rounded-full transform translate-x-1/2 -translate-y-1/2"></div>
+            <div class="absolute bottom-0 left-0 w-1/3 h-1/3 bg-white opacity-5 rounded-full transform -translate-x-1/2 translate-y-1/2"></div>
+        </div>
+    </section>
+
+    <!-- Pricing Details Section -->
+    <section class="py-12">
+        <div class="container mx-auto px-6">
+            <div class="max-w-3xl mx-auto bg-white shadow-lg rounded-lg p-8">
+                <h2 class="text-2xl font-semibold mb-4">Key Pricing Details</h2>
+                <ul class="list-disc list-inside text-gray-600">
+                    <li><strong>Percentage of Savings:</strong> Typically 25% of net new AWS savings.</li>
+                    <li><strong>AWS Marketplace:</strong> Contracted and billed directly through the AWS Marketplace for seamless integration.</li>
+                    <li><strong>Billed After Savings:</strong> You are only billed after savings are realized. For example, if RightSpend saves you $100k in January, that appears on your February bill, to be paid in March.</li>
+                    <li><strong>EDOP Contribution:</strong> All RightSpend fees contribute to your Enterprise Discount Program (EDOP) as RightSpend is 100% built on AWS.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <div x-data="{ includeFile: '../components/footer.html' }" x-init="fetch(includeFile).then(response => response.text()).then(html => { $el.innerHTML = html })"></div>
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+</body>
+</html>
