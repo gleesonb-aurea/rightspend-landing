@@ -15,16 +15,16 @@
     <meta property="og:description" content="Achieve up to 55% AWS savings with complete flexibility and automated coverage optimization.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://rightspend.ai">
-    <meta property="og:image" content="../assets/images/RightSpend-cool.png">
+    <meta property="og:image" content="/assets/images/RightSpend-cool.png">
 
     <!-- Twitter Card Tags -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="RightSpend - Maximize AWS Savings Without Lock-in">
     <meta name="twitter:description" content="Achieve up to 55% AWS savings with complete flexibility and automated coverage optimization.">
-    <meta name="twitter:image" content="../assets/images/RightSpend-cool.png">
+    <meta name="twitter:image" content="/assets/images/RightSpend-cool.png">
     
     <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="../assets/images/favicon.svg">
+    <link rel="icon" type="image/svg+xml" href="/assets/images/favicon.svg">
     
     <!-- Styles -->
     <link href="/css/styles.css" rel="stylesheet">
@@ -33,11 +33,34 @@
     <!-- Scripts -->
     <script src="https://unpkg.com/alpinejs@3.12.3/dist/cdn.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script defer src="/src/scripts/main.js"></script>
-    
-    
+    <script defer src="/scripts/main.js"></script>
 </head>
 <body class="font-sans bg-gray-50">
+    <!-- Component mounting points -->
+    <div id="header"></div>
+
+    <!-- Hero Section -->
+    <section class="py-24 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row items-center justify-between">
+                <div class="md:w-1/2 mb-12 md:mb-0">
+                    <h1 class="text-4xl md:text-5xl font-bold mb-6" data-aos="fade-up">
+                        Maximize AWS Savings Without Lock-in
+                    </h1>
+                    <p class="text-xl text-gray-600 mb-8" data-aos="fade-up" data-aos-delay="100">
+                        Achieve up to 55% AWS savings with complete flexibility and automated coverage optimization. No lock-in, real-time adjustments, and AI-driven decision making.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4" data-aos="fade-up" data-aos-delay="200">
+                        <a href="https://app.apollo.io/#/meet/tim_galloway_f2d" class="btn-primary text-lg">Get Started</a>
+                        <a href="/pages/how-it-works.html" class="btn-outline text-lg">Learn More</a>
+                    </div>
+                </div>
+                <div class="md:w-1/2" data-aos="fade-left">
+                    <img src="/assets/images/hero-illustration.svg" alt="RightSpend AWS Cost Optimization" class="w-full">
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- Key Benefits Section -->
     <section class="py-24">
@@ -366,14 +389,14 @@
                 <p class="text-xl text-gray-600 mb-12">Schedule a call to learn how RightSpend can help you achieve maximum savings with complete flexibility</p>
                 <div class="flex flex-col sm:flex-row justify-center gap-4">
                     <a href="https://app.apollo.io/#/meet/tim_galloway_f2d" class="btn-primary text-lg">Find Out More</a>
-                    <a href="/engine" class="btn-outline text-lg">View Technical Details</a>
+                    <a href="/pages/engine.html" class="btn-outline text-lg">View Technical Details</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
-    <div x-data="{ includeFile: '/components/footer.html' }" x-init="fetch(includeFile).then(response => response.text()).then(html => { $el.innerHTML = html })"></div>
+    <!-- Component mounting points -->
+    <div id="footer"></div>
 
     <!-- Initialize AOS -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>

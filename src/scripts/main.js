@@ -214,5 +214,40 @@ async function initializeTracking() {
     }
 }
 
-// Wait for Alpine.js to be ready before initializing
-document.addEventListener('alpine:init', initializeTracking);
+// Component Loading
+async function loadComponent(id, path) {
+    try {
+        const response = await fetch(path);
+        if (!response.ok) throw new Error(`Failed to load ${path}`);
+        const html = await response.text();
+        const element = document.getElementById(id);
+        if (element) {
+            element.innerHTML = html;
+            console.log(`Component ${id} loaded successfully`);
+        } else {
+            console.error(`Element with id '${id}' not found`);
+        }
+    } catch (error) {
+        console.error(`Error loading component ${id}:`, error);
+    }
+}
+
+// Initialize components and tracking
+async function initializeApp() {
+    console.log('Initializing application...');
+    
+    // First load all components
+    await Promise.all([
+        loadComponent('header', '/components/header.html'),
+        loadComponent('footer', '/components/footer.html')
+    ]);
+    
+    // Then initialize Alpine.js
+    console.log('Components loaded, initializing Alpine.js...');
+    
+    // Now initialize tracking
+    document.addEventListener('alpine:init', initializeTracking);
+}
+
+// Start initialization when DOM is ready
+document.addEventListener('DOMContentLoaded', initializeApp);
