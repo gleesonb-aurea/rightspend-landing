@@ -177,31 +177,42 @@ function initReb2b() {
 }
 
 // Initialize tracking scripts
-document.addEventListener('DOMContentLoaded', () => {
+let initialized = false;
+
+async function initializeTracking() {
+    if (initialized) {
+        console.log('Tracking already initialized');
+        return;
+    }
+    
     console.log('DOM loaded, initializing tracking scripts...');
     
+    initialized = true;
+    
     // Initialize all tracking scripts
-    Promise.all([
-        new Promise(resolve => {
-            initGoogleAnalytics();
-            resolve();
-        }),
-        new Promise(resolve => {
-            initApollo();
-            resolve();
-        }),
-        new Promise(resolve => {
-            initReb2b();
-            resolve();
-        })
-    ]).then(() => {
+    try {
+        await Promise.all([
+            new Promise(resolve => {
+                initGoogleAnalytics();
+                resolve();
+            }),
+            new Promise(resolve => {
+                initApollo();
+                resolve();
+            }),
+            new Promise(resolve => {
+                initReb2b();
+                resolve();
+            })
+        ]);
+        
         // Setup event tracking after all scripts are loaded
         setupEventTracking();
-    }).catch(error => {
+        console.log('Main.js initialization complete');
+    } catch (error) {
         console.error('Error initializing tracking:', error);
-        // Still setup event tracking even if some trackers fail
-        setupEventTracking();
-    });
-    
-    console.log('Main.js initialization complete');
-});
+    }
+}
+
+// Wait for Alpine.js to be ready before initializing
+document.addEventListener('alpine:init', initializeTracking);
