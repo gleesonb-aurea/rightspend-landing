@@ -36,8 +36,8 @@
     <script defer src="/scripts/main.js"></script>
 </head>
 <body class="font-sans bg-gray-50">
-    <!-- Component mounting points -->
-    <div id="header"></div>
+    <!-- Header -->
+    <div x-data="{ includeFile: '/components/header.html' }" x-init="fetch(includeFile).then(response => response.text()).then(html => { $el.innerHTML = html })"></div>
 
     <!-- Hero Section -->
     <section class="py-24 bg-white">
@@ -395,8 +395,8 @@
         </div>
     </section>
 
-    <!-- Component mounting points -->
-    <div id="footer"></div>
+    <!-- Footer -->
+    <div x-data="{ includeFile: '/components/footer.html' }" x-init="fetch(includeFile).then(response => response.text()).then(html => { $el.innerHTML = html })"></div>
 
     <!-- Initialize AOS -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
