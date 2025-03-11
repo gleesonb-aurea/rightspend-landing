@@ -325,7 +325,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // Initialize chart
         initChart();
     }
-
-    // Start initialization
-    initializeApp();
 });
+
+// Start initialization
+initializeApp();
