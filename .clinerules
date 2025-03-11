@@ -12,3 +12,5 @@ Project-Specific Patterns:
 New Insights:
 - It's important to verify that external resources (e.g., CSS stylesheets, JavaScript scripts) are loaded correctly and that the paths to these resources are correct.
 - The order in which scripts are executed can affect the behavior of the website. It's important to ensure that scripts are executed in the correct order.
+- Shared components (header/footer) can be used to enforce a consistent look and feel across the website.
+- Shared components can be used to include common resources (e.g., Google Analytics, Apollo, RevenueBase) across the website, but these resources are loaded in `src/scripts/main.js`.
