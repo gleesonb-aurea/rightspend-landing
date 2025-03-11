@@ -252,31 +252,11 @@ async function initializeApp() {
     });
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-    // Initialize components and tracking
-    async function initializeApp() {
-        console.log('Initializing application...');
-
-        // First load all components
-        await Promise.all([
-            loadComponent('header', '/components/header.html'),
-            loadComponent('footer', '/components/footer.html')
-        ]);
-
-        // Then initialize Alpine.js
-        console.log('Components loaded, initializing Alpine.js...');
-
-        // Now initialize tracking
-        document.addEventListener('alpine:init', initializeTracking);
-    }
-
-    // Start initialization
-    initializeApp();
-
-    // Graph initialization
-    const ctx = document.getElementById('costGraph').getContext('2d');
+// Function to initialize the chart
+function initChart() {
+    const ctx = document.getElementById('costGraph');
     if (ctx) {
-        new Chart(ctx, {
+        const chart = new Chart(ctx, {
             type: 'bar',
             data: {
                 labels: ['Before RightSpend', 'After RightSpend'],
@@ -323,4 +303,29 @@ document.addEventListener('DOMContentLoaded', () => {
     } else {
         console.error('Could not find element with id "costGraph"');
     }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    // Initialize components and tracking
+    async function initializeApp() {
+        console.log('Initializing application...');
+
+        // First load all components
+        await Promise.all([
+            loadComponent('header', '/components/header.html'),
+            loadComponent('footer', '/components/footer.html')
+        ]);
+
+        // Then initialize Alpine.js
+        console.log('Components loaded, initializing Alpine.js...');
+
+        // Now initialize tracking
+        document.addEventListener('alpine:init', initializeTracking);
+
+        // Initialize chart
+        initChart();
+    }
+
+    // Start initialization
+    initializeApp();
 });
