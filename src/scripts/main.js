@@ -1,21 +1,312 @@
 // Initialize Google Analytics
 function initGoogleAnalytics() {
     console.log('Initializing Google Analytics...');
-    
-    // Load GA script
-    var gaScript = document.createElement('script');
-    gaScript.async = true;
-    gaScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-9Z5L1G47QC';
-    document.head.appendChild(gaScript);
-    
-    // Initialize dataLayer and gtag
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-9Z5L1G47QC');
-    
-    console.log('Google Analytics initialized');
+    return new Promise((resolve, reject) => {
+        try {
+            // Load GA script
+            var gaScript = document.createElement('script');
+            gaScript.async = true;
+            gaScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-9Z5L1G47QC';
+            
+            gaScript.onload = () => {
+                // Initialize dataLayer and gtag
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', 'G-9Z5L1G47QC');
+                console.log('Google Analytics initialized successfully');
+                resolve();
+            };
+            
+            gaScript.onerror = (error) => {
+                console.error('Failed to load Google Analytics:', error);
+                resolve(); // Resolve anyway to not block other tracking
+            };
+            
+            document.head.appendChild(gaScript);
+        } catch (error) {
+            console.error('Error initializing Google Analytics:', error);
+            resolve(); // Resolve anyway to not block other tracking
+        }
+    });
 }
+
+// Initialize Apollo Tracking
+function initApollo() {
+    console.log('Initializing Apollo tracking...');
+    return new Promise((resolve, reject) => {
+        if (isTrackingBlocked()) {
+            console.log('Apollo tracking blocked by browser settings');
+            resolve();
+            return;
+        }
+
+        try {
+            var n = Math.random().toString(36).substring(7);
+            var o = document.createElement("script");
+            o.src = "https://assets.apollo.io/micro/website-tracker/tracker.iife.js?nocache=" + n;
+            o.async = true;
+            o.defer = true;
+            
+            o.onload = function() {
+                try {
+                    window.trackingFunctions.onLoad({appId: "6602e615b2af9b0439deed0c"});
+                    console.log('Apollo tracking initialized successfully');
+                } catch (error) {
+                    console.error('Error in Apollo onLoad callback:', error);
+                }
+                resolve();
+            };
+            
+            o.onerror = function(error) {
+                console.error('Apollo script loading failed:', error);
+                resolve(); // Resolve anyway to not block other tracking
+            };
+            
+            document.head.appendChild(o);
+        } catch (error) {
+            console.error('Error initializing Apollo tracking:', error);
+            resolve();
+        }
+    });
+}
+
+// Initialize RevenueBase (RB2B) tracking
+function initRb2b() {
+    console.log('Initializing RevenueBase tracking...');
+    return new Promise((resolve, reject) => {
+        try {
+            // Initialize RB2B global object
+            window.reb2b = window.reb2b || [];
+            if (window.reb2b.invoked) {
+                console.log('RB2B already initialized');
+                resolve();
+                return;
+            }
+
+            window.reb2b = {
+                invoked: true,
+                methods: ["identify", "collect"],
+                factory: function(method) {
+                    return function() {
+                        var args = Array.prototype.slice.call(arguments);
+                        args.unshift(method);
+                        window.reb2b.push(args);
+                        return window.reb2b;
+                    };
+                },
+                load: function(key) {
+                    return new Promise((resolveLoad, rejectLoad) => {
+                        var script = document.createElement("script");
+                        script.type = "text/javascript";
+                        script.async = true;
+                        script.src = `https://s3-us-west-2.amazonaws.com/b2bjsstore/b/${key}/LNKLDHP2G1OJ.js.gz`;
+                        
+                        script.onload = () => {
+                            console.log('RB2B script loaded successfully');
+                            resolveLoad();
+                        };
+                        
+                        script.onerror = (error) => {
+                            console.error('Failed to load RB2B script:', error);
+                            rejectLoad(error);
+                        };
+                        
+                        var first = document.getElementsByTagName("script")[0];
+                        first.parentNode.insertBefore(script, first);
+                    });
+                },
+                SNIPPET_VERSION: "1.0.1"
+            };
+
+            // Set up method factories
+            for (var i = 0; i < window.reb2b.methods.length; i++) {
+                var key = window.reb2b.methods[i];
+                window.reb2b[key] = window.reb2b.factory(key);
+            }
+
+            // Load RB2B script
+            window.reb2b.load("LNKLDHP2G1OJ")
+                .then(() => {
+                    console.log('RB2B initialized successfully');
+                    resolve();
+                })
+                .catch((error) => {
+                    console.error('RB2B initialization failed:', error);
+                    reject(error);
+                });
+
+        } catch (error) {
+            console.error('Error during RB2B initialization:', error);
+            reject(error);
+        }
+    });
+}
+
+// Initialize all tracking systems in parallel
+function initializeTracking() {
+    console.log('Initializing tracking systems...');
+    
+    return Promise.allSettled([
+        initGoogleAnalytics().catch(error => {
+            console.error('GA initialization failed:', error);
+            return Promise.reject(error);
+        }),
+        initApollo().catch(error => {
+            console.error('Apollo initialization failed:', error);
+            return Promise.reject(error);
+        }),
+        initRb2b().catch(error => {
+            console.error('RB2B initialization failed:', error);
+            return Promise.reject(error);
+        })
+    ]).then(results => {
+        results.forEach((result, index) => {
+            const tracker = ['Google Analytics', 'Apollo', 'RB2B'][index];
+            if (result.status === 'fulfilled') {
+                console.log(`${tracker} initialized successfully`);
+            } else {
+                console.warn(`${tracker} initialization failed:`, result.reason);
+            }
+        });
+    });
+}
+
+// Initialize cost savings graph
+function initCostGraph() {
+    const graphElement = document.getElementById('costGraph');
+    if (!graphElement) {
+        console.warn('Cost graph element not found on this page');
+        return;
+    }
+
+    const ctx = graphElement.getContext('2d');
+    new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: ['Month 1', 'Month 2', 'Month 3', 'Month 4', 'Month 5', 'Month 6'],
+            datasets: [
+                {
+                    label: 'On-Demand Cost',
+                    data: [100000, 105000, 110000, 115000, 120000, 125000],
+                    borderColor: '#94a3b8',
+                    backgroundColor: 'rgba(148, 163, 184, 0.1)',
+                    fill: true
+                },
+                {
+                    label: 'RightSpend Cost',
+                    data: [100000, 85000, 70000, 60000, 55000, 52000],
+                    borderColor: '#2563eb',
+                    backgroundColor: 'rgba(37, 99, 235, 0.1)',
+                    fill: true
+                }
+            ]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                title: {
+                    display: true,
+                    text: 'AWS Cost Comparison Over Time',
+                    font: {
+                        size: 16,
+                        weight: 'bold'
+                    }
+                },
+                tooltip: {
+                    mode: 'index',
+                    intersect: false,
+                    callbacks: {
+                        label: function(context) {
+                            let label = context.dataset.label || '';
+                            if (label) {
+                                label += ': ';
+                            }
+                            if (context.parsed.y !== null) {
+                                label += new Intl.NumberFormat('en-US', {
+                                    style: 'currency',
+                                    currency: 'USD',
+                                    minimumFractionDigits: 0,
+                                    maximumFractionDigits: 0
+                                }).format(context.parsed.y);
+                            }
+                            return label;
+                        }
+                    }
+                }
+            },
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    ticks: {
+                        callback: function(value) {
+                            return new Intl.NumberFormat('en-US', {
+                                style: 'currency',
+                                currency: 'USD',
+                                minimumFractionDigits: 0,
+                                maximumFractionDigits: 0
+                            }).format(value);
+                        }
+                    }
+                }
+            },
+            interaction: {
+                intersect: false,
+                mode: 'index'
+            }
+        }
+    });
+}
+
+// Check if tracking is blocked
+function isTrackingBlocked() {
+    return window.doNotTrack === "1" || 
+           navigator.doNotTrack === "1" || 
+           navigator.doNotTrack === "yes";
+}
+
+// Component Loading
+async function loadComponent(id, path) {
+    try {
+        const response = await fetch(path);
+        if (!response.ok) throw new Error(`Failed to load ${path}`);
+        const html = await response.text();
+        const element = document.getElementById(id);
+        if (element) {
+            element.innerHTML = html;
+            console.log(`Component ${id} loaded successfully`);
+        } else {
+            console.error(`Element with id '${id}' not found`);
+        }
+    } catch (error) {
+        console.error(`Error loading component ${id}:`, error);
+    }
+}
+
+// Initialize application
+document.addEventListener('DOMContentLoaded', async function() {
+    console.log('Initializing application...');
+    
+    try {
+        // Load components first
+        await Promise.all([
+            loadComponent('header'),
+            loadComponent('footer')
+        ]);
+        
+        console.log('Components loaded, initializing Alpine.js...');
+        
+        // Initialize tracking
+        await initializeTracking();
+        
+        // Initialize cost graph if element exists
+        initCostGraph();
+        
+    } catch (error) {
+        console.error('Error during initialization:', error);
+    }
+});
 
 // Track Events Helper
 function trackEvent(category, action, label = null, value = null) {
@@ -100,161 +391,6 @@ function setupEventTracking() {
     console.log('Event tracking setup complete');
 }
 
-// Check if tracking is blocked
-function isTrackingBlocked() {
-    return window.doNotTrack === "1" || 
-           navigator.doNotTrack === "1" || 
-           navigator.doNotTrack === "yes";
-}
-
-// Initialize Apollo Tracking
-function initApollo() {
-    if (isTrackingBlocked()) {
-        console.log('Tracking appears to be blocked by browser settings or extensions');
-        return;
-    }
-    
-    console.log('Initializing Apollo tracking...');
-    var n = Math.random().toString(36).substring(7);
-    var o = document.createElement("script");
-    o.src = "https://assets.apollo.io/micro/website-tracker/tracker.iife.js?nocache=" + n;
-    o.async = true;
-    o.defer = true;
-    o.onload = function() {
-        console.log('Apollo script loaded successfully');
-        window.trackingFunctions.onLoad({appId: "6602e615b2af9b0439deed0c"});
-    };
-    o.onerror = function(error) {
-        console.log('Apollo script loading failed. This is normal if you have an ad blocker or privacy extension enabled.');
-    };
-    document.head.appendChild(o);
-}
-
-// Initialize RevenueBase (rb2b) Tracking
-function initReb2b() {
-    if (isTrackingBlocked()) {
-        console.log('Tracking appears to be blocked by browser settings or extensions');
-        return;
-    }
-    
-    console.log('Initializing RevenueBase tracking...');
-    var reb2b = window.reb2b = window.reb2b || [];
-    if (reb2b.invoked) {
-        console.log('RevenueBase already initialized');
-        return;
-    }
-    reb2b.invoked = true;
-    reb2b.methods = ["identify", "collect"];
-    reb2b.factory = function(method) {
-        return function() {
-            var args = Array.prototype.slice.call(arguments);
-            args.unshift(method);
-            reb2b.push(args);
-            return reb2b;
-        };
-    };
-    for (var i = 0; i < reb2b.methods.length; i++) {
-        var key = reb2b.methods[i];
-        reb2b[key] = reb2b.factory(key);
-    }
-    reb2b.load = function(key) {
-        console.log('Loading RevenueBase script...');
-        var script = document.createElement("script");
-        script.type = "text/javascript";
-        script.async = true;
-        script.src = "https://s3-us-west-2.amazonaws.com/b2bjsstore/b/" + key + "/LNKLDHP2G1OJ.js.gz";
-        script.onload = function() {
-            console.log('RevenueBase script loaded successfully');
-        };
-        script.onerror = function() {
-            console.log('RevenueBase script loading failed. This is normal if you have an ad blocker or privacy extension enabled.');
-        };
-        var first = document.getElementsByTagName("script")[0];
-        first.parentNode.insertBefore(script, first);
-    };
-    reb2b.SNIPPET_VERSION = "1.0.1";
-    reb2b.load("LNKLDHP2G1OJ");
-}
-
-// Initialize tracking scripts
-let initialized = false;
-
-async function initializeTracking() {
-    if (initialized) {
-        console.log('Tracking already initialized');
-        return;
-    }
-    
-    console.log('DOM loaded, initializing tracking scripts...');
-    
-    initialized = true;
-    
-    // Initialize all tracking scripts
-    try {
-        await Promise.all([
-            new Promise(resolve => {
-                initGoogleAnalytics();
-                resolve();
-            }),
-            new Promise(resolve => {
-                initApollo();
-                resolve();
-            }),
-            new Promise(resolve => {
-                initReb2b();
-                resolve();
-            })
-        ]);
-        
-        // Setup event tracking after all scripts are loaded
-        setupEventTracking();
-        console.log('Main.js initialization complete');
-    } catch (error) {
-        console.error('Error initializing tracking:', error);
-    }
-}
-
-// Component Loading
-async function loadComponent(id, path) {
-    try {
-        const response = await fetch(path);
-        if (!response.ok) throw new Error(`Failed to load ${path}`);
-        const html = await response.text();
-        const element = document.getElementById(id);
-        if (element) {
-            element.innerHTML = html;
-            console.log(`Component ${id} loaded successfully`);
-        } else {
-            console.error(`Element with id '${id}' not found`);
-        }
-    } catch (error) {
-        console.error(`Error loading component ${id}:`, error);
-    }
-}
-
-// Initialize components and tracking
-async function initializeApp() {
-    console.log('Initializing application...');
-
-    // Wait for DOM to be fully loaded
-    document.addEventListener('DOMContentLoaded', async () => {
-        // First load all components
-        await Promise.all([
-            loadComponent('header', '/components/header.html'),
-            loadComponent('footer', '/components/footer.html')
-        ]);
-
-        // Then initialize Alpine.js
-        console.log('Components loaded, initializing Alpine.js...');
-
-        // Now initialize tracking
-        document.addEventListener('alpine:init', initializeTracking);
-
-        // Initialize chart
-        initChart();
-    });
-}
-
 // Function to initialize the chart
 function initChart() {
     const ctx = document.getElementById('costGraph');
@@ -307,28 +443,3 @@ function initChart() {
         console.error('Could not find element with id "costGraph"');
     }
 }
-
-document.addEventListener('DOMContentLoaded', () => {
-    // Initialize components and tracking
-    async function initializeApp() {
-        console.log('Initializing application...');
-
-        // First load all components
-        await Promise.all([
-            loadComponent('header', '/components/header.html'),
-            loadComponent('footer', '/components/footer.html')
-        ]);
-
-        // Then initialize Alpine.js
-        console.log('Components loaded, initializing Alpine.js...');
-
-        // Now initialize tracking
-        document.addEventListener('alpine:init', initializeTracking);
-
-        // Initialize chart
-        initChart();
-    }
-});
-
-// Start initialization
-initializeApp();

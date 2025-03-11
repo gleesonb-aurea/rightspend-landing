@@ -27,97 +27,91 @@
     <!-- Styles -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link href="/css/styles.css" rel="stylesheet">
-    <script src="/scripts/main.js"></script>
+    
+    <!-- Alpine.js -->
+        <script defer src="https://unpkg.com/alpinejs@3.12.3/dist/cdn.min.js"></script>
 </head>
 <body class="font-sans bg-gray-50">
-    <!-- Header -->
-    <div id="header"></div>
+    <!-- Header (loaded via component) -->
+    <div id="header-container" x-data="{ includeFile: '/components/header.html' }" x-init="fetch(includeFile).then(response => response.text()).then(html => { $el.innerHTML = html })"></div>
 
-    <!-- Blog Post -->
-    <article class="py-24">
-        <div class="container mx-auto px-6">
-            <div class="max-w-4xl mx-auto">
-                <!-- Post Header -->
-                <header class="mb-16">
-                    <h1 class="text-4xl md:text-5xl font-bold mb-8">The Future of Cloud Cost Optimization</h1>
-                    <div class="flex items-center text-gray-500 mb-8">
-                        <span class="mr-4">February 25, 2025</span>
-                        <span class="mr-4">•</span>
-                        <span>6 min read</span>
-                    </div>
-                    <img src="../../assets/images/cloud-savings-icon.svg" alt="Cloud Cost Optimization" class="w-full rounded-lg shadow-lg mb-8">
-                </header>
+    <!-- Spacer to prevent content from hiding under fixed header -->
+    <div class="h-32"></div>
 
-                <!-- Post Content -->
-                <div class="prose prose-lg max-w-none">
-                    <p>
-                        The landscape of cloud cost optimization is rapidly evolving, driven by advancements in artificial intelligence and automation. As organizations continue to migrate more workloads to the cloud, the need for intelligent, automated cost optimization solutions becomes increasingly critical.
-                    </p>
-
-                    <h2>The Rise of AI in Cloud Cost Management</h2>
-                    <p>
-                        Traditional approaches to cloud cost optimization often rely on manual analysis and static rules. However, the complexity of modern cloud environments demands more sophisticated solutions. AI-powered tools like RightSpend are leading the way in this transformation.
-                    </p>
-
-                    <h3>Key Trends Shaping the Future</h3>
-                    <ul>
-                        <li>Real-time optimization through AI analysis</li>
-                        <li>Automated coverage adjustments based on usage patterns</li>
-                        <li>Predictive analytics for cost forecasting</li>
-                        <li>Dynamic resource allocation</li>
-                    </ul>
-
-                    <h2>The Role of Machine Learning</h2>
-                    <p>
-                        Machine learning algorithms are becoming increasingly sophisticated in their ability to analyze cloud usage patterns and make intelligent optimization decisions. These systems can:
-                    </p>
-                    <ul>
-                        <li>Identify cost-saving opportunities in real-time</li>
-                        <li>Predict future resource needs</li>
-                        <li>Optimize coverage levels automatically</li>
-                        <li>Prevent overcommitment while maximizing savings</li>
-                    </ul>
-
-                    <h2>Breaking Free from Traditional Constraints</h2>
-                    <p>
-                        One of the most significant developments in cloud cost optimization is the move away from long-term commitments and rigid savings plans. Modern solutions like RightSpend offer:
-                    </p>
-                    <ul>
-                        <li>Complete flexibility to scale up or down</li>
-                        <li>No lock-in periods</li>
-                        <li>Real-time adjustments based on actual usage</li>
-                        <li>Risk-free optimization</li>
-                    </ul>
-
-                    <h2>The Impact on Organizations</h2>
-                    <p>
-                        Organizations implementing these next-generation cost optimization solutions are seeing significant benefits:
-                    </p>
-                    <ul>
-                        <li>Up to 55% reduction in AWS costs</li>
-                        <li>Eliminated decision fatigue</li>
-                        <li>Improved resource utilization</li>
-                        <li>Better cost predictability</li>
-                    </ul>
-
-                    <h2>Looking Ahead</h2>
-                    <p>
-                        As AI and automation technologies continue to evolve, we can expect even more sophisticated approaches to cloud cost optimization. The future promises even greater savings potential while further reducing the complexity of cloud cost management.
-                    </p>
-                </div>
-
-                <!-- Author Bio -->
-                <div class="mt-16 p-8 bg-white rounded-lg shadow-sm">
-                    <div class="flex items-center">
-                        <div class="ml-4">
-                            <h3 class="font-semibold">RightSpend Team</h3>
-                            <p class="text-gray-600">Cloud Cost Optimization Experts</p>
-                        </div>
-                    </div>
+    <!-- Blog Post Content -->
+    <main class="container mx-auto px-6 py-12">
+        <article class="max-w-3xl mx-auto">
+            <!-- Blog Post Header -->
+            <div class="mb-16">
+                <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">The Future of Cloud Cost Optimization</h1>
+                <div class="flex items-center text-gray-600">
+                    <span>RightSpend Team</span>
+                    <span class="mx-2">•</span>
+                    <time datetime="2025-02-25">February 25, 2025</time>
+                    <span class="mx-2">•</span>
+                    <span>6 min read</span>
                 </div>
             </div>
-        </div>
-    </article>
+
+            <!-- Blog Post Content -->
+            <div class="prose prose-lg max-w-none">
+                <p>
+                    The landscape of cloud cost optimization is rapidly evolving, driven by advancements in artificial intelligence and automation. As organizations continue to migrate more workloads to the cloud, the need for intelligent, automated cost optimization solutions becomes increasingly critical.
+                </p>
+
+                <h2>The Rise of AI in Cloud Cost Management</h2>
+                <p>
+                    Traditional approaches to cloud cost optimization often rely on manual analysis and static rules. However, the complexity of modern cloud environments demands more sophisticated solutions. AI-powered tools like RightSpend are leading the way in this transformation.
+                </p>
+
+                <h3>Key Trends Shaping the Future</h3>
+                <ul>
+                    <li>Real-time optimization through AI analysis</li>
+                    <li>Automated coverage adjustments based on usage patterns</li>
+                    <li>Predictive analytics for cost forecasting</li>
+                    <li>Dynamic resource allocation</li>
+                </ul>
+
+                <h2>The Role of Machine Learning</h2>
+                <p>
+                    Machine learning algorithms are becoming increasingly sophisticated in their ability to analyze cloud usage patterns and make intelligent optimization decisions. These systems can:
+                </p>
+                <ul>
+                    <li>Identify cost-saving opportunities in real-time</li>
+                    <li>Predict future resource needs</li>
+                    <li>Optimize coverage levels automatically</li>
+                    <li>Prevent overcommitment while maximizing savings</li>
+                </ul>
+
+                <h2>Breaking Free from Traditional Constraints</h2>
+                <p>
+                    One of the most significant developments in cloud cost optimization is the move away from long-term commitments and rigid savings plans. Modern solutions like RightSpend offer:
+                </p>
+                <ul>
+                    <li>Complete flexibility to scale up or down</li>
+                    <li>No lock-in periods</li>
+                    <li>Real-time adjustments based on actual usage</li>
+                    <li>Risk-free optimization</li>
+                </ul>
+
+                <h2>The Impact on Organizations</h2>
+                <p>
+                    Organizations implementing these next-generation cost optimization solutions are seeing significant benefits:
+                </p>
+                <ul>
+                    <li>Up to 55% reduction in AWS costs</li>
+                    <li>Eliminated decision fatigue</li>
+                    <li>Improved resource utilization</li>
+                    <li>Better cost predictability</li>
+                </ul>
+
+                <h2>Looking Ahead</h2>
+                <p>
+                    As AI and automation technologies continue to evolve, we can expect even more sophisticated approaches to cloud cost optimization. The future promises even greater savings potential while further reducing the complexity of cloud cost management.
+                </p>
+            </div>
+        </article>
+    </main>
 
     <!-- Related Posts Section -->
     <section class="py-24 bg-gray-100">
@@ -189,19 +183,14 @@
         </div>
     </section>
 
-    <!-- Footer -->
-    <div id="footer"></div>
+    <!-- Footer (loaded via component) -->
+    <div id="footer-container" x-data="{ includeFile: '/components/footer.html' }" x-init="fetch(includeFile).then(response => response.text()).then(html => { $el.innerHTML = html })"></div>
 
-    <!-- Initialize AOS -->
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            AOS.init({
-                duration: 800,
-                once: true
-            });
-        });
-    </script>
+    <!-- Main Script -->
+    <script src="/scripts/main.js"></script>
+
+    <!-- Footer (loaded via component) -->
+    <div id="footer-container" x-data="{ includeFile: '/components/footer.html' }" x-init="fetch(includeFile).then(response => response.text()).then(html => { $el.innerHTML = html })"></div>
+
 </body>
 </html>

@@ -9,8 +9,8 @@
     <meta property="og:type" content="article">
     <title>No Break-Even Worries with Automated EC2 CRI Purchases - RightSpend</title>
     <link href="/css/styles.css" rel="stylesheet">
-    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <script src="/src/scripts/main.js"></script>
+        <script defer src="https://unpkg.com/alpinejs@3.12.3/dist/cdn.min.js"></script>
 </head>
 <body class="bg-gray-50">
     <!-- Header -->
@@ -21,17 +21,7 @@
         <div class="container mx-auto px-6">
             <div class="max-w-3xl mx-auto">
                 <!-- Article Header -->
-                <header class="mb-12">
-                    <h1 class="text-4xl font-bold mb-4">RightSpend: No Break-Even Worries with Automated EC2 CRI Purchases</h1>
-                    <div class="flex items-center text-gray-600 mb-6">
-                        <time datetime="2025-02-20">February 20, 2025</time>
-                        <span class="mx-2">•</span>
-                        <span>4 min read</span>
-                    </div>
-                    <div class="prose max-w-none">
-                        <p class="text-xl text-gray-600">One of the common concerns when adopting Reserved Instances (RIs) for your AWS EC2 spend is the dreaded "break-even point." You know, that point in time where the savings from your RI finally outweigh the upfront cost? It's a valid concern – you want to be sure you're actually saving money!</p>
-                    </div>
-                </header>
+                
 
                 <!-- Article Content -->
                 <div class="prose max-w-none">
@@ -84,5 +74,9 @@
 
     <!-- Footer -->
     <div x-data="{ includeFile: '../components/footer.html' }" x-init="fetch(includeFile).then(response => response.text()).then(html => { $el.innerHTML = html })"></div>
+
+    <!-- Footer (loaded via component) -->
+    <div id="footer-container" x-data="{ includeFile: '/components/footer.html' }" x-init="fetch(includeFile).then(response => response.text()).then(html => { $el.innerHTML = html })"></div>
+
 </body>
 </html>

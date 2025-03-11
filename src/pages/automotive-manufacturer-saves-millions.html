@@ -9,8 +9,8 @@
     <meta property="og:type" content="article">
     <title>Case Study: Automotive Manufacturer Saves Millions with RightSpend</title>
     <link href="/css/styles.css" rel="stylesheet">
-    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <script src="/scripts/main.js"></script>
+        <script defer src="https://unpkg.com/alpinejs@3.12.3/dist/cdn.min.js"></script>
 </head>
 <body class="bg-gray-50">
     <!-- Header -->
@@ -21,17 +21,7 @@
         <div class="container mx-auto px-6">
             <div class="max-w-3xl mx-auto">
                 <!-- Article Header -->
-                <header class="mb-12">
-                    <h1 class="text-4xl font-bold mb-4">Fortune 500 Automotive Manufacturer Saves $2.5M Annually</h1>
-                    <div class="flex items-center text-gray-600 mb-6">
-                        <time datetime="2025-03-05">March 5, 2025</time>
-                        <span class="mx-2">•</span>
-                        <span>5 min read</span>
-                    </div>
-                    <div class="prose max-w-none">
-                        <p class="text-xl text-gray-600">A leading Fortune 500 automotive manufacturer was looking to optimize their AWS costs without compromising their operational efficiency. With a complex, multi-region infrastructure supporting critical manufacturing operations, they needed a solution that could deliver significant savings while maintaining reliability and performance.</p>
-                    </div>
-                </header>
+                
 
                 <!-- Article Content -->
                 <div class="prose max-w-none">
@@ -111,5 +101,9 @@
 
     <!-- Footer -->
     <div x-data="{ includeFile: '/components/footer.html' }" x-init="fetch(includeFile).then(response => response.text()).then(html => { $el.innerHTML = html })"></div>
+
+    <!-- Footer (loaded via component) -->
+    <div id="footer-container" x-data="{ includeFile: '/components/footer.html' }" x-init="fetch(includeFile).then(response => response.text()).then(html => { $el.innerHTML = html })"></div>
+
 </body>
 </html>

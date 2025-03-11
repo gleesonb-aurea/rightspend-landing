@@ -9,7 +9,7 @@
     "copy:pages": "copyfiles -f src/pages/*.html dist",
     "copy:components": "copyfiles -f src/components/*.html dist/components",
     "copy:assets": "copyfiles -u 1 src/assets/**/* dist",
-    "copy:scripts": "copyfiles -f src/scripts/**/* dist/scripts",
+    "copy:scripts": "copyfiles -f \"src/scripts/**/*.{js,mjs}\" dist/scripts",
     "copy:static": "copyfiles -f static/* dist",
     "build:copy": "npm-run-all copy:pages copy:components copy:assets copy:scripts copy:static",
     "fix-paths": "node fix-paths.js",

@@ -2,7 +2,7 @@ const express = require('express');
 const path = require('path');
 const fs = require('fs');
 const app = express();
-const port = process.env.PORT || 3005;
+const PORT = 3006;
 
 // Serve static files from 'dist' directory
 app.use(express.static(path.join(__dirname, 'dist'), {
@@ -43,6 +43,6 @@ app.get('*', (req, res) => {
     res.status(404).sendFile(path.join(__dirname, 'dist', '404.html'));
 });
 
-app.listen(port, () => {
-    console.log(`Server running on port ${port}`);
+app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
 });

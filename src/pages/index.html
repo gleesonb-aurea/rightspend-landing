@@ -31,11 +31,18 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     
     <!-- Scripts -->
-    <script defer src="https://unpkg.com/alpinejs@3.12.3/dist/cdn.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script defer src="/scripts/main.js"></script>
+    <script defer src="https://unpkg.com/alpinejs@3.12.3/dist/cdn.min.js"></script>
 </head>
 <body class="font-sans bg-gray-50">
+    <!-- Alpine.js -->
+    <!-- Header (loaded via component) -->
+    <div id="header-container" x-data="{ includeFile: '/components/header.html' }" x-init="fetch(includeFile).then(response => response.text()).then(html => { $el.innerHTML = html })"></div>
+
+    <!-- Spacer to prevent content from hiding under fixed header -->
+    <div class="h-32"></div>
+
     <!-- Header -->
     <div x-data="{ includeFile: '/components/header.html' }" x-init="fetch(includeFile).then(response => response.text()).then(html => { $el.innerHTML = html })"></div>
 
@@ -270,6 +277,18 @@
         </div>
     </section>
 
+    <!-- Cost Savings Graph Section -->
+    <section class="py-24 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-16" data-aos="fade-up">
+                Visualize Your AWS Savings
+            </h2>
+            <div class="max-w-4xl mx-auto">
+                <canvas id="costGraph" width="400" height="200"></canvas>
+            </div>
+        </div>
+    </section>
+
     <!-- Why RightSpend Section -->
     <section class="py-24">
         <div class="container mx-auto px-6">
@@ -399,7 +418,7 @@
     </section>
 
     <!-- Footer -->
-    <div id="footer" x-data="{ includeFile: '/components/footer.html' }" x-init="fetch(includeFile).then(response => response.text()).then(html => { $el.innerHTML = html })"></div>
+    
 
     <!-- Initialize AOS -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
@@ -412,5 +431,9 @@
             });
         });
     </script>
+
+    <!-- Footer (loaded via component) -->
+    <div id="footer-container" x-data="{ includeFile: '/components/footer.html' }" x-init="fetch(includeFile).then(response => response.text()).then(html => { $el.innerHTML = html })"></div>
+
 </body>
 </html>

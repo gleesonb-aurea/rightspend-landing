@@ -41,6 +41,6 @@ coverage/
 *.tmp
 *.temp
 .cache/
-
-# Memory Bank
 memory-bank/
+
+update-*.js
