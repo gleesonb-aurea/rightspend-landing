@@ -249,6 +249,9 @@ async function initializeApp() {
 
         // Now initialize tracking
         document.addEventListener('alpine:init', initializeTracking);
+
+        // Initialize chart
+        initChart();
     });
 }
 
