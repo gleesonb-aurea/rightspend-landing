@@ -254,3 +254,52 @@ async function initializeApp() {
 
 // Start initialization when DOM is ready
 document.addEventListener('DOMContentLoaded', initializeApp);
+
+// Graph initialization
+document.addEventListener('DOMContentLoaded', () => {
+    // Graph initialization
+    const ctx = document.getElementById('costGraph').getContext('2d');
+    new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ['Before RightSpend', 'After RightSpend'],
+            datasets: [
+                {
+                    label: 'Reserved Instances',
+                    data: [0, 125],
+                    backgroundColor: 'rgb(59, 130, 246)',
+                },
+                {
+                    label: 'On-Demand Costs',
+                    data: [220, 25],
+                    backgroundColor: 'rgb(251, 191, 36)',
+                }
+            ],
+        },
+        options: {
+            plugins: {
+                title: {
+                    display: true,
+                    text: 'Daily Cloud Costs (USD)',
+                    font: {
+                        size: 16
+                    }
+                },
+                responsive: true,
+                scales: {
+                    x: {
+                        stacked: true,
+                    },
+                    y: {
+                        stacked: true,
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            display: true,
+            text: 'Cost in USD',
+                        },
+                    },
+                },
+            },
+        });
+});
