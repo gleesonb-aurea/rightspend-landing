@@ -252,55 +252,75 @@ async function initializeApp() {
     });
 }
 
-// Start initialization when DOM is ready
-document.addEventListener('DOMContentLoaded', initializeApp);
-
-// Graph initialization
 document.addEventListener('DOMContentLoaded', () => {
+    // Initialize components and tracking
+    async function initializeApp() {
+        console.log('Initializing application...');
+
+        // First load all components
+        await Promise.all([
+            loadComponent('header', '/components/header.html'),
+            loadComponent('footer', '/components/footer.html')
+        ]);
+
+        // Then initialize Alpine.js
+        console.log('Components loaded, initializing Alpine.js...');
+
+        // Now initialize tracking
+        document.addEventListener('alpine:init', initializeTracking);
+    }
+
+    // Start initialization
+    initializeApp();
+
     // Graph initialization
     const ctx = document.getElementById('costGraph').getContext('2d');
-    new Chart(ctx, {
-        type: 'bar',
-        data: {
-            labels: ['Before RightSpend', 'After RightSpend'],
-            datasets: [
-                {
-                    label: 'Reserved Instances',
-                    data: [0, 125],
-                    backgroundColor: 'rgb(59, 130, 246)',
-                },
-                {
-                    label: 'On-Demand Costs',
-                    data: [220, 25],
-                    backgroundColor: 'rgb(251, 191, 36)',
-                }
-            ],
-        },
-        options: {
-            plugins: {
-                title: {
-                    display: true,
-                    text: 'Daily Cloud Costs (USD)',
-                    font: {
-                        size: 16
-                    }
-                },
-                responsive: true,
-                scales: {
-                    x: {
-                        stacked: true,
+    if (ctx) {
+        new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Before RightSpend', 'After RightSpend'],
+                datasets: [
+                    {
+                        label: 'Reserved Instances',
+                        data: [0, 125],
+                        backgroundColor: 'rgb(59, 130, 246)',
                     },
-                    y: {
-                        stacked: true,
-                        beginAtZero: true,
-                        title: {
-                            display: true,
-                            display: true,
-            text: 'Cost in USD',
+                    {
+                        label: 'On-Demand Costs',
+                        data: [220, 25],
+                        backgroundColor: 'rgb(251, 191, 36)',
+                    }
+                ],
+            },
+            options: {
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'Daily Cloud Costs (USD)',
+                        font: {
+                            size: 16
+                        }
+                    },
+                    responsive: true,
+                    scales: {
+                        x: {
+                            stacked: true,
+                        },
+                        y: {
+                            stacked: true,
+                            beginAtZero: true,
+                            title: {
+                                display: true,
+                                display: true,
+                                text: 'Cost in USD',
+                            },
                         },
                     },
                 },
             },
-        },
-    });
+        });
+    } else {
+        console.error('Could not find element with id "costGraph"');
+    }
 });
