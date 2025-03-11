@@ -235,18 +235,21 @@ async function loadComponent(id, path) {
 // Initialize components and tracking
 async function initializeApp() {
     console.log('Initializing application...');
-    
-    // First load all components
-    await Promise.all([
-        loadComponent('header', '/components/header.html'),
-        loadComponent('footer', '/components/footer.html')
-    ]);
-    
-    // Then initialize Alpine.js
-    console.log('Components loaded, initializing Alpine.js...');
-    
-    // Now initialize tracking
-    document.addEventListener('alpine:init', initializeTracking);
+
+    // Wait for DOM to be fully loaded
+    document.addEventListener('DOMContentLoaded', async () => {
+        // First load all components
+        await Promise.all([
+            loadComponent('header', '/components/header.html'),
+            loadComponent('footer', '/components/footer.html')
+        ]);
+
+        // Then initialize Alpine.js
+        console.log('Components loaded, initializing Alpine.js...');
+
+        // Now initialize tracking
+        document.addEventListener('alpine:init', initializeTracking);
+    });
 }
 
 // Start initialization when DOM is ready
