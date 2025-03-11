@@ -25,8 +25,7 @@ function fixPaths() {
       .replace(/\.\.\/scripts\//g, '/scripts/')
       .replace(/\.\/scripts\//g, '/scripts/')
       .replace(/\/src\/scripts\//g, '/scripts/')
-      .replace(/\.\/pages\//g, '/')
-      .replace(/\/src\/pages\//g, '/');
+      .replace(/\/pages\/features\.html/g, '/features.html');
 
     // Cleanup double asset paths
     content = content.replace(/\/assets\/assets\//g, '/assets/');

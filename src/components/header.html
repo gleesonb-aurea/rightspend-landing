@@ -9,22 +9,22 @@
 
             <!-- Desktop Navigation -->
             <div class="hidden md:flex items-center space-x-8">
-                <a href="/pages/features.html" class="text-gray-600 hover:text-primary transition">Features</a>
-                <a href="/pages/benefits.html" class="text-gray-600 hover:text-primary transition">Benefits</a>
-                <a href="/pages/use-cases.html" class="text-gray-600 hover:text-primary transition">Use Cases</a>
-                <a href="/pages/pricing.html" class="text-gray-600 hover:text-primary transition">Pricing</a>
+                <a href="/features.html" class="text-gray-600 hover:text-primary transition">Features</a>
+                <a href="/benefits.html" class="text-gray-600 hover:text-primary transition">Benefits</a>
+                <a href="/use-cases.html" class="text-gray-600 hover:text-primary transition">Use Cases</a>
+                <a href="/pricing.html" class="text-gray-600 hover:text-primary transition">Pricing</a>
                 <div class="relative" x-data="{ resourcesOpen: false }">
                     <button @click="resourcesOpen = !resourcesOpen" class="text-gray-600 hover:text-primary transition flex items-center space-x-2">
                         <span>Resources</span>
                         <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
                     </button>
                     <div x-show="resourcesOpen" @click.away="resourcesOpen = false" class="absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 ring-1 ring-black ring-opacity-5">
-                        <a href="/pages/how-it-works.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">How It Works</a>
-                        <a href="/pages/engine.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 pl-8">Engine</a>
-                        <a href="/pages/admin-panel.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 pl-8">Admin Panel</a>
-                        <a href="/pages/use-cases.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Use Cases</a>
-                        <a href="/pages/faq.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">FAQ</a>
-                        <a href="/pages/blog.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Blog</a>
+                        <a href="/how-it-works.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">How It Works</a>
+                        <a href="/engine.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 pl-8">Engine</a>
+                        <a href="/admin-panel.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 pl-8">Admin Panel</a>
+                        <a href="/use-cases.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Use Cases</a>
+                        <a href="/faq.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">FAQ</a>
+                        <a href="/blog.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Blog</a>
                     </div>
                 </div>
             </div>
@@ -50,10 +50,10 @@
                      x-transition:leave-start="opacity-100 transform scale-100"
                      x-transition:leave-end="opacity-0 transform scale-95"
                      class="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 ring-1 ring-black ring-opacity-5">
-                    <a href="/pages/features.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Features</a>
-                    <a href="/pages/benefits.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Benefits</a>
-                    <a href="/pages/use-cases.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Use Cases</a>
-                    <a href="/pages/pricing.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Pricing</a>
+                    <a href="/features.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Features</a>
+                    <a href="/benefits.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Benefits</a>
+                    <a href="/use-cases.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Use Cases</a>
+                    <a href="/pricing.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Pricing</a>
                     <div>
                         <button @click="resourcesOpen = !resourcesOpen" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 w-full text-left">
                             Resources
@@ -62,11 +62,11 @@
                             </svg>
                         </button>
                         <div x-show="resourcesOpen" class="pl-4">
-                            <a href="/pages/how-it-works.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">How It Works</a>
-                            <a href="/pages/engine.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 pl-8">Engine</a>
-                            <a href="/pages/admin-panel.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 pl-8">Admin Panel</a>
-                            <a href="/pages/faq.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">FAQ</a>
-                            <a href="/pages/blog.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Blog</a>
+                            <a href="/how-it-works.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">How It Works</a>
+                            <a href="/engine.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 pl-8">Engine</a>
+                            <a href="/admin-panel.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 pl-8">Admin Panel</a>
+                            <a href="/faq.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">FAQ</a>
+                            <a href="/blog.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Blog</a>
                         </div>
                     </div>
                 </div>

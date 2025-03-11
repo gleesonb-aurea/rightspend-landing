@@ -1,0 +1,47 @@
+[
+  {
+    "label": "Features",
+    "href": "/features.html"
+  },
+  {
+    "label": "Benefits",
+    "href": "/benefits.html"
+  },
+  {
+    "label": "Use Cases",
+    "href": "/use-cases.html"
+  },
+  {
+    "label": "Pricing",
+    "href": "/pricing.html"
+  },
+  {
+    "label": "Resources",
+    "children": [
+      {
+        "label": "How It Works",
+        "href": "/how-it-works.html"
+      },
+      {
+        "label": "Engine",
+        "href": "/engine.html"
+      },
+      {
+        "label": "Admin Panel",
+        "href": "/admin-panel.html"
+      },
+      {
+        "label": "Use Cases",
+        "href": "/use-cases.html"
+      },
+      {
+        "label": "FAQ",
+        "href": "/faq.html"
+      },
+      {
+        "label": "Blog",
+        "href": "/blog.html"
+      }
+    ]
+  }
+]

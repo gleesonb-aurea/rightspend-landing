@@ -27,11 +27,11 @@
     <!-- Styles -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link href="/css/styles.css" rel="stylesheet">
-    <script src="/src/scripts/main.js"></script>
+    <script src="/scripts/main.js"></script>
 </head>
 <body class="font-sans bg-gray-50">
     <!-- Header -->
-    <div x-data="{ includeFile: '../components/header.html' }" x-init="fetch(includeFile).then(response => response.text()).then(html => { $el.innerHTML = html })"></div>
+    <div id="header"></div>
 
     <!-- FAQ Section -->
     <section class="py-24">
@@ -96,7 +96,7 @@
     </section>
 
     <!-- Footer -->
-    <div x-data="{ includeFile: '../components/footer.html' }" x-init="fetch(includeFile).then(response => response.text()).then(html => { $el.innerHTML = html })"></div>
+    <div id="footer"></div>
 
     <!-- Initialize AOS -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
