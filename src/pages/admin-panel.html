@@ -1,6 +1,4 @@
-<!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
-<head>
+<!DOCTYPE html><html lang="en" class="scroll-smooth"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RightSpend Admin Panel - Configuration</title>
@@ -11,22 +9,28 @@
     
     <!-- Styles -->
     <link href="/css/styles.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
     
     <!-- Scripts -->
     <script src="/src/scripts/main.js"></script>
-        <script defer src="https://unpkg.com/alpinejs@3.12.3/dist/cdn.min.js"></script>
+        <script defer="" src="https://unpkg.com/alpinejs@3.12.3/dist/cdn.min.js"></script>
 </head>
 <body class="font-sans bg-gray-50">
-    <!-- Alpine.js -->
-    <!-- Header (loaded via component) -->
-    <div id="header-container" x-data="{ includeFile: '/components/header.html' }" x-init="fetch(includeFile).then(response => response.text()).then(html => { $el.innerHTML = html })"></div>
+    <!-- Header Component -->
+    <div id="header"></div>
 
     <!-- Spacer to prevent content from hiding under fixed header -->
-    <div class="h-32"></div>
+    
+
+    <!-- Alpine.js -->
+    <!-- Header (loaded via component) -->
+    
+
+    <!-- Spacer to prevent content from hiding under fixed header -->
+    
 
     <!-- Header -->
-    <div x-data="{ includeFile: './components/header.html' }" x-init="fetch(includeFile).then(response => response.text()).then(html => { $el.innerHTML = html })"></div>
+    
 
     <!-- Hero Section -->
     <section class="relative bg-gradient-to-r from-primary to-secondary overflow-hidden py-24">
@@ -58,14 +62,10 @@
             <!-- Tab Navigation -->
             <div class="border-b border-gray-200 mb-6">
                 <nav class="-mb-px flex space-x-8">
-                    <button @click="activeTab = 'common'" 
-                            :class="{'border-primary text-primary': activeTab === 'common', 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300': activeTab !== 'common'}"
-                            class="whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm">
+                    <button @click="activeTab = 'common'" :class="{'border-primary text-primary': activeTab === 'common', 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300': activeTab !== 'common'}" class="whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm">
                         Common Parameters
                     </button>
-                    <button @click="activeTab = 'region'" 
-                            :class="{'border-primary text-primary': activeTab === 'region', 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300': activeTab !== 'region'}"
-                            class="whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm">
+                    <button @click="activeTab = 'region'" :class="{'border-primary text-primary': activeTab === 'region', 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300': activeTab !== 'region'}" class="whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm">
                         Per-Region Parameters
                     </button>
                 </nav>
@@ -79,7 +79,7 @@
                         <div>
                             <label class="block text-sm font-medium text-gray-700">Allowed Regions</label>
                             <div class="mt-1">
-                                <select multiple class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm rounded-md">
+                                <select multiple="" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm rounded-md">
                                     <option>us-east-1</option>
                                     <option>us-east-2</option>
                                     <option>us-west-1</option>
@@ -215,11 +215,15 @@
         </div>
     </main>
     <!-- Footer -->
-    <div x-data="{ includeFile: './components/footer.html' }" x-init="fetch(includeFile).then(response => response.text()).then(html => { $el.innerHTML = html })"></div>
+    
     
 
     <!-- Footer (loaded via component) -->
-    <div id="footer-container" x-data="{ includeFile: '/components/footer.html' }" x-init="fetch(includeFile).then(response => response.text()).then(html => { $el.innerHTML = html })"></div>
+    
 
-</body>
-</html>
+
+
+
+    <!-- Footer Component -->
+    <div id="footer"></div>
+</body></html>

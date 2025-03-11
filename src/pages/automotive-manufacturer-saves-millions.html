@@ -1,6 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<!DOCTYPE html><html lang="en"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Learn how a Fortune 500 automotive manufacturer achieved over $2.5M in annual AWS savings using RightSpend's automated optimization.">
@@ -10,11 +8,17 @@
     <title>Case Study: Automotive Manufacturer Saves Millions with RightSpend</title>
     <link href="/css/styles.css" rel="stylesheet">
     <script src="/scripts/main.js"></script>
-        <script defer src="https://unpkg.com/alpinejs@3.12.3/dist/cdn.min.js"></script>
+        <script defer="" src="https://unpkg.com/alpinejs@3.12.3/dist/cdn.min.js"></script>
 </head>
 <body class="bg-gray-50">
+    <!-- Header Component -->
+    <div id="header"></div>
+
+    <!-- Spacer to prevent content from hiding under fixed header -->
+    
+
     <!-- Header -->
-    <div x-data="{ includeFile: '/components/header.html' }" x-init="fetch(includeFile).then(response => response.text()).then(html => { $el.innerHTML = html })"></div>
+    
 
     <!-- Article -->
     <article class="py-16">
@@ -100,10 +104,14 @@
     </article>
 
     <!-- Footer -->
-    <div x-data="{ includeFile: '/components/footer.html' }" x-init="fetch(includeFile).then(response => response.text()).then(html => { $el.innerHTML = html })"></div>
+    
 
     <!-- Footer (loaded via component) -->
-    <div id="footer-container" x-data="{ includeFile: '/components/footer.html' }" x-init="fetch(includeFile).then(response => response.text()).then(html => { $el.innerHTML = html })"></div>
+    
 
-</body>
-</html>
+
+
+
+    <!-- Footer Component -->
+    <div id="footer"></div>
+</body></html>

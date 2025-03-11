@@ -268,20 +268,53 @@ function isTrackingBlocked() {
 
 // Component Loading
 async function loadComponent(id, path) {
+    if (!id || !path) {
+        console.error('Invalid component parameters - id:', id, 'path:', path);
+        throw new Error('Component ID and path are required');
+    }
+
+    const element = document.getElementById(id);
+    if (!element) {
+        console.error(`Element with id '${id}' not found`);
+        throw new Error(`Target element '${id}' not found`);
+    }
+
     try {
-        const response = await fetch(path);
-        if (!response.ok) throw new Error(`Failed to load ${path}`);
-        const html = await response.text();
-        const element = document.getElementById(id);
-        if (element) {
-            element.innerHTML = html;
-            console.log(`Component ${id} loaded successfully`);
-        } else {
-            console.error(`Element with id '${id}' not found`);
+        // Ensure path starts with /components/
+        const validPath = path.startsWith('/components/') ? path : `/components/${path}`;
+        console.log(`Loading component ${id} from ${validPath}`);
+
+        const response = await fetch(validPath);
+        if (!response.ok) {
+            throw new Error(`Failed to load ${validPath} (${response.status})`);
         }
+
+        const html = await response.text();
+        element.innerHTML = html;
+        console.log(`Component ${id} loaded successfully`);
     } catch (error) {
         console.error(`Error loading component ${id}:`, error);
+        throw error;
     }
+}
+
+// Adjust header spacing based on actual header height
+function adjustHeaderSpacing() {
+    const header = document.getElementById('header');
+    const spacer = document.getElementById('header-spacer');
+    
+    if (!header || !spacer) {
+        console.warn('Header or spacer elements not found');
+        return;
+    }
+
+    // Get the actual rendered height of the header
+    const headerHeight = header.getBoundingClientRect().height;
+    
+    // Add a small buffer (8px) to prevent content from touching the header
+    spacer.style.height = `${headerHeight + 8}px`;
+    
+    console.log(`Adjusted header spacing to ${headerHeight + 8}px`);
 }
 
 // Initialize application
@@ -289,19 +322,38 @@ document.addEventListener('DOMContentLoaded', async function() {
     console.log('Initializing application...');
     
     try {
-        // Load components first
+        // Load components first with explicit paths
         await Promise.all([
-            loadComponent('header'),
-            loadComponent('footer')
+            loadComponent('header', '/components/header.html'),
+            loadComponent('footer', '/components/footer.html')
         ]);
         
         console.log('Components loaded, initializing Alpine.js...');
+        
+        // Wait for Alpine.js to initialize
+        document.addEventListener('alpine:init', () => {
+            // Adjust header spacing after Alpine.js initializes components
+            setTimeout(adjustHeaderSpacing, 100);
+        });
         
         // Initialize tracking
         await initializeTracking();
         
         // Initialize cost graph if element exists
         initCostGraph();
+        
+        // Re-adjust header spacing after images load (which might affect layout)
+        window.addEventListener('load', () => {
+            // Allow time for images to affect layout
+            setTimeout(adjustHeaderSpacing, 100);
+        });
+        
+        // Re-adjust on window resize with debounce
+        let resizeTimeout;
+        window.addEventListener('resize', () => {
+            clearTimeout(resizeTimeout);
+            resizeTimeout = setTimeout(adjustHeaderSpacing, 100);
+        });
         
     } catch (error) {
         console.error('Error during initialization:', error);

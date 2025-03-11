@@ -1,6 +1,4 @@
-<!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
-<head>
+<!DOCTYPE html><html lang="en" class="scroll-smooth"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RightSpend Benefits - Immediate AWS Cost Optimization</title>
@@ -28,25 +26,31 @@
     
     <!-- Styles -->
     <link href="/css/styles.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css">
     
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js?v=1"></script>
-    <script defer src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script defer="" src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script src="/scripts/main.js"></script>
-        <script defer src="https://unpkg.com/alpinejs@3.12.3/dist/cdn.min.js"></script>
+        <script defer="" src="https://unpkg.com/alpinejs@3.12.3/dist/cdn.min.js"></script>
 </head>
 <body class="font-sans bg-gray-50">
-    <!-- Alpine.js -->
-    <!-- Header (loaded via component) -->
-    <div id="header-container" x-data="{ includeFile: '/components/header.html' }" x-init="fetch(includeFile).then(response => response.text()).then(html => { $el.innerHTML = html })"></div>
+    <!-- Header Component -->
+    <div id="header"></div>
 
     <!-- Spacer to prevent content from hiding under fixed header -->
-    <div class="h-32"></div>
+    
+
+    <!-- Alpine.js -->
+    <!-- Header (loaded via component) -->
+    
+
+    <!-- Spacer to prevent content from hiding under fixed header -->
+    
 
     <!-- Header -->
-    <div x-data="{ includeFile: '/components/header.html' }" x-init="fetch(includeFile).then(response => response.text()).then(html => { $el.innerHTML = html })"></div>
+    
 
     <!-- Hero Section -->
     <section class="py-24 bg-white">
@@ -112,7 +116,7 @@
     </div>
 
     <!-- Footer -->
-    <div x-data="{ includeFile: '/components/footer.html' }" x-init="fetch(includeFile).then(response => response.text()).then(html => { $el.innerHTML = html })"></div>
+    
 
     <!-- Apollo Tracking Script -->
     <!--
@@ -124,7 +128,11 @@
     </script>
 
     <!-- Footer (loaded via component) -->
-    <div id="footer-container" x-data="{ includeFile: '/components/footer.html' }" x-init="fetch(includeFile).then(response => response.text()).then(html => { $el.innerHTML = html })"></div>
+    
 
-</body>
-</html>
+
+
+
+    <!-- Footer Component -->
+    <div id="footer"></div>
+</body></html>

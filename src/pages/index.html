@@ -1,6 +1,4 @@
-<!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
-<head>
+<!DOCTYPE html><html lang="en" class="scroll-smooth"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RightSpend - Maximize AWS Savings Without Lock-in</title>
@@ -28,23 +26,20 @@
     
     <!-- Styles -->
     <link href="/css/styles.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script defer src="/scripts/main.js"></script>
-    <script defer src="https://unpkg.com/alpinejs@3.12.3/dist/cdn.min.js"></script>
+    <script defer="" src="/scripts/main.js"></script>
+    <script defer="" src="https://unpkg.com/alpinejs@3.12.3/dist/cdn.min.js"></script>
 </head>
 <body class="font-sans bg-gray-50">
-    <!-- Alpine.js -->
-    <!-- Header (loaded via component) -->
-    <div id="header-container" x-data="{ includeFile: '/components/header.html' }" x-init="fetch(includeFile).then(response => response.text()).then(html => { $el.innerHTML = html })"></div>
+    <!-- Header Component -->
+    <div id="header"></div>
 
     <!-- Spacer to prevent content from hiding under fixed header -->
-    <div class="h-32"></div>
-
-    <!-- Header -->
-    <div x-data="{ includeFile: '/components/header.html' }" x-init="fetch(includeFile).then(response => response.text()).then(html => { $el.innerHTML = html })"></div>
+    
 
     <!-- Hero Section -->
     <section class="py-24 bg-white">
@@ -417,23 +412,21 @@
         </div>
     </section>
 
-    <!-- Footer -->
-    
+    <!-- Footer Component -->
+    <div id="footer"></div>
 
     <!-- Initialize AOS -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
+        document.addEventListener('DOMContentLoaded', function() {
             AOS.init({
                 duration: 800,
+                offset: 100,
                 once: true
             });
         });
     </script>
 
-    <!-- Footer (loaded via component) -->
-    <div id="footer-container" x-data="{ includeFile: '/components/footer.html' }" x-init="fetch(includeFile).then(response => response.text()).then(html => { $el.innerHTML = html })"></div>
 
-</body>
-</html>
+
+</body></html>
