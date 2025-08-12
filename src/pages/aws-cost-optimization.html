@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AWS Cost Optimization: Complete Guide to Cloud Cost Savings | RightSpend</title>
+    <meta name="description" content="Complete guide to AWS cost optimization. Learn proven strategies, tools, and best practices for reducing AWS costs by up to 60%. Includes Reserved Instances, Savings Plans, and automation tips.">
+    <meta name="keywords" content="AWS cost optimization, cloud cost savings, AWS cost reduction, Reserved Instances, Savings Plans, AWS cost management, cloud financial optimization, AWS billing optimization, EC2 cost optimization, AWS cost tools">
+    <meta name="author" content="CloudFix">
+
+    <!-- Open Graph / Social Media Meta Tags -->
+    <meta property="og:title" content="AWS Cost Optimization: Complete Guide to Cloud Cost Savings">
+    <meta property="og:description" content="Complete guide to AWS cost optimization with proven strategies for reducing cloud costs by up to 60%. Expert insights and automation tools.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://rightspend.ai/aws-cost-optimization">
+    <meta property="og:image" content="/assets/images/RightSpend-cool.png">
+
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="AWS Cost Optimization: Complete Guide to Cloud Cost Savings">
+    <meta name="twitter:description" content="Complete guide to AWS cost optimization with proven strategies for reducing cloud costs by up to 60%.">
+    <meta name="twitter:image" content="/assets/images/RightSpend-cool.png">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="../assets/images/favicon.svg">
+
+    <!-- Styles -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="/css/styles.css" rel="stylesheet">
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "AWS Cost Optimization: Complete Guide to Cloud Cost Savings",
+      "description": "Comprehensive guide to AWS cost optimization strategies, tools, and best practices for reducing cloud infrastructure costs by up to 60%.",
+      "author": {
+        "@type": "Organization",
+        "name": "CloudFix",
+        "url": "https://cloudfix.com"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "CloudFix",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://rightspend.ai/assets/images/RightSpend-cool.png"
+        }
+      },
+      "mainEntityOfPage": "https://rightspend.ai/aws-cost-optimization",
+      "articleSection": "Cloud Cost Optimization",
+      "keywords": "AWS cost optimization, cloud cost savings, Reserved Instances, Savings Plans, AWS cost management"
+    }
+    </script>
+    
+    <script src="/scripts/main.js"></script>
+    <script defer src="https://unpkg.com/alpinejs@3.12.3/dist/cdn.min.js"></script>
+</head>
+<body class="font-sans bg-gray-50">
+    <!-- Header Component -->
+    <div id="header"></div>
+
+    <!-- Hero Section -->
+    <section class="py-24 bg-gradient-to-br from-primary-50 to-secondary-50">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto text-center">
+                <h1 class="text-4xl md:text-5xl font-bold mb-6">
+                    AWS Cost Optimization: Complete Guide to Cloud Cost Savings
+                </h1>
+                <p class="text-xl text-gray-600 mb-8">
+                    Master AWS cost optimization with proven strategies, expert insights, and automation tools. Reduce your AWS costs by up to 60% while maintaining performance and reliability.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="https://cal.read.ai/bill-gleeson" class="btn-primary text-lg">Get Cost Optimization Assessment</a>
+                    <a href="#strategies" class="btn-outline text-lg">View Optimization Strategies</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Table of Contents -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-2xl font-bold mb-8 text-center">Complete AWS Cost Optimization Guide</h2>
+                
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="bg-gray-50 p-6 rounded-lg">
+                        <h3 class="text-lg font-semibold mb-4">Foundational Strategies</h3>
+                        <ul class="space-y-2 text-gray-600">
+                            <li><a href="#right-sizing" class="hover:text-primary">• Right-sizing EC2 Instances</a></li>
+                            <li><a href="#reserved-instances" class="hover:text-primary">• Reserved Instances Optimization</a></li>
+                            <li><a href="#savings-plans" class="hover:text-primary">• Savings Plans Strategy</a></li>
+                            <li><a href="#spot-instances" class="hover:text-primary">• Spot Instances Implementation</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-gray-50 p-6 rounded-lg">
+                        <h3 class="text-lg font-semibold mb-4">Advanced Techniques</h3>
+                        <ul class="space-y-2 text-gray-600">
+                            <li><a href="#automation" class="hover:text-primary">• Cost Optimization Automation</a></li>
+                            <li><a href="#monitoring" class="hover:text-primary">• Monitoring & Analytics</a></li>
+                            <li><a href="#governance" class="hover:text-primary">• Cost Governance & Controls</a></li>
+                            <li><a href="#commitment-free" class="hover:text-primary">• Commitment Free Discounts</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AWS Cost Optimization Fundamentals -->
+    <section id="strategies" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="max-w-6xl mx-auto">
+                <h2 class="text-3xl font-bold text-center mb-12">AWS Cost Optimization Fundamentals</h2>
+                
+                <div class="grid md:grid-cols-3 gap-8 mb-12">
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-primary text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">1</div>
+                        <h3 class="text-xl font-semibold mb-3">Visibility</h3>
+                        <p class="text-gray-600">Understand your current AWS spending patterns, usage trends, and cost drivers across all services and accounts.</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-primary text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">2</div>
+                        <h3 class="text-xl font-semibold mb-3">Optimization</h3>
+                        <p class="text-gray-600">Apply proven strategies like right-sizing, discount instruments, and automation to reduce costs without impacting performance.</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-primary text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">3</div>
+                        <h3 class="text-xl font-semibold mb-3">Governance</h3>
+                        <p class="text-gray-600">Implement ongoing controls, monitoring, and optimization processes to maintain cost efficiency over time.</p>
+                    </div>
+                </div>
+
+                <div class="bg-gradient-to-r from-primary-50 to-secondary-50 p-8 rounded-lg">
+                    <h3 class="text-2xl font-bold mb-4">Key AWS Cost Optimization Statistics</h3>
+                    <div class="grid md:grid-cols-4 gap-6">
+                        <div class="text-center">
+                            <div class="text-3xl font-bold text-primary mb-2">60%</div>
+                            <div class="text-sm font-semibold">Average Savings Potential</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-3xl font-bold text-success mb-2">40%</div>
+                            <div class="text-sm font-semibold">Reserved Instance Discounts</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-3xl font-bold text-secondary mb-2">72%</div>
+                            <div class="text-sm font-semibold">Compute Savings Plans</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-3xl font-bold text-primary mb-2">90%</div>
+                            <div class="text-sm font-semibold">Spot Instance Savings</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Right-sizing Strategy -->
+    <section id="right-sizing" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="max-w-6xl mx-auto">
+                <h2 class="text-3xl font-bold mb-12">Right-sizing: The Foundation of AWS Cost Optimization</h2>
+                
+                <div class="grid md:grid-cols-2 gap-12 items-center mb-12">
+                    <div>
+                        <h3 class="text-2xl font-bold mb-6">What is Right-sizing?</h3>
+                        <p class="text-lg text-gray-600 mb-6">
+                            Right-sizing involves matching your AWS resources to actual workload requirements. Studies show that up to 30% of EC2 instances are oversized, representing immediate cost reduction opportunities.
+                        </p>
+                        
+                        <div class="space-y-4">
+                            <div class="flex items-start">
+                                <div class="w-6 h-6 bg-success text-white rounded-full flex items-center justify-center text-sm font-bold mr-3 mt-1">✓</div>
+                                <div>
+                                    <h4 class="font-semibold mb-1">CPU Utilization Analysis</h4>
+                                    <p class="text-gray-600">Monitor CPU usage over 30+ days to identify consistently underutilized instances</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="w-6 h-6 bg-success text-white rounded-full flex items-center justify-center text-sm font-bold mr-3 mt-1">✓</div>
+                                <div>
+                                    <h4 class="font-semibold mb-1">Memory & Network Assessment</h4>
+                                    <p class="text-gray-600">Evaluate memory usage patterns and network throughput requirements</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="w-6 h-6 bg-success text-white rounded-full flex items-center justify-center text-sm font-bold mr-3 mt-1">✓</div>
+                                <div>
+                                    <h4 class="font-semibold mb-1">Workload Characteristics</h4>
+                                    <p class="text-gray-600">Consider burstable performance needs vs. baseline requirements</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="bg-white p-6 rounded-lg shadow-lg">
+                            <h4 class="text-lg font-semibold mb-4">Right-sizing Impact Calculator</h4>
+                            <div class="space-y-3">
+                                <div class="flex justify-between pb-2 border-b">
+                                    <span>Current Monthly EC2 Cost:</span>
+                                    <span class="font-semibold">$10,000</span>
+                                </div>
+                                <div class="flex justify-between pb-2 border-b">
+                                    <span>Right-sizing Savings (25%):</span>
+                                    <span class="font-semibold text-success">$2,500</span>
+                                </div>
+                                <div class="flex justify-between pb-2 border-b">
+                                    <span>Annual Savings:</span>
+                                    <span class="font-semibold text-success">$30,000</span>
+                                </div>
+                                <div class="flex justify-between font-bold text-lg pt-2 border-t-2">
+                                    <span>New Monthly Cost:</span>
+                                    <span class="text-success">$7,500</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reserved Instances Strategy -->
+    <section id="reserved-instances" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="max-w-6xl mx-auto">
+                <h2 class="text-3xl font-bold mb-12">Reserved Instances: Traditional AWS Cost Optimization</h2>
+                
+                <div class="grid md:grid-cols-3 gap-8 mb-12">
+                    <div class="bg-white p-6 rounded-lg shadow-lg">
+                        <h3 class="text-xl font-bold mb-4 text-primary">Standard Reserved Instances</h3>
+                        <div class="text-3xl font-bold text-success mb-2">Up to 75%</div>
+                        <p class="text-gray-600 mb-4">Discount compared to On-Demand pricing with 1 or 3-year commitment</p>
+                        <ul class="text-sm space-y-1">
+                            <li>• Regional or zonal flexibility</li>
+                            <li>• No upfront to all upfront options</li>
+                            <li>• Cannot be modified after purchase</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-white p-6 rounded-lg shadow-lg">
+                        <h3 class="text-xl font-bold mb-4 text-secondary">Convertible Reserved Instances</h3>
+                        <div class="text-3xl font-bold text-success mb-2">Up to 54%</div>
+                        <p class="text-gray-600 mb-4">Discount with flexibility to exchange for different instance types</p>
+                        <ul class="text-sm space-y-1">
+                            <li>• Exchange for different instance families</li>
+                            <li>• Adjust for changing workload needs</li>
+                            <li>• Lower discount than Standard RIs</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-white p-6 rounded-lg shadow-lg border-2 border-primary">
+                        <h3 class="text-xl font-bold mb-4 text-primary">Commitment Free Discounts</h3>
+                        <div class="text-3xl font-bold text-success mb-2">Up to 55%</div>
+                        <p class="text-gray-600 mb-4">RightSpend's automated approach with no commitment required</p>
+                        <ul class="text-sm space-y-1">
+                            <li>• No long-term commitments</li>
+                            <li>• Automated optimization</li>
+                            <li>• Dynamic adjustments</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="bg-gradient-to-r from-orange-50 to-red-50 p-6 rounded-lg">
+                    <h3 class="text-xl font-bold mb-3 text-orange-800">Reserved Instance Challenges</h3>
+                    <p class="text-gray-700 mb-3">
+                        While Reserved Instances offer significant discounts, they come with inherent challenges that many organizations struggle with:
+                    </p>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <ul class="text-sm space-y-2">
+                            <li class="flex items-start"><span class="text-red-500 mr-2">⚠️</span>Commitment risk with changing workloads</li>
+                            <li class="flex items-start"><span class="text-red-500 mr-2">⚠️</span>Complex capacity planning requirements</li>
+                            <li class="flex items-start"><span class="text-red-500 mr-2">⚠️</span>Manual optimization and exchange processes</li>
+                        </ul>
+                        <ul class="text-sm space-y-2">
+                            <li class="flex items-start"><span class="text-red-500 mr-2">⚠️</span>Stranded commitments during migrations</li>
+                            <li class="flex items-start"><span class="text-red-500 mr-2">⚠️</span>Limited flexibility for scaling workloads</li>
+                            <li class="flex items-start"><span class="text-red-500 mr-2">⚠️</span>Break-even calculations and utilization tracking</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Savings Plans Strategy -->
+    <section id="savings-plans" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="max-w-6xl mx-auto">
+                <h2 class="text-3xl font-bold mb-12">AWS Savings Plans: Flexible Discount Strategy</h2>
+                
+                <div class="grid md:grid-cols-2 gap-8 mb-12">
+                    <div>
+                        <h3 class="text-2xl font-bold mb-6">Compute Savings Plans</h3>
+                        <p class="text-lg text-gray-600 mb-6">
+                            Compute Savings Plans provide up to 66% discount on EC2, Lambda, and Fargate usage in exchange for a commitment to a consistent amount of compute usage (measured in $/hour) for 1 or 3 years.
+                        </p>
+                        
+                        <div class="space-y-4">
+                            <div class="bg-gradient-to-r from-success-50 to-success-100 p-4 rounded-lg">
+                                <h4 class="font-semibold mb-2 text-success-800">✓ Advantages</h4>
+                                <ul class="text-sm space-y-1">
+                                    <li>• Automatic application across instance families</li>
+                                    <li>• Covers EC2, Lambda, and Fargate</li>
+                                    <li>• Regional flexibility</li>
+                                    <li>• Up to 66% savings vs On-Demand</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h3 class="text-2xl font-bold mb-6">EC2 Instance Savings Plans</h3>
+                        <p class="text-lg text-gray-600 mb-6">
+                            EC2 Instance Savings Plans offer up to 72% discount but are limited to a specific instance family in a chosen region, providing less flexibility than Compute Savings Plans.
+                        </p>
+                        
+                        <div class="space-y-4">
+                            <div class="bg-gradient-to-r from-orange-50 to-orange-100 p-4 rounded-lg">
+                                <h4 class="font-semibold mb-2 text-orange-800">⚠️ Limitations</h4>
+                                <ul class="text-sm space-y-1">
+                                    <li>• Requires accurate capacity forecasting</li>
+                                    <li>• 1-3 year commitments required</li>
+                                    <li>• Risk of overcommitment</li>
+                                    <li>• Manual optimization required</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-gradient-to-r from-primary-50 to-secondary-50 p-8 rounded-lg">
+                    <h3 class="text-2xl font-bold mb-4">Savings Plans Best Practices</h3>
+                    <div class="grid md:grid-cols-3 gap-6">
+                        <div>
+                            <h4 class="font-semibold mb-2">Planning Phase</h4>
+                            <ul class="text-sm text-gray-600 space-y-1">
+                                <li>• Analyze 30+ days of usage data</li>
+                                <li>• Consider seasonal variations</li>
+                                <li>• Account for business growth projections</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold mb-2">Implementation</h4>
+                            <ul class="text-sm text-gray-600 space-y-1">
+                                <li>• Start with conservative commitments</li>
+                                <li>• Layer commitments over time</li>
+                                <li>• Monitor utilization regularly</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold mb-2">Optimization</h4>
+                            <ul class="text-sm text-gray-600 space-y-1">
+                                <li>• Track effective savings rate</li>
+                                <li>• Adjust for workload changes</li>
+                                <li>• Consider automation tools</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modern Approach: Commitment Free Discounts -->
+    <section id="commitment-free" class="py-20 bg-primary text-white">
+        <div class="container mx-auto px-6">
+            <div class="max-w-6xl mx-auto">
+                <h2 class="text-3xl font-bold text-center mb-12">The Future of AWS Cost Optimization</h2>
+                
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <h3 class="text-2xl font-bold mb-6">Commitment Free Discounts (CFDs)</h3>
+                        <p class="text-xl mb-6 opacity-90">
+                            RightSpend's innovative approach eliminates the complexity and risk of traditional discount instruments while delivering equivalent savings through automated cRI optimization.
+                        </p>
+                        
+                        <div class="space-y-4">
+                            <div class="flex items-start">
+                                <div class="w-6 h-6 bg-success text-white rounded-full flex items-center justify-center text-sm font-bold mr-3 mt-1">✓</div>
+                                <div>
+                                    <h4 class="font-semibold mb-1">No Long-term Commitments</h4>
+                                    <p class="opacity-90">Scale up or down without penalties or break-even concerns</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="w-6 h-6 bg-success text-white rounded-full flex items-center justify-center text-sm font-bold mr-3 mt-1">✓</div>
+                                <div>
+                                    <h4 class="font-semibold mb-1">Automated Optimization</h4>
+                                    <p class="opacity-90">AI-driven cRI management eliminates manual planning overhead</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="w-6 h-6 bg-success text-white rounded-full flex items-center justify-center text-sm font-bold mr-3 mt-1">✓</div>
+                                <div>
+                                    <h4 class="font-semibold mb-1">Works with Existing Strategy</h4>
+                                    <p class="opacity-90">Complements Savings Plans and EDP programs seamlessly</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white text-gray-800 p-8 rounded-lg">
+                        <h4 class="text-xl font-bold mb-4">Traditional vs. CFD Comparison</h4>
+                        <div class="overflow-x-auto">
+                            <table class="w-full text-sm">
+                                <thead class="bg-gray-50">
+                                    <tr>
+                                        <th class="p-3 text-left">Feature</th>
+                                        <th class="p-3 text-center">Traditional</th>
+                                        <th class="p-3 text-center">CFDs</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="border-b">
+                                        <td class="p-3 font-medium">Planning Required</td>
+                                        <td class="p-3 text-center text-red-600">High</td>
+                                        <td class="p-3 text-center text-success">None</td>
+                                    </tr>
+                                    <tr class="border-b bg-gray-50">
+                                        <td class="p-3 font-medium">Commitment Risk</td>
+                                        <td class="p-3 text-center text-red-600">High</td>
+                                        <td class="p-3 text-center text-success">None</td>
+                                    </tr>
+                                    <tr class="border-b">
+                                        <td class="p-3 font-medium">Management Overhead</td>
+                                        <td class="p-3 text-center text-orange-600">Manual</td>
+                                        <td class="p-3 text-center text-success">Automated</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="p-3 font-medium">Max Discount</td>
+                                        <td class="p-3 text-center text-primary">Up to 72%</td>
+                                        <td class="p-3 text-center text-success">Up to 55%</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cost Optimization Tools & Automation -->
+    <section id="automation" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="max-w-6xl mx-auto">
+                <h2 class="text-3xl font-bold text-center mb-12">AWS Cost Optimization Tools & Automation</h2>
+                
+                <div class="grid md:grid-cols-2 gap-8 mb-12">
+                    <div>
+                        <h3 class="text-2xl font-bold mb-6">Native AWS Tools</h3>
+                        <div class="space-y-6">
+                            <div class="bg-white p-6 rounded-lg shadow">
+                                <h4 class="font-semibold mb-2">AWS Cost Explorer</h4>
+                                <p class="text-gray-600 mb-2">Visualize and analyze your AWS costs and usage over time</p>
+                                <ul class="text-sm text-gray-500 space-y-1">
+                                    <li>• Historical cost analysis</li>
+                                    <li>• Forecasting capabilities</li>
+                                    <li>• Right-sizing recommendations</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="bg-white p-6 rounded-lg shadow">
+                                <h4 class="font-semibold mb-2">AWS Trusted Advisor</h4>
+                                <p class="text-gray-600 mb-2">Provides recommendations for cost optimization opportunities</p>
+                                <ul class="text-sm text-gray-500 space-y-1">
+                                    <li>• Idle and underutilized resources</li>
+                                    <li>• Reserved Instance recommendations</li>
+                                    <li>• Cost optimization checks</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h3 class="text-2xl font-bold mb-6">Third-party Solutions</h3>
+                        <div class="space-y-6">
+                            <div class="bg-white p-6 rounded-lg shadow border-2 border-primary">
+                                <h4 class="font-semibold mb-2 text-primary">RightSpend by CloudFix</h4>
+                                <p class="text-gray-600 mb-2">Automated AWS cost optimization with Commitment Free Discounts</p>
+                                <ul class="text-sm text-gray-500 space-y-1">
+                                    <li>• Automated cRI optimization</li>
+                                    <li>• No commitment required</li>
+                                    <li>• Up to 55% savings</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="bg-white p-6 rounded-lg shadow">
+                                <h4 class="font-semibold mb-2">Other Cost Management Platforms</h4>
+                                <p class="text-gray-600 mb-2">Various solutions for cost monitoring and optimization</p>
+                                <ul class="text-sm text-gray-500 space-y-1">
+                                    <li>• Multi-cloud cost management</li>
+                                    <li>• Advanced analytics and reporting</li>
+                                    <li>• Cost allocation and chargeback</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AWS Cost Optimization Checklist -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="max-w-6xl mx-auto">
+                <h2 class="text-3xl font-bold text-center mb-12">AWS Cost Optimization Checklist</h2>
+                
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="bg-gray-50 p-6 rounded-lg">
+                        <h3 class="text-xl font-bold mb-6">Immediate Actions (0-30 days)</h3>
+                        <div class="space-y-3">
+                            <label class="flex items-center">
+                                <input type="checkbox" class="mr-3 w-4 h-4">
+                                <span>Identify and terminate unused resources</span>
+                            </label>
+                            <label class="flex items-center">
+                                <input type="checkbox" class="mr-3 w-4 h-4">
+                                <span>Right-size oversized EC2 instances</span>
+                            </label>
+                            <label class="flex items-center">
+                                <input type="checkbox" class="mr-3 w-4 h-4">
+                                <span>Review and optimize storage usage</span>
+                            </label>
+                            <label class="flex items-center">
+                                <input type="checkbox" class="mr-3 w-4 h-4">
+                                <span>Implement cost allocation tags</span>
+                            </label>
+                            <label class="flex items-center">
+                                <input type="checkbox" class="mr-3 w-4 h-4">
+                                <span>Set up billing alerts and budgets</span>
+                            </label>
+                            <label class="flex items-center">
+                                <input type="checkbox" class="mr-3 w-4 h-4">
+                                <span>Analyze Cost Explorer recommendations</span>
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-gray-50 p-6 rounded-lg">
+                        <h3 class="text-xl font-bold mb-6">Strategic Implementation (30+ days)</h3>
+                        <div class="space-y-3">
+                            <label class="flex items-center">
+                                <input type="checkbox" class="mr-3 w-4 h-4">
+                                <span>Implement discount strategy (RI/SP/CFDs)</span>
+                            </label>
+                            <label class="flex items-center">
+                                <input type="checkbox" class="mr-3 w-4 h-4">
+                                <span>Automate start/stop for dev environments</span>
+                            </label>
+                            <label class="flex items-center">
+                                <input type="checkbox" class="mr-3 w-4 h-4">
+                                <span>Implement Spot Instance strategies</span>
+                            </label>
+                            <label class="flex items-center">
+                                <input type="checkbox" class="mr-3 w-4 h-4">
+                                <span>Establish cost governance policies</span>
+                            </label>
+                            <label class="flex items-center">
+                                <input type="checkbox" class="mr-3 w-4 h-4">
+                                <span>Set up automated cost monitoring</span>
+                            </label>
+                            <label class="flex items-center">
+                                <input type="checkbox" class="mr-3 w-4 h-4">
+                                <span>Regular optimization reviews</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 bg-primary text-white">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-3xl font-bold mb-6">Ready to Optimize Your AWS Costs?</h2>
+            <p class="text-xl mb-8 opacity-90">
+                Get a free AWS cost optimization assessment and discover how much you can save with automated strategies and expert guidance.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="https://cal.read.ai/bill-gleeson" class="bg-white text-primary px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors">
+                    Schedule Free Assessment
+                </a>
+                <a href="/commitment-free-discounts" class="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-primary transition-colors">
+                    Learn About CFDs
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Component -->
+    <div id="footer"></div>
+</body>
+</html>

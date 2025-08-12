@@ -136,14 +136,125 @@ document.addEventListener('alpine:init', () => {
     }));
 });
 
+// Performance optimization utilities
+const PerformanceUtils = {
+    // WebP support detection
+    supportsWebP() {
+        return new Promise((resolve) => {
+            const webP = new Image();
+            webP.onload = webP.onerror = function () {
+                resolve(webP.height === 2);
+            };
+            webP.src = 'data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAACyAgCdASoCAAIALmk0mk0iIiIiIgBoSygABc6WWgAA/veff/0PP8bA//LwYAAA';
+        });
+    },
+
+    // Lazy loading implementation
+    initLazyLoading() {
+        if ('IntersectionObserver' in window) {
+            const imageObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        img.src = img.dataset.src;
+                        if (img.dataset.srcset) {
+                            img.srcset = img.dataset.srcset;
+                        }
+                        img.classList.remove('lazy');
+                        imageObserver.unobserve(img);
+                    }
+                });
+            }, {
+                rootMargin: '50px 0px'
+            });
+
+            document.querySelectorAll('img[data-src]').forEach(img => {
+                imageObserver.observe(img);
+            });
+        } else {
+            // Fallback for older browsers
+            document.querySelectorAll('img[data-src]').forEach(img => {
+                img.src = img.dataset.src;
+                if (img.dataset.srcset) {
+                    img.srcset = img.dataset.srcset;
+                }
+            });
+        }
+    },
+
+    // Critical CSS inlining (placeholder for build process)
+    loadNonCriticalCSS() {
+        const link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.href = '/css/non-critical.css';
+        link.media = 'print';
+        link.onload = function() {
+            this.media = 'all';
+        };
+        document.head.appendChild(link);
+    },
+
+    // Preload critical resources
+    preloadCriticalResources() {
+        // Preload critical fonts
+        const fontPreloads = [
+            '/fonts/inter-var.woff2'
+        ];
+
+        fontPreloads.forEach(font => {
+            const link = document.createElement('link');
+            link.rel = 'preload';
+            link.href = font;
+            link.as = 'font';
+            link.type = 'font/woff2';
+            link.crossOrigin = 'anonymous';
+            document.head.appendChild(link);
+        });
+
+        // Preload hero image
+        const heroImageWebP = '/assets/images/hero-illustration.webp';
+        const heroImageFallback = '/assets/images/hero-illustration.svg';
+        
+        this.supportsWebP().then(supportsWebP => {
+            const link = document.createElement('link');
+            link.rel = 'preload';
+            link.href = supportsWebP ? heroImageWebP : heroImageFallback;
+            link.as = 'image';
+            document.head.appendChild(link);
+        });
+    },
+
+    // Optimize third-party scripts
+    loadThirdPartyScripts() {
+        // Defer non-critical third-party scripts
+        const scripts = [
+            'https://unpkg.com/aos@2.3.1/dist/aos.js'
+        ];
+
+        scripts.forEach(src => {
+            const script = document.createElement('script');
+            script.src = src;
+            script.defer = true;
+            document.head.appendChild(script);
+        });
+    }
+};
+
 // Initialize global functionality
 document.addEventListener('DOMContentLoaded', () => {
-    // Initialize AOS (Animate on Scroll)
-    AOS.init({
-        duration: 800,
-        once: true,
-        offset: 100
-    });
+    // Initialize performance optimizations
+    PerformanceUtils.initLazyLoading();
+    PerformanceUtils.preloadCriticalResources();
+
+    // Initialize AOS with performance considerations
+    if (window.AOS) {
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 100,
+            disable: window.innerWidth < 768 // Disable animations on mobile for better performance
+        });
+    }
 
     // Handle smooth scrolling for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -158,4 +269,23 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
+
+    // Performance monitoring
+    if ('PerformanceObserver' in window) {
+        // Monitor Largest Contentful Paint
+        new PerformanceObserver((entryList) => {
+            const entries = entryList.getEntries();
+            const lastEntry = entries[entries.length - 1];
+            console.log('LCP:', lastEntry.startTime);
+        }).observe({entryTypes: ['largest-contentful-paint']});
+
+        // Monitor Cumulative Layout Shift
+        new PerformanceObserver((entryList) => {
+            for (const entry of entryList.getEntries()) {
+                if (!entry.hadRecentInput) {
+                    console.log('CLS:', entry.value);
+                }
+            }
+        }).observe({entryTypes: ['layout-shift']});
+    }
 });

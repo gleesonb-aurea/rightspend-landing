@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(rm:*)",
+      "Bash(find:*)",
+      "Bash(mv /mnt/c/dev/html/rightspend.ai/src/pages/pricing.html /mnt/c/dev/html/rightspend.ai/src/pages/pricing-old.html)",
+      "Bash(mv /mnt/c/dev/html/rightspend.ai/src/pages/pricing-new.html /mnt/c/dev/html/rightspend.ai/src/pages/pricing.html)"
+    ],
+    "deny": []
+  }
+}
