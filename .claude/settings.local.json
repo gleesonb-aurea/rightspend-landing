@@ -18,7 +18,10 @@
       "Bash(npm audit:*)",
       "WebSearch",
       "Bash(npm run build:*)",
-      "Bash(npx update-browserslist-db:*)"
+      "Bash(npx update-browserslist-db:*)",
+      "mcp__playwright__browser_navigate",
+      "mcp__playwright__browser_install",
+      "Bash(mkdir:*)"
     ],
     "deny": []
   }
