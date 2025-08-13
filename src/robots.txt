@@ -1,0 +1,74 @@
+# Robots.txt optimized for search engines and LLM crawlers
+# Updated for 2025 to include AI crawlers
+
+User-agent: *
+Allow: /
+
+# Allow all major LLM crawlers
+User-agent: OpenAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: Bard
+Allow: /
+
+User-agent: BardBot
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: You-Bot
+Allow: /
+
+User-agent: Meta-ExternalAgent
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+# Disallow admin areas and temporary files
+Disallow: /admin/
+Disallow: /temp/
+Disallow: /.git/
+Disallow: /node_modules/
+Disallow: /*.log
+
+# Allow key content for indexing
+Allow: /blog/
+Allow: /pages/
+Allow: /commitment-free-discounts.html
+Allow: /finops-aws-cost-optimization.html
+Allow: /aws-marketplace-rightspend-flex.html
+
+# High-priority pages for crawling
+Allow: /blog/7-aws-billing-mistakes-that-cost-companies-millions-2025.html
+Allow: /blog/reduce-aws-costs-30-percent-30-days-2025.html
+Allow: /blog/finops-automation-2025-eliminate-manual-cost-management.html
+
+# Crawl delay for respectful crawling
+Crawl-delay: 1
+
+# Sitemap location
+Sitemap: https://rightspend.ai/sitemap.xml
+Sitemap: https://rightspend.ai/blog-sitemap.xml
+
+# Cache policy hints for LLM crawlers
+Cache-Control: max-age=86400
