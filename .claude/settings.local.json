@@ -21,7 +21,10 @@
       "Bash(npx update-browserslist-db:*)",
       "mcp__playwright__browser_navigate",
       "mcp__playwright__browser_install",
-      "Bash(mkdir:*)"
+      "Bash(grep:*)",
+      "Bash(chmod:*)",
+      "Bash(xmllint:*)",
+      "Bash(python3:*)"
     ],
     "deny": []
   }

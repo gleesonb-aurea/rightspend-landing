@@ -46,6 +46,7 @@ Allow: /
 
 # Disallow admin areas and temporary files
 Disallow: /admin/
+Allow: /admin-panel.html
 Disallow: /temp/
 Disallow: /.git/
 Disallow: /node_modules/
