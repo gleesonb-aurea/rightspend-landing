@@ -11,7 +11,14 @@
       "Bash(git push:*)",
       "Bash(git config:*)",
       "Bash(git add:*)",
-      "Bash(git commit:*)"
+      "Bash(git commit:*)",
+      "Bash(npm run clean:*)",
+      "Bash(npm run mkdir:*)",
+      "Bash(time npm run build:css:*)",
+      "Bash(npm audit:*)",
+      "WebSearch",
+      "Bash(npm run build:*)",
+      "Bash(npx update-browserslist-db:*)"
     ],
     "deny": []
   }
