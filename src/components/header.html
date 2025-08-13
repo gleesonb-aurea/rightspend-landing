@@ -2,34 +2,45 @@
     <div class="container mx-auto px-6">
         <div class="flex justify-between items-center h-20">
             <!-- Logo -->
-            <a href="/" class="flex items-center">
+            <a href="https://rightspend.ai/" class="flex items-center">
                 <img src="/assets/images/RightSpend-cool.png" alt="RightSpend Logo" class="h-8 mr-2">
                 <span class="text-2xl font-bold text-primary">RightSpend</span>
             </a>
 
             <!-- Desktop Navigation -->
             <div class="hidden md:flex items-center space-x-8">
-                <a href="/features.html" class="text-gray-600 hover:text-primary transition">Features</a>
-                <a href="/use-cases.html" class="text-gray-600 hover:text-primary transition">Use Cases</a>
-                <a href="/pricing.html" class="text-gray-600 hover:text-primary transition">Pricing</a>
+                <div class="relative" x-data="{ solutionsOpen: false }">
+                    <button @click="solutionsOpen = !solutionsOpen" class="text-gray-600 hover:text-primary transition flex items-center space-x-2">
+                        <span>Solutions</span>
+                        <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+                    </button>
+                    <div x-show="solutionsOpen" @click.away="solutionsOpen = false" class="absolute left-0 mt-2 w-64 bg-white rounded-md shadow-lg py-1 ring-1 ring-black ring-opacity-5">
+                        <a href="https://rightspend.ai/commitment-free-discounts.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 font-semibold">Commitment Free Discounts</a>
+                        <a href="https://rightspend.ai/finops-aws-cost-optimization.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">FinOps & Cost Optimization</a>
+                        <a href="https://rightspend.ai/aws-marketplace-rightspend-flex.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">AWS Marketplace</a>
+                        <a href="https://rightspend.ai/aws-cost-optimization.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">AWS Cost Guide</a>
+                    </div>
+                </div>
+                <a href="https://rightspend.ai/features.html" class="text-gray-600 hover:text-primary transition">Features</a>
+                <a href="https://rightspend.ai/use-cases.html" class="text-gray-600 hover:text-primary transition">Use Cases</a>
+                <a href="https://rightspend.ai/pricing.html" class="text-gray-600 hover:text-primary transition">Pricing</a>
                 <div class="relative" x-data="{ resourcesOpen: false }">
                     <button @click="resourcesOpen = !resourcesOpen" class="text-gray-600 hover:text-primary transition flex items-center space-x-2">
                         <span>Resources</span>
                         <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
                     </button>
                     <div x-show="resourcesOpen" @click.away="resourcesOpen = false" class="absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 ring-1 ring-black ring-opacity-5">
-                        <a href="/how-it-works.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">How It Works</a>
-                        <a href="/engine.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 pl-8">Engine</a>
-                        <a href="/admin-panel.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 pl-8">Admin Panel</a>
-                        <a href="/use-cases.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Use Cases</a>
-                        <a href="/faq.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">FAQ</a>
-                        <a href="/blog.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Blog</a>
+                        <a href="https://rightspend.ai/how-it-works.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">How It Works</a>
+                        <a href="https://rightspend.ai/engine.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 pl-4">• Engine</a>
+                        <a href="https://rightspend.ai/admin-panel.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 pl-4">• Admin Panel</a>
+                        <a href="https://rightspend.ai/faq.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">FAQ</a>
+                        <a href="https://rightspend.ai/blog.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Blog</a>
                     </div>
                 </div>
             </div>
 
             <!-- Mobile Menu Button and Menu (consolidated Alpine.js state) -->
-            <div class="md:hidden" x-data="{ isOpen: false, benefitsOpen: false, resourcesOpen: false }">
+            <div class="md:hidden" x-data="{ isOpen: false, solutionsOpen: false, resourcesOpen: false }">
                 <button @click="isOpen = !isOpen" class="text-gray-600 hover:text-primary focus:outline-none">
                     <svg x-show="!isOpen" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
@@ -48,10 +59,24 @@
                      x-transition:leave="transition ease-in duration-150"
                      x-transition:leave-start="opacity-100 transform scale-100"
                      x-transition:leave-end="opacity-0 transform scale-95"
-                     class="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 ring-1 ring-black ring-opacity-5">
-                    <a href="/features.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Features</a>
-                    <a href="/use-cases.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Use Cases</a>
-                    <a href="/pricing.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Pricing</a>
+                     class="absolute right-0 mt-2 w-64 bg-white rounded-md shadow-lg py-1 ring-1 ring-black ring-opacity-5">
+                    <div>
+                        <button @click="solutionsOpen = !solutionsOpen" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 w-full text-left font-semibold">
+                            Solutions
+                            <svg class="fill-current h-4 w-4 inline-block" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                                <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
+                            </svg>
+                        </button>
+                        <div x-show="solutionsOpen" class="pl-4">
+                            <a href="https://rightspend.ai/commitment-free-discounts.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 font-semibold">Commitment Free Discounts</a>
+                            <a href="https://rightspend.ai/finops-aws-cost-optimization.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">FinOps & Cost Optimization</a>
+                            <a href="https://rightspend.ai/aws-marketplace-rightspend-flex.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">AWS Marketplace</a>
+                            <a href="https://rightspend.ai/aws-cost-optimization.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">AWS Cost Guide</a>
+                        </div>
+                    </div>
+                    <a href="https://rightspend.ai/features.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Features</a>
+                    <a href="https://rightspend.ai/use-cases.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Use Cases</a>
+                    <a href="https://rightspend.ai/pricing.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Pricing</a>
                     <div>
                         <button @click="resourcesOpen = !resourcesOpen" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 w-full text-left">
                             Resources
@@ -60,11 +85,11 @@
                             </svg>
                         </button>
                         <div x-show="resourcesOpen" class="pl-4">
-                            <a href="/how-it-works.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">How It Works</a>
-                            <a href="/engine.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 pl-8">Engine</a>
-                            <a href="/admin-panel.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 pl-8">Admin Panel</a>
-                            <a href="/faq.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">FAQ</a>
-                            <a href="/blog.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Blog</a>
+                            <a href="https://rightspend.ai/how-it-works.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">How It Works</a>
+                            <a href="https://rightspend.ai/engine.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 pl-4">• Engine</a>
+                            <a href="https://rightspend.ai/admin-panel.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 pl-4">• Admin Panel</a>
+                            <a href="https://rightspend.ai/faq.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">FAQ</a>
+                            <a href="https://rightspend.ai/blog.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Blog</a>
                         </div>
                     </div>
                 </div>
