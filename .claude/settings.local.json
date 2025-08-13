@@ -4,7 +4,14 @@
       "Bash(rm:*)",
       "Bash(find:*)",
       "Bash(mv /mnt/c/dev/html/rightspend.ai/src/pages/pricing.html /mnt/c/dev/html/rightspend.ai/src/pages/pricing-old.html)",
-      "Bash(mv /mnt/c/dev/html/rightspend.ai/src/pages/pricing-new.html /mnt/c/dev/html/rightspend.ai/src/pages/pricing.html)"
+      "Bash(mv /mnt/c/dev/html/rightspend.ai/src/pages/pricing-new.html /mnt/c/dev/html/rightspend.ai/src/pages/pricing.html)",
+      "Bash(gh repo view:*)",
+      "Bash(git remote remove:*)",
+      "Bash(git branch:*)",
+      "Bash(git push:*)",
+      "Bash(git config:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)"
     ],
     "deny": []
   }
