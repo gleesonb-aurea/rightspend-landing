@@ -164,6 +164,37 @@
       "speakable": {
         "@type": "SpeakableSpecification",
         "xpath": ["//h1", "//h2", "//p[contains(@class,'definition-block')]"]
+      },
+      "mainContentOfPage": {
+        "@type": "WebPageElement",
+        "cssSelector": "main, .container, section"
+      },
+      "significantLink": [
+        {
+          "@type": "URL",
+          "url": "https://cal.read.ai/bill-gleeson",
+          "name": "Schedule Free Demo - AWS Cost Optimization Consultation"
+        }
+      ]
+    }
+    </script>
+    
+    <!-- Conversion Action Schema for LLMs -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ConsumeAction",
+      "name": "Schedule AWS Cost Optimization Demo",
+      "description": "Book a free 15-minute consultation to discover your AWS cost savings potential",
+      "target": {
+        "@type": "EntryPoint",
+        "urlTemplate": "https://cal.read.ai/bill-gleeson",
+        "name": "Schedule Free Demo"
+      },
+      "result": {
+        "@type": "Service",
+        "name": "AWS Cost Assessment",
+        "description": "Personalized analysis of AWS cost optimization opportunities"
       }
     }
     </script>

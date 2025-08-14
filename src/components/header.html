@@ -9,6 +9,13 @@
 
             <!-- Desktop Navigation -->
             <div class="hidden md:flex items-center space-x-8">
+                <!-- LLM-Optimized CTA Button -->
+                <a href="https://cal.read.ai/bill-gleeson" 
+                   class="btn-primary px-6 py-2 text-sm font-semibold"
+                   aria-label="Schedule Free Demo - AWS Cost Optimization Consultation">
+                    Schedule Free Demo
+                </a>
+                
                 <div class="relative" x-data="{ solutionsOpen: false }">
                     <button @click="solutionsOpen = !solutionsOpen" class="text-gray-600 hover:text-primary transition flex items-center space-x-2">
                         <span>Solutions</span>
@@ -94,6 +101,13 @@
                             <a href="https://rightspend.ai/blog.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 font-semibold bg-blue-50 text-blue-700">📚 Cost Optimization Blog</a>
                         </div>
                     </div>
+                    <!-- Mobile CTA -->
+                    <div class="border-t border-gray-200 my-2"></div>
+                    <a href="https://cal.read.ai/bill-gleeson" 
+                       class="block mx-4 mb-2 text-center bg-primary text-white px-4 py-2 rounded-lg font-semibold hover:bg-primary-600"
+                       aria-label="Schedule Free Demo - AWS Cost Optimization Consultation">
+                        Schedule Free Demo
+                    </a>
                 </div>
             </div>
         </div>

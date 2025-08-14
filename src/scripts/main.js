@@ -342,6 +342,13 @@ document.addEventListener('DOMContentLoaded', async function() {
         // Initialize cost graph if element exists
         initCostGraph();
         
+        // Initialize LLM-friendly conversion optimization
+        // Load conversion script dynamically for better performance
+        const conversionScript = document.createElement('script');
+        conversionScript.src = '/scripts/llm-friendly-conversion.js';
+        conversionScript.async = true;
+        document.head.appendChild(conversionScript);
+        
         // Re-adjust header spacing after images load (which might affect layout)
         window.addEventListener('load', () => {
             // Allow time for images to affect layout
