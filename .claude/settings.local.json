@@ -28,8 +28,10 @@
       "Bash(aws s3 ls:*)",
       "Bash(aws s3 cp:*)",
       "Bash(npm run deploy:*)",
-      "WebFetch(domain:rightspend.ai)"
+      "WebFetch(domain:rightspend.ai)",
+      "Bash(mv:*)"
     ],
-    "deny": []
+    "deny": [],
+    "defaultMode": "acceptEdits"
   }
 }

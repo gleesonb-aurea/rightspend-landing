@@ -43,4 +43,35 @@ coverage/
 .cache/
 memory-bank/
 
+# Design and documentation files
+*.md
+RightSpend_Hero_Image_Design_Brief.md
+*.pdf
+*.sketch
+*.fig
+*.psd
+*.ai
+
+# Backup and temporary files
+*~
+*.backup
+*.bak
+*-old.*
+
+# Development utilities and scripts
 update-*.js
+dev-tools/
+scripts/dev/
+
+# Local configuration
+.claude/settings.local.json
+
+# OS generated files
+.DS_Store?
+ehthumbs.db
+Icon?
+
+# Archive files
+*.zip
+*.tar.gz
+*.rar
