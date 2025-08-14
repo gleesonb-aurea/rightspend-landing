@@ -55,9 +55,9 @@ function initGoogleAnalytics() {
             gaScript.onload = () => {
                 // Initialize dataLayer and gtag
                 window.dataLayer = window.dataLayer || [];
-                function gtag(){dataLayer.push(arguments);}
-                gtag('js', new Date());
-                gtag('config', 'G-9Z5L1G47QC');
+                window.gtag = function(){dataLayer.push(arguments);};
+                window.gtag('js', new Date());
+                window.gtag('config', 'G-9Z5L1G47QC');
                 console.log('Google Analytics initialized successfully');
                 resolve();
             };
@@ -75,45 +75,6 @@ function initGoogleAnalytics() {
     });
 }
 
-// Initialize Apollo Tracking
-function initApollo() {
-    console.log('Initializing Apollo tracking...');
-    return new Promise((resolve, reject) => {
-        if (isTrackingBlocked()) {
-            console.log('Apollo tracking blocked by browser settings');
-            resolve();
-            return;
-        }
-
-        try {
-            var n = Math.random().toString(36).substring(7);
-            var o = document.createElement("script");
-            o.src = "https://assets.apollo.io/micro/website-tracker/tracker.iife.js?nocache=" + n;
-            o.async = true;
-            o.defer = true;
-            
-            o.onload = function() {
-                try {
-                    window.trackingFunctions.onLoad({appId: "6602e615b2af9b0439deed0c"});
-                    console.log('Apollo tracking initialized successfully');
-                } catch (error) {
-                    console.error('Error in Apollo onLoad callback:', error);
-                }
-                resolve();
-            };
-            
-            o.onerror = function(error) {
-                console.error('Apollo script loading failed:', error);
-                resolve(); // Resolve anyway to not block other tracking
-            };
-            
-            document.head.appendChild(o);
-        } catch (error) {
-            console.error('Error initializing Apollo tracking:', error);
-            resolve();
-        }
-    });
-}
 
 // Initialize RevenueBase (RB2B) tracking
 function initRb2b() {
@@ -196,23 +157,22 @@ function initializeTracking() {
             console.error('GA initialization failed:', error);
             return Promise.reject(error);
         }),
-        initApollo().catch(error => {
-            console.error('Apollo initialization failed:', error);
-            return Promise.reject(error);
-        }),
         initRb2b().catch(error => {
             console.error('RB2B initialization failed:', error);
             return Promise.reject(error);
         })
     ]).then(results => {
         results.forEach((result, index) => {
-            const tracker = ['Google Analytics', 'Apollo', 'RB2B'][index];
+            const tracker = ['Google Analytics', 'RB2B'][index];
             if (result.status === 'fulfilled') {
                 console.log(`${tracker} initialized successfully`);
             } else {
                 console.warn(`${tracker} initialization failed:`, result.reason);
             }
         });
+        
+        // Only call trackPageView after GA is initialized
+        trackPageView();
     });
 }
 
@@ -380,11 +340,8 @@ document.addEventListener('DOMContentLoaded', async function() {
             setTimeout(adjustHeaderSpacing, 100);
         });
         
-        // Initialize tracking
+        // Initialize tracking (trackPageView is called after GA loads)
         await initializeTracking();
-        
-        // Initialize enhanced page view tracking
-        trackPageView();
         
         // Setup enhanced event tracking
         setupEventTracking();
@@ -434,7 +391,7 @@ function trackEvent(category, action, label = null, value = null, customParams =
         if (label) eventParams.event_label = label;
         if (value) eventParams.value = value;
         
-        gtag('event', action, eventParams);
+        window.gtag('event', action, eventParams);
         console.log(`Tracked event: ${category} - ${action} - ${label}`, eventParams);
     }
 }
@@ -480,13 +437,15 @@ function trackCTAClick(element, eventData = {}) {
         });
         
         // Also send as a specific GA4 conversion event
-        gtag('event', 'conversion', {
-            'send_to': 'G-9Z5L1G47QC/schedule_demo',
-            'event_category': 'conversion',
-            'event_label': `${ctaLocation}_${buttonText}`,
-            'value': 10.00, // Dollar value
-            'currency': 'USD'
-        });
+        if (window.gtag) {
+            window.gtag('event', 'conversion', {
+                'send_to': 'G-9Z5L1G47QC/schedule_demo',
+                'event_category': 'conversion',
+                'event_label': `${ctaLocation}_${buttonText}`,
+                'value': 10.00, // Dollar value
+                'currency': 'USD'
+            });
+        }
         
         console.log(`🎯 CONVERSION: Demo scheduling click tracked from ${ctaLocation}`);
     } else {
@@ -515,6 +474,11 @@ function trackFunnelStep(step, stepName, additionalData = {}) {
 
 // Page View Tracking with Enhanced Attribution
 function trackPageView() {
+    if (!window.gtag) {
+        console.warn('gtag not available, skipping page view tracking');
+        return;
+    }
+    
     const pageData = {
         'page_title': document.title,
         'page_location': window.location.href,
@@ -536,7 +500,7 @@ function trackPageView() {
         }
     });
     
-    gtag('config', 'G-9Z5L1G47QC', pageData);
+    window.gtag('config', 'G-9Z5L1G47QC', pageData);
     
     // Track specific funnel steps based on page
     trackPageSpecificFunnelStep();
@@ -828,7 +792,7 @@ function initSmartConversion() {
         document.addEventListener('click', (e) => {
             if (e.target.href && e.target.href.includes('cal.read.ai')) {
                 if (window.gtag) {
-                    gtag('event', 'schedule_demo_click', {
+                    window.gtag('event', 'schedule_demo_click', {
                         'cta_location': getCTALocation(e.target),
                         'scroll_depth': scrollDepth,
                         'time_on_page': timeOnPage,
