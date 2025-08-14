@@ -24,7 +24,11 @@
       "Bash(grep:*)",
       "Bash(chmod:*)",
       "Bash(xmllint:*)",
-      "Bash(python3:*)"
+      "Bash(python3:*)",
+      "Bash(aws s3 ls:*)",
+      "Bash(aws s3 cp:*)",
+      "Bash(npm run deploy:*)",
+      "WebFetch(domain:rightspend.ai)"
     ],
     "deny": []
   }
