@@ -89,11 +89,16 @@ This is a multi-page static website for RightSpend using a component-based archi
 - All meeting links updated to: https://cal.read.ai/bill-gleeson
 - Consistent across all pages and components
 
-**XML Sitemap:**
-- Comprehensive sitemap at `/src/sitemap.xml` 
+**XML Sitemap - CRITICAL MAINTENANCE:**
+- 🚨 **ALWAYS UPDATE SITEMAP** when adding new pages or blog articles
+- Location: `/src/sitemap.xml` 
 - Priority-weighted (1.0 for homepage, 0.95 for key landing pages)
-- Includes all new SEO-optimized pages and blog articles
-- Covers 25+ pages with proper lastmod and changefreq
+- **REQUIRED UPDATES**: When adding new content, always:
+  1. Add new URLs to sitemap with proper dates
+  2. Update lastmod dates to reflect actual publication
+  3. Set appropriate priority (0.95 for blog articles, 0.9 for product pages)
+  4. Use publication date for lastmod, not today's date
+- Current status: Covers 30+ pages with proper lastmod and changefreq
 
 **Enhanced Schema Markup:**
 - Organization schema with comprehensive service catalog

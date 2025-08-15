@@ -29,7 +29,9 @@
       "Bash(aws s3 cp:*)",
       "Bash(npm run deploy:*)",
       "WebFetch(domain:rightspend.ai)",
-      "Bash(mv:*)"
+      "Bash(mv:*)",
+      "WebFetch(domain:www.nops.io)",
+      "WebFetch(domain:www.prosperops.com)"
     ],
     "deny": [],
     "defaultMode": "acceptEdits"
