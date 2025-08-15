@@ -44,7 +44,6 @@ function addConversionSchema() {
 
 // Initialize Google Analytics
 function initGoogleAnalytics() {
-    console.log('Initializing Google Analytics...');
     return new Promise((resolve, reject) => {
         try {
             // Load GA script
@@ -58,7 +57,6 @@ function initGoogleAnalytics() {
                 window.gtag = function(){dataLayer.push(arguments);};
                 window.gtag('js', new Date());
                 window.gtag('config', 'G-9Z5L1G47QC');
-                console.log('Google Analytics initialized successfully');
                 resolve();
             };
             
@@ -78,13 +76,11 @@ function initGoogleAnalytics() {
 
 // Initialize RevenueBase (RB2B) tracking
 function initRb2b() {
-    console.log('Initializing RevenueBase tracking...');
     return new Promise((resolve, reject) => {
         try {
             // Initialize RB2B global object
             window.reb2b = window.reb2b || [];
             if (window.reb2b.invoked) {
-                console.log('RB2B already initialized');
                 resolve();
                 return;
             }
@@ -108,7 +104,6 @@ function initRb2b() {
                         script.src = `https://s3-us-west-2.amazonaws.com/b2bjsstore/b/${key}/LNKLDHP2G1OJ.js.gz`;
                         
                         script.onload = () => {
-                            console.log('RB2B script loaded successfully');
                             resolveLoad();
                         };
                         
@@ -133,7 +128,6 @@ function initRb2b() {
             // Load RB2B script
             window.reb2b.load("LNKLDHP2G1OJ")
                 .then(() => {
-                    console.log('RB2B initialized successfully');
                     resolve();
                 })
                 .catch((error) => {
@@ -150,8 +144,6 @@ function initRb2b() {
 
 // Initialize all tracking systems in parallel
 function initializeTracking() {
-    console.log('Initializing tracking systems...');
-    
     return Promise.allSettled([
         initGoogleAnalytics().catch(error => {
             console.error('GA initialization failed:', error);
@@ -162,15 +154,6 @@ function initializeTracking() {
             return Promise.reject(error);
         })
     ]).then(results => {
-        results.forEach((result, index) => {
-            const tracker = ['Google Analytics', 'RB2B'][index];
-            if (result.status === 'fulfilled') {
-                console.log(`${tracker} initialized successfully`);
-            } else {
-                console.warn(`${tracker} initialization failed:`, result.reason);
-            }
-        });
-        
         // Only call trackPageView after GA is initialized
         trackPageView();
     });
@@ -180,8 +163,7 @@ function initializeTracking() {
 function initCostGraph() {
     const graphElement = document.getElementById('costGraph');
     if (!graphElement) {
-        console.warn('Cost graph element not found on this page');
-        return;
+        return; // Silently return if no graph element exists
     }
 
     const ctx = graphElement.getContext('2d');
@@ -286,7 +268,6 @@ async function loadComponent(id, path) {
     try {
         // Ensure path starts with /components/
         const validPath = path.startsWith('/components/') ? path : `/components/${path}`;
-        console.log(`Loading component ${id} from ${validPath}`);
 
         const response = await fetch(validPath);
         if (!response.ok) {
@@ -295,7 +276,6 @@ async function loadComponent(id, path) {
 
         const html = await response.text();
         element.innerHTML = html;
-        console.log(`Component ${id} loaded successfully`);
     } catch (error) {
         console.error(`Error loading component ${id}:`, error);
         throw error;
@@ -308,8 +288,7 @@ function adjustHeaderSpacing() {
     const spacer = document.getElementById('header-spacer');
     
     if (!header || !spacer) {
-        console.warn('Header or spacer elements not found');
-        return;
+        return; // Silently return if elements not found
     }
 
     // Get the actual rendered height of the header
@@ -317,22 +296,16 @@ function adjustHeaderSpacing() {
     
     // Add a small buffer (8px) to prevent content from touching the header
     spacer.style.height = `${headerHeight + 8}px`;
-    
-    console.log(`Adjusted header spacing to ${headerHeight + 8}px`);
 }
 
 // Initialize application
 document.addEventListener('DOMContentLoaded', async function() {
-    console.log('Initializing application...');
-    
     try {
         // Load components first with explicit paths
         await Promise.all([
             loadComponent('header', '/components/header.html'),
             loadComponent('footer', '/components/footer.html')
         ]);
-        
-        console.log('Components loaded, initializing Alpine.js...');
         
         // Wait for Alpine.js to initialize
         document.addEventListener('alpine:init', () => {
@@ -545,8 +518,6 @@ function trackPageSpecificFunnelStep() {
 
 // Setup Event Tracking
 function setupEventTracking() {
-    console.log('Setting up enhanced event tracking...');
-    
     // Track All CTA Clicks (Primary & Secondary)
     const ctaSelectors = [
         'a.btn-primary',
@@ -659,7 +630,7 @@ function setupEventTracking() {
         });
     });
 
-    console.log('Enhanced event tracking setup complete');
+    // Enhanced event tracking setup complete
 }
 
 // Calculate engagement score based on time and interactions
@@ -814,8 +785,6 @@ function getCTALocation(element) {
 
 // Initialize everything when DOM loads
 document.addEventListener('DOMContentLoaded', function() {
-    console.log('🚀 RightSpend: Initializing LLM-friendly conversion optimization...');
-    
     // Add schema for LLM crawlers
     addConversionSchema();
     
@@ -824,6 +793,4 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Initialize analytics
     initGoogleAnalytics();
-    
-    console.log('✅ RightSpend: All systems initialized');
 });

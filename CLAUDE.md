@@ -4,11 +4,15 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Common Development Commands
 
-**Build and Deploy:**
-- `npm run build` - Full build process (clean, build CSS, copy files, fix paths)
+**IMPORTANT: Deployment Process**
+- ⚠️ **DO NOT build locally** - Only GitHub Actions handle deployment
+- ✅ **Git push to main branch** - This triggers automated deployment via GitHub Actions
+- ❌ **`npm run deploy` is deprecated** - Manual S3 uploads cause access errors
+- ✅ **Only use `npm run serve`** for local development testing
+
+**Local Development Only:**
 - `npm run serve` - Start local development server at http://localhost:3005
-- `npm run clean` - Clean the dist directory
-- `npm run deploy` - Build and deploy to AWS S3
+- `npm run build` - Local build for testing only (DO NOT deploy this output)
 
 **Individual Build Steps:**
 - `npm run build:css` - Build Tailwind CSS (src/styles/input.css → dist/css/styles.css)
