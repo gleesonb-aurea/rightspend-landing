@@ -25,9 +25,14 @@
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="../assets/images/favicon.svg">
 
+    <!-- Preload critical resources -->
+    <link rel="preload" href="/css/styles.css" as="style">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="//unpkg.com">
+
     <!-- Styles -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
     <link href="/css/styles.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
     
     <!-- Structured Data -->
     <script type="application/ld+json">
@@ -54,7 +59,7 @@
     }
     </script>
 
-    <!-- FAQ Schema -->
+    <!-- Voice Search Optimized FAQ Schema -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -62,37 +67,99 @@
       "mainEntity": [
         {
           "@type": "Question",
-          "name": "How does pricing work for Commitment Free Discounts?",
+          "name": "What are Commitment Free Discounts?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Our pricing is transparent and performance-based: we charge a percentage of your net new savings only. This means you only pay when you save money, and our success is directly aligned with yours. There are no upfront costs, hidden fees, or minimum commitments."
+            "text": "Commitment Free Discounts (CFDs) are AWS EC2 discount instruments that provide up to 55% savings without requiring long-term commitments or upfront payments. They work by automatically optimizing Convertible Reserved Instances to match your actual usage patterns, delivering the same savings as traditional Reserved Instances with complete flexibility to scale resources up or down anytime."
           }
         },
         {
           "@type": "Question",
-          "name": "What customer support do you provide?",
+          "name": "How do Commitment Free Discounts work?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "We provide dedicated customer success management with direct access to our FinOps experts. This includes 24/7 monitoring, monthly optimization reviews, and immediate support for any questions or issues. As an AWS Partner and FinOps.org member, we maintain the highest standards of service excellence."
+            "text": "CFDs use AI-powered automation to continuously analyze your EC2 usage and automatically procure, exchange, and optimize Convertible Reserved Instances (cRIs) in real-time. This eliminates the need for manual capacity planning while ensuring maximum cost savings through intelligent coverage optimization and dynamic adjustments based on your actual workload patterns."
           }
         },
         {
           "@type": "Question",
-          "name": "How quickly can I start saving with CFDs?",
+          "name": "Can I use Commitment Free Discounts with my existing AWS discounts?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "CFDs can be implemented within 24-48 hours of onboarding. Our automated system immediately begins optimizing your EC2 usage, and you'll see savings reflected in your next AWS bill. We guarantee measurable savings within the first month."
+            "text": "Yes, CFDs work seamlessly with existing Savings Plans, Reserved Instances, and Enterprise Discount Programs (EDP). They optimize uncovered usage without interfering with your current discount strategy, providing additional savings on top of existing commitments while maintaining complete flexibility for dynamic workloads."
           }
         },
         {
           "@type": "Question",
-          "name": "What happens if CFDs don't deliver the promised savings?",
+          "name": "How much do Commitment Free Discounts cost?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "We guarantee savings or you don't pay. If CFDs don't deliver measurable cost reductions within the first 30 days, there are no fees. Our confidence comes from years of experience and our proven track record with enterprise customers."
+            "text": "CFDs use transparent, performance-based pricing where you pay only a percentage of your net new savings. There are no upfront costs, hidden fees, or minimum commitments. This means you only pay when you save money, and our success is directly aligned with your cost optimization goals."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How quickly can I start saving with Commitment Free Discounts?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "You can start saving with CFDs within 24-48 hours of onboarding. Setup takes under 15 minutes through secure, read-only AWS integration. Our automated system immediately begins optimizing your EC2 usage, and you'll see savings reflected in your next AWS bill with guaranteed measurable results within the first month."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Are Commitment Free Discounts suitable for unpredictable workloads?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, CFDs are perfect for unpredictable and volatile workloads. Unlike traditional Reserved Instances that require accurate capacity planning, CFDs automatically adjust to your actual usage patterns in real-time. This makes them ideal for seasonal businesses, growing startups, and any organization with variable AWS usage patterns."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What happens if Commitment Free Discounts don't save me money?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "We guarantee savings or you don't pay. If CFDs don't deliver measurable cost reductions within the first 30 days, there are no fees. Our confidence comes from years of experience and proven results with enterprise customers, with most clients seeing 30%+ reduction in their monthly AWS bills."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I get support for Commitment Free Discounts?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "We provide dedicated customer success management with direct access to certified FinOps experts. This includes 24/7 monitoring, monthly optimization reviews, proactive recommendations, and immediate support for any questions or issues. As an AWS Advanced Technology Partner and FinOps.org member, we maintain the highest service excellence standards."
           }
         }
       ]
+    }
+    </script>
+    
+    <!-- Speakable Schema for Voice Search Optimization -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Commitment Free Discounts (CFDs) for AWS EC2",
+      "description": "Up to 55% AWS EC2 savings without lock-in through Commitment Free Discounts",
+      "speakable": {
+        "@type": "SpeakableSpecification",
+        "xpath": [
+          "//h1",
+          "//h2", 
+          "//h3[contains(.,'What are Commitment Free Discounts')]",
+          "//h3[contains(.,'How do Commitment Free Discounts work')]",
+          "//h3[contains(.,'Can I use Commitment Free Discounts')]",
+          "//h3[contains(.,'How much do Commitment Free Discounts cost')]",
+          "//h3[contains(.,'How quickly can I start saving')]",
+          "//p[contains(.,'up to 55% savings')]",
+          "//p[contains(.,'without long-term commitments')]",
+          "//p[contains(.,'AI-powered automation')]",
+          "//p[contains(.,'zero lock-in periods')]"
+        ]
+      },
+      "mainContentOfPage": {
+        "@type": "WebPageElement",
+        "cssSelector": "main, section"
+      }
     }
     </script>
     
@@ -156,7 +223,7 @@
                         </div>
                     </div>
                     <div>
-                        <img src="/assets/images/rightspend-diagram.png" alt="Commitment Free Discounts Architecture" class="w-full rounded-lg shadow-lg">
+                        <img src="/assets/images/rightspend-diagram.png" alt="Commitment Free Discounts Architecture" class="w-full rounded-lg shadow-lg" loading="lazy" width="800" height="400">
                     </div>
                 </div>
             </div>
@@ -468,7 +535,7 @@
         <div class="container mx-auto px-6">
             <div class="max-w-4xl mx-auto">
                 <h2 class="text-2xl font-bold text-center mb-8">Learn More About AWS Cost Optimization</h2>
-                <div class="grid md:grid-cols-2 gap-6">
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                     <div class="bg-white rounded-lg p-6 border-l-4 border-blue-500">
                         <h4 class="font-semibold text-blue-800 mb-2">📈 Cost Reduction Guide</h4>
                         <h3 class="text-lg font-semibold mb-2">
@@ -511,6 +578,79 @@
                         </h3>
                         <p class="text-sm text-gray-600 mb-3">Enterprise guide to automated cost management with implementation frameworks.</p>
                         <a href="/blog/finops-automation-2025-eliminate-manual-cost-management.html" class="text-purple-600 hover:underline text-sm font-medium">Explore Automation →</a>
+                    </div>
+
+                    <div class="bg-white rounded-lg p-6 border-l-4 border-orange-500">
+                        <h4 class="font-semibold text-orange-800 mb-2">⚡ Immediate Actions</h4>
+                        <h3 class="text-lg font-semibold mb-2">
+                            <a href="/blog/reduce-aws-costs-immediately.html" class="text-orange-600 hover:underline">
+                                10 ways to reduce AWS costs immediately
+                            </a>
+                        </h3>
+                        <p class="text-sm text-gray-600 mb-3">Quick wins and immediate actions for instant AWS cost reduction.</p>
+                        <a href="/blog/reduce-aws-costs-immediately.html" class="text-orange-600 hover:underline text-sm font-medium">Start Saving →</a>
+                    </div>
+
+                    <div class="bg-white rounded-lg p-6 border-l-4 border-cyan-500">
+                        <h4 class="font-semibold text-cyan-800 mb-2">🚀 Advanced Integration</h4>
+                        <h3 class="text-lg font-semibold mb-2">
+                            <a href="/blog/cloudfix-rightspend-integration-maximum-aws-cost-optimization.html" class="text-cyan-600 hover:underline">
+                                CloudFix + RightSpend integration
+                            </a>
+                        </h3>
+                        <p class="text-sm text-gray-600 mb-3">Complete AWS cost optimization strategy combining resource optimization and discounts.</p>
+                        <a href="/blog/cloudfix-rightspend-integration-maximum-aws-cost-optimization.html" class="text-cyan-600 hover:underline text-sm font-medium">Explore Integration →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Voice Search Optimized FAQ Section -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-3xl font-bold text-center mb-12">Common Questions About Commitment Free Discounts</h2>
+                
+                <div class="space-y-8">
+                    <div class="fact-box" data-topic="What are CFDs">
+                        <h3 class="text-xl font-semibold mb-3">What are Commitment Free Discounts?</h3>
+                        <p class="text-gray-700"><strong>Commitment Free Discounts (CFDs)</strong> are AWS EC2 discount instruments that provide up to 55% savings without requiring long-term commitments or upfront payments. They work by automatically optimizing Convertible Reserved Instances to match your actual usage patterns, delivering the same savings as traditional Reserved Instances with complete flexibility to scale resources up or down anytime.</p>
+                    </div>
+                    
+                    <div class="fact-box" data-topic="How CFDs Work">
+                        <h3 class="text-xl font-semibold mb-3">How do Commitment Free Discounts work?</h3>
+                        <p class="text-gray-700">CFDs use <strong>AI-powered automation</strong> to continuously analyze your EC2 usage and automatically procure, exchange, and optimize Convertible Reserved Instances (cRIs) in real-time. This eliminates the need for manual capacity planning while ensuring maximum cost savings through intelligent coverage optimization and dynamic adjustments based on your actual workload patterns.</p>
+                    </div>
+                    
+                    <div class="fact-box" data-topic="CFDs with Existing Discounts">
+                        <h3 class="text-xl font-semibold mb-3">Can I use Commitment Free Discounts with my existing AWS discounts?</h3>
+                        <p class="text-gray-700">Yes, CFDs work <strong>seamlessly with existing</strong> Savings Plans, Reserved Instances, and Enterprise Discount Programs (EDP). They optimize uncovered usage without interfering with your current discount strategy, providing additional savings on top of existing commitments while maintaining complete flexibility for dynamic workloads.</p>
+                    </div>
+                    
+                    <div class="fact-box" data-topic="CFDs Pricing">
+                        <h3 class="text-xl font-semibold mb-3">How much do Commitment Free Discounts cost?</h3>
+                        <p class="text-gray-700">CFDs use <strong>transparent, performance-based pricing</strong> where you pay only a percentage of your net new savings. There are no upfront costs, hidden fees, or minimum commitments. This means you only pay when you save money, and our success is directly aligned with your cost optimization goals.</p>
+                    </div>
+                    
+                    <div class="fact-box" data-topic="CFDs Implementation Speed">
+                        <h3 class="text-xl font-semibold mb-3">How quickly can I start saving with Commitment Free Discounts?</h3>
+                        <p class="text-gray-700">You can start saving with CFDs <strong>within 24-48 hours</strong> of onboarding. Setup takes under 15 minutes through secure, read-only AWS integration. Our automated system immediately begins optimizing your EC2 usage, and you'll see savings reflected in your next AWS bill with guaranteed measurable results within the first month.</p>
+                    </div>
+                    
+                    <div class="fact-box" data-topic="CFDs for Unpredictable Workloads">
+                        <h3 class="text-xl font-semibold mb-3">Are Commitment Free Discounts suitable for unpredictable workloads?</h3>
+                        <p class="text-gray-700">Yes, CFDs are <strong>perfect for unpredictable and volatile workloads</strong>. Unlike traditional Reserved Instances that require accurate capacity planning, CFDs automatically adjust to your actual usage patterns in real-time. This makes them ideal for seasonal businesses, growing startups, and any organization with variable AWS usage patterns.</p>
+                    </div>
+                    
+                    <div class="fact-box" data-topic="CFDs Money-Back Guarantee">
+                        <h3 class="text-xl font-semibold mb-3">What happens if Commitment Free Discounts don't save me money?</h3>
+                        <p class="text-gray-700">We <strong>guarantee savings or you don't pay</strong>. If CFDs don't deliver measurable cost reductions within the first 30 days, there are no fees. Our confidence comes from years of experience and proven results with enterprise customers, with most clients seeing 30%+ reduction in their monthly AWS bills.</p>
+                    </div>
+                    
+                    <div class="fact-box" data-topic="CFDs Customer Support">
+                        <h3 class="text-xl font-semibold mb-3">How do I get support for Commitment Free Discounts?</h3>
+                        <p class="text-gray-700">We provide <strong>dedicated customer success management</strong> with direct access to certified FinOps experts. This includes 24/7 monitoring, monthly optimization reviews, proactive recommendations, and immediate support for any questions or issues. As an AWS Advanced Technology Partner and FinOps.org member, we maintain the highest service excellence standards.</p>
                     </div>
                 </div>
             </div>

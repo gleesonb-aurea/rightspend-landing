@@ -19,9 +19,13 @@
     <meta name="twitter:description" content="Cut your AWS bill by 30% in 30 days with this proven step-by-step guide.">
     <meta name="twitter:image" content="https://rightspend.ai/assets/images/aws-cost-reduction-guide.jpg">
     
-    <link href="../css/styles.css" rel="stylesheet">
+    <!-- Preload critical resources -->
+    <link rel="preload" href="../css/styles.css" as="style">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    
+    <!-- Styles -->
+    <link href="../css/styles.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
     
     <!-- Schema.org structured data -->
@@ -131,6 +135,93 @@
                 "item": "https://rightspend.ai/blog/reduce-aws-costs-30-percent-30-days-2025.html"
             }
         ]
+    }
+    </script>
+
+    <!-- HowTo Schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "HowTo",
+        "name": "How to Reduce AWS Costs by 30% in 30 Days",
+        "description": "A comprehensive 30-day step-by-step guide to systematically reduce AWS costs by 30% through proven optimization strategies.",
+        "totalTime": "P30D",
+        "supply": [
+            {
+                "@type": "HowToSupply",
+                "name": "AWS Console access with billing permissions"
+            },
+            {
+                "@type": "HowToSupply", 
+                "name": "CloudWatch metrics (14+ days of historical data)"
+            },
+            {
+                "@type": "HowToSupply",
+                "name": "AWS Cost Explorer access"
+            },
+            {
+                "@type": "HowToSupply",
+                "name": "AWS Trusted Advisor (Business/Enterprise support)"
+            }
+        ],
+        "tool": [
+            {
+                "@type": "HowToTool",
+                "name": "AWS Cost Explorer"
+            },
+            {
+                "@type": "HowToTool",
+                "name": "AWS CloudWatch"
+            },
+            {
+                "@type": "HowToTool",
+                "name": "AWS Trusted Advisor"
+            }
+        ],
+        "step": [
+            {
+                "@type": "HowToStep",
+                "position": 1,
+                "name": "Week 1 (Days 1-7): Stop the Bleeding - Immediate Wins",
+                "text": "Eliminate unused resources and implement quick storage optimizations for immediate 15-25% cost reduction.",
+                "url": "https://rightspend.ai/blog/reduce-aws-costs-30-percent-30-days-2025.html#week1",
+                "supply": ["AWS Console access", "CloudWatch metrics"],
+                "tool": ["AWS Cost Explorer", "AWS CloudWatch"]
+            },
+            {
+                "@type": "HowToStep",
+                "position": 2,
+                "name": "Week 2 (Days 8-14): Right-sizing and Optimization",
+                "text": "Systematically right-size EC2 instances, optimize Auto Scaling policies, and reduce network costs for 10-20% additional savings.",
+                "url": "https://rightspend.ai/blog/reduce-aws-costs-30-percent-30-days-2025.html#week2",
+                "supply": ["CloudWatch metrics", "Performance monitoring data"],
+                "tool": ["AWS CloudWatch", "AWS Trusted Advisor"]
+            },
+            {
+                "@type": "HowToStep",
+                "position": 3,
+                "name": "Week 3 (Days 15-21): Storage and Data Transfer Optimization",
+                "text": "Implement S3 lifecycle policies, optimize EBS volumes, and reduce data transfer costs for 20-30% storage savings.",
+                "url": "https://rightspend.ai/blog/reduce-aws-costs-30-percent-30-days-2025.html#week3",
+                "supply": ["S3 usage analytics", "Data transfer reports"],
+                "tool": ["AWS S3", "AWS Cost Explorer"]
+            },
+            {
+                "@type": "HowToStep",
+                "position": 4,
+                "name": "Week 4 (Days 22-30): Advanced Strategies and Long-term Optimization",
+                "text": "Implement discount strategies (Reserved Instances, Savings Plans, or Commitment Free Discounts), containerization, and automated optimization for sustainable 30%+ ongoing savings.",
+                "url": "https://rightspend.ai/blog/reduce-aws-costs-30-percent-30-days-2025.html#week4",
+                "supply": ["Usage pattern analysis", "Commitment strategy assessment"],
+                "tool": ["AWS Cost Explorer", "RightSpend platform"]
+            }
+        ],
+        "totalCost": {
+            "@type": "MonetaryAmount",
+            "currency": "USD",
+            "value": "0"
+        },
+        "yield": "30% reduction in AWS costs within 30 days"
     }
     </script>
 </head>
@@ -1180,6 +1271,26 @@
                     <div class="bg-white rounded-lg shadow-sm border p-6">
                         <h3 class="text-lg font-semibold mb-3 text-gray-800">How do I maintain savings after the initial 30-day optimization?</h3>
                         <p class="text-gray-700">Sustainable cost optimization requires ongoing monitoring and automation. Set up Cost Budget alerts, review monthly reports, and implement governance policies to prevent cost creep. Automated solutions like RightSpend provide continuous optimization without manual oversight. Regular reviews (quarterly) help identify new optimization opportunities as your infrastructure evolves.</p>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-sm border p-6">
+                        <h3 class="text-lg font-semibold mb-3 text-gray-800">Which AWS instances should I downsize first?</h3>
+                        <p class="text-gray-700">Start with instances showing consistently low CPU utilization (under 20%) over 30+ days. Look for development, testing, and staging environments that often run oversized. Production instances require more careful analysis, but those with steady low utilization are good candidates for downsizing. Always test changes during maintenance windows with rollback plans ready.</p>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-sm border p-6">
+                        <h3 class="text-lg font-semibold mb-3 text-gray-800">Can small businesses save 30% on AWS costs too?</h3>
+                        <p class="text-gray-700">Yes, small businesses often have the highest optimization potential since they may lack dedicated AWS expertise. Common savings areas include unused development resources, oversized databases, and expensive storage classes for infrequently accessed data. Small businesses can achieve 30-50% savings by following the basic optimization steps in the first two weeks of this guide.</p>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-sm border p-6">
+                        <h3 class="text-lg font-semibold mb-3 text-gray-800">Should I use Reserved Instances or Savings Plans?</h3>
+                        <p class="text-gray-700">For predictable, steady workloads, Reserved Instances offer maximum savings (up to 75%). Savings Plans provide more flexibility across instance types and regions with slightly lower discounts (up to 66%). However, <a href="https://rightspend.ai/commitment-free-discounts.html" class="text-primary hover:underline">Commitment Free Discounts</a> offer 20-55% savings without any long-term commitment, making them ideal for growing or variable workloads.</p>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-sm border p-6">
+                        <h3 class="text-lg font-semibold mb-3 text-gray-800">What happens if I make a mistake during optimization?</h3>
+                        <p class="text-gray-700">Most AWS changes are reversible. Instance resizing can be undone, stopped instances can be restarted, and storage classes can be changed back. Always take snapshots before major changes, test in non-production first, and implement during low-traffic periods. Start with low-risk optimizations like stopping unused resources before moving to architectural changes.</p>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-sm border p-6">
+                        <h3 class="text-lg font-semibold mb-3 text-gray-800">How do I know which storage class to use?</h3>
+                        <p class="text-gray-700">Use S3 Standard for frequently accessed data, S3 IA for data accessed monthly, Glacier for long-term archival, and Glacier Deep Archive for compliance data. Implement S3 Intelligent Tiering to automatically move data between classes. For EBS volumes, use gp3 instead of gp2 for better performance at lower cost, and consider st1/sc1 for throughput-intensive workloads.</p>
                     </div>
                 </div>
             </section>

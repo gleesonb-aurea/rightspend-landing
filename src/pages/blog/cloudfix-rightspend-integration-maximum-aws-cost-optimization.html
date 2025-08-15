@@ -86,6 +86,97 @@
         ]
     }
     </script>
+
+    <!-- HowTo Schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "HowTo",
+        "name": "How to Integrate CloudFix and RightSpend for Maximum AWS Cost Optimization",
+        "description": "Complete step-by-step guide to deploying CloudFix and RightSpend together for comprehensive AWS cost optimization, achieving up to 70% total cost reduction with automated optimization.",
+        "totalTime": "P7D",
+        "supply": [
+            {
+                "@type": "HowToSupply",
+                "name": "AWS account with administrative permissions"
+            },
+            {
+                "@type": "HowToSupply", 
+                "name": "CloudFix platform access"
+            },
+            {
+                "@type": "HowToSupply",
+                "name": "RightSpend platform access"
+            },
+            {
+                "@type": "HowToSupply",
+                "name": "Change management approval process"
+            }
+        ],
+        "tool": [
+            {
+                "@type": "HowToTool",
+                "name": "CloudFix Platform"
+            },
+            {
+                "@type": "HowToTool",
+                "name": "RightSpend Platform"
+            },
+            {
+                "@type": "HowToTool",
+                "name": "AWS Console"
+            },
+            {
+                "@type": "HowToTool",
+                "name": "AWS Cost Explorer"
+            }
+        ],
+        "step": [
+            {
+                "@type": "HowToStep",
+                "position": 1,
+                "name": "Phase 1: Pre-Implementation Assessment",
+                "text": "Conduct comprehensive AWS cost assessment, analyze current utilization patterns, and identify optimization opportunities across all AWS accounts.",
+                "url": "https://rightspend.ai/blog/cloudfix-rightspend-integration-maximum-aws-cost-optimization.html#phase1",
+                "supply": ["AWS account access", "Cost Explorer access"],
+                "tool": ["AWS Console", "AWS Cost Explorer"]
+            },
+            {
+                "@type": "HowToStep",
+                "position": 2,
+                "name": "Phase 2: CloudFix Deployment",
+                "text": "Deploy CloudFix across all AWS accounts, configure change approval workflows, set up cost tracking baselines, and enable automated fix categories for resource optimization.",
+                "url": "https://rightspend.ai/blog/cloudfix-rightspend-integration-maximum-aws-cost-optimization.html#phase2",
+                "supply": ["CloudFix platform access", "Change management process"],
+                "tool": ["CloudFix Platform", "AWS Console"]
+            },
+            {
+                "@type": "HowToStep",
+                "position": 3,
+                "name": "Phase 3: RightSpend Integration",
+                "text": "Configure RightSpend discount optimization parameters, begin commitment-free discount delivery, set up unified reporting, and integrate with existing CloudFix optimization.",
+                "url": "https://rightspend.ai/blog/cloudfix-rightspend-integration-maximum-aws-cost-optimization.html#phase3",
+                "supply": ["RightSpend platform access", "CloudFix baseline data"],
+                "tool": ["RightSpend Platform", "CloudFix Platform"]
+            },
+            {
+                "@type": "HowToStep",
+                "position": 4,
+                "name": "Phase 4: Continuous Optimization Setup",
+                "text": "Configure ongoing monitoring and alerting, implement automated reporting workflows, document optimization results and best practices, and establish 24/7 cost optimization.",
+                "url": "https://rightspend.ai/blog/cloudfix-rightspend-integration-maximum-aws-cost-optimization.html#phase4",
+                "supply": ["Integrated platform access", "Monitoring requirements"],
+                "tool": ["CloudFix Platform", "RightSpend Platform", "AWS Console"]
+            }
+        ],
+        "totalCost": {
+            "@type": "MonetaryAmount",
+            "currency": "USD",
+            "value": "0"
+        },
+        "yield": "Up to 70% total AWS cost reduction with 24/7 automated optimization"
+    }
+    </script>
     
     <script src="/scripts/main.js"></script>
     <script defer src="https://unpkg.com/alpinejs@3.12.3/dist/cdn.min.js"></script>

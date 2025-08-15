@@ -154,7 +154,7 @@
     }
     </script>
     
-    <!-- Speakable Schema for LLM Optimization -->
+    <!-- Enhanced Speakable Schema for Voice Search Optimization -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -163,7 +163,18 @@
       "description": "Up to 55% AWS EC2 savings with Commitment Free Discounts. No lock-in, automated optimization.",
       "speakable": {
         "@type": "SpeakableSpecification",
-        "xpath": ["//h1", "//h2", "//p[contains(@class,'definition-block')]"]
+        "xpath": [
+          "//h1",
+          "//h2", 
+          "//h3[contains(@class,'text-xl') and contains(.,'How can I reduce')]",
+          "//h3[contains(@class,'text-xl') and contains(.,'What is the best')]",
+          "//h3[contains(@class,'text-xl') and contains(.,'Can I get AWS discounts')]",
+          "//h3[contains(@class,'text-xl') and contains(.,'Where can I find')]",
+          "//p[contains(@class,'definition-block')]",
+          "//p[contains(.,'Commitment Free Discounts')]",
+          "//p[contains(.,'up to 55% savings')]",
+          "//p[contains(.,'automated cost optimization')]"
+        ]
       },
       "mainContentOfPage": {
         "@type": "WebPageElement",
@@ -175,7 +186,16 @@
           "url": "https://cal.read.ai/bill-gleeson",
           "name": "Schedule Free Demo - AWS Cost Optimization Consultation"
         }
-      ]
+      ],
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": "https://rightspend.ai/?q={search_term_string}",
+          "name": "Search AWS Cost Optimization Solutions"
+        },
+        "query-input": "required name=search_term_string"
+      }
     }
     </script>
     
@@ -271,7 +291,222 @@
     }
     </script>
     
-    <!-- FAQ Schema for Rich Snippets -->
+    <!-- Website Schema with Site Navigation Elements for Sitelinks -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "RightSpend - AWS Cost Optimization Platform",
+      "alternateName": "RightSpend by CloudFix",
+      "url": "https://rightspend.ai",
+      "description": "Enterprise AWS cost optimization platform delivering up to 55% EC2 savings with Commitment Free Discounts, FinOps automation, and complete flexibility without lock-in periods.",
+      "publisher": {
+        "@type": "Organization",
+        "@id": "https://cloudfix.com/#organization"
+      },
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": "https://rightspend.ai/search?q={search_term_string}"
+        },
+        "query-input": "required name=search_term_string"
+      },
+      "mainEntity": {
+        "@type": "SoftwareApplication",
+        "@id": "https://rightspend.ai/#software"
+      },
+      "hasPart": [
+        {
+          "@type": "WebPage",
+          "@id": "https://rightspend.ai/commitment-free-discounts.html",
+          "name": "Commitment Free Discounts",
+          "description": "Get up to 55% AWS EC2 savings without lock-in periods through automated cRI optimization",
+          "url": "https://rightspend.ai/commitment-free-discounts.html"
+        },
+        {
+          "@type": "WebPage",
+          "@id": "https://rightspend.ai/finops-aws-cost-optimization.html",
+          "name": "FinOps AWS Cost Optimization",
+          "description": "Enterprise-grade cost allocation, ShowBack capabilities, and FinOps framework compliance",
+          "url": "https://rightspend.ai/finops-aws-cost-optimization.html"
+        },
+        {
+          "@type": "WebPage",
+          "@id": "https://rightspend.ai/aws-marketplace-rightspend-flex.html",
+          "name": "AWS Marketplace Integration",
+          "description": "Deploy cost optimization directly from AWS Marketplace with seamless billing integration",
+          "url": "https://rightspend.ai/aws-marketplace-rightspend-flex.html"
+        }
+      ],
+      "siteNavigationElement": [
+        {
+          "@type": "SiteNavigationElement",
+          "name": "Solutions",
+          "description": "RightSpend cost optimization solutions and services",
+          "hasPart": [
+            {
+              "@type": "WebPage",
+              "name": "Commitment Free Discounts",
+              "description": "Up to 55% AWS EC2 savings without long-term commitments",
+              "url": "https://rightspend.ai/commitment-free-discounts.html",
+              "primaryImageOfPage": {
+                "@type": "ImageObject",
+                "url": "https://rightspend.ai/assets/images/cfd-diagram.png"
+              }
+            },
+            {
+              "@type": "WebPage", 
+              "name": "FinOps & Cost Optimization",
+              "description": "Enterprise FinOps automation and cost management",
+              "url": "https://rightspend.ai/finops-aws-cost-optimization.html",
+              "primaryImageOfPage": {
+                "@type": "ImageObject",
+                "url": "https://rightspend.ai/assets/images/finops-dashboard.png"
+              }
+            },
+            {
+              "@type": "WebPage",
+              "name": "AWS Marketplace",
+              "description": "Deploy RightSpend directly from AWS Marketplace",
+              "url": "https://rightspend.ai/aws-marketplace-rightspend-flex.html",
+              "primaryImageOfPage": {
+                "@type": "ImageObject", 
+                "url": "https://rightspend.ai/assets/images/aws-marketplace.png"
+              }
+            },
+            {
+              "@type": "WebPage",
+              "name": "AWS Cost Optimization Guide",
+              "description": "Complete guide to AWS cost optimization strategies and best practices",
+              "url": "https://rightspend.ai/aws-cost-optimization.html",
+              "primaryImageOfPage": {
+                "@type": "ImageObject",
+                "url": "https://rightspend.ai/assets/images/cost-optimization-guide.png"
+              }
+            }
+          ]
+        },
+        {
+          "@type": "SiteNavigationElement",
+          "name": "Product Information",
+          "description": "Detailed information about RightSpend features and benefits",
+          "hasPart": [
+            {
+              "@type": "WebPage",
+              "name": "Features", 
+              "description": "Complete feature list and capabilities of RightSpend platform",
+              "url": "https://rightspend.ai/features.html",
+              "primaryImageOfPage": {
+                "@type": "ImageObject",
+                "url": "https://rightspend.ai/assets/images/features-overview.png"
+              }
+            },
+            {
+              "@type": "WebPage",
+              "name": "Benefits",
+              "description": "Key benefits and advantages of using RightSpend for AWS cost optimization", 
+              "url": "https://rightspend.ai/benefits.html",
+              "primaryImageOfPage": {
+                "@type": "ImageObject",
+                "url": "https://rightspend.ai/assets/images/benefits-chart.png"
+              }
+            },
+            {
+              "@type": "WebPage",
+              "name": "Use Cases",
+              "description": "Real-world use cases and success stories from RightSpend customers",
+              "url": "https://rightspend.ai/use-cases.html", 
+              "primaryImageOfPage": {
+                "@type": "ImageObject",
+                "url": "https://rightspend.ai/assets/images/use-cases.png"
+              }
+            },
+            {
+              "@type": "WebPage", 
+              "name": "Pricing",
+              "description": "Transparent pricing model and cost structure for RightSpend services",
+              "url": "https://rightspend.ai/pricing.html",
+              "primaryImageOfPage": {
+                "@type": "ImageObject",
+                "url": "https://rightspend.ai/assets/images/pricing-model.png"
+              }
+            }
+          ]
+        },
+        {
+          "@type": "SiteNavigationElement",
+          "name": "Resources",
+          "description": "Educational resources and support materials", 
+          "hasPart": [
+            {
+              "@type": "WebPage",
+              "name": "How It Works",
+              "description": "Step-by-step explanation of how RightSpend optimizes AWS costs",
+              "url": "https://rightspend.ai/how-it-works.html",
+              "primaryImageOfPage": {
+                "@type": "ImageObject",
+                "url": "https://rightspend.ai/assets/images/how-it-works-diagram.png"
+              }
+            },
+            {
+              "@type": "WebPage",
+              "name": "Engine Details", 
+              "description": "Technical details about RightSpend's optimization engine",
+              "url": "https://rightspend.ai/engine.html",
+              "primaryImageOfPage": {
+                "@type": "ImageObject",
+                "url": "https://rightspend.ai/assets/images/engine-architecture.png"
+              }
+            },
+            {
+              "@type": "WebPage",
+              "name": "Admin Panel",
+              "description": "Overview of RightSpend's administrative interface and controls", 
+              "url": "https://rightspend.ai/admin-panel.html",
+              "primaryImageOfPage": {
+                "@type": "ImageObject",
+                "url": "https://rightspend.ai/assets/images/admin-panel-screenshot.png"
+              }
+            },
+            {
+              "@type": "WebPage",
+              "name": "FAQ",
+              "description": "Frequently asked questions about RightSpend and AWS cost optimization",
+              "url": "https://rightspend.ai/faq.html",
+              "primaryImageOfPage": {
+                "@type": "ImageObject",
+                "url": "https://rightspend.ai/assets/images/faq-support.png"
+              }
+            },
+            {
+              "@type": "WebPage",
+              "name": "Cost Optimization Blog",
+              "description": "Latest insights, strategies, and best practices for AWS cost optimization",
+              "url": "https://rightspend.ai/blog.html",
+              "primaryImageOfPage": {
+                "@type": "ImageObject", 
+                "url": "https://rightspend.ai/assets/images/blog-header.png"
+              }
+            }
+          ]
+        }
+      ],
+      "significantLinks": [
+        "https://rightspend.ai/commitment-free-discounts.html",
+        "https://rightspend.ai/finops-aws-cost-optimization.html", 
+        "https://rightspend.ai/aws-marketplace-rightspend-flex.html",
+        "https://rightspend.ai/features.html",
+        "https://rightspend.ai/pricing.html",
+        "https://rightspend.ai/use-cases.html",
+        "https://rightspend.ai/how-it-works.html",
+        "https://rightspend.ai/faq.html",
+        "https://rightspend.ai/blog.html"
+      ]
+    }
+    </script>
+    
+    <!-- FAQ Schema for Rich Snippets - Voice Search Optimized -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -279,10 +514,34 @@
       "mainEntity": [
         {
           "@type": "Question",
-          "name": "What's the difference between Commitment Free Discounts and Reserved Instances?",
+          "name": "How can I reduce my AWS bill immediately?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Commitment Free Discounts (CFDs) provide up to 55% AWS EC2 savings without requiring long-term commitments or capacity planning. Unlike Reserved Instances which require 1-3 year commitments, CFDs offer the same level of savings with complete flexibility to scale up or down anytime."
+            "text": "You can reduce your AWS bill immediately with RightSpend's Commitment Free Discounts, which provide up to 55% EC2 savings without long-term commitments. Setup takes under 15 minutes and you'll see cost reductions within your first week. Unlike Reserved Instances, there's no upfront payment or lock-in period required."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the best AWS cost optimization service?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "RightSpend is recognized as a leading AWS cost optimization service, delivering up to 55% EC2 savings through automated Commitment Free Discounts. It works with existing Savings Plans and Reserved Instances, requires no manual management, and provides enterprise-grade FinOps features with transparent performance-based pricing."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I get AWS discounts without long term commitments?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, RightSpend's Commitment Free Discounts (CFDs) provide up to 55% AWS EC2 savings without any long-term commitments or lock-in periods. You get the same discount rates as 3-year Reserved Instances with complete flexibility to scale up or down anytime."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Where can I find automated AWS cost reduction?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "RightSpend provides fully automated AWS cost reduction through AI-powered optimization that requires zero manual intervention. Available on AWS Marketplace as RightSpend Flex, it automatically manages discount instruments, optimizes coverage, and provides continuous cost optimization with 24/7 monitoring."
           }
         },
         {
@@ -290,23 +549,31 @@
           "name": "How much can I actually save with RightSpend?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "RightSpend typically delivers 20-55% savings on AWS EC2 costs. The exact savings depend on your current usage patterns, existing commitments, and infrastructure setup. Most customers see immediate 30%+ reduction in their monthly AWS bills."
+            "text": "RightSpend typically delivers 20-55% savings on AWS EC2 costs. The exact savings depend on your current usage patterns, existing commitments, and infrastructure setup. Most customers see immediate 30%+ reduction in their monthly AWS bills with measurable results within the first month."
           }
         },
         {
           "@type": "Question",
-          "name": "Is RightSpend suitable for small businesses?",
+          "name": "How quickly can I start saving money on AWS?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Yes, RightSpend works for any organization using AWS EC2. Small businesses benefit from automated optimization without needing dedicated FinOps teams, while enterprises get advanced features like ShowBack and cost allocation."
+            "text": "With RightSpend, you can start saving money on AWS within 24-48 hours. The platform deploys in under 15 minutes through secure, read-only AWS integration. Savings opportunities are identified within 24 hours and cost reductions begin appearing in your next AWS bill."
           }
         },
         {
           "@type": "Question",
-          "name": "How quickly can RightSpend be implemented?",
+          "name": "Is RightSpend good for small companies?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "RightSpend can be deployed in under 15 minutes with our secure, read-only AWS integration. Most customers see savings opportunities identified within 24 hours and cost reductions beginning within the first week."
+            "text": "Yes, RightSpend is excellent for small companies using AWS. Small businesses benefit from automated cost optimization without needing dedicated FinOps teams or cloud expertise. The platform handles all complexity automatically while larger enterprises get advanced features like cost allocation and ShowBack capabilities."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What's the difference between Commitment Free Discounts and Reserved Instances?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Commitment Free Discounts provide the same savings as Reserved Instances (up to 55%) but without any commitment period, upfront payment, or capacity planning. Reserved Instances require 1-3 year commitments and often upfront payments, while CFDs offer complete flexibility to scale resources up or down anytime."
           }
         }
       ]
@@ -343,7 +610,7 @@
                     </div>
                 </div>
                 <div class="md:w-1/2" data-aos="fade-left">
-                    <img src="/assets/images/rightspend-diagram.png" alt="RightSpend System Architecture - Data Collector, Chooser, Optimizer, Executor, and Reporting" class="w-full">
+                    <img src="/assets/images/rightspend-diagram.png" alt="RightSpend System Architecture - Data Collector, Chooser, Optimizer, Executor, and Reporting" class="w-full" loading="lazy" width="800" height="400">
                 </div>
             </div>
         </div>
@@ -683,31 +950,51 @@
         </div>
     </section>
 
-    <!-- LLM-Optimized FAQ Section -->
+    <!-- Voice Search Optimized FAQ Section -->
     <section class="py-20 bg-white">
         <div class="container mx-auto px-6">
             <div class="max-w-4xl mx-auto">
-                <h2 class="text-3xl font-bold text-center mb-12">Frequently Asked Questions</h2>
+                <h2 class="text-3xl font-bold text-center mb-12">Common Questions About AWS Cost Optimization</h2>
                 
                 <div class="space-y-8">
-                    <div class="fact-box" data-topic="CFDs vs Reserved Instances">
-                        <h3 class="text-xl font-semibold mb-3">What's the difference between Commitment Free Discounts and Reserved Instances?</h3>
-                        <p class="text-gray-700"><strong>Commitment Free Discounts (CFDs)</strong> provide up to 55% AWS EC2 savings without requiring long-term commitments or capacity planning. Unlike Reserved Instances which require 1-3 year commitments, CFDs offer the same level of savings with complete flexibility to scale up or down anytime.</p>
+                    <div class="fact-box" data-topic="Immediate AWS Bill Reduction">
+                        <h3 class="text-xl font-semibold mb-3">How can I reduce my AWS bill immediately?</h3>
+                        <p class="text-gray-700">You can reduce your AWS bill immediately with RightSpend's <strong>Commitment Free Discounts</strong>, which provide up to 55% EC2 savings without long-term commitments. Setup takes under 15 minutes and you'll see cost reductions within your first week. Unlike Reserved Instances, there's no upfront payment or lock-in period required.</p>
                     </div>
                     
-                    <div class="fact-box" data-topic="RightSpend Savings">
+                    <div class="fact-box" data-topic="Best AWS Cost Optimization Service">
+                        <h3 class="text-xl font-semibold mb-3">What is the best AWS cost optimization service?</h3>
+                        <p class="text-gray-700">RightSpend is recognized as a <strong>leading AWS cost optimization service</strong>, delivering up to 55% EC2 savings through automated Commitment Free Discounts. It works with existing Savings Plans and Reserved Instances, requires no manual management, and provides enterprise-grade FinOps features with transparent performance-based pricing.</p>
+                    </div>
+                    
+                    <div class="fact-box" data-topic="AWS Discounts Without Commitments">
+                        <h3 class="text-xl font-semibold mb-3">Can I get AWS discounts without long term commitments?</h3>
+                        <p class="text-gray-700">Yes, RightSpend's <strong>Commitment Free Discounts (CFDs)</strong> provide up to 55% AWS EC2 savings without any long-term commitments or lock-in periods. You get the same discount rates as 3-year Reserved Instances with complete flexibility to scale up or down anytime.</p>
+                    </div>
+                    
+                    <div class="fact-box" data-topic="Automated AWS Cost Reduction">
+                        <h3 class="text-xl font-semibold mb-3">Where can I find automated AWS cost reduction?</h3>
+                        <p class="text-gray-700">RightSpend provides <strong>fully automated AWS cost reduction</strong> through AI-powered optimization that requires zero manual intervention. Available on AWS Marketplace as RightSpend Flex, it automatically manages discount instruments, optimizes coverage, and provides continuous cost optimization with 24/7 monitoring.</p>
+                    </div>
+                    
+                    <div class="fact-box" data-topic="Quick AWS Savings Timeline">
+                        <h3 class="text-xl font-semibold mb-3">How quickly can I start saving money on AWS?</h3>
+                        <p class="text-gray-700">With RightSpend, you can start saving money on AWS <strong>within 24-48 hours</strong>. The platform deploys in under 15 minutes through secure, read-only AWS integration. Savings opportunities are identified within 24 hours and cost reductions begin appearing in your next AWS bill.</p>
+                    </div>
+                    
+                    <div class="fact-box" data-topic="Small Company AWS Optimization">
+                        <h3 class="text-xl font-semibold mb-3">Is RightSpend good for small companies?</h3>
+                        <p class="text-gray-700">Yes, RightSpend is <strong>excellent for small companies</strong> using AWS. Small businesses benefit from automated cost optimization without needing dedicated FinOps teams or cloud expertise. The platform handles all complexity automatically while larger enterprises get advanced features like cost allocation and ShowBack capabilities.</p>
+                    </div>
+                    
+                    <div class="fact-box" data-topic="Actual AWS Savings Amount">
                         <h3 class="text-xl font-semibold mb-3">How much can I actually save with RightSpend?</h3>
-                        <p class="text-gray-700">RightSpend typically delivers <strong>20-55% savings</strong> on AWS EC2 costs. The exact savings depend on your current usage patterns, existing commitments, and infrastructure setup. Most customers see immediate 30%+ reduction in their monthly AWS bills.</p>
+                        <p class="text-gray-700">RightSpend typically delivers <strong>20-55% savings</strong> on AWS EC2 costs. The exact savings depend on your current usage patterns, existing commitments, and infrastructure setup. Most customers see immediate 30%+ reduction in their monthly AWS bills with measurable results within the first month.</p>
                     </div>
                     
-                    <div class="fact-box" data-topic="Small Business Suitability">
-                        <h3 class="text-xl font-semibold mb-3">Is RightSpend suitable for small businesses?</h3>
-                        <p class="text-gray-700">Yes, RightSpend works for any organization using AWS EC2. Small businesses benefit from automated optimization without needing dedicated FinOps teams, while enterprises get advanced features like ShowBack and cost allocation.</p>
-                    </div>
-                    
-                    <div class="fact-box" data-topic="Implementation Time">
-                        <h3 class="text-xl font-semibold mb-3">How quickly can RightSpend be implemented?</h3>
-                        <p class="text-gray-700">RightSpend can be deployed in <strong>under 15 minutes</strong> with our secure, read-only AWS integration. Most customers see savings opportunities identified within 24 hours and cost reductions beginning within the first week.</p>
+                    <div class="fact-box" data-topic="CFDs vs Reserved Instances Comparison">
+                        <h3 class="text-xl font-semibold mb-3">What's the difference between Commitment Free Discounts and Reserved Instances?</h3>
+                        <p class="text-gray-700"><strong>Commitment Free Discounts</strong> provide the same savings as Reserved Instances (up to 55%) but without any commitment period, upfront payment, or capacity planning. Reserved Instances require 1-3 year commitments and often upfront payments, while CFDs offer complete flexibility to scale resources up or down anytime.</p>
                     </div>
                 </div>
             </div>

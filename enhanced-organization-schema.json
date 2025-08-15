@@ -1,0 +1,68 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "CloudFix",
+  "alternateName": "RightSpend",
+  "url": "https://rightspend.ai",
+  "logo": {
+    "@type": "ImageObject",
+    "url": "https://rightspend.ai/assets/images/logo.png",
+    "width": 300,
+    "height": 100
+  },
+  "description": "CloudFix delivers AWS cost optimization through RightSpend's Commitment Free Discounts, providing up to 55% EC2 savings without lock-in commitments.",
+  "foundingDate": "2019",
+  "industry": ["Cloud Computing", "Cost Optimization", "FinOps"],
+  "address": {
+    "@type": "PostalAddress",
+    "addressCountry": "US"
+  },
+  "contactPoint": [
+    {
+      "@type": "ContactPoint",
+      "contactType": "sales",
+      "url": "https://cal.read.ai/bill-gleeson",
+      "availableLanguage": "English"
+    }
+  ],
+  "sameAs": [
+    "https://aws.amazon.com/marketplace/seller-profile?id=a8a86da1-b6c0-4c2b-9bbe-0c1c7b5f2ff0",
+    "https://cloudfix.com"
+  ],
+  "parentOrganization": {
+    "@type": "Organization",
+    "name": "CloudFix"
+  },
+  "knowsAbout": [
+    "AWS Cost Optimization",
+    "Commitment Free Discounts",
+    "Reserved Instances",
+    "Savings Plans",
+    "FinOps",
+    "Cloud Financial Management",
+    "EC2 Cost Reduction"
+  ],
+  "serviceType": "Cloud Cost Optimization",
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "AWS Cost Optimization Services",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Commitment Free Discounts",
+          "description": "Up to 55% AWS EC2 savings without upfront commitments"
+        }
+      },
+      {
+        "@type": "Offer", 
+        "itemOffered": {
+          "@type": "Service",
+          "name": "RightSpend Flex",
+          "description": "AWS Marketplace deployment for enterprise organizations"
+        }
+      }
+    ]
+  }
+}

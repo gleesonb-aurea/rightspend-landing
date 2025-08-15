@@ -31,7 +31,8 @@
       "WebFetch(domain:rightspend.ai)",
       "Bash(mv:*)",
       "WebFetch(domain:www.nops.io)",
-      "WebFetch(domain:www.prosperops.com)"
+      "WebFetch(domain:www.prosperops.com)",
+      "Bash(gh run list:*)"
     ],
     "deny": [],
     "defaultMode": "acceptEdits"

@@ -25,9 +25,14 @@
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="../assets/images/favicon.svg">
 
+    <!-- Preload critical resources -->
+    <link rel="preload" href="/css/styles.css" as="style">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="//unpkg.com">
+
     <!-- Styles -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
     <link href="/css/styles.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
     
     <!-- Structured Data -->
     <script type="application/ld+json">
@@ -54,7 +59,7 @@
     }
     </script>
 
-    <!-- FAQ Schema -->
+    <!-- Voice Search Optimized FinOps FAQ Schema -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -62,37 +67,100 @@
       "mainEntity": [
         {
           "@type": "Question",
-          "name": "How does RightSpend support FinOps framework compliance?",
+          "name": "What is FinOps for AWS cost optimization?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "RightSpend aligns with all three phases of the FinOps framework: Inform (detailed cost visibility and allocation), Optimize (automated discount management), and Operate (continuous governance and ShowBack). Our transparent pricing model charges only a percentage of net new savings, ensuring aligned incentives."
+            "text": "FinOps (Financial Operations) is a cloud financial management practice that brings engineering, finance, and business teams together to accelerate business value delivery through AWS cost optimization. It combines real-time cost visibility, automated optimization, and enterprise governance to maximize cloud efficiency and business outcomes."
           }
         },
         {
           "@type": "Question",
-          "name": "What FinOps customer support do you provide?",
+          "name": "How can I implement FinOps practices in my organization?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "We provide dedicated FinOps practitioners as customer success managers, 24/7 monitoring of cost optimization performance, monthly strategic reviews, and direct access to our certified FinOps experts. As a FinOps.org member, we follow industry best practices and maintain the highest service standards."
+            "text": "RightSpend provides a complete FinOps implementation framework with automated cost optimization, enterprise ShowBack capabilities, and FinOps framework compliance. We accelerate FinOps maturity from crawl to run phases through AI-powered discount optimization, transparent cost allocation, and continuous governance without requiring dedicated FinOps teams."
           }
         },
         {
           "@type": "Question",
-          "name": "How do you handle cost allocation and ShowBack for enterprises?",
+          "name": "What is the best FinOps tool for AWS cost management?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Our enterprise ShowBack capabilities fairly distribute both savings and fees across cost centers, handling complex scenarios like Linux/Windows pricing variations and different workload types. We provide detailed cost allocation reports with transparent fee calculations based on actual savings delivered."
+            "text": "RightSpend is recognized as a leading FinOps platform for AWS, combining automated discount optimization with enterprise-grade cost allocation and ShowBack capabilities. As a FinOps.org member, we follow industry best practices and provide certified FinOps practitioners as customer success managers with 24/7 monitoring and strategic guidance."
           }
         },
         {
           "@type": "Question",
-          "name": "What's your FinOps pricing model?",
+          "name": "How does FinOps ShowBack work for enterprises?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "We use a transparent, performance-based pricing model where you pay only a percentage of your net new savings. This aligns our success with your FinOps goals - no upfront costs, no hidden fees, and guaranteed ROI within 30 days or you pay nothing."
+            "text": "Enterprise ShowBack with RightSpend fairly distributes both savings and vendor fees across cost centers based on actual usage patterns. We handle complex scenarios like Linux/Windows pricing variations, volatile vs stable workloads, and multi-account organizations, providing detailed cost allocation reports with transparent fee calculations."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I automate FinOps cost optimization?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, RightSpend provides complete FinOps automation through AI-powered discount optimization that requires zero manual intervention. Our platform automatically manages discount instruments, optimizes coverage, provides continuous cost governance, and delivers automated guardrails for enterprise-scale cost management."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How much does FinOps cost optimization save?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "FinOps cost optimization with RightSpend typically delivers 20-55% AWS savings with transparent, performance-based pricing. You pay only a percentage of net new savings with no upfront costs or hidden fees. Most enterprises see 30%+ reduction in monthly AWS bills with guaranteed ROI within 30 days."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What FinOps framework does RightSpend support?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "RightSpend aligns with all three phases of the FinOps framework: Inform (detailed cost visibility and allocation), Optimize (automated discount management), and Operate (continuous governance and ShowBack). Our transparent pricing model ensures aligned incentives while accelerating FinOps maturity from crawl to run phases."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I get FinOps support and expertise?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "We provide dedicated FinOps practitioners as customer success managers with direct access to certified FinOps experts. This includes 24/7 monitoring of cost optimization performance, monthly strategic reviews, proactive recommendations, and immediate support. As a FinOps.org member, we follow industry best practices and maintain the highest service excellence standards."
           }
         }
       ]
+    }
+    </script>
+    
+    <!-- Speakable Schema for Voice Search Optimization -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "FinOps AWS Cost Optimization for Enterprise",
+      "description": "Enterprise FinOps AWS cost optimization with automated discount management and cost allocation",
+      "speakable": {
+        "@type": "SpeakableSpecification",
+        "xpath": [
+          "//h1",
+          "//h2", 
+          "//h3[contains(.,'What is FinOps')]",
+          "//h3[contains(.,'How can I implement FinOps')]",
+          "//h3[contains(.,'What is the best FinOps tool')]",
+          "//h3[contains(.,'How does FinOps ShowBack work')]",
+          "//h3[contains(.,'Can I automate FinOps')]",
+          "//h3[contains(.,'How much does FinOps')]",
+          "//p[contains(.,'Financial Operations')]",
+          "//p[contains(.,'cloud financial management')]",
+          "//p[contains(.,'complete FinOps automation')]",
+          "//p[contains(.,'20-55% AWS savings')]"
+        ]
+      },
+      "mainContentOfPage": {
+        "@type": "WebPageElement",
+        "cssSelector": "main, section"
+      }
     }
     </script>
     
@@ -265,7 +333,7 @@
                 
                 <div class="grid md:grid-cols-2 gap-12 items-center">
                     <div>
-                        <img src="/assets/images/rightspend-diagram.png" alt="EDP Integration Architecture" class="w-full rounded-lg shadow-lg">
+                        <img src="/assets/images/rightspend-diagram.png" alt="EDP Integration Architecture" class="w-full rounded-lg shadow-lg" loading="lazy" width="800" height="400">
                     </div>
                     <div>
                         <h3 class="text-2xl font-bold mb-6">Maximize EDP Value with RightSpend</h3>
@@ -539,6 +607,57 @@
                         </h3>
                         <p class="text-sm text-gray-600 mb-3">Revolutionary approach to AWS savings without long-term commitments - perfect for FinOps flexibility.</p>
                         <a href="/commitment-free-discounts.html" class="text-green-600 hover:underline text-sm font-medium">Learn About CFDs →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Voice Search Optimized FinOps FAQ Section -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-3xl font-bold text-center mb-12">Common Questions About FinOps and AWS Cost Optimization</h2>
+                
+                <div class="space-y-8">
+                    <div class="fact-box" data-topic="What is FinOps">
+                        <h3 class="text-xl font-semibold mb-3">What is FinOps for AWS cost optimization?</h3>
+                        <p class="text-gray-700"><strong>FinOps (Financial Operations)</strong> is a cloud financial management practice that brings engineering, finance, and business teams together to accelerate business value delivery through AWS cost optimization. It combines real-time cost visibility, automated optimization, and enterprise governance to maximize cloud efficiency and business outcomes.</p>
+                    </div>
+                    
+                    <div class="fact-box" data-topic="FinOps Implementation">
+                        <h3 class="text-xl font-semibold mb-3">How can I implement FinOps practices in my organization?</h3>
+                        <p class="text-gray-700">RightSpend provides a <strong>complete FinOps implementation framework</strong> with automated cost optimization, enterprise ShowBack capabilities, and FinOps framework compliance. We accelerate FinOps maturity from crawl to run phases through AI-powered discount optimization, transparent cost allocation, and continuous governance without requiring dedicated FinOps teams.</p>
+                    </div>
+                    
+                    <div class="fact-box" data-topic="Best FinOps Tool">
+                        <h3 class="text-xl font-semibold mb-3">What is the best FinOps tool for AWS cost management?</h3>
+                        <p class="text-gray-700">RightSpend is recognized as a <strong>leading FinOps platform for AWS</strong>, combining automated discount optimization with enterprise-grade cost allocation and ShowBack capabilities. As a FinOps.org member, we follow industry best practices and provide certified FinOps practitioners as customer success managers with 24/7 monitoring and strategic guidance.</p>
+                    </div>
+                    
+                    <div class="fact-box" data-topic="FinOps ShowBack">
+                        <h3 class="text-xl font-semibold mb-3">How does FinOps ShowBack work for enterprises?</h3>
+                        <p class="text-gray-700">Enterprise ShowBack with RightSpend <strong>fairly distributes both savings and vendor fees</strong> across cost centers based on actual usage patterns. We handle complex scenarios like Linux/Windows pricing variations, volatile vs stable workloads, and multi-account organizations, providing detailed cost allocation reports with transparent fee calculations.</p>
+                    </div>
+                    
+                    <div class="fact-box" data-topic="FinOps Automation">
+                        <h3 class="text-xl font-semibold mb-3">Can I automate FinOps cost optimization?</h3>
+                        <p class="text-gray-700">Yes, RightSpend provides <strong>complete FinOps automation</strong> through AI-powered discount optimization that requires zero manual intervention. Our platform automatically manages discount instruments, optimizes coverage, provides continuous cost governance, and delivers automated guardrails for enterprise-scale cost management.</p>
+                    </div>
+                    
+                    <div class="fact-box" data-topic="FinOps Savings">
+                        <h3 class="text-xl font-semibold mb-3">How much does FinOps cost optimization save?</h3>
+                        <p class="text-gray-700">FinOps cost optimization with RightSpend typically delivers <strong>20-55% AWS savings</strong> with transparent, performance-based pricing. You pay only a percentage of net new savings with no upfront costs or hidden fees. Most enterprises see 30%+ reduction in monthly AWS bills with guaranteed ROI within 30 days.</p>
+                    </div>
+                    
+                    <div class="fact-box" data-topic="FinOps Framework Support">
+                        <h3 class="text-xl font-semibold mb-3">What FinOps framework does RightSpend support?</h3>
+                        <p class="text-gray-700">RightSpend aligns with <strong>all three phases of the FinOps framework</strong>: Inform (detailed cost visibility and allocation), Optimize (automated discount management), and Operate (continuous governance and ShowBack). Our transparent pricing model ensures aligned incentives while accelerating FinOps maturity from crawl to run phases.</p>
+                    </div>
+                    
+                    <div class="fact-box" data-topic="FinOps Support">
+                        <h3 class="text-xl font-semibold mb-3">How do I get FinOps support and expertise?</h3>
+                        <p class="text-gray-700">We provide <strong>dedicated FinOps practitioners</strong> as customer success managers with direct access to certified FinOps experts. This includes 24/7 monitoring of cost optimization performance, monthly strategic reviews, proactive recommendations, and immediate support. As a FinOps.org member, we follow industry best practices and maintain the highest service excellence standards.</p>
                     </div>
                 </div>
             </div>
