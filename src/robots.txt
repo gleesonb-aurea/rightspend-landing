@@ -69,7 +69,6 @@ Crawl-delay: 1
 
 # Sitemap location
 Sitemap: https://rightspend.ai/sitemap.xml
-Sitemap: https://rightspend.ai/blog-sitemap.xml
 
 # Cache policy hints for LLM crawlers
 Cache-Control: max-age=86400

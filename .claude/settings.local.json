@@ -32,7 +32,12 @@
       "Bash(mv:*)",
       "WebFetch(domain:www.nops.io)",
       "WebFetch(domain:www.prosperops.com)",
-      "Bash(gh run list:*)"
+      "Bash(gh run list:*)",
+      "Bash(npm install:*)",
+      "Bash(npx playwright:*)",
+      "Bash(node:*)",
+      "Bash(npm run copy:root:*)",
+      "Bash(npm run copy:static:*)"
     ],
     "deny": [],
     "defaultMode": "acceptEdits"

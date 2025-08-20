@@ -1,0 +1,11 @@
+# Redirect www to non-www for all pages
+https://www.rightspend.ai/* https://rightspend.ai/:splat 301!
+
+# Redirect old URLs to new ones
+/aws-cost-optimization-platform/ /aws-cost-optimization.html 301
+/commitment-free-discounts-cfd/ /commitment-free-discounts.html 301
+/rightspend-vs-reserved-instances/ /blog/aws-reserved-instances-vs-savings-plans-2024.html 301
+
+# Force HTTPS redirect
+http://rightspend.ai/* https://rightspend.ai/:splat 301!
+http://www.rightspend.ai/* https://rightspend.ai/:splat 301!

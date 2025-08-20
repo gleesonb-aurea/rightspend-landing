@@ -13,20 +13,23 @@
     "copy:components": "copyfiles -f src/components/*.html dist/components",
     "copy:assets": "copyfiles -u 1 src/assets/**/* dist",
     "copy:scripts": "copyfiles -f \"src/scripts/**/*.{js,mjs}\" dist/scripts",
-    "copy:root": "copyfiles -f src/sitemap.xml src/robots.txt dist",
+    "copy:root": "copyfiles -f src/sitemap.xml src/robots.txt src/_redirects src/.htaccess dist",
     "copy:static": "copyfiles -f static/* dist",
     "fix-paths": "node fix-paths.js",
     "standardize:components": "node src/scripts/component-loader.js",
     "build": "npm-run-all clean mkdir standardize:components build:css build:copy fix-paths",
     "deploy": "npm run build && aws s3 sync dist/ s3://rightspend.ai/ --acl public-read",
-    "serve": "node server.js"
+    "serve": "node server.js",
+    "start": "node server.js"
   },
   "devDependencies": {
+    "@playwright/test": "^1.55.0",
     "autoprefixer": "^10.4.17",
     "cheerio": "^1.0.0",
     "copyfiles": "^2.4.1",
     "mkdirp": "^3.0.1",
     "npm-run-all": "^4.1.5",
+    "playwright": "^1.55.0",
     "postcss": "^8.4.35",
     "rimraf": "^5.0.5",
     "tailwindcss": "^3.4.1"
@@ -34,5 +37,17 @@
   "dependencies": {
     "@agentdeskai/browser-tools-mcp": "^1.2.1",
     "express": "^4.21.2"
-  }
+  },
+  "main": "fix-paths.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gleesonb-aurea/rightspend-landing.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gleesonb-aurea/rightspend-landing/issues"
+  },
+  "homepage": "https://github.com/gleesonb-aurea/rightspend-landing#readme"
 }
