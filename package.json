@@ -19,6 +19,8 @@
     "standardize:components": "node src/scripts/component-loader.js",
     "build": "npm-run-all clean mkdir standardize:components build:css build:copy fix-paths",
     "deploy": "npm run build && aws s3 sync dist/ s3://rightspend.ai/ --acl public-read",
+    "indexnow": "node scripts/indexnow-notify.js",
+    "build:deploy": "npm run build && npm run indexnow",
     "serve": "node server.js",
     "start": "node server.js"
   },
