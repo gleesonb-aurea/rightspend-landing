@@ -38,7 +38,8 @@
       "Bash(node:*)",
       "Bash(npm run copy:root:*)",
       "Bash(npm run copy:static:*)",
-      "WebFetch(domain:www.rightspend.ai)"
+      "WebFetch(domain:www.rightspend.ai)",
+      "WebFetch(domain:www.bing.com)"
     ],
     "deny": [],
     "defaultMode": "acceptEdits"

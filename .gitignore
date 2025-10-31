@@ -65,6 +65,7 @@ scripts/dev/
 
 # Local configuration
 .claude/settings.local.json
+claude_code_zai_env.sh
 
 # OS generated files
 .DS_Store?
