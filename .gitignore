@@ -27,6 +27,9 @@ cline_docs/
 *_instructions.txt
 .clinerules
 
+# Keep docs/ folder for marketing documentation (uncomment below to ignore)
+# docs/
+
 # Logs
 *.log
 npm-debug.log*
@@ -44,7 +47,7 @@ coverage/
 memory-bank/
 
 # Design and documentation files
-*.md
+# Allow marketing docs in docs/ folder
 RightSpend_Hero_Image_Design_Brief.md
 *.pdf
 *.sketch
@@ -57,6 +60,7 @@ RightSpend_Hero_Image_Design_Brief.md
 *.backup
 *.bak
 *-old.*
+analytics/
 
 # Development utilities and scripts
 update-*.js
