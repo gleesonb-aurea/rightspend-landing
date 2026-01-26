@@ -232,9 +232,9 @@
                         </div>
 
                         <div class="bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl p-6 border-2 border-gray-200">
-                            <div class="text-sm font-semibold text-gray-800 mb-2">Current State (On-Demand)</div>
+                            <div class="text-sm font-semibold text-gray-800 mb-2">Current State (With Existing SPs)</div>
                             <div class="text-4xl font-bold text-gray-700 mb-2" id="currentCost">$0</div>
-                            <div class="text-sm text-gray-700">Annual EC2 Cost • No Savings</div>
+                            <div class="text-sm text-gray-700">Annual EC2 Cost • Existing Coverage Discounted</div>
                         </div>
                     </div>
 
@@ -454,36 +454,58 @@
 
         // Chart setup
         let savingsChart;
+        let isInitialLoad = true;
 
         function calculate() {
             const spend = parseFloat(monthlySpend.value);
             const coverage = parseFloat(currentCoverage.value);
             const growth = parseFloat(growthRate.value);
 
-            // Calculate uncovered spend
+            // Calculate uncovered spend (portion not covered by existing SPs)
             const uncoveredSpend = spend * (1 - coverage / 100);
+            const coveredSpend = spend * (coverage / 100);
 
-            // RightSpend: 40% average discount on uncovered spend
+            // Current State: Actual monthly cost accounting for existing coverage
+            // Covered portion gets ~50% average SP discount, uncovered pays full on-demand
+            const currentSPDiscountRate = 0.50; // Average 50% discount on existing SPs
+            const currentMonthlyCost = (coveredSpend * (1 - currentSPDiscountRate)) + uncoveredSpend;
+            const currentAnnualCost = currentMonthlyCost * 12;
+
+            // RightSpend: 40% average discount on uncovered spend + adapts to growth/decline
             const rightspendDiscountRate = 0.40;
             const rightspendMonthlySavings = uncoveredSpend * rightspendDiscountRate;
             const rightspendCost = rightspendMonthlySavings * 0.25; // 25% of savings
             const rightspendNetSavings = rightspendMonthlySavings - rightspendCost;
-            const rightspendAnnualSavings = rightspendNetSavings * 12;
 
-            // Traditional: 50% average discount but with risk
+            // Project annual savings with growth rate factored in
+            // For growth: average monthly spend increases over the year
+            // For decline: average monthly spend decreases over the year
+            const growthFactor = 1 + (growth / 200); // Mid-year average growth factor
+            const rightspendAnnualSavings = rightspendNetSavings * 12 * growthFactor;
+
+            // Traditional: 50% average discount but with commitment risk
+            // Higher discount BUT doesn't adapt to growth changes - can lose money on decline
             const traditionalDiscountRate = 0.50;
             const traditionalMonthlySavings = uncoveredSpend * traditionalDiscountRate;
-            const traditionalAnnualSavings = traditionalMonthlySavings * 12;
 
-            // Current annual cost
-            const annualCost = spend * 12;
+            // Traditional RIs lose value with negative growth (wasted commitment)
+            // With positive growth, they leave new spend uncovered
+            let traditionalRiskFactor = 1.0;
+            if (growth < 0) {
+                // Declining usage = wasted commitments
+                traditionalRiskFactor = 1 + (growth / 100); // Reduces savings
+            } else if (growth > 20) {
+                // High growth = lots of uncovered spend
+                traditionalRiskFactor = 0.85; // Penalty for uncovered growth
+            }
+            const traditionalAnnualSavings = traditionalMonthlySavings * 12 * traditionalRiskFactor;
 
             // Update display
             document.getElementById('rightspendSavings').textContent = formatCurrency(rightspendAnnualSavings);
             document.getElementById('rightspendPercent').textContent = (rightspendDiscountRate * 100).toFixed(0) + '%';
             document.getElementById('traditionalSavings').textContent = formatCurrency(traditionalAnnualSavings);
             document.getElementById('traditionalPercent').textContent = (traditionalDiscountRate * 100).toFixed(0) + '%';
-            document.getElementById('currentCost').textContent = formatCurrency(annualCost);
+            document.getElementById('currentCost').textContent = formatCurrency(currentAnnualCost);
             document.getElementById('uncoveredSpend').textContent = formatCurrency(uncoveredSpend) + '/mo';
             document.getElementById('rightspendMonthlySavings').textContent = formatCurrency(rightspendMonthlySavings) + '/mo';
             document.getElementById('rightspendCost').textContent = formatCurrency(rightspendCost) + '/mo';
@@ -493,29 +515,28 @@
             // Update risk analysis message based on growth rate
             const riskAnalysis = document.getElementById('riskAnalysis');
             if (growth < 0) {
-                riskAnalysis.innerHTML = `With <strong>${growth}% decline</strong>, traditional RIs become <strong>wasted money</strong>. RightSpend adapts automatically with <strong>zero lock-in</strong>—no penalties for shrinking usage.`;
+                riskAnalysis.innerHTML = `With <strong>${Math.abs(growth)}% decline</strong>, traditional RIs become <strong>wasted money</strong>. RightSpend adapts automatically with <strong>zero lock-in</strong>—no penalties for shrinking usage.`;
             } else if (growth === 0) {
                 riskAnalysis.innerHTML = `With <strong>flat growth</strong>, traditional RIs still carry <strong>commitment risk</strong> if usage patterns change. RightSpend adapts automatically with <strong>zero lock-in</strong>.`;
             } else {
-                riskAnalysis.innerHTML = `With <strong>${growth}% growth</strong>, traditional RIs carry commitment risk and may leave spend <strong>uncovered</strong>. RightSpend adapts automatically with <strong>zero lock-in</strong>.`;
+                riskAnalysis.innerHTML = `With <strong>${growth}% growth</strong>, traditional RIs carry commitment risk and may leave new spend <strong>uncovered</strong>. RightSpend adapts automatically with <strong>zero lock-in</strong>.`;
             }
 
             // Update chart
-            updateChart(rightspendAnnualSavings, traditionalAnnualSavings, annualCost);
+            updateChart(rightspendAnnualSavings, traditionalAnnualSavings, currentAnnualCost);
 
-            // Show lead capture section after calculation
-            const leadCaptureSection = document.getElementById('leadCaptureSection');
-            if (leadCaptureSection) {
-                leadCaptureSection.classList.remove('hidden');
+            // Show lead capture section after calculation (but not on initial page load)
+            if (!isInitialLoad) {
+                const leadCaptureSection = document.getElementById('leadCaptureSection');
+                if (leadCaptureSection) {
+                    leadCaptureSection.classList.remove('hidden');
 
-                // Populate hidden fields with calculator results
-                document.getElementById('formMonthlySpend').value = spend;
-                document.getElementById('formCoverage').value = coverage;
-                document.getElementById('formRightspendSavings').value = rightspendAnnualSavings;
-                document.getElementById('formGrowthRate').value = growth;
-
-                // Don't auto-scroll - let users see results first
-                // leadCaptureSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    // Populate hidden fields with calculator results
+                    document.getElementById('formMonthlySpend').value = spend;
+                    document.getElementById('formCoverage').value = coverage;
+                    document.getElementById('formRightspendSavings').value = rightspendAnnualSavings;
+                    document.getElementById('formGrowthRate').value = growth;
+                }
             }
         }
 
@@ -606,6 +627,7 @@
 
         // Initial calculation
         calculate();
+        isInitialLoad = false; // Mark initial load complete
 
         // Lead capture form handler
         const leadCaptureForm = document.getElementById('leadCaptureForm');
