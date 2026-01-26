@@ -49,6 +49,40 @@
         </div>
     </section>
 
+    <!-- 404 Redirect Script -->
+    <script>
+        (function() {
+            // Redirect map for common 404 URLs
+            const redirects = {
+                // Missing .html extensions (core pages)
+                '/use-cases': '/use-cases.html',
+                '/aws-cost-optimization': '/aws-cost-optimization.html',
+                '/commitment-free-discounts': '/commitment-free-discounts.html',
+                '/finops-aws-cost-optimization': '/finops-aws-cost-optimization.html',
+                '/aws-marketplace-rightspend-flex': '/aws-marketplace-rightspend-flex.html',
+
+                // Blog URLs
+                '/blog/': '/blog.html',
+                '/blog/aws-reserved-instances-vs-savings-plans-2025': '/blog/aws-reserved-instances-vs-savings-plans-2024.html',
+                '/blog/finops-automation-2025-eliminate-manual-cost-management': '/blog/finops-automation-2025-eliminate-manual-cost-management.html',
+
+                // Removed/missing pages
+                '/about': '/', // Redirect to homepage
+                '/contact.html': 'https://cal.read.ai/bill-gleeson', // To Calendly
+                '/mo': '/' // Likely typo, go to homepage
+            };
+
+            // Get current path (without query string)
+            const currentPath = window.location.pathname.split('?')[0];
+
+            // Check if there's a redirect for this path
+            if (redirects[currentPath]) {
+                // Perform redirect
+                window.location.replace(redirects[currentPath]);
+            }
+        })();
+    </script>
+
     <!-- Footer -->
     
 
