@@ -886,8 +886,8 @@ function addBlogEmailSignup() {
                             },
                             body: JSON.stringify({
                                 email: email,
-                                source: 'blog-article',
-                                form_name: 'blog_email_signup',
+                                source: 'rightspend-blog-article',
+                                form_name: 'rightspend-blog-email-signup',
                                 article_title: articleTitle,
                                 article_url: articleUrl,
                                 timestamp: new Date().toISOString()
