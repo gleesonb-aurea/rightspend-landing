@@ -27,8 +27,9 @@ cline_docs/
 *_instructions.txt
 .clinerules
 
-# Keep docs/ folder for marketing documentation (uncomment below to ignore)
-# docs/
+# Ignore docs and test-results folders
+docs/
+test-results/
 
 # Logs
 *.log
@@ -47,8 +48,6 @@ coverage/
 memory-bank/
 
 # Design and documentation files
-# Allow marketing docs in docs/ folder
-RightSpend_Hero_Image_Design_Brief.md
 *.pdf
 *.sketch
 *.fig
