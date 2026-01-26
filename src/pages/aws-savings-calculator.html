@@ -203,14 +203,6 @@
                             Expected growth (positive) or decline (negative) in AWS usage this year. Use negative values for shrinking usage.
                         </p>
                     </div>
-
-                    <!-- Calculate Button -->
-                    <button
-                        id="calculateBtn"
-                        class="w-full bg-primary-600 hover:bg-primary-700 text-white px-8 py-4 rounded-lg font-bold text-lg transition-all duration-200 shadow-lg hover:shadow-xl hover:scale-105"
-                    >
-                        Calculate My Savings →
-                    </button>
                 </div>
 
                 <!-- Results Panel -->
@@ -245,6 +237,11 @@
                             With <strong><span id="growthRisk">20%</span> growth</strong>, traditional RIs carry commitment risk.
                             RightSpend adapts automatically with <strong>zero lock-in</strong>.
                         </p>
+                        <div id="ctaLink" class="mt-4 hidden">
+                            <button onclick="showEmailCapture()" class="text-sm font-semibold text-yellow-900 underline hover:text-yellow-700 cursor-pointer">
+                                Want the detailed breakdown? →
+                            </button>
+                        </div>
                     </div>
 
                     <!-- Chart -->
@@ -281,11 +278,30 @@
         <div class="container mx-auto px-4 max-w-4xl">
             <div class="bg-gradient-to-br from-primary-600 to-secondary-600 rounded-2xl shadow-2xl p-8 md:p-12 text-white text-center">
                 <h2 class="text-3xl md:text-4xl font-bold mb-4">
-                    Get Your Detailed Savings Report
+                    See Exactly How Much You'll Save (3-Year Projection)
                 </h2>
                 <p class="text-xl mb-8 opacity-90">
-                    See a personalized analysis of your AWS environment with exact savings projections
+                    You've seen the basic numbers. Get the full breakdown: implementation roadmap, coverage optimization, and risk analysis for your specific scenario.
                 </p>
+
+                <!-- What's Included -->
+                <div class="max-w-md mx-auto mb-8 text-left bg-white/10 rounded-lg p-6">
+                    <p class="font-semibold mb-3 text-white">What's included:</p>
+                    <ul class="space-y-2 text-sm opacity-90">
+                        <li class="flex items-start">
+                            <span class="mr-2">✓</span>
+                            <span>Monthly breakdown showing where savings come from</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="mr-2">✓</span>
+                            <span>Year-by-year projections based on your growth rate</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="mr-2">✓</span>
+                            <span>Implementation roadmap (how to get started in 48 hours)</span>
+                        </li>
+                    </ul>
+                </div>
 
                 <form id="leadCaptureForm" class="max-w-md mx-auto">
                     <!-- Hidden fields for calculator results -->
@@ -314,7 +330,7 @@
                             class="w-full px-4 py-3 rounded-lg text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-primary-300"
                         />
                     </div>
-                    <div class="mb-4">
+                    <div class="mb-6">
                         <input
                             type="text"
                             id="company"
@@ -327,10 +343,10 @@
                         type="submit"
                         class="w-full bg-white text-primary-600 px-8 py-4 rounded-lg font-bold text-lg transition-all duration-200 shadow-lg hover:shadow-xl hover:scale-105"
                     >
-                        Get My Free Report →
+                        Email Me The Report →
                     </button>
                     <p class="text-sm opacity-80 mt-4">
-                        No credit card required. We'll email your detailed report within 24 hours.
+                        Report delivered in 2 minutes. No spam, unsubscribe anytime.
                     </p>
                 </form>
 
@@ -434,27 +450,79 @@
 
         currentCoverage.addEventListener('input', (e) => {
             currentCoverageSlider.value = e.target.value;
+            trackSliderChange();
             calculate();
         });
 
         currentCoverageSlider.addEventListener('input', (e) => {
             currentCoverage.value = e.target.value;
+            trackSliderChange();
             calculate();
         });
 
         growthRate.addEventListener('input', (e) => {
             growthRateSlider.value = e.target.value;
+            trackSliderChange();
             calculate();
         });
 
         growthRateSlider.addEventListener('input', (e) => {
             growthRate.value = e.target.value;
+            trackSliderChange();
+            calculate();
+        });
+
+        monthlySpend.addEventListener('input', (e) => {
+            monthlySpendSlider.value = e.target.value;
+            trackSliderChange();
+            calculate();
+        });
+
+        monthlySpendSlider.addEventListener('input', (e) => {
+            monthlySpend.value = e.target.value;
+            trackSliderChange();
             calculate();
         });
 
         // Chart setup
         let savingsChart;
         let isInitialLoad = true;
+        let interactionTime = 0;
+        let sliderChanges = 0;
+        let formShown = false;
+
+        // Track interaction time
+        setInterval(() => {
+            interactionTime++;
+            checkTrigger();
+        }, 1000);
+
+        // Track slider changes
+        function trackSliderChange() {
+            sliderChanges++;
+            checkTrigger();
+        }
+
+        // Check if we should show the email form
+        function checkTrigger() {
+            if (!formShown && (interactionTime >= 5 || sliderChanges >= 3) && !isInitialLoad) {
+                showEmailCapture();
+                formShown = true;
+            }
+        }
+
+        // Show email capture form and CTA link
+        function showEmailCapture() {
+            const leadCaptureSection = document.getElementById('leadCaptureSection');
+            const ctaLink = document.getElementById('ctaLink');
+            if (leadCaptureSection) {
+                leadCaptureSection.classList.remove('hidden');
+                leadCaptureSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+            if (ctaLink) {
+                ctaLink.classList.remove('hidden');
+            }
+        }
 
         function calculate() {
             const spend = parseFloat(monthlySpend.value);
@@ -520,12 +588,18 @@
 
             // Update risk analysis message
             const riskAnalysis = document.getElementById('riskAnalysis');
+            const ctaLink = document.getElementById('ctaLink');
             if (growth < 0) {
                 riskAnalysis.innerHTML = `With <strong>${Math.abs(growth)}% decline</strong>, your existing Savings Plans will be <strong>underwater</strong>—paying for unused capacity. RightSpend adapts automatically with <strong>zero penalty</strong> for shrinking usage. <strong>3-year projected loss with SPs: ${formatCurrency(Math.abs(year2Savings + year3Savings))}</strong>.`;
             } else if (growth === 0) {
                 riskAnalysis.innerHTML = `With <strong>flat growth</strong>, RightSpend delivers equivalent or better rates than your existing SPs with <strong>zero lock-in</strong>. <strong>3-year total savings: ${formatCurrency(threeYearSavings)}</strong>.`;
             } else {
                 riskAnalysis.innerHTML = `With <strong>${growth}% growth</strong>, new spend will be <strong>uncovered</strong> by existing SPs. RightSpend covers 100% of growth automatically. <strong>3-year total savings: ${formatCurrency(threeYearSavings)}</strong>.`;
+            }
+
+            // Show CTA link after first interaction
+            if (!isInitialLoad && ctaLink) {
+                ctaLink.classList.remove('hidden');
             }
 
             // Update chart with 3-year projection
