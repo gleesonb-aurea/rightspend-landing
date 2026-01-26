@@ -927,10 +927,68 @@ function addBlogEmailSignup() {
     });
 }
 
+// Add blog article CTAs
+function addBlogArticleCTAs() {
+    // Only add to blog article pages
+    if (!window.location.pathname.includes('/blog/')) {
+        return; // Not a blog article
+    }
+
+    // Find all article content sections
+    const articles = document.querySelectorAll('article');
+
+    articles.forEach(article => {
+        // Check if CTA already exists
+        if (article.querySelector('.blog-article-cta')) {
+            return; // Already has CTA
+        }
+
+        // Create CTA HTML
+        const ctaHTML = `
+            <div class="blog-article-cta my-12 p-8 bg-gradient-to-br from-primary-50 to-secondary-50 border border-primary-200 rounded-lg" style="margin-top: 3rem; margin-bottom: 3rem;">
+                <div class="max-w-3xl mx-auto text-center">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-3">
+                        Ready to Reduce Your AWS Costs?
+                    </h3>
+                    <p class="text-lg text-gray-700 mb-6">
+                        See exactly how much you could save with RightSpend. Get started in 60 seconds.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                        <a
+                            href="https://rightspend.ai/aws-savings-calculator.html"
+                            class="inline-flex items-center justify-center px-6 py-3 bg-primary-600 hover:bg-primary-700 text-white font-semibold rounded-lg transition-colors duration-200"
+                        >
+                            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
+                            </svg>
+                            Calculate Your Savings
+                        </a>
+                        <a
+                            href="https://cal.read.ai/bill-gleeson"
+                            class="inline-flex items-center justify-center px-6 py-3 bg-white hover:bg-gray-50 text-gray-700 font-semibold rounded-lg border-2 border-gray-300 hover:border-gray-400 transition-colors duration-200"
+                        >
+                            Schedule Free Assessment
+                        </a>
+                    </div>
+                    <p class="text-sm text-gray-600 mt-4">
+                        No commitment required. See your potential savings in 60 seconds.
+                    </p>
+                </div>
+            </div>
+        `;
+
+        // Insert CTA at the end of the article (before closing </article> tag)
+        article.insertAdjacentHTML('beforeend', ctaHTML);
+    });
+}
+
 // Initialize everything when DOM loads
 document.addEventListener('DOMContentLoaded', function() {
     // Add blog email signup forms
     addBlogEmailSignup();
+
+    // Add blog article CTAs
+    addBlogArticleCTAs();
 
     // Add schema for LLM crawlers
     addConversionSchema();
