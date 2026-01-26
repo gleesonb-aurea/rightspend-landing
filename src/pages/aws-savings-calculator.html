@@ -519,9 +519,6 @@
             const coverage = parseFloat(currentCoverage.value);
             const growth = parseFloat(growthRate.value);
 
-            // Debug logging
-            console.log('calculate() called with:', { spend, coverage, growth });
-
             // Calculate covered and uncovered portions
             const coveredSpend = spend * (coverage / 100);
             const uncoveredSpend = spend * (1 - coverage / 100);
@@ -565,19 +562,24 @@
             const traditionalMonthlySavings = uncoveredSpend * traditionalDiscountRate;
             const traditionalAnnualSavings = traditionalMonthlySavings * 12;
 
-            // Update display
-            document.getElementById('rightspendSavings').textContent = formatCurrency(rightspendAnnualSavings);
-            document.getElementById('rightspendPercent').textContent = (rightspendDiscountRate * 100).toFixed(0) + '%';
-            document.getElementById('traditionalSavings').textContent = formatCurrency(traditionalAnnualSavings);
-            document.getElementById('traditionalPercent').textContent = (traditionalDiscountRate * 100).toFixed(0) + '%';
-            document.getElementById('currentCost').textContent = formatCurrency(currentAnnualCost);
-            document.getElementById('uncoveredSpend').textContent = formatCurrency(uncoveredSpend) + '/mo';
+            // Update display with null checks
+            const updateElement = (id, value) => {
+                const el = document.getElementById(id);
+                if (el) el.textContent = value;
+            };
+
+            updateElement('rightspendSavings', formatCurrency(rightspendAnnualSavings));
+            updateElement('rightspendPercent', (rightspendDiscountRate * 100).toFixed(0) + '%');
+            updateElement('traditionalSavings', formatCurrency(traditionalAnnualSavings));
+            updateElement('traditionalPercent', (traditionalDiscountRate * 100).toFixed(0) + '%');
+            updateElement('currentCost', formatCurrency(currentAnnualCost));
+            updateElement('uncoveredSpend', formatCurrency(uncoveredSpend) + '/mo');
 
             // Show monthly breakdown
-            document.getElementById('currentMonthlyCost').textContent = formatCurrency(currentMonthlyCost) + '/mo';
-            document.getElementById('rightspendCost').textContent = formatCurrency(rightspendMonthlyCost) + '/mo';
-            document.getElementById('netSavings').textContent = formatCurrency(rightspendMonthlySavings) + '/mo';
-            document.getElementById('growthRisk').textContent = growth + '%';
+            updateElement('currentMonthlyCost', formatCurrency(currentMonthlyCost) + '/mo');
+            updateElement('rightspendCost', formatCurrency(rightspendMonthlyCost) + '/mo');
+            updateElement('netSavings', formatCurrency(rightspendMonthlySavings) + '/mo');
+            updateElement('growthRisk', growth + '%');
 
             // Update risk analysis message
             const riskAnalysis = document.getElementById('riskAnalysis');
