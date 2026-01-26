@@ -259,15 +259,15 @@
                             <span class="font-bold text-gray-900" id="uncoveredSpend">$0/mo</span>
                         </div>
                         <div class="flex justify-between items-center py-2 border-b border-gray-200">
-                            <span class="text-gray-700">RightSpend Monthly Savings</span>
-                            <span class="font-bold text-green-600" id="rightspendMonthlySavings">$0/mo</span>
+                            <span class="text-gray-700">Your Current Monthly Cost (with SPs)</span>
+                            <span class="font-bold text-gray-900" id="currentMonthlyCost">$0/mo</span>
                         </div>
                         <div class="flex justify-between items-center py-2 border-b border-gray-200">
-                            <span class="text-gray-700">RightSpend Cost (25% of savings)</span>
-                            <span class="font-bold text-gray-900" id="rightspendCost">$0/mo</span>
+                            <span class="text-gray-700">RightSpend Monthly Cost (52% off full spend)</span>
+                            <span class="font-bold text-green-600" id="rightspendCost">$0/mo</span>
                         </div>
                         <div class="flex justify-between items-center py-2">
-                            <span class="text-gray-700 font-semibold">Net Savings After RightSpend</span>
+                            <span class="text-gray-700 font-semibold">Monthly Savings</span>
                             <span class="font-bold text-primary-600 text-lg" id="netSavings">$0/mo</span>
                         </div>
                     </div>
@@ -461,44 +461,48 @@
             const coverage = parseFloat(currentCoverage.value);
             const growth = parseFloat(growthRate.value);
 
-            // Calculate uncovered spend (portion not covered by existing SPs)
-            const uncoveredSpend = spend * (1 - coverage / 100);
+            // Calculate covered and uncovered portions
             const coveredSpend = spend * (coverage / 100);
+            const uncoveredSpend = spend * (1 - coverage / 100);
 
-            // Current State: Actual monthly cost accounting for existing coverage
-            // Covered portion gets ~50% average SP discount, uncovered pays full on-demand
-            const currentSPDiscountRate = 0.50; // Average 50% discount on existing SPs
+            // Current State: What they're paying now with existing SPs
+            // Covered portion gets ~52% average SP discount (AWS official: up to 72%, typical ~50-55%)
+            const currentSPDiscountRate = 0.52; // Using 52% as realistic average
             const currentMonthlyCost = (coveredSpend * (1 - currentSPDiscountRate)) + uncoveredSpend;
             const currentAnnualCost = currentMonthlyCost * 12;
 
-            // RightSpend: 40% average discount on uncovered spend + adapts to growth/decline
-            const rightspendDiscountRate = 0.40;
-            const rightspendMonthlySavings = uncoveredSpend * rightspendDiscountRate;
-            const rightspendCost = rightspendMonthlySavings * 0.25; // 25% of savings
-            const rightspendNetSavings = rightspendMonthlySavings - rightspendCost;
+            // RightSpend: Covers FULL spend at equivalent or better rate
+            // Achieves 52% discount on ENTIRE spend (not just uncovered)
+            const rightspendDiscountRate = 0.52;
+            const rightspendMonthlyCost = spend * (1 - rightspendDiscountRate);
+            const rightspendAnnualCost = rightspendMonthlyCost * 12;
+            const rightspendMonthlySavings = currentMonthlyCost - rightspendMonthlyCost;
+            const rightspendAnnualSavings = rightspendMonthlySavings * 12;
 
-            // Project annual savings with growth rate factored in
-            // For growth: average monthly spend increases over the year
-            // For decline: average monthly spend decreases over the year
-            const growthFactor = 1 + (growth / 200); // Mid-year average growth factor
-            const rightspendAnnualSavings = rightspendNetSavings * 12 * growthFactor;
+            // Calculate Year 2 and Year 3 projections based on growth rate
+            const year2MonthlySpend = spend * (1 + growth / 100);
+            const year3MonthlySpend = year2MonthlySpend * (1 + growth / 100);
 
-            // Traditional: 50% average discount but with commitment risk
-            // Higher discount BUT doesn't adapt to growth changes - can lose money on decline
-            const traditionalDiscountRate = 0.50;
+            // Year 2: Current state vs RightSpend
+            const year2CurrentCost = (year2MonthlySpend * (coverage / 100) * (1 - currentSPDiscountRate)) +
+                                     (year2MonthlySpend * (1 - coverage / 100));
+            const year2RightSpendCost = year2MonthlySpend * (1 - rightspendDiscountRate);
+            const year2Savings = (year2CurrentCost - year2RightSpendCost) * 12;
+
+            // Year 3: Current state vs RightSpend
+            const year3CurrentCost = (year3MonthlySpend * (coverage / 100) * (1 - currentSPDiscountRate)) +
+                                     (year3MonthlySpend * (1 - coverage / 100));
+            const year3RightSpendCost = year3MonthlySpend * (1 - rightspendDiscountRate);
+            const year3Savings = (year3CurrentCost - year3RightSpendCost) * 12;
+
+            // Three-year total savings
+            const threeYearSavings = rightspendAnnualSavings + year2Savings + year3Savings;
+
+            // Traditional SPs/RIs: Show potential additional savings BUT with commitment risk
+            // Higher discount rate (up to 72%) BUT only on uncovered portion and with lock-in risk
+            const traditionalDiscountRate = 0.60; // Higher than SPs but on uncovered only
             const traditionalMonthlySavings = uncoveredSpend * traditionalDiscountRate;
-
-            // Traditional RIs lose value with negative growth (wasted commitment)
-            // With positive growth, they leave new spend uncovered
-            let traditionalRiskFactor = 1.0;
-            if (growth < 0) {
-                // Declining usage = wasted commitments
-                traditionalRiskFactor = 1 + (growth / 100); // Reduces savings
-            } else if (growth > 20) {
-                // High growth = lots of uncovered spend
-                traditionalRiskFactor = 0.85; // Penalty for uncovered growth
-            }
-            const traditionalAnnualSavings = traditionalMonthlySavings * 12 * traditionalRiskFactor;
+            const traditionalAnnualSavings = traditionalMonthlySavings * 12;
 
             // Update display
             document.getElementById('rightspendSavings').textContent = formatCurrency(rightspendAnnualSavings);
@@ -507,23 +511,25 @@
             document.getElementById('traditionalPercent').textContent = (traditionalDiscountRate * 100).toFixed(0) + '%';
             document.getElementById('currentCost').textContent = formatCurrency(currentAnnualCost);
             document.getElementById('uncoveredSpend').textContent = formatCurrency(uncoveredSpend) + '/mo';
-            document.getElementById('rightspendMonthlySavings').textContent = formatCurrency(rightspendMonthlySavings) + '/mo';
-            document.getElementById('rightspendCost').textContent = formatCurrency(rightspendCost) + '/mo';
-            document.getElementById('netSavings').textContent = formatCurrency(rightspendNetSavings) + '/mo';
+
+            // Show monthly breakdown
+            document.getElementById('currentMonthlyCost').textContent = formatCurrency(currentMonthlyCost) + '/mo';
+            document.getElementById('rightspendCost').textContent = formatCurrency(rightspendMonthlyCost) + '/mo';
+            document.getElementById('netSavings').textContent = formatCurrency(rightspendMonthlySavings) + '/mo';
             document.getElementById('growthRisk').textContent = growth + '%';
 
-            // Update risk analysis message based on growth rate
+            // Update risk analysis message
             const riskAnalysis = document.getElementById('riskAnalysis');
             if (growth < 0) {
-                riskAnalysis.innerHTML = `With <strong>${Math.abs(growth)}% decline</strong>, traditional RIs become <strong>wasted money</strong>. RightSpend adapts automatically with <strong>zero lock-in</strong>—no penalties for shrinking usage.`;
+                riskAnalysis.innerHTML = `With <strong>${Math.abs(growth)}% decline</strong>, your existing Savings Plans will be <strong>underwater</strong>—paying for unused capacity. RightSpend adapts automatically with <strong>zero penalty</strong> for shrinking usage. <strong>3-year projected loss with SPs: ${formatCurrency(Math.abs(year2Savings + year3Savings))}</strong>.`;
             } else if (growth === 0) {
-                riskAnalysis.innerHTML = `With <strong>flat growth</strong>, traditional RIs still carry <strong>commitment risk</strong> if usage patterns change. RightSpend adapts automatically with <strong>zero lock-in</strong>.`;
+                riskAnalysis.innerHTML = `With <strong>flat growth</strong>, RightSpend delivers equivalent or better rates than your existing SPs with <strong>zero lock-in</strong>. <strong>3-year total savings: ${formatCurrency(threeYearSavings)}</strong>.`;
             } else {
-                riskAnalysis.innerHTML = `With <strong>${growth}% growth</strong>, traditional RIs carry commitment risk and may leave new spend <strong>uncovered</strong>. RightSpend adapts automatically with <strong>zero lock-in</strong>.`;
+                riskAnalysis.innerHTML = `With <strong>${growth}% growth</strong>, new spend will be <strong>uncovered</strong> by existing SPs. RightSpend covers 100% of growth automatically. <strong>3-year total savings: ${formatCurrency(threeYearSavings)}</strong>.`;
             }
 
-            // Update chart
-            updateChart(rightspendAnnualSavings, traditionalAnnualSavings, currentAnnualCost);
+            // Update chart with 3-year projection
+            updateChart(rightspendAnnualSavings, traditionalAnnualSavings, currentAnnualCost, year2Savings, year3Savings);
 
             // Show lead capture section after calculation (but not on initial page load)
             if (!isInitialLoad) {
@@ -534,7 +540,7 @@
                     // Populate hidden fields with calculator results
                     document.getElementById('formMonthlySpend').value = spend;
                     document.getElementById('formCoverage').value = coverage;
-                    document.getElementById('formRightspendSavings').value = rightspendAnnualSavings;
+                    document.getElementById('formRightspendSavings').value = threeYearSavings;
                     document.getElementById('formGrowthRate').value = growth;
                 }
             }
@@ -544,7 +550,7 @@
             return '$' + Math.round(value).toLocaleString();
         }
 
-        function updateChart(rightspend, traditional, current) {
+        function updateChart(rightspend, traditional, current, year2, year3) {
             const ctx = document.getElementById('savingsChart').getContext('2d');
 
             if (savingsChart) {
@@ -554,19 +560,19 @@
             savingsChart = new Chart(ctx, {
                 type: 'bar',
                 data: {
-                    labels: ['RightSpend (No Lock-in)', 'Traditional RIs/SPs', 'Current (On-Demand)'],
+                    labels: ['Year 1', 'Year 2', 'Year 3'],
                     datasets: [{
-                        label: 'Annual Savings',
-                        data: [rightspend, traditional, 0],
+                        label: 'RightSpend Annual Savings',
+                        data: [rightspend, year2, year3],
                         backgroundColor: [
                             'rgba(34, 197, 94, 0.8)',
-                            'rgba(59, 130, 246, 0.8)',
-                            'rgba(156, 163, 175, 0.8)'
+                            'rgba(34, 197, 94, 0.7)',
+                            'rgba(34, 197, 94, 0.6)'
                         ],
                         borderColor: [
                             'rgba(34, 197, 94, 1)',
-                            'rgba(59, 130, 246, 1)',
-                            'rgba(156, 163, 175, 1)'
+                            'rgba(34, 197, 94, 1)',
+                            'rgba(34, 197, 94, 1)'
                         ],
                         borderWidth: 2
                     }]
@@ -577,6 +583,14 @@
                     plugins: {
                         legend: {
                             display: false
+                        },
+                        title: {
+                            display: true,
+                            text: '3-Year Savings Projection with RightSpend',
+                            font: {
+                                size: 16,
+                                weight: 'bold'
+                            }
                         },
                         tooltip: {
                             callbacks: {
@@ -589,6 +603,10 @@
                     scales: {
                         y: {
                             beginAtZero: true,
+                            title: {
+                                display: true,
+                                text: 'Annual Savings ($)'
+                            },
                             ticks: {
                                 callback: function(value) {
                                     return '$' + (value / 1000).toFixed(0) + 'K';
