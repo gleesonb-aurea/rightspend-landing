@@ -200,7 +200,7 @@
                             class="slider w-full"
                         />
                         <p class="text-sm text-gray-600 mt-2">
-                            How much do you expect your AWS usage to grow or shrink this year?
+                            Expected growth (positive) or decline (negative) in AWS usage this year. Use negative values for shrinking usage.
                         </p>
                     </div>
 
@@ -241,7 +241,7 @@
                     <!-- Risk Comparison -->
                     <div class="bg-yellow-50 border-l-4 border-yellow-500 p-4 mb-6">
                         <h3 class="font-bold text-yellow-800 mb-2">⚠️ Risk Analysis</h3>
-                        <p class="text-sm text-yellow-800">
+                        <p class="text-sm text-yellow-800" id="riskAnalysis">
                             With <strong><span id="growthRisk">20%</span> growth</strong>, traditional RIs carry commitment risk.
                             RightSpend adapts automatically with <strong>zero lock-in</strong>.
                         </p>
@@ -489,6 +489,16 @@
             document.getElementById('rightspendCost').textContent = formatCurrency(rightspendCost) + '/mo';
             document.getElementById('netSavings').textContent = formatCurrency(rightspendNetSavings) + '/mo';
             document.getElementById('growthRisk').textContent = growth + '%';
+
+            // Update risk analysis message based on growth rate
+            const riskAnalysis = document.getElementById('riskAnalysis');
+            if (growth < 0) {
+                riskAnalysis.innerHTML = `With <strong>${growth}% decline</strong>, traditional RIs become <strong>wasted money</strong>. RightSpend adapts automatically with <strong>zero lock-in</strong>—no penalties for shrinking usage.`;
+            } else if (growth === 0) {
+                riskAnalysis.innerHTML = `With <strong>flat growth</strong>, traditional RIs still carry <strong>commitment risk</strong> if usage patterns change. RightSpend adapts automatically with <strong>zero lock-in</strong>.`;
+            } else {
+                riskAnalysis.innerHTML = `With <strong>${growth}% growth</strong>, traditional RIs carry commitment risk and may leave spend <strong>uncovered</strong>. RightSpend adapts automatically with <strong>zero lock-in</strong>.`;
+            }
 
             // Update chart
             updateChart(rightspendAnnualSavings, traditionalAnnualSavings, annualCost);
