@@ -277,7 +277,7 @@
     </section>
 
     <!-- Lead Capture Section -->
-    <section class="py-16 bg-white">
+    <section id="leadCaptureSection" class="py-16 bg-white hidden">
         <div class="container mx-auto px-4 max-w-4xl">
             <div class="bg-gradient-to-br from-primary-600 to-secondary-600 rounded-2xl shadow-2xl p-8 md:p-12 text-white text-center">
                 <h2 class="text-3xl md:text-4xl font-bold mb-4">
@@ -288,10 +288,17 @@
                 </p>
 
                 <form id="leadCaptureForm" class="max-w-md mx-auto">
+                    <!-- Hidden fields for calculator results -->
+                    <input type="hidden" name="monthly_spend" id="formMonthlySpend">
+                    <input type="hidden" name="coverage" id="formCoverage">
+                    <input type="hidden" name="rightspend_savings" id="formRightspendSavings">
+                    <input type="hidden" name="growth_rate" id="formGrowthRate">
+
                     <div class="mb-4">
                         <input
                             type="text"
                             id="fullName"
+                            name="full_name"
                             placeholder="Full Name"
                             required
                             class="w-full px-4 py-3 rounded-lg text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-primary-300"
@@ -301,6 +308,7 @@
                         <input
                             type="email"
                             id="email"
+                            name="email"
                             placeholder="Work Email"
                             required
                             class="w-full px-4 py-3 rounded-lg text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-primary-300"
@@ -310,8 +318,8 @@
                         <input
                             type="text"
                             id="company"
-                            placeholder="Company Name"
-                            required
+                            name="company"
+                            placeholder="Company Name (Optional)"
                             class="w-full px-4 py-3 rounded-lg text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-primary-300"
                         />
                     </div>
@@ -484,6 +492,21 @@
 
             // Update chart
             updateChart(rightspendAnnualSavings, traditionalAnnualSavings, annualCost);
+
+            // Show lead capture section after calculation
+            const leadCaptureSection = document.getElementById('leadCaptureSection');
+            if (leadCaptureSection) {
+                leadCaptureSection.classList.remove('hidden');
+
+                // Populate hidden fields with calculator results
+                document.getElementById('formMonthlySpend').value = spend;
+                document.getElementById('formCoverage').value = coverage;
+                document.getElementById('formRightspendSavings').value = rightspendAnnualSavings;
+                document.getElementById('formGrowthRate').value = growth;
+
+                // Scroll to lead capture section
+                leadCaptureSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
         }
 
         function formatCurrency(value) {
@@ -573,6 +596,65 @@
 
         // Initial calculation
         calculate();
+
+        // Lead capture form handler
+        const leadCaptureForm = document.getElementById('leadCaptureForm');
+        if (leadCaptureForm) {
+            leadCaptureForm.addEventListener('submit', async function(e) {
+                e.preventDefault();
+
+                const formData = new FormData(leadCaptureForm);
+                const submitButton = leadCaptureForm.querySelector('button[type="submit"]');
+                const email = formData.get('email');
+
+                // Disable button and show loading
+                submitButton.disabled = true;
+                submitButton.textContent = 'Sending...';
+
+                try {
+                    const response = await fetch('https://automate.billgleeson.com/webhook/cloudfix-website-forms', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({
+                            email: email,
+                            full_name: formData.get('full_name'),
+                            company: formData.get('company') || '',
+                            monthly_spend: formData.get('monthly_spend'),
+                            coverage: formData.get('coverage'),
+                            rightspend_savings: formData.get('rightspend_savings'),
+                            growth_rate: formData.get('growth_rate'),
+                            source: 'calculator-results',
+                            form_name: 'calculator_email_capture',
+                            timestamp: new Date().toISOString()
+                        })
+                    });
+
+                    if (response.ok) {
+                        // Hide form and show success message
+                        leadCaptureForm.classList.add('hidden');
+                        document.getElementById('formSuccess').classList.remove('hidden');
+                        document.getElementById('submittedEmail').textContent = email;
+
+                        // Track conversion
+                        if (typeof gtag !== 'undefined') {
+                            gtag('event', 'generate_lead', {
+                                'event_category': 'calculator',
+                                'event_label': 'email_submitted'
+                            });
+                        }
+                    } else {
+                        throw new Error('Form submission failed');
+                    }
+                } catch (error) {
+                    console.error('Error:', error);
+                    submitButton.disabled = false;
+                    submitButton.textContent = 'Get My Free Report →';
+                    alert('Something went wrong. Please try again.');
+                }
+            });
+        }
     </script>
 
     <!-- Main Analytics Scripts -->
