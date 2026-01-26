@@ -519,6 +519,9 @@
             const coverage = parseFloat(currentCoverage.value);
             const growth = parseFloat(growthRate.value);
 
+            // Debug logging
+            console.log('calculate() called with:', { spend, coverage, growth });
+
             // Calculate covered and uncovered portions
             const coveredSpend = spend * (coverage / 100);
             const uncoveredSpend = spend * (1 - coverage / 100);
