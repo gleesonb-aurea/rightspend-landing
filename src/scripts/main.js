@@ -809,14 +809,135 @@ function getCTALocation(element) {
     return 'content';
 }
 
+// Add blog email signup forms
+function addBlogEmailSignup() {
+    // Only add to blog article pages
+    if (!window.location.pathname.includes('/blog/')) {
+        return; // Not a blog article
+    }
+
+    // Find all article content sections
+    const articles = document.querySelectorAll('article, .blog-post, .post-content');
+
+    articles.forEach(article => {
+        // Find all paragraphs in the article
+        const paragraphs = article.querySelectorAll('p');
+
+        if (paragraphs.length >= 2) {
+            // Insert email signup form after 2nd paragraph
+            const insertPoint = paragraphs[1]; // 0-indexed, so [1] is 2nd paragraph
+
+            // Create email signup form HTML
+            const signupHTML = `
+                <div class="blog-email-signup my-8 p-6 bg-blue-50 border border-blue-200 rounded-lg" style="margin-top: 2rem; margin-bottom: 2rem;">
+                    <h4 class="text-lg font-semibold text-gray-900 mb-2">
+                        Get AWS Cost Optimization Tips
+                    </h4>
+                    <p class="text-sm text-gray-600 mb-4">
+                        Join 1,000+ engineers getting weekly AWS savings strategies (no fluff, real tactics).
+                    </p>
+                    <form class="blog-email-form space-y-3">
+                        <input
+                            type="email"
+                            name="email"
+                            placeholder="your@email.com"
+                            required
+                            class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent text-sm"
+                        >
+                        <button
+                            type="submit"
+                            class="w-full px-4 py-2 bg-primary-600 hover:bg-primary-700 text-white font-medium rounded-lg transition-colors duration-200 text-sm"
+                        >
+                            Subscribe to AWS Savings Tips
+                        </button>
+                    </form>
+                    <p class="text-xs text-gray-500 mt-2">
+                        No spam. Unsubscribe anytime.
+                    </p>
+                </div>
+            `;
+
+            // Insert the form after the 2nd paragraph
+            insertPoint.insertAdjacentHTML('afterend', signupHTML);
+
+            // Add form handler to the newly created form
+            const form = insertPoint.parentElement.querySelector('.blog-email-form');
+            if (form) {
+                form.addEventListener('submit', async function(e) {
+                    e.preventDefault();
+
+                    const formData = new FormData(form);
+                    const email = formData.get('email');
+                    const submitButton = form.querySelector('button[type="submit"]');
+
+                    // Get article title
+                    const articleTitle = document.querySelector('h1')?.textContent || 'Blog Article';
+                    const articleUrl = window.location.href;
+
+                    // Disable button and show loading
+                    submitButton.disabled = true;
+                    submitButton.textContent = 'Subscribing...';
+
+                    try {
+                        const response = await fetch('https://automate.billgleeson.com/webhook/cloudfix-website-forms', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json',
+                            },
+                            body: JSON.stringify({
+                                email: email,
+                                source: 'blog-article',
+                                form_name: 'blog_email_signup',
+                                article_title: articleTitle,
+                                article_url: articleUrl,
+                                timestamp: new Date().toISOString()
+                            })
+                        });
+
+                        if (response.ok) {
+                            // Success message
+                            form.parentElement.innerHTML = `
+                                <div class="text-center">
+                                    <div class="text-green-600 text-3xl mb-2">✓</div>
+                                    <h4 class="text-base font-semibold text-gray-900 mb-1">You're In!</h4>
+                                    <p class="text-sm text-gray-600">Check your inbox for AWS savings tips.</p>
+                                </div>
+                            `;
+
+                            // Track successful signup
+                            if (typeof gtag !== 'undefined') {
+                                gtag('event', 'generate_lead', {
+                                    'event_category': 'blog',
+                                    'event_label': 'email_subscribed',
+                                    'form_location': 'inline_blog'
+                                });
+                            }
+                        } else {
+                            throw new Error('Form submission failed');
+                        }
+                    } catch (error) {
+                        console.error('Error:', error);
+                        submitButton.disabled = false;
+                        submitButton.textContent = 'Subscribe to AWS Savings Tips';
+                        alert('Something went wrong. Please try again.');
+                    }
+                });
+            }
+        }
+    });
+}
+
 // Initialize everything when DOM loads
 document.addEventListener('DOMContentLoaded', function() {
+    // Add blog email signup forms
+    addBlogEmailSignup();
+
     // Add schema for LLM crawlers
     addConversionSchema();
-    
+
     // Initialize human-only features
     initSmartConversion();
-    
+
     // Initialize analytics
     initGoogleAnalytics();
 });
