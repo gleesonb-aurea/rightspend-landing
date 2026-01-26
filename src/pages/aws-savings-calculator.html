@@ -440,11 +440,13 @@
 
         monthlySpend.addEventListener('input', (e) => {
             monthlySpendSlider.value = e.target.value;
+            trackSliderChange();
             calculate();
         });
 
         monthlySpendSlider.addEventListener('input', (e) => {
             monthlySpend.value = e.target.value;
+            trackSliderChange();
             calculate();
         });
 
@@ -468,18 +470,6 @@
 
         growthRateSlider.addEventListener('input', (e) => {
             growthRate.value = e.target.value;
-            trackSliderChange();
-            calculate();
-        });
-
-        monthlySpend.addEventListener('input', (e) => {
-            monthlySpendSlider.value = e.target.value;
-            trackSliderChange();
-            calculate();
-        });
-
-        monthlySpendSlider.addEventListener('input', (e) => {
-            monthlySpend.value = e.target.value;
             trackSliderChange();
             calculate();
         });
