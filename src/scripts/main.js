@@ -96,72 +96,6 @@ function initPostHog() {
     });
 }
 
-// Initialize RevenueBase (RB2B) tracking
-function initRb2b() {
-    return new Promise((resolve, reject) => {
-        try {
-            // Initialize RB2B global object
-            window.reb2b = window.reb2b || [];
-            if (window.reb2b.invoked) {
-                resolve();
-                return;
-            }
-
-            window.reb2b = {
-                invoked: true,
-                methods: ["identify", "collect"],
-                factory: function(method) {
-                    return function() {
-                        var args = Array.prototype.slice.call(arguments);
-                        args.unshift(method);
-                        window.reb2b.push(args);
-                        return window.reb2b;
-                    };
-                },
-                load: function(key) {
-                    return new Promise((resolveLoad, rejectLoad) => {
-                        var script = document.createElement("script");
-                        script.type = "text/javascript";
-                        script.async = true;
-                        script.src = `https://s3-us-west-2.amazonaws.com/b2bjsstore/b/${key}/LNKLDHP2G1OJ.js.gz`;
-                        
-                        script.onload = () => {
-                            resolveLoad();
-                        };
-                        
-                        script.onerror = (error) => {
-                            console.error('Failed to load RB2B script:', error);
-                            rejectLoad(error);
-                        };
-                        
-                        var first = document.getElementsByTagName("script")[0];
-                        first.parentNode.insertBefore(script, first);
-                    });
-                },
-                SNIPPET_VERSION: "1.0.1"
-            };
-
-            // Set up method factories
-            for (var i = 0; i < window.reb2b.methods.length; i++) {
-                var key = window.reb2b.methods[i];
-                window.reb2b[key] = window.reb2b.factory(key);
-            }
-
-            // Load RB2B script
-            window.reb2b.load("LNKLDHP2G1OJ")
-                .then(() => {
-                    resolve();
-                })
-                .catch((error) => {
-                    console.error('RB2B initialization failed:', error);
-                    reject(error);
-                });
-
-        } catch (error) {
-            console.error('Error during RB2B initialization:', error);
-            reject(error);
-        }
-    });
 }
 
 // Initialize all tracking systems in parallel
@@ -173,10 +107,6 @@ function initializeTracking() {
         }),
         initPostHog().catch(error => {
             console.error('PostHog initialization failed:', error);
-            return Promise.reject(error);
-        }),
-        initRb2b().catch(error => {
-            console.error('RB2B initialization failed:', error);
             return Promise.reject(error);
         })
     ]).then(results => {
