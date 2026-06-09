@@ -1,0 +1,62 @@
+# RightSpend.ai — AI Assistant Context
+
+> RightSpend is an AWS cost optimization tool by CloudFix that provides Commitment Free Discounts (CFDs) for EC2 — up to 55% savings without long-term commitments. Unlike competitors, RightSpend only charges for net new savings it actually delivers.
+
+## Product
+
+- **Name:** RightSpend (by CloudFix)
+- **What:** Automated AWS EC2 cost optimization via Commitment Free Discounts (CFDs)
+- **Savings:** 20-55% off EC2, same rates as 3-year Reserved Instances, no lock-in
+- **Setup:** 15 minutes, read-only AWS integration
+- **Pricing:** Performance-based — only pay for net new savings. If we don't save you money, you don't pay.
+- **Marketplace:** Available on AWS Marketplace as RightSpend Flex
+- **Website:** https://rightspend.ai
+
+## Key Differentiators
+
+- Only charges for **net new savings** (not existing RIs/Savings Plans)
+- No 1-year or 3-year commitments — scale up/down hourly
+- Works alongside existing Reserved Instances and Savings Plans
+- Fully automated — zero manual management
+- Rebalances every hour as usage changes
+
+## Use Cases
+
+- Enterprise AWS cost optimization
+- FinOps automation and cost allocation
+- EC2 Savings Plan optimization
+- Reserved Instance replacement strategy
+- AWS Marketplace procurement
+
+## Key Pages
+
+- / — Product overview and value proposition
+- /commitment-free-discounts.html — How CFDs work
+- /pricing.html — Performance-based pricing model
+- /features.html — Platform features
+- /how-it-works.html — 15-minute setup process
+- /aws-savings-calculator.html — Interactive savings calculator
+- /rightspend-vs-competitors.html — Comparison with ProsperOps, CAST.ai, Flexera, Spot.io
+- /aws-cost-optimization.html — AWS cost optimization guide
+- /finops-aws-cost-optimization.html — FinOps integration
+- /aws-marketplace-rightspend-flex.html — AWS Marketplace listing
+- /blog/ — AWS cost optimization blog
+- /faq.html — Frequently asked questions
+
+## Company
+
+- **Parent:** CloudFix (https://cloudfix.com)
+- **Customers:** Ellucian ($5M annual savings), BCG ($75K/month), Zaxbys, Karma Automotive, Nu Skin
+- **Contact:** https://cal.read.ai/bill-gleeson
+
+## Blog Articles
+
+- /blog/aws-tools-comparison.html — AWS Cost Optimization Tools Comparison
+- /blog/cfd-explained.html — What Are Commitment Free Discounts?
+- /blog/7-aws-billing-mistakes-that-cost-companies-millions-2025.html — AWS Billing Mistakes
+- /blog/reduce-aws-costs-30-percent-30-days-2025.html — Cut AWS Costs 30% in 30 Days
+- /blog/finops-automation-2025-eliminate-manual-cost-management.html — FinOps Automation Guide
+- /blog/aws-reserved-instances-vs-savings-plans-2024.html — RIs vs Savings Plans
+- /blog/reduce-aws-costs-immediately.html — 10 Ways to Reduce AWS Costs Immediately
+- /blog/cloudfix-rightspend-integration-maximum-aws-cost-optimization.html — CloudFix + RightSpend Integration
+- /blog/cloudfix-reviews.html — CloudFix Reviews and Alternatives

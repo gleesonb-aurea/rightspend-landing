@@ -924,6 +924,6 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initialize human-only features
     initSmartConversion();
 
-    // Initialize analytics
-    initGoogleAnalytics();
+    // Note: GA4 is already initialized in the first DOMContentLoaded listener
+    // via initializeTracking(). Do not call initGoogleAnalytics() again here.
 });
