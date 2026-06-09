@@ -39,3 +39,6 @@ jobs:
           aws cloudfront create-invalidation \
             --distribution-id ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }} \
             --paths "/*"
+
+      - name: Notify IndexNow
+        run: node scripts/index-notify.js
