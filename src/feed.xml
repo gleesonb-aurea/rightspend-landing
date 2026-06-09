@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>RightSpend Blog - AWS Cost Optimization</title>
+    <description>Expert insights on AWS cost optimization, FinOps automation, and cloud savings strategies. Learn how companies reduce their AWS bill by 20-55%.</description>
+    <link>https://rightspend.ai/blog.html</link>
+    <atom:link href="https://rightspend.ai/feed.xml" rel="self" type="application/rss+xml"/>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 09 Jun 2026 00:00:00 +0000</lastBuildDate>
+
+    <item>
+      <title>Automated AWS Cost Reduction: How to Cut Your Cloud Bill Without Lifting a Finger</title>
+      <description>How automated AWS cost reduction works — and why companies using it save 20-55% without manual effort. Full guide with comparisons.</description>
+      <link>https://rightspend.ai/blog/automated-aws-cost-reduction.html</link>
+      <guid isPermaLink="true">https://rightspend.ai/blog/automated-aws-cost-reduction.html</guid>
+      <pubDate>Mon, 09 Jun 2026 00:00:00 +0000</pubDate>
+    </item>
+
+    <item>
+      <title>AWS Reserved Instances Alternative: CFDs Offer 40-55% Savings Without Lock-In</title>
+      <description>The flexible alternative to AWS Reserved Instances. Get 40-55% EC2 savings with zero lock-in, zero upfront cost, and automatic adjustments.</description>
+      <link>https://rightspend.ai/blog/aws-reserved-instances-alternative.html</link>
+      <guid isPermaLink="true">https://rightspend.ai/blog/aws-reserved-instances-alternative.html</guid>
+      <pubDate>Mon, 02 Jun 2026 00:00:00 +0000</pubDate>
+    </item>
+
+    <item>
+      <title>What is AWS Cost Optimization? The Finance Leader's Guide</title>
+      <description>AWS cost optimization can reduce your cloud bill by 20-55%. Plain English guide for CFOs and budget owners.</description>
+      <link>https://rightspend.ai/blog/aws-cost-optimization-guide-finance-leaders.html</link>
+      <guid isPermaLink="true">https://rightspend.ai/blog/aws-cost-optimization-guide-finance-leaders.html</guid>
+      <pubDate>Thu, 02 Apr 2026 00:00:00 +0000</pubDate>
+    </item>
+
+    <item>
+      <title>CloudFix Reviews: Companies Saving Up To 55% On AWS Costs</title>
+      <description>Real results from enterprises, SaaS platforms, and retail companies using automated AWS optimization.</description>
+      <link>https://rightspend.ai/blog/cloudfix-reviews.html</link>
+      <guid isPermaLink="true">https://rightspend.ai/blog/cloudfix-reviews.html</guid>
+      <pubDate>Sun, 26 Jan 2026 00:00:00 +0000</pubDate>
+    </item>
+
+    <item>
+      <title>AWS Tools Comparison: CloudFix vs RIs vs Savings Plans</title>
+      <description>Side-by-side comparison of AWS cost optimization tools with actual cost breakdowns.</description>
+      <link>https://rightspend.ai/blog/aws-tools-comparison.html</link>
+      <guid isPermaLink="true">https://rightspend.ai/blog/aws-tools-comparison.html</guid>
+      <pubDate>Sun, 26 Jan 2026 00:00:00 +0000</pubDate>
+    </item>
+
+    <item>
+      <title>Commitment Free Discounts Explained: How CFDs Work</title>
+      <description>Complete guide to CFDs — 40-55% AWS savings without 3-year lock-ins, with real examples.</description>
+      <link>https://rightspend.ai/blog/cfd-explained.html</link>
+      <guid isPermaLink="true">https://rightspend.ai/blog/cfd-explained.html</guid>
+      <pubDate>Sun, 26 Jan 2026 00:00:00 +0000</pubDate>
+    </item>
+
+    <item>
+      <title>7 AWS Billing Mistakes That Cost Companies Millions in 2025</title>
+      <description>The most expensive AWS billing mistakes and proven strategies to prevent catastrophic cloud cost overruns.</description>
+      <link>https://rightspend.ai/blog/7-aws-billing-mistakes-that-cost-companies-millions-2025.html</link>
+      <guid isPermaLink="true">https://rightspend.ai/blog/7-aws-billing-mistakes-that-cost-companies-millions-2025.html</guid>
+      <pubDate>Sun, 15 Jun 2025 00:00:00 +0000</pubDate>
+    </item>
+
+    <item>
+      <title>How to Reduce AWS Costs by 30% in 30 Days (2025)</title>
+      <description>Step-by-step action plan to achieve 30% AWS cost reduction in just 30 days.</description>
+      <link>https://rightspend.ai/blog/reduce-aws-costs-30-percent-30-days-2025.html</link>
+      <guid isPermaLink="true">https://rightspend.ai/blog/reduce-aws-costs-30-percent-30-days-2025.html</guid>
+      <pubDate>Fri, 15 Aug 2025 00:00:00 +0000</pubDate>
+    </item>
+
+    <item>
+      <title>FinOps Automation in 2025: Eliminate 90% of Manual Cost Management</title>
+      <description>Enterprise guide to FinOps automation with 582% ROI calculations and real case studies.</description>
+      <link>https://rightspend.ai/blog/finops-automation-2025-eliminate-manual-cost-management.html</link>
+      <guid isPermaLink="true">https://rightspend.ai/blog/finops-automation-2025-eliminate-manual-cost-management.html</guid>
+      <pubDate>Tue, 15 Jul 2025 00:00:00 +0000</pubDate>
+    </item>
+
+    <item>
+      <title>How to Reduce AWS Costs Immediately: 10 Proven Strategies</title>
+      <description>Immediate AWS savings strategies you can implement today.</description>
+      <link>https://rightspend.ai/blog/reduce-aws-costs-immediately.html</link>
+      <guid isPermaLink="true">https://rightspend.ai/blog/reduce-aws-costs-immediately.html</guid>
+      <pubDate>Tue, 15 Apr 2025 00:00:00 +0000</pubDate>
+    </item>
+
+    <item>
+      <title>AWS Reserved Instances vs Savings Plans: Complete 2024 Comparison</title>
+      <description>Comprehensive analysis of RIs vs Savings Plans with cost calculations.</description>
+      <link>https://rightspend.ai/blog/aws-reserved-instances-vs-savings-plans-2024.html</link>
+      <guid isPermaLink="true">https://rightspend.ai/blog/aws-reserved-instances-vs-savings-plans-2024.html</guid>
+      <pubDate>Wed, 15 May 2025 00:00:00 +0000</pubDate>
+    </item>
+
+    <item>
+      <title>CloudFix and RightSpend Integration: Complete AWS Cost Optimization Strategy</title>
+      <description>How combining CloudFix resource optimization with RightSpend EC2 discounts creates the ultimate cost management solution.</description>
+      <link>https://rightspend.ai/blog/cloudfix-rightspend-integration-maximum-aws-cost-optimization.html</link>
+      <guid isPermaLink="true">https://rightspend.ai/blog/cloudfix-rightspend-integration-maximum-aws-cost-optimization.html</guid>
+      <pubDate>Sat, 15 Mar 2025 00:00:00 +0000</pubDate>
+    </item>
+
+  </channel>
+</rss>
