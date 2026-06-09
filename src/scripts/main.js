@@ -96,8 +96,6 @@ function initPostHog() {
     });
 }
 
-}
-
 // Initialize all tracking systems in parallel
 function initializeTracking() {
     return Promise.allSettled([
