@@ -21,7 +21,7 @@ function getAllPages() {
     const pages = [
         '/',
         '/commitment-free-discounts.html',
-        '/finops-aws-cost-optimization.html', 
+        '/finops-aws-cost-optimization.html',
         '/aws-marketplace-rightspend-flex.html',
         '/aws-cost-optimization.html',
         '/features.html',
@@ -33,6 +33,9 @@ function getAllPages() {
         '/faq.html',
         '/blog.html',
         '/admin-panel.html',
+        '/aws-savings-calculator.html',
+        '/rightspend-vs-competitors.html',
+        '/testimonials.html',
         '/automotive-manufacturer-saves-millions.html',
         '/cut-aws-costs-with-cloudfix-rightspend.html',
         '/no-break-even-worries.html',
@@ -42,7 +45,16 @@ function getAllPages() {
         '/blog/finops-automation-2025-eliminate-manual-cost-management.html',
         '/blog/reduce-aws-costs-immediately.html',
         '/blog/aws-reserved-instances-vs-savings-plans-2024.html',
-        '/blog/cloudfix-rightspend-integration-maximum-aws-cost-optimization.html'
+        '/blog/aws-tools-comparison.html',
+        '/blog/cfd-explained.html',
+        '/blog/cloudfix-reviews.html',
+        '/blog/cloudfix-rightspend-integration-maximum-aws-cost-optimization.html',
+        '/blog/aws-cost-optimization-guide-finance-leaders.html',
+        '/blog/aws-reserved-instances-alternative.html',
+        '/blog/automated-aws-cost-reduction.html',
+        // AI visibility
+        '/.well-known/llms.txt',
+        '/.well-known/llms-full.txt',
     ];
     
     return pages.map(page => `https://${CONFIG.HOST}${page}`);
