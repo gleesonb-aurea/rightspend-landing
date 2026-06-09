@@ -41,4 +41,4 @@ jobs:
             --paths "/*"
 
       - name: Notify IndexNow
-        run: node scripts/index-notify.js
+        run: node scripts/indexnow-notify.js
