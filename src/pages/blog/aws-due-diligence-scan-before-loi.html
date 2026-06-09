@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AWS Due Diligence: Why PE Firms Should Scan Cloud Spend Before the LOI</title>
+    <meta name="description" content="PE firms either overpay because they don't account for recoverable AWS waste, or leave money on the table because they don't realize how much margin is hiding in the cloud bill. A pre-LOI scan solves both problems in 24 hours.">
+    <meta name="keywords" content="AWS due diligence, tech due diligence cloud costs, M&A cloud spend analysis, PE due diligence AWS, pre-LOI cloud assessment, AWS cost audit acquisition">
+    <meta name="author" content="RightSpend">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="AWS Due Diligence: Why PE Firms Should Scan Cloud Spend Before the LOI">
+    <meta property="og:description" content="How a 24-hour AWS scan before the LOI gives PE deal teams a specific dollar figure and a post-close execution plan.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://rightspend.ai/blog/aws-due-diligence-scan-before-loi.html">
+    <meta property="og:image" content="../../assets/images/RightSpend-cool.png">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="AWS Due Diligence: Why PE Firms Should Scan Cloud Spend Before the LOI">
+    <meta name="twitter:description" content="How a 24-hour AWS scan before the LOI gives PE deal teams a specific dollar figure and a post-close execution plan.">
+    <meta name="twitter:image" content="../../assets/images/RightSpend-cool.png">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://rightspend.ai/blog/aws-due-diligence-scan-before-loi.html">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="../../assets/images/favicon.svg">
+
+    <!-- Styles -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="/css/styles.css" rel="stylesheet">
+
+    <!-- Alpine.js -->
+    <script defer src="https://unpkg.com/alpinejs@3.12.3/dist/cdn.min.js"></script>
+
+    <!-- Article Schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "AWS Due Diligence: Why PE Firms Should Scan Cloud Spend Before the LOI",
+        "description": "PE firms either overpay because they don't account for recoverable AWS waste, or leave money on the table because they don't realize how much margin is hiding in the cloud bill. A pre-LOI scan solves both.",
+        "author": {
+            "@type": "Organization",
+            "name": "RightSpend",
+            "url": "https://rightspend.ai"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "RightSpend",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://rightspend.ai/assets/images/RightSpend-cool.png"
+            }
+        },
+        "datePublished": "2026-06-02",
+        "dateModified": "2026-06-02",
+        "mainEntityOfPage": "https://rightspend.ai/blog/aws-due-diligence-scan-before-loi.html",
+        "articleSection": "M&A Due Diligence",
+        "keywords": "AWS due diligence, tech due diligence, cloud cost M&A, PE cloud assessment, pre-LOI analysis"
+    }
+    </script>
+
+    <!-- Breadcrumb Schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://rightspend.ai/"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Blog",
+                "item": "https://rightspend.ai/blog.html"
+            },
+            {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "AWS Due Diligence Before the LOI",
+                "item": "https://rightspend.ai/blog/aws-due-diligence-scan-before-loi.html"
+            }
+        ]
+    }
+    </script>
+
+    <!-- FAQ Schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "Why should PE firms scan AWS spend before the LOI?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "A pre-LOI AWS scan reveals recoverable waste that affects valuation. The seller almost certainly hasn't optimized their AWS environment — if they had, their EBITDA would be higher and they'd command a better price. The buyer who scans before the LOI knows something the seller doesn't, producing a more accurate valuation for both parties."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How long does an AWS due diligence scan take?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "A CloudFix scan takes 24 hours and identifies specific savings opportunities across the target's entire AWS organization — EBS volumes on wrong storage tiers, idle resources, overprovisioned instances, and commitment coverage gaps."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What does an AWS due diligence scan produce for deal teams?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Two deliverables: (1) A specific dollar figure — not 'cloud costs seem high' but '$3.2M in annualized savings across 14 accounts.' (2) A post-close execution plan identifying which optimizations are safe to implement automatically and which require manual review."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Does the seller need to provide special access for an AWS scan?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Standard read-only access to the AWS Cost & Usage Report is sufficient. This is already standard in technology due diligence — no special permissions or engineering cooperation required."
+                }
+            }
+        ]
+    }
+    </script>
+</head>
+<body class="font-sans bg-gray-50">
+    <!-- Header Component -->
+    <div id="header"></div>
+
+    <!-- Blog Post Content -->
+    <main class="container mx-auto px-6 py-12">
+        <article class="max-w-3xl mx-auto">
+            <!-- Blog Post Header -->
+            <div class="mb-16">
+                <div class="bg-purple-100 text-purple-800 text-sm font-semibold px-3 py-1 rounded mb-4 inline-block">Private Equity &amp; M&amp;A</div>
+                <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">AWS Due Diligence: Why PE Firms Should Scan Cloud Spend Before the LOI</h1>
+                <div class="flex items-center text-gray-600">
+                    <span>RightSpend Team</span>
+                    <span class="mx-2">&bull;</span>
+                    <time datetime="2026-06-02">June 2, 2026</time>
+                    <span class="mx-2">&bull;</span>
+                    <span>14 min read</span>
+                </div>
+            </div>
+
+            <!-- Blog Post Content -->
+            <div class="prose prose-lg max-w-none">
+                <p class="text-xl font-semibold text-blue-600 mb-8">
+                    Due diligence reviews cloud spend as a cost category. It rarely quantifies what's recoverable. The result: PE firms either overpay because they don't account for recoverable waste, or they leave money on the table because they don't realize how much margin is hiding in the AWS bill.
+                </p>
+
+                <h2>Both Problems Have the Same Solution</h2>
+                <p>
+                    Scan the target's AWS environment before the LOI.
+                </p>
+                <p>
+                    Most deal teams review the AWS bill during due diligence and flag it as "high" or "growing." That's not wrong — but it's not useful. What's useful is knowing exactly how much of that bill is waste, which services are driving it, and what it costs to recover. That information changes the bid, the post-close plan, or both.
+                </p>
+
+                <h2>What a Pre-Deal Scan Reveals</h2>
+                <p>
+                    A CloudFix scan takes 24 hours and identifies specific savings opportunities across the target's entire AWS organization. Not a ballpark estimate — a detailed breakdown:
+                </p>
+                <ul>
+                    <li><strong>EBS volumes</strong> that should be migrated to cheaper storage tiers</li>
+                    <li><strong>S3 buckets</strong> on the wrong storage class</li>
+                    <li><strong>Idle resources</strong> that no one noticed — running but serving no traffic</li>
+                    <li><strong>EC2 instances</strong> that are overprovisioned for their actual workload</li>
+                    <li><strong>Commitment coverage gaps</strong> — predictable workloads paying on-demand rates</li>
+                </ul>
+                <p>
+                    For the deal team, this produces two concrete deliverables:
+                </p>
+
+                <div class="bg-green-50 border-l-4 border-green-500 p-6 my-8">
+                    <h3 class="text-lg font-semibold mb-3">What You Get From the Scan</h3>
+                    <p><strong>1. A specific dollar figure.</strong> Not "cloud costs seem high" but "$3.2M in annualized savings across 14 accounts." That number either adjusts the bid or confirms the thesis.</p>
+                    <p class="mt-3"><strong>2. A post-close execution plan.</strong> The scan identifies exactly which optimizations are safe to implement automatically and which require manual review. The deal team walks into Day 1 with a prioritized action list, not a vague mandate to "look at cloud costs."</p>
+                </div>
+
+                <h2>The Information Asymmetry</h2>
+                <p>
+                    Here's the dynamic most deal teams don't think about: <strong>the seller almost certainly hasn't optimized their AWS environment.</strong> If they had, their EBITDA would be higher and they'd be asking for a better price. The waste in the AWS bill is margin the seller is sitting on without realizing it.
+                </p>
+                <p>
+                    The buyer who scans before the LOI knows something the seller doesn't. That's not aggressive — it's thorough diligence. And it produces a more accurate valuation for both parties.
+                </p>
+
+                <div class="bg-red-50 border-l-4 border-red-500 p-6 my-8">
+                    <h3 class="text-lg font-semibold mb-2">The Cost of Waiting</h3>
+                    <p>Every month between signing and optimization is a month of savings that doesn't exist. On a $2M annual savings opportunity, that's <strong>$167K per month</strong> in unrealized value. Over a six-month integration delay, that's $1M — or $8.4M in equity value at exit that you chose not to capture.</p>
+                </div>
+
+                <h2>How It Works in Practice</h2>
+                <p>
+                    The process fits into existing due diligence workflows without adding complexity:
+                </p>
+
+                <h3>Step 1: During Due Diligence</h3>
+                <p>
+                    Request read-only access to the target's AWS Cost &amp; Usage Report. This is standard in technology due diligence — no special permissions or engineering cooperation required.
+                </p>
+
+                <h3>Step 2: Run the Scan</h3>
+                <p>
+                    24 hours later you have a detailed savings report broken down by service, account, and resource type. The report shows both the total opportunity and the specific actions needed to capture it.
+                </p>
+
+                <h3>Step 3: Adjust Your Model</h3>
+                <p>
+                    If the scan shows $2M in recoverable waste, that's $16.8M in equity value at standard multiples. Factor it into the bid. If the number is small, you've confirmed the seller is already efficient — which is also valuable information.
+                </p>
+
+                <h3>Step 4: Post-Close, Deploy Immediately</h3>
+                <p>
+                    The scan already identified what to fix. <a href="/blog/private-equity-aws-cost-optimization-value-creation.html">CloudFix and RightSpend execute the optimizations automatically</a> while the integration team focuses on bigger priorities. First savings hit within 24-48 hours of deployment.
+                </p>
+
+                <h2>Case Study: What a Real Scan Found</h2>
+                <p>
+                    When ESW Capital acquired Khoros, CloudFix scanned the target's $19M annual AWS spend and flagged <strong>$3M in waste within 72 hours</strong>. That's 16% of total spend that wasn't in anyone's deal model. At 8.4x EBITDA, that's $25M in equity value that the buyer identified before the integration team held its first meeting.
+                </p>
+                <p>
+                    The RightSpend layer added another $1-2M in savings through optimized commitment coverage — savings that required no new RIs, no lock-in, and no engineering time to capture. Combined, the optimization delivered <a href="/blog/cfd-explained.html">Commitment Free Discounts</a> that adjusted automatically as the infrastructure changed post-acquisition.
+                </p>
+
+                <div class="bg-blue-50 border-l-4 border-blue-500 p-6 my-8">
+                    <h3 class="text-lg font-semibold mb-2">Khoros by the Numbers</h3>
+                    <ul class="mb-0">
+                        <li>Annual AWS spend: $19M</li>
+                        <li>Waste identified in 72 hours: $3M (16%)</li>
+                        <li>Additional savings via RightSpend CFDs: $1-2M</li>
+                        <li>Total recoverable: $4-5M annually</li>
+                        <li>Equity value at 8.4x: $34-42M</li>
+                        <li>Time to identify: 72 hours</li>
+                    </ul>
+                </div>
+
+                <h2>What Makes AWS Different From Other Due Diligence Areas</h2>
+                <p>
+                    Most areas of tech due diligence require inference. You can assess the engineering team's quality, but you can't quantify it. You can review the product roadmap, but you can't predict its success. AWS cost optimization is one of the few areas in diligence where you can produce a <strong>precise, auditable dollar figure</strong> in 24 hours.
+                </p>
+                <p>
+                    That figure is useful at every stage of the deal:
+                </p>
+                <ul>
+                    <li><strong>Pre-bid:</strong> Adjust the offer based on recoverable waste</li>
+                    <li><strong>During negotiation:</strong> Use specific savings to justify price adjustments</li>
+                    <li><strong>Post-close Day 1:</strong> Begin capturing value immediately with a pre-built execution plan</li>
+                    <li><strong>Board reporting:</strong> Show measurable EBITDA improvement within the first quarter</li>
+                </ul>
+
+                <h2>Frequently Asked Questions</h2>
+
+                <div class="space-y-6 my-8">
+                    <div class="border border-gray-200 rounded-lg p-6">
+                        <h3 class="font-semibold text-lg mb-2">Why should PE firms scan AWS spend before the LOI?</h3>
+                        <p>The seller almost certainly hasn't optimized their AWS environment — if they had, their EBITDA would be higher and they'd command a better price. The buyer who scans before the LOI knows something the seller doesn't, producing a more accurate valuation for both parties.</p>
+                    </div>
+
+                    <div class="border border-gray-200 rounded-lg p-6">
+                        <h3 class="font-semibold text-lg mb-2">How long does an AWS due diligence scan take?</h3>
+                        <p>A CloudFix scan takes 24 hours and identifies specific savings opportunities across the target's entire AWS organization. The report breaks down waste by service, account, and resource type with specific dollar amounts for each.</p>
+                    </div>
+
+                    <div class="border border-gray-200 rounded-lg p-6">
+                        <h3 class="font-semibold text-lg mb-2">Does the seller need to provide special access?</h3>
+                        <p>Standard read-only access to the AWS Cost &amp; Usage Report is sufficient. This is already standard in technology due diligence — no special permissions or engineering cooperation required.</p>
+                    </div>
+
+                    <div class="border border-gray-200 rounded-lg p-6">
+                        <h3 class="font-semibold text-lg mb-2">What happens to the scan results post-close?</h3>
+                        <p>The scan doubles as a post-close execution plan. It identifies which optimizations are safe to implement automatically and which need manual review. CloudFix and RightSpend can begin executing immediately on Day 1 — the deal team already knows what to fix and in what order.</p>
+                    </div>
+
+                    <div class="border border-gray-200 rounded-lg p-6">
+                        <h3 class="font-semibold text-lg mb-2">How accurate is the savings estimate?</h3>
+                        <p>The scan uses actual utilization data from the AWS environment — not benchmarks or industry averages. Savings estimates are based on the target's real usage patterns, existing commitments, and recoverable waste. The margin of error is typically within 5-10%.</p>
+                    </div>
+                </div>
+
+                <!-- Related Articles -->
+                <div class="mt-12 p-6 bg-gray-50 rounded-lg border border-gray-200">
+                    <h3 class="text-xl font-bold mb-4">Related Articles</h3>
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <div>
+                            <h4 class="font-semibold mb-2">
+                                <a href="/blog/private-equity-aws-cost-optimization-value-creation.html" class="hover:text-primary">
+                                    PE AWS Cost Optimization: The $17-29M Value Capture
+                                </a>
+                            </h4>
+                            <p class="text-sm text-gray-600">Why PE firms leave millions in AWS savings on the table after close.</p>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold mb-2">
+                                <a href="/blog/aws-cost-optimization-guide-finance-leaders.html" class="hover:text-primary">
+                                    AWS Cost Optimization: The Finance Leader's Guide
+                                </a>
+                            </h4>
+                            <p class="text-sm text-gray-600">Plain English guide to AWS cost optimization for CFOs and budget owners.</p>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold mb-2">
+                                <a href="/blog/cloudfix-reviews.html" class="hover:text-primary">
+                                    CloudFix Reviews: Real Company Savings
+                                </a>
+                            </h4>
+                            <p class="text-sm text-gray-600">Case studies from enterprises saving up to 55% on AWS costs.</p>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold mb-2">
+                                <a href="/blog/aws-tools-comparison.html" class="hover:text-primary">
+                                    AWS Tools Comparison: CloudFix vs RIs vs Savings Plans
+                                </a>
+                            </h4>
+                            <p class="text-sm text-gray-600">Side-by-side comparison of AWS cost optimization approaches.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CTA -->
+                <div class="mt-12 p-8 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg text-center">
+                    <h3 class="text-2xl font-bold mb-4">Request a Pre-Deal AWS Assessment</h3>
+                    <p class="mb-6 text-lg">Get a specific dollar figure for any acquisition target's AWS waste. 24-hour turnaround, no commitment, no engineering access required.</p>
+                    <a href="https://cal.read.ai/bill-gleeson" class="btn-primary inline-block text-lg">Request Pre-Deal Assessment &rarr;</a>
+                </div>
+            </div>
+        </article>
+    </main>
+
+    <!-- Footer Component -->
+    <div id="footer"></div>
+
+    <!-- Main Application Script -->
+    <script src="/scripts/main.js"></script>
+</body>
+</html>

@@ -54,6 +54,9 @@ function getAllPages() {
         '/blog/automated-aws-cost-reduction.html',
         '/blog/aws-savings-plans-optimization-guide.html',
         '/blog/aws-cost-explorer-guide.html',
+        // M&A / Private Equity
+        '/blog/private-equity-aws-cost-optimization-value-creation.html',
+        '/blog/aws-due-diligence-scan-before-loi.html',
         // AI visibility
         '/.well-known/llms.txt',
         '/.well-known/llms-full.txt',
