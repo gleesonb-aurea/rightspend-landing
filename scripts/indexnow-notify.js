@@ -52,6 +52,8 @@ function getAllPages() {
         '/blog/aws-cost-optimization-guide-finance-leaders.html',
         '/blog/aws-reserved-instances-alternative.html',
         '/blog/automated-aws-cost-reduction.html',
+        '/blog/aws-savings-plans-optimization-guide.html',
+        '/blog/aws-cost-explorer-guide.html',
         // AI visibility
         '/.well-known/llms.txt',
         '/.well-known/llms-full.txt',

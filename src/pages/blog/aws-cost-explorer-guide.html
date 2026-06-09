@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Use AWS Cost Explorer: Complete Guide to Understanding Your AWS Bill</title>
+    <meta name="description" content="Learn how to use AWS Cost Explorer to understand your cloud spending, find savings opportunities, and track optimization results. Step-by-step guide with screenshots and practical tips for FinOps teams.">
+    <meta name="keywords" content="AWS Cost Explorer, AWS billing dashboard, understand AWS bill, AWS cost analysis, AWS spending breakdown, FinOps tools, AWS cost management">
+    <meta name="author" content="RightSpend">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="How to Use AWS Cost Explorer: Complete Guide">
+    <meta property="og:description" content="Step-by-step guide to understanding your AWS bill with Cost Explorer. Find savings and track optimization results.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://rightspend.ai/blog/aws-cost-explorer-guide.html">
+    <meta property="og:image" content="../../assets/images/RightSpend-cool.png">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="How to Use AWS Cost Explorer: Complete Guide">
+    <meta name="twitter:description" content="Understand your AWS bill and find savings opportunities with this step-by-step guide.">
+    <meta name="twitter:image" content="../../assets/images/RightSpend-cool.png">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://rightspend.ai/blog/aws-cost-explorer-guide.html">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="../../assets/images/favicon.svg">
+
+    <!-- Styles -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="/css/styles.css" rel="stylesheet">
+
+    <!-- Alpine.js -->
+    <script defer src="https://unpkg.com/alpinejs@3.12.3/dist/cdn.min.js"></script>
+
+    <!-- Article Schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "How to Use AWS Cost Explorer: Complete Guide to Understanding Your AWS Bill",
+        "description": "Learn how to use AWS Cost Explorer to understand your cloud spending, find savings opportunities, and track optimization results.",
+        "author": {
+            "@type": "Organization",
+            "name": "RightSpend",
+            "url": "https://rightspend.ai"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "RightSpend",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://rightspend.ai/assets/images/RightSpend-cool.png"
+            }
+        },
+        "datePublished": "2026-04-15",
+        "dateModified": "2026-04-15",
+        "mainEntityOfPage": "https://rightspend.ai/blog/aws-cost-explorer-guide.html",
+        "articleSection": "AWS Cost Management",
+        "keywords": "AWS Cost Explorer, AWS billing, AWS cost analysis, FinOps"
+    }
+    </script>
+
+    <!-- BreadcrumbList Schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://rightspend.ai/"},
+            {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://rightspend.ai/blog.html"},
+            {"@type": "ListItem", "position": 3, "name": "AWS Cost Explorer Guide", "item": "https://rightspend.ai/blog/aws-cost-explorer-guide.html"}
+        ]
+    }
+    </script>
+
+    <!-- FAQ Schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "How do I access AWS Cost Explorer?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Log into the AWS Management Console, go to Billing and Cost Management, then click Cost Explorer in the left navigation. You need the awscostExplorerReadOnlyAccess policy or similar billing permissions."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Does AWS Cost Explorer cost money?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "AWS Cost Explorer is free for the default views showing the last 12 months of data. The Cost Explorer API costs $0.01 per 1,000 requests for additional queries beyond the free tier."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How accurate is AWS Cost Explorer?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Cost Explorer is highly accurate for historical data. Forecasts are typically within 10-15% of actual costs for stable workloads, but less accurate for workloads with sudden changes. Always check the forecast confidence intervals."
+                }
+            }
+        ]
+    }
+    </script>
+</head>
+<body class="font-sans bg-gray-50">
+    <div id="header"></div>
+
+    <main class="container mx-auto px-6 py-12">
+        <article class="max-w-3xl mx-auto">
+            <div class="mb-16">
+                <div class="bg-blue-100 text-blue-800 text-sm font-semibold px-3 py-1 rounded mb-4 inline-block">AWS Cost Management</div>
+                <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">How to Use AWS Cost Explorer: Understand Your AWS Bill in 30 Minutes</h1>
+                <div class="flex items-center text-gray-600">
+                    <span>RightSpend Team</span>
+                    <span class="mx-2">•</span>
+                    <time datetime="2026-04-15">April 15, 2026</time>
+                    <span class="mx-2">•</span>
+                    <span>14 min read</span>
+                </div>
+            </div>
+
+            <div class="prose prose-lg max-w-none">
+                <p class="text-xl font-semibold text-blue-600 mb-8">
+                    Your AWS bill is a black box. AWS Cost Explorer is the flashlight. This guide shows you exactly how to use it to understand what you're spending, where the waste is, and how to start saving.
+                </p>
+
+                <h2>What is AWS Cost Explorer?</h2>
+                <p>AWS Cost Explorer is a free tool inside the AWS Console that lets you visualize, understand, and manage your AWS spending. It shows:</p>
+                <ul>
+                    <li><strong>Where your money goes</strong> — by service, by account, by region, by tag</li>
+                    <li><strong>How spending trends over time</strong> — daily, monthly, quarterly views</li>
+                    <li><strong>What's driving cost changes</strong> — new services, increased usage, price changes</li>
+                    <li><strong>Savings opportunities</strong> — RI and Savings Plans recommendations</li>
+                    <li><strong>Forecasts</strong> — predicted spend for the next 3 months</li>
+                </ul>
+
+                <h2>Getting Access to Cost Explorer</h2>
+                <p>You need one of these IAM permissions:</p>
+                <ul>
+                    <li><code>awscostExplorerReadOnlyAccess</code> (AWS managed policy — read-only)</li>
+                    <li><code>ce:GetCostAndUsage</code>, <code>ce:GetDimensionValues</code>, <code>ce:GetTags</code> (custom policy)</li>
+                    <li>Or root account / billing full access</li>
+                </ul>
+                <p><strong>To access:</strong> AWS Console → Billing and Cost Management → Cost Explorer</p>
+
+                <h2>The 5 Views That Actually Matter</h2>
+
+                <h3>1. Cost by Service (The "Where Did My Money Go?" View)</h3>
+                <p>This is the most useful view. It breaks down your spend by AWS service.</p>
+                <p><strong>How to set it up:</strong></p>
+                <ol>
+                    <li>Open Cost Explorer</li>
+                    <li>Group by: <strong>Service</strong></li>
+                    <li>Date range: <strong>Last 3 months</strong></li>
+                    <li>Granularity: <strong>Monthly</strong></li>
+                </ol>
+                <p><strong>What to look for:</strong> Your top 5 services typically account for 80%+ of your bill. Focus optimization efforts there. For most companies, that's EC2, RDS, S3, CloudFront, and Lambda.</p>
+
+                <h3>2. Daily Spend Trend (The "Is Something Wrong?" View)</h3>
+                <p>Catches cost spikes early.</p>
+                <ol>
+                    <li>Granularity: <strong>Daily</strong></li>
+                    <li>Date range: <strong>Last 30 days</strong></li>
+                    <li>Group by: <strong>Service</strong></li>
+                </ol>
+                <p><strong>Red flags:</strong></p>
+                <ul>
+                    <li>Sudden spikes in any service (someone spun up expensive instances)</li>
+                    <li>Gradual upward creep (auto-scaling without limits)</li>
+                    <li>Data transfer costs growing (cross-region or internet egress)</li>
+                </ul>
+
+                <h3>3. Cost by Account (The Multi-Account View)</h3>
+                <p>If you use AWS Organizations, this is critical.</p>
+                <ol>
+                    <li>Group by: <strong>Linked Account</strong></li>
+                    <li>Date range: <strong>Last 3 months</strong></li>
+                </ol>
+                <p><strong>What to look for:</strong> Which accounts are growing fastest? Which have the highest on-demand percentage? Target those accounts for optimization first.</p>
+
+                <h3>4. RI/Savings Plans Coverage (The "Are You Wasting Money?" View)</h3>
+                <p>This shows what percentage of your usage is covered by discounts.</p>
+                <ol>
+                    <li>Report type: <strong>RI/Savings Plans Coverage</strong></li>
+                    <li>Date range: <strong>Last 30 days</strong></li>
+                </ol>
+                <p><strong>What to look for:</strong> If your coverage is below 50%, you're overpaying significantly. Every hour of on-demand usage is money you could be saving.</p>
+                <div class="bg-red-50 border-l-4 border-red-500 p-4 my-6">
+                    <strong>Reality check:</strong> Most companies that think they have good coverage actually don't. Coverage gaps of 30-40% are common, especially for companies with variable workloads.
+                </div>
+
+                <h3>5. Savings Plans Utilization (The "Did I Overcommit?" View)</h3>
+                <p>Checks whether your existing commitments are actually being used.</p>
+                <ol>
+                    <li>Report type: <strong>RI/Savings Plans Utilization</strong></li>
+                    <li>Date range: <strong>Last 30 days</strong></li>
+                </ol>
+                <p><strong>What to look for:</strong> Utilization below 80% means you overcommitted. You're paying for capacity you don't use. This is exactly the problem CFDs solve.</p>
+
+                <h2>Beyond Cost Explorer: Automated Optimization</h2>
+                <p>Cost Explorer tells you where the problems are. But solving them — buying the right Savings Plans, managing RIs, adjusting coverage — is manual and time-consuming.</p>
+                <p><strong>This is where automated tools like RightSpend/CloudFix come in:</strong></p>
+                <ul>
+                    <li><strong>Automatic analysis:</strong> Continuously monitors your usage (like Cost Explorer, but automated)</li>
+                    <li><strong>Automatic execution:</strong> Purchases and manages Convertible Reserved Instances on your behalf</li>
+                    <li><strong>Automatic adjustments:</strong> Exchanges cRIs when instance types change, buys more when usage grows</li>
+                    <li><strong>Zero commitment:</strong> CFDs (Commitment-Free Discounts) give you 40-55% savings with 30-day cancellation</li>
+                </ul>
+                <p>Think of Cost Explorer as the diagnostic tool and RightSpend as the treatment.</p>
+
+                <!-- FAQ -->
+                <section class="mb-16 mt-12">
+                    <h2 class="text-3xl font-bold mb-8">Frequently Asked Questions</h2>
+                    <div class="space-y-6">
+                        <div class="bg-white p-6 rounded-lg border border-gray-200">
+                            <h3 class="text-xl font-semibold mb-3">Does AWS Cost Explorer cost money?</h3>
+                            <p class="text-gray-700">Cost Explorer is free in the AWS Console. The API costs $0.01 per 1,000 requests. You get 1,000 free API calls per month.</p>
+                        </div>
+                        <div class="bg-white p-6 rounded-lg border border-gray-200">
+                            <h3 class="text-xl font-semibold mb-3">How far back can I see data?</h3>
+                            <p class="text-gray-700">Cost Explorer shows the last 12 months of data by default. You can enable hourly granularity for the last 14 days.</p>
+                        </div>
+                        <div class="bg-white p-6 rounded-lg border border-gray-200">
+                            <h3 class="text-xl font-semibold mb-3">What's the difference between Cost Explorer and Cost and Usage Report?</h3>
+                            <p class="text-gray-700">Cost Explorer gives you visual dashboards and basic analysis. The Cost and Usage Report (CUR) gives you detailed CSV data with hourly granularity, including all tags and resource-level data. Use Cost Explorer for quick insights, CUR for deep analysis.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Related Articles -->
+                <div class="mt-12 border-t pt-8">
+                    <h3 class="text-xl font-semibold mb-4">Related Articles</h3>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <h4 class="font-semibold mb-2"><a href="/blog/aws-cost-optimization-guide-finance-leaders.html" class="hover:text-primary">AWS Cost Optimization Guide for Finance Leaders</a></h4>
+                            <p class="text-sm text-gray-600">Plain English guide to AWS cost optimization for CFOs and budget owners.</p>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold mb-2"><a href="/blog/reduce-aws-costs-30-percent-30-days-2025.html" class="hover:text-primary">How to Reduce AWS Costs by 30% in 30 Days</a></h4>
+                            <p class="text-sm text-gray-600">Step-by-step action plan for rapid AWS cost reduction.</p>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold mb-2"><a href="/blog/aws-savings-plans-optimization-guide.html" class="hover:text-primary">AWS Savings Plans Optimization Guide</a></h4>
+                            <p class="text-sm text-gray-600">How to maximize Savings Plans savings without overcommitting.</p>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold mb-2"><a href="/aws-savings-calculator.html" class="hover:text-primary">AWS Savings Calculator</a></h4>
+                            <p class="text-sm text-gray-600">Calculate your potential savings with CFDs vs Savings Plans.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CTA -->
+                <div class="mt-12 p-8 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg text-center">
+                    <h3 class="text-2xl font-bold mb-4">See Exactly Where You're Overpaying</h3>
+                    <p class="mb-6 text-lg">Get a free AWS savings analysis that shows your Cost Explorer gaps and what automated optimization would save you.</p>
+                    <a href="https://cal.read.ai/bill-gleeson" class="btn-primary inline-block text-lg">Get Your Free AWS Audit →</a>
+                </div>
+            </div>
+        </article>
+    </main>
+
+    <div id="footer"></div>
+    <script src="/scripts/main.js"></script>
+</body>
+</html>

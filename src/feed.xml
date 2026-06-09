@@ -9,6 +9,22 @@
     <lastBuildDate>Mon, 09 Jun 2026 00:00:00 +0000</lastBuildDate>
 
     <item>
+      <title>AWS Savings Plans Optimization: Maximize Savings Without Overcommitting</title>
+      <description>Complete guide to optimizing AWS Savings Plans — avoid common mistakes, choose the right plan type, and discover automated alternatives.</description>
+      <link>https://rightspend.ai/blog/aws-savings-plans-optimization-guide.html</link>
+      <guid isPermaLink="true">https://rightspend.ai/blog/aws-savings-plans-optimization-guide.html</guid>
+      <pubDate>Wed, 20 May 2026 00:00:00 +0000</pubDate>
+    </item>
+
+    <item>
+      <title>How to Use AWS Cost Explorer: Understand Your AWS Bill in 30 Minutes</title>
+      <description>Step-by-step guide to the 5 Cost Explorer views that actually matter. Find waste, track savings, and understand your cloud spending.</description>
+      <link>https://rightspend.ai/blog/aws-cost-explorer-guide.html</link>
+      <guid isPermaLink="true">https://rightspend.ai/blog/aws-cost-explorer-guide.html</guid>
+      <pubDate>Tue, 15 Apr 2026 00:00:00 +0000</pubDate>
+    </item>
+
+    <item>
       <title>Automated AWS Cost Reduction: How to Cut Your Cloud Bill Without Lifting a Finger</title>
       <description>How automated AWS cost reduction works — and why companies using it save 20-55% without manual effort. Full guide with comparisons.</description>
       <link>https://rightspend.ai/blog/automated-aws-cost-reduction.html</link>
