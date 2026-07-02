@@ -41,12 +41,8 @@ Allow: /
 User-agent: anthropic-ai
 Allow: /
 
-User-agent: Claude-Web
-Allow: /
-
 # Disallow admin areas and temporary files
 Disallow: /admin/
-Allow: /admin-panel.html
 Disallow: /temp/
 Disallow: /.git/
 Disallow: /node_modules/
@@ -54,7 +50,6 @@ Disallow: /*.log
 
 # Allow key content for indexing
 Allow: /blog/
-Allow: /pages/
 Allow: /commitment-free-discounts.html
 Allow: /finops-aws-cost-optimization.html
 Allow: /aws-marketplace-rightspend-flex.html
@@ -69,6 +64,3 @@ Crawl-delay: 1
 
 # Sitemap location
 Sitemap: https://rightspend.ai/sitemap.xml
-
-# Cache policy hints for LLM crawlers
-Cache-Control: max-age=86400

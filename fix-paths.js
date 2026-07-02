@@ -1,12 +1,24 @@
 const fs = require('fs');
 const path = require('path');
 
+// Recursively collect every .html file under a directory.
+function collectHtmlFiles(dir, acc = []) {
+  for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
+    const fullPath = path.join(dir, entry.name);
+    if (entry.isDirectory()) {
+      collectHtmlFiles(fullPath, acc);
+    } else if (entry.isFile() && entry.name.endsWith('.html')) {
+      acc.push(fullPath);
+    }
+  }
+  return acc;
+}
+
 function fixPaths() {
   const distDir = path.join(__dirname, 'dist');
-  const files = fs.readdirSync(distDir).filter(file => file.endsWith('.html'));
+  const files = collectHtmlFiles(distDir);
 
-  files.forEach(file => {
-    const filePath = path.join(distDir, file);
+  files.forEach(filePath => {
     let content = fs.readFileSync(filePath, 'utf8');
 
     // Replace path references
@@ -31,7 +43,7 @@ function fixPaths() {
     content = content.replace(/\/assets\/assets\//g, '/assets/');
 
     fs.writeFileSync(filePath, content);
-    console.log(`✅ Processed ${file}`);
+    console.log(`✅ Processed ${path.relative(distDir, filePath)}`);
   });
 }
 

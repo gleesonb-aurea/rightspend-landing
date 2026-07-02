@@ -1,3 +1,6 @@
+# !! INACTIVE on S3 + CloudFront !! .htaccess is Apache-only and is ignored by
+# this stack. Kept for reference only.
+
 # Force HTTPS and WWW canonicalization
 RewriteEngine On
 

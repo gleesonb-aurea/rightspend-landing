@@ -1,4 +1,9 @@
 // LLM-Friendly Bot Detection
+// NOTE: deliberately does NOT use navigator.plugins.length or
+// navigator.webdriver as bot signals — both misfire on real browsers
+// (privacy-hardened Chromium, headless, many mobile browsers report 0
+// plugins), which previously disabled progressive CTAs / exit-intent /
+// engagement tracking for genuine human visitors.
 function isLLMCrawler() {
     const userAgent = navigator.userAgent.toLowerCase();
     const botPatterns = [
@@ -7,39 +12,7 @@ function isLLMCrawler() {
         'chatgpt', 'claude', 'perplexity', 'anthropic', 'openai',
         'crawler', 'spider', 'scraper', 'bot', 'archiver'
     ];
-    return botPatterns.some(pattern => userAgent.includes(pattern)) ||
-           navigator.webdriver === true ||
-           window.navigator.plugins.length === 0;
-}
-
-// Enhanced CTA Schema for LLM Understanding
-function addConversionSchema() {
-    if (isLLMCrawler()) {
-        const schema = {
-            "@context": "https://schema.org",
-            "@type": "WebPage",
-            "mainEntity": {
-                "@type": "Service",
-                "name": "RightSpend AWS Cost Optimization",
-                "provider": {
-                    "@type": "Organization", 
-                    "name": "CloudFix"
-                },
-                "potentialAction": {
-                    "@type": "ConsumeAction",
-                    "target": "https://cal.read.ai/bill-gleeson",
-                    "name": "Schedule Free Demo",
-                    "description": "Book a free consultation for AWS cost optimization"
-                }
-            },
-            "significantLink": "https://cal.read.ai/bill-gleeson"
-        };
-        
-        const scriptTag = document.createElement('script');
-        scriptTag.type = 'application/ld+json';
-        scriptTag.text = JSON.stringify(schema);
-        document.head.appendChild(scriptTag);
-    }
+    return botPatterns.some(pattern => userAgent.includes(pattern));
 }
 
 // Initialize Google Analytics
@@ -52,11 +25,13 @@ function initGoogleAnalytics() {
             gaScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-9Z5L1G47QC';
             
             gaScript.onload = () => {
-                // Initialize dataLayer and gtag
+                // Initialize dataLayer and gtag. Only stamp the js timestamp
+                // here; the single page_view 'config' call is made by
+                // trackPageView() (with the richer attribution params), so we
+                // don't send a duplicate page_view hit.
                 window.dataLayer = window.dataLayer || [];
                 window.gtag = function(){dataLayer.push(arguments);};
                 window.gtag('js', new Date());
-                window.gtag('config', 'G-9Z5L1G47QC');
                 resolve();
             };
             
@@ -118,6 +93,12 @@ function initCostGraph() {
     const graphElement = document.getElementById('costGraph');
     if (!graphElement) {
         return; // Silently return if no graph element exists
+    }
+    // Guard against Chart.js not being loaded yet (it's loaded per-page,
+    // sometimes without defer, so it can race this handler).
+    if (typeof Chart === 'undefined') {
+        console.warn('Chart.js not loaded; skipping cost graph init.');
+        return;
     }
 
     const ctx = graphElement.getContext('2d');
@@ -238,16 +219,21 @@ async function loadComponent(id, path) {
 
 // Adjust header spacing based on actual header height
 function adjustHeaderSpacing() {
-    const header = document.getElementById('header');
+    // #header is the mount wrapper (<div id="header">). After loadComponent
+    // injects the component, the real fixed <header> element lives inside it.
+    // Measure the <header> (not the wrapper, which collapses around its
+    // fixed child and reports ~0 height).
+    const mount = document.getElementById('header');
+    const header = mount ? mount.querySelector('header') : null;
     const spacer = document.getElementById('header-spacer');
-    
+
     if (!header || !spacer) {
         return; // Silently return if elements not found
     }
 
     // Get the actual rendered height of the header
     const headerHeight = header.getBoundingClientRect().height;
-    
+
     // Add a small buffer (8px) to prevent content from touching the header
     spacer.style.height = `${headerHeight + 8}px`;
 }
@@ -636,59 +622,6 @@ function setupBlogTracking() {
     }
 }
 
-// Function to initialize the chart
-function initChart() {
-    const ctx = document.getElementById('costGraph');
-    if (ctx) {
-        const chart = new Chart(ctx, {
-            type: 'bar',
-            data: {
-                labels: ['Before RightSpend', 'After RightSpend'],
-                datasets: [
-                    {
-                        label: 'Reserved Instances',
-                        data: [0, 125],
-                        backgroundColor: 'rgb(59, 130, 246)',
-                    },
-                    {
-                        label: 'On-Demand Costs',
-                        data: [220, 25],
-                        backgroundColor: 'rgb(251, 191, 36)',
-                    }
-                ],
-            },
-            options: {
-                plugins: {
-                    title: {
-                        display: true,
-                        text: 'Daily Cloud Costs (USD)',
-                        font: {
-                            size: 16
-                        }
-                    },
-                    responsive: true,
-                    scales: {
-                        x: {
-                            stacked: true,
-                        },
-                        y: {
-                            stacked: true,
-                            beginAtZero: true,
-                            title: {
-                                display: true,
-                                display: true,
-                                text: 'Cost in USD',
-                            },
-                        },
-                    },
-                },
-            },
-        });
-    } else {
-        console.error('Could not find element with id "costGraph"');
-    }
-}
-
 // Smart Conversion Optimization (Human-Only)
 function initSmartConversion() {
     if (!isLLMCrawler()) {
@@ -713,24 +646,29 @@ function initSmartConversion() {
         
         setInterval(() => timeOnPage += 1, 1000);
         
-        // Enhanced CTA tracking for engaged users
+        // Enhanced CTA tracking for engaged users.
+        // Resolve to the nearest anchor so clicks on a child element of a
+        // CTA (e.g. an <svg>/<span> inside the link) still work — reading
+        // e.target.href directly throws when the target isn't an <a>.
         document.addEventListener('click', (e) => {
-            if (e.target.href && e.target.href.includes('cal.read.ai')) {
+            const link = e.target && e.target.closest ? e.target.closest('a') : null;
+            if (link && link.href && link.href.includes('cal.read.ai')) {
                 if (window.gtag) {
                     window.gtag('event', 'schedule_demo_click', {
-                        'cta_location': getCTALocation(e.target),
+                        'cta_location': getCTALocation(link),
                         'scroll_depth': scrollDepth,
                         'time_on_page': timeOnPage,
                         'engagement_score': scrollDepth + (timeOnPage * 2)
                     });
                 }
-                console.log('🎯 CONVERSION: Demo scheduling click tracked from', getCTALocation(e.target));
+                console.log('🎯 CONVERSION: Demo scheduling click tracked from', getCTALocation(link));
             }
         });
     }
 }
 
 function getCTALocation(element) {
+    if (!element || !element.closest) return 'content';
     if (element.closest('header')) return 'header';
     if (element.closest('.hero')) return 'hero';
     if (element.closest('footer')) return 'footer';
@@ -835,9 +773,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Add blog article CTAs
     addBlogArticleCTAs();
-
-    // Add schema for LLM crawlers
-    addConversionSchema();
 
     // Initialize human-only features
     initSmartConversion();

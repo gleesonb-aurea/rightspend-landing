@@ -1,3 +1,6 @@
+# !! INACTIVE on S3 + CloudFront !! _redirects is Netlify/Vercel syntax and is
+# ignored by this stack. Kept for reference only.
+
 # Redirect www to non-www for all pages
 https://www.rightspend.ai/* https://rightspend.ai/:splat 301!
 

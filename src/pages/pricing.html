@@ -93,6 +93,7 @@
     </script>
     
     <script src="/scripts/main.js"></script>
+    <script src="/scripts/submit-lead.js"></script>
     <script defer="" src="https://unpkg.com/alpinejs@3.12.3/dist/cdn.min.js"></script>
 </head>
 <body class="font-sans bg-gray-50">
@@ -438,52 +439,39 @@
                 const company = formData.get('company') || 'Not provided';
                 const submitButton = pricingForm.querySelector('button[type="submit"]');
 
-                // Disable button and show loading
-                submitButton.disabled = true;
-                submitButton.textContent = 'Processing...';
-
                 try {
-                    const response = await fetch('https://automate.billgleeson.com/webhook/cloudfix-website-forms', {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json',
-                        },
-                        body: JSON.stringify({
+                    await submitLead({
+                        submitButton: submitButton,
+                        busyText: 'Processing...',
+                        payload: {
                             email: email,
                             company: company,
                             source: 'rightspend-pricing-page',
                             form_name: 'rightspend-pricing-custom-quote',
-                            page_title: 'RightSpend Pricing',
-                            page_url: window.location.href,
-                            timestamp: new Date().toISOString()
-                        })
+                            form_type: 'pricing',
+                            page_title: 'RightSpend Pricing'
+                        }
                     });
 
-                    if (response.ok) {
-                        // Success message
-                        pricingForm.parentElement.innerHTML = `
-                            <div class="text-center">
-                                <div class="text-green-600 text-5xl mb-3">✓</div>
-                                <h4 class="text-xl font-bold text-gray-900 mb-2">Thanks! We'll Be In Touch</h4>
-                                <p class="text-gray-600">We'll review your AWS spending patterns and send your custom savings estimate within 24 hours.</p>
-                            </div>
-                        `;
+                    // Success message
+                    pricingForm.parentElement.innerHTML = `
+                        <div class="text-center">
+                            <div class="text-green-600 text-5xl mb-3">✓</div>
+                            <h4 class="text-xl font-bold text-gray-900 mb-2">Thanks! We'll Be In Touch</h4>
+                            <p class="text-gray-600">We'll review your AWS spending patterns and send your custom savings estimate within 24 hours.</p>
+                        </div>
+                    `;
 
-                        // Track successful form submission
-                        if (typeof gtag !== 'undefined') {
-                            gtag('event', 'generate_lead', {
-                                'event_category': 'pricing',
-                                'event_label': 'custom_quote_request',
-                                'form_location': 'pricing_page'
-                            });
-                        }
-                    } else {
-                        throw new Error('Form submission failed');
+                    // Track successful form submission
+                    if (typeof gtag !== 'undefined') {
+                        gtag('event', 'generate_lead', {
+                            'event_category': 'pricing',
+                            'event_label': 'custom_quote_request',
+                            'form_location': 'pricing_page'
+                        });
                     }
                 } catch (error) {
-                    console.error('Error:', error);
-                    submitButton.disabled = false;
-                    submitButton.textContent = 'Get My Custom Quote →';
+                    console.error('Form submission failed:', error);
                     alert('Something went wrong. Please try again.');
                 }
             });

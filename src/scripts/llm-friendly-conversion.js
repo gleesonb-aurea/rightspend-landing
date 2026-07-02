@@ -186,22 +186,13 @@ class LLMFriendlyConversion {
         });
     }
 
-    // Track engagement for optimization
+    // Track engagement for optimization.
+    // NOTE: CTA click tracking is handled by main.js's initSmartConversion
+    // (it fires the richer 'schedule_demo_click' event with scroll/time data).
+    // A duplicate 'cta_click' listener here was double-counting conversions,
+    // so this method intentionally only gates on isBot for future use.
     trackEngagement() {
         if (this.isBot) return;
-
-        // Track CTA clicks
-        document.addEventListener('click', (e) => {
-            if (e.target.matches('a[href*="cal.read.ai"]')) {
-                // Track conversion event
-                if (typeof gtag !== 'undefined') {
-                    gtag('event', 'cta_click', {
-                        'event_category': 'conversion',
-                        'event_label': e.target.textContent.trim()
-                    });
-                }
-            }
-        });
     }
 
     // Ensure clean content structure for crawlers
