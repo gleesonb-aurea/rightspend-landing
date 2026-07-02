@@ -26,6 +26,8 @@
     <link rel="icon" type="image/svg+xml" href="../assets/images/favicon.svg">
 
     <!-- Styles -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
     <link href="/css/styles.css" rel="stylesheet">
     
@@ -99,6 +101,9 @@
 <body class="font-sans bg-gray-50">
     <!-- Header Component -->
     <div id="header"></div>
+    <!-- Spacer for fixed header (height set by adjustHeaderSpacing in main.js) -->
+    <div id="header-spacer"></div>
+
 
     <!-- Hero Section -->
     <section class="py-24 bg-gradient-to-br from-primary-50 to-secondary-50">
@@ -131,10 +136,12 @@
                     </p>
                     <form id="pricingEmailForm" class="space-y-4">
                         <div>
-                            <input type="email" name="email" placeholder="Enter your work email" required="" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent text-base">
+                            <label for="pricingEmail" class="sr-only">Work email</label>
+                            <input type="email" id="pricingEmail" name="email" placeholder="Enter your work email" required="" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent text-base">
                         </div>
                         <div>
-                            <input type="text" name="company" placeholder="Company name (optional)" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent text-base">
+                            <label for="pricingCompany" class="sr-only">Company name (optional)</label>
+                            <input type="text" id="pricingCompany" name="company" placeholder="Company name (optional)" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent text-base">
                         </div>
                         <button type="submit" class="w-full px-6 py-3 bg-primary-600 hover:bg-primary-700 text-white font-semibold rounded-lg transition-colors duration-200 text-base">
                             Get My Custom Quote →

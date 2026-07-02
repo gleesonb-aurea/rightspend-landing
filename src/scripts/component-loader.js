@@ -68,14 +68,22 @@ function processDirectory(directory) {
 
         // Add standard component containers
         const body = $('body');
-        
+
         // Add header after body opening tag
         if (!$('#header').length) {
             body.prepend(`
     <!-- Header Component -->
     <div id="header"></div>
+`);
+        }
 
-    <!-- Spacer for fixed header (adjusted via script) -->
+        // Ensure a spacer for the fixed header exists immediately after the
+        // header mount. Some pages were authored with only <div id="header">
+        // and no spacer, leaving the fixed header overlapping page content
+        // until JS measures and sizes it.
+        if (!$('#header-spacer').length) {
+            $('#header').after(`
+    <!-- Spacer for fixed header (height set by adjustHeaderSpacing in main.js) -->
     <div id="header-spacer"></div>
 `);
         }

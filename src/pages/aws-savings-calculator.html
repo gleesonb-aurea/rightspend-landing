@@ -22,13 +22,18 @@
 
     <!-- Styles -->
     <link href="/css/styles.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
 
     <!-- Chart.js for visualizations -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
 
+    <!-- Alpine.js (required by the header component's mobile menu + dropdowns) -->
+    <script defer="" src="https://unpkg.com/alpinejs@3.12.3/dist/cdn.min.js"></script>
+
     <!-- Lead-form submission helper (used by the calculator lead-capture form) -->
-    <script src="/scripts/submit-lead.js"></script>
+    <script defer="" src="/scripts/submit-lead.js"></script>
 
     <!-- Structured Data -->
     <script type="application/ld+json">
@@ -86,6 +91,8 @@
 <body class="bg-gray-50">
     <!-- Header Component Placeholder -->
     <div id="header"></div>
+    <!-- Spacer for fixed header (height set by adjustHeaderSpacing in main.js) -->
+    <div id="header-spacer"></div>
 
     <!-- Hero Section -->
     <section class="py-12 calculator-container text-white">
@@ -112,15 +119,15 @@
 
                     <!-- Monthly Spend -->
                     <div class="mb-8">
-                        <label class="block text-sm font-semibold text-gray-700 mb-3">
+                        <label for="monthlySpend" class="block text-sm font-semibold text-gray-700 mb-3">
                             Monthly AWS EC2 Spend (On-Demand)
                         </label>
                         <div class="flex items-center gap-4 mb-3">
                             <span class="text-2xl font-bold text-primary-600">$</span>
-                            <input type="number" id="monthlySpend" value="50000" min="1000" max="10000000" step="1000" class="flex-1 text-3xl font-bold text-gray-900 border-b-2 border-primary-600 focus:outline-none focus:border-primary-700 px-2 py-1">
+                            <input type="number" id="monthlySpend" value="50000" min="1000" max="10000000" step="1000" class="flex-1 text-3xl font-bold text-gray-900 border-b-2 border-primary-600 focus:outline-none focus:ring-2 focus:ring-primary-300 focus:border-primary-700 px-2 py-1">
                             <span class="text-lg text-gray-600">/month</span>
                         </div>
-                        <input type="range" id="monthlySpendSlider" min="1000" max="500000" value="50000" step="1000" class="slider w-full">
+                        <input type="range" id="monthlySpendSlider" aria-label="Monthly AWS EC2 Spend (On-Demand)" min="1000" max="500000" value="50000" step="1000" class="slider w-full">
                         <div class="flex justify-between text-xs text-gray-500 mt-2">
                             <span>$1K</span>
                             <span>$500K</span>
@@ -129,14 +136,14 @@
 
                     <!-- Current Discount Coverage -->
                     <div class="mb-8">
-                        <label class="block text-sm font-semibold text-gray-700 mb-3">
+                        <label for="currentCoverage" class="block text-sm font-semibold text-gray-700 mb-3">
                             Current RI/Savings Plan Coverage
                         </label>
                         <div class="flex items-center gap-4 mb-3">
-                            <input type="number" id="currentCoverage" value="30" min="0" max="100" step="5" class="text-3xl font-bold text-gray-900 border-b-2 border-primary-600 focus:outline-none focus:border-primary-700 px-2 py-1 w-24">
+                            <input type="number" id="currentCoverage" value="30" min="0" max="100" step="5" class="text-3xl font-bold text-gray-900 border-b-2 border-primary-600 focus:outline-none focus:ring-2 focus:ring-primary-300 focus:border-primary-700 px-2 py-1 w-24">
                             <span class="text-2xl font-bold text-primary-600">%</span>
                         </div>
-                        <input type="range" id="currentCoverageSlider" min="0" max="100" value="30" step="5" class="slider w-full">
+                        <input type="range" id="currentCoverageSlider" aria-label="Current RI/Savings Plan Coverage" min="0" max="100" value="30" step="5" class="slider w-full">
                         <p class="text-sm text-gray-600 mt-2">
                             What percentage of your EC2 spend already has Reserved Instances or Savings Plans?
                         </p>
@@ -144,14 +151,14 @@
 
                     <!-- Growth Rate -->
                     <div class="mb-8">
-                        <label class="block text-sm font-semibold text-gray-700 mb-3">
+                        <label for="growthRate" class="block text-sm font-semibold text-gray-700 mb-3">
                             Expected Annual Growth Rate
                         </label>
                         <div class="flex items-center gap-4 mb-3">
-                            <input type="number" id="growthRate" value="20" min="-50" max="200" step="5" class="text-3xl font-bold text-gray-900 border-b-2 border-primary-600 focus:outline-none focus:border-primary-700 px-2 py-1 w-24">
+                            <input type="number" id="growthRate" value="20" min="-50" max="200" step="5" class="text-3xl font-bold text-gray-900 border-b-2 border-primary-600 focus:outline-none focus:ring-2 focus:ring-primary-300 focus:border-primary-700 px-2 py-1 w-24">
                             <span class="text-2xl font-bold text-primary-600">%</span>
                         </div>
-                        <input type="range" id="growthRateSlider" min="-50" max="200" value="20" step="5" class="slider w-full">
+                        <input type="range" id="growthRateSlider" aria-label="Expected Annual Growth Rate" min="-50" max="200" value="20" step="5" class="slider w-full">
                         <p class="text-sm text-gray-600 mt-2">
                             Expected growth (positive) or decline (negative) in AWS usage this year. Use negative values for shrinking usage.
                         </p>
@@ -264,12 +271,15 @@
                     <input type="hidden" name="growth_rate" id="formGrowthRate">
 
                     <div class="mb-4">
+                        <label for="fullName" class="sr-only">Full Name</label>
                         <input type="text" id="fullName" name="full_name" placeholder="Full Name" required="" class="w-full px-4 py-3 rounded-lg text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-primary-300">
                     </div>
                     <div class="mb-4">
+                        <label for="email" class="sr-only">Work Email</label>
                         <input type="email" id="email" name="email" placeholder="Work Email" required="" class="w-full px-4 py-3 rounded-lg text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-primary-300">
                     </div>
                     <div class="mb-6">
+                        <label for="company" class="sr-only">Company Name (Optional)</label>
                         <input type="text" id="company" name="company" placeholder="Company Name (Optional)" class="w-full px-4 py-3 rounded-lg text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-primary-300">
                     </div>
                     <button type="submit" class="w-full bg-white text-primary-600 px-8 py-4 rounded-lg font-bold text-lg transition-all duration-200 shadow-lg hover:shadow-xl hover:scale-105">

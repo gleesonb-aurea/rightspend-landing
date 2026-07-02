@@ -16,7 +16,7 @@
     "copy:root": "copyfiles -f src/sitemap.xml src/feed.xml src/_redirects src/.htaccess dist",
     "copy:static": "copyfiles -f static/* dist",
     "fix-paths": "node fix-paths.js",
-    "standardize:components": "node src/scripts/component-loader.js",
+    "standardize:components": "node src/scripts/component-loader.js && node src/scripts/add-fonts-preconnect.js",
     "build": "npm-run-all clean mkdir standardize:components build:css build:copy fix-paths",
     "deploy": "npm run build && aws s3 sync dist/ s3://rightspend.ai/ --acl public-read",
     "indexnow": "node scripts/indexnow-notify.js",
