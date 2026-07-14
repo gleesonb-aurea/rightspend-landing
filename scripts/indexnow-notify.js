@@ -6,9 +6,11 @@
  *   1. IndexNow — pushes the full URL list to Bing/Yandex/Naver/Seznam.
  *                 Primary; needs no API key — verification is the key file
  *                 served at https://rightspend.ai/<KEY>.txt (src/<KEY>.txt).
+ *                 Failure is FATAL (fails the deploy step) so a breakage can
+ *                 never go unnoticed.
  *   2. Bing BWT — SubmitUrlBatch via the Bing Webmaster API key. Complementary
  *                 (appears in the BWT dashboard). Skipped silently when
- *                 BWT_API_KEY is not set, so this never blocks a deploy.
+ *                 BWT_API_KEY is not set, and non-fatal on error.
  *
  * The URL list is derived from dist/sitemap.xml so it can never drift from what
  * is actually deployed, plus a small EXTRAS list for AI-crawler files that are
@@ -45,9 +47,10 @@ function getUrlsFromSitemap() {
     return [...urls].sort();
 }
 
-function httpsJson(hostname, urlPath, payload) {
+/** POST a JSON bodyObj to hostname:urlPath, resolve {statusCode, data}. */
+function httpsJson(hostname, urlPath, bodyObj) {
     return new Promise((resolve, reject) => {
-        const body = JSON.stringify(payload.body);
+        const body = JSON.stringify(bodyObj);
         const req = https.request({
             hostname,
             port: 443,
@@ -76,7 +79,7 @@ async function notifyIndexNow(urls) {
         keyLocation: `https://${HOST}/${INDEXNOW_KEY}.txt`,
         urlList: urls,
     });
-    if (res.statusCode === 200 || res.statusCode === 202) return true;
+    if (res.statusCode === 200 || res.statusCode === 202) return;
     throw new Error(`HTTP ${res.statusCode} ${res.data.slice(0, 200)}`);
 }
 
@@ -111,6 +114,8 @@ async function main() {
         console.log('   ✅ submitted');
     } catch (e) {
         console.error(`   ❌ ${e.message}`);
+        console.error('   IndexNow is the primary channel — failing the step so this is not silent.');
+        process.exit(1);
     }
 
     console.log('\n[2/2] Bing Webmaster SubmitUrlBatch...');
@@ -118,7 +123,7 @@ async function main() {
         await notifyBing(urls);
         console.log('   ✅ done');
     } catch (e) {
-        console.error(`   ❌ ${e.message}`);
+        console.error(`   ❌ ${e.message} (non-fatal)`);
     }
 
     console.log('\n📝 notification complete');
