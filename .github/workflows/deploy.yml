@@ -10,17 +10,17 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       - name: Configure AWS credentials
-        uses: aws-actions/configure-aws-credentials@v1
+        uses: aws-actions/configure-aws-credentials@v4
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: ${{ secrets.AWS_REGION }}
 
       - name: Set up Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version-file: '.nvmrc'
           cache: 'npm'
@@ -31,6 +31,10 @@ jobs:
       - name: Build site
         run: npm run build
 
+      # NOTE: --acl public-read uses deprecated S3 object ACLs. The modern
+      # pattern is a private bucket served via a CloudFront Origin Access
+      # Control (OAC). Flipping this can take the site down if the bucket
+      # policy / OAC aren't set up first — do it in a maintenance window.
       - name: Upload dist/ to S3
         run: aws s3 sync dist/ s3://rightspend.ai/ --acl public-read
 
@@ -40,5 +44,7 @@ jobs:
             --distribution-id ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }} \
             --paths "/*"
 
-      - name: Notify IndexNow
+      - name: Notify IndexNow + Bing Webmaster
+        env:
+          BWT_API_KEY: ${{ secrets.BWT_API_KEY }}
         run: node scripts/indexnow-notify.js
