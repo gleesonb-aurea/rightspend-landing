@@ -6,8 +6,8 @@
  *   1. IndexNow — pushes the full URL list to Bing/Yandex/Naver/Seznam.
  *                 Primary; needs no API key — verification is the key file
  *                 served at https://rightspend.ai/<KEY>.txt (src/<KEY>.txt).
- *                 Failure is FATAL (fails the deploy step) so a breakage can
- *                 never go unnoticed.
+ *                 Non-fatal: a ping hiccup must never redden a content deploy,
+ *                 but failures log a loud ❌ so they can't be missed.
  *   2. Bing BWT — SubmitUrlBatch via the Bing Webmaster API key. Complementary
  *                 (appears in the BWT dashboard). Skipped silently when
  *                 BWT_API_KEY is not set, and non-fatal on error.
@@ -23,7 +23,7 @@ const path = require('path');
 
 const HOST = 'rightspend.ai';
 // Intentionally public — IndexNow verification IS the key file at /<KEY>.txt.
-const INDEXNOW_KEY = '5a11b1db5cb4e06a424fb4cd08992d5701797810cbd79fa29cba4296476d1bd9';
+const INDEXNOW_KEY = '8a8c59f5e0dc5cadc8e7d2a773bb43de12077df7ddb9c3fff9f4b98d7473443b';
 const INDEXNOW_PATH = '/indexnow';
 const BWT_PATH = '/webmaster/api.svc/json/SubmitUrlBatch';
 
@@ -113,9 +113,7 @@ async function main() {
         await notifyIndexNow(urls);
         console.log('   ✅ submitted');
     } catch (e) {
-        console.error(`   ❌ ${e.message}`);
-        console.error('   IndexNow is the primary channel — failing the step so this is not silent.');
-        process.exit(1);
+        console.error(`   ❌ ${e.message} (non-fatal — content deploy succeeded; Bing still receives URLs via SubmitUrlBatch below)`);
     }
 
     console.log('\n[2/2] Bing Webmaster SubmitUrlBatch...');
