@@ -1,150 +1,131 @@
 #!/usr/bin/env node
 /**
- * IndexNow notification script for RightSpend
- * Automatically notify search engines when content changes
+ * Notify search engines when RightSpend content changes. Runs on every deploy.
+ *
+ * Two channels fire:
+ *   1. IndexNow — pushes the full URL list to Bing/Yandex/Naver/Seznam.
+ *                 Primary; needs no API key — verification is the key file
+ *                 served at https://rightspend.ai/<KEY>.txt (src/<KEY>.txt).
+ *   2. Bing BWT — SubmitUrlBatch via the Bing Webmaster API key. Complementary
+ *                 (appears in the BWT dashboard). Skipped silently when
+ *                 BWT_API_KEY is not set, so this never blocks a deploy.
+ *
+ * The URL list is derived from dist/sitemap.xml so it can never drift from what
+ * is actually deployed, plus a small EXTRAS list for AI-crawler files that are
+ * intentionally excluded from the sitemap.
  */
 
 const https = require('https');
 const fs = require('fs');
 const path = require('path');
 
-const CONFIG = {
-    API_KEY: '5a11b1db5cb4e06a424fb4cd08992d5701797810cbd79fa29cba4296476d1bd9',
-    HOST: 'rightspend.ai',
-    ENDPOINT: 'api.indexnow.org'
-};
+const HOST = 'rightspend.ai';
+// Intentionally public — IndexNow verification IS the key file at /<KEY>.txt.
+const INDEXNOW_KEY = '5a11b1db5cb4e06a424fb4cd08992d5701797810cbd79fa29cba4296476d1bd9';
+const INDEXNOW_PATH = '/indexnow';
+const BWT_PATH = '/webmaster/api.svc/json/SubmitUrlBatch';
 
-/**
- * Get all HTML pages from the build output
- */
-function getAllPages() {
-    const pages = [
-        '/',
-        '/commitment-free-discounts.html',
-        '/finops-aws-cost-optimization.html',
-        '/aws-marketplace-rightspend-flex.html',
-        '/aws-cost-optimization.html',
-        '/features.html',
-        '/benefits.html',
-        '/use-cases.html',
-        '/pricing.html',
-        '/how-it-works.html',
-        '/engine.html',
-        '/faq.html',
-        '/blog.html',
-        '/admin-panel.html',
-        '/aws-savings-calculator.html',
-        '/rightspend-vs-competitors.html',
-        '/testimonials.html',
-        '/automotive-manufacturer-saves-millions.html',
-        '/cut-aws-costs-with-cloudfix-rightspend.html',
-        '/no-break-even-worries.html',
-        // Blog articles
-        '/blog/7-aws-billing-mistakes-that-cost-companies-millions-2025.html',
-        '/blog/reduce-aws-costs-30-percent-30-days-2025.html',
-        '/blog/finops-automation-2025-eliminate-manual-cost-management.html',
-        '/blog/reduce-aws-costs-immediately.html',
-        '/blog/aws-reserved-instances-vs-savings-plans-2024.html',
-        '/blog/aws-tools-comparison.html',
-        '/blog/cfd-explained.html',
-        '/blog/cloudfix-reviews.html',
-        '/blog/cloudfix-rightspend-integration-maximum-aws-cost-optimization.html',
-        '/blog/aws-cost-optimization-guide-finance-leaders.html',
-        '/blog/aws-reserved-instances-alternative.html',
-        '/blog/automated-aws-cost-reduction.html',
-        '/blog/aws-savings-plans-optimization-guide.html',
-        '/blog/aws-cost-explorer-guide.html',
-        // M&A / Private Equity
-        '/blog/private-equity-aws-cost-optimization-value-creation.html',
-        '/blog/aws-due-diligence-scan-before-loi.html',
-        // AI visibility
-        '/.well-known/llms.txt',
-        '/.well-known/llms-full.txt',
-    ];
-    
-    return pages.map(page => `https://${CONFIG.HOST}${page}`);
+// Pinged in addition to the sitemap (AI-crawler discovery files, not in sitemap.xml).
+const EXTRAS = [
+    `https://${HOST}/.well-known/llms.txt`,
+    `https://${HOST}/.well-known/llms-full.txt`,
+];
+
+/** Every <loc> in the built sitemap, de-duped + sorted, unioned with EXTRAS. */
+function getUrlsFromSitemap() {
+    const sitemapPath = path.join(__dirname, '..', 'dist', 'sitemap.xml');
+    if (!fs.existsSync(sitemapPath)) {
+        throw new Error(`sitemap.xml not found at ${sitemapPath} — build must run first`);
+    }
+    const xml = fs.readFileSync(sitemapPath, 'utf8');
+    const urls = new Set(EXTRAS);
+    const re = /<loc>([^<]+)<\/loc>/g;
+    let m;
+    while ((m = re.exec(xml)) !== null) urls.add(m[1].trim());
+    return [...urls].sort();
 }
 
-/**
- * Submit URLs to IndexNow API
- */
-function submitToIndexNow(urls) {
+function httpsJson(hostname, urlPath, payload) {
     return new Promise((resolve, reject) => {
-        const payload = JSON.stringify({
-            host: CONFIG.HOST,
-            key: CONFIG.API_KEY,
-            keyLocation: `https://${CONFIG.HOST}/${CONFIG.API_KEY}.txt`,
-            urlList: urls
-        });
-
-        const options = {
-            hostname: CONFIG.ENDPOINT,
+        const body = JSON.stringify(payload.body);
+        const req = https.request({
+            hostname,
             port: 443,
-            path: '/indexnow',
+            path: urlPath,
             method: 'POST',
             headers: {
-                'Content-Type': 'application/json',
-                'Content-Length': Buffer.byteLength(payload)
-            }
-        };
-
-        const req = https.request(options, (res) => {
+                'Content-Type': 'application/json; charset=UTF-8',
+                'Content-Length': Buffer.byteLength(body),
+            },
+        }, (res) => {
             let data = '';
-            
-            res.on('data', (chunk) => {
-                data += chunk;
-            });
-            
-            res.on('end', () => {
-                resolve({
-                    statusCode: res.statusCode,
-                    data: data
-                });
-            });
+            res.on('data', (c) => (data += c));
+            res.on('end', () => resolve({ statusCode: res.statusCode, data }));
         });
-
-        req.on('error', (error) => {
-            reject(error);
-        });
-
-        req.write(payload);
+        req.on('error', reject);
+        req.write(body);
         req.end();
     });
 }
 
-/**
- * Main execution
- */
-async function main() {
-    console.log('🔍 IndexNow Notification for RightSpend');
-    console.log('=====================================');
-    
-    try {
-        const urls = getAllPages();
-        console.log(`📄 Submitting ${urls.length} URLs to IndexNow...`);
-        
-        const response = await submitToIndexNow(urls);
-        
-        if (response.statusCode === 200) {
-            console.log('✅ URLs successfully submitted to IndexNow!');
-        } else if (response.statusCode === 202) {
-            console.log('✅ URLs accepted and queued for processing!');
-        } else {
-            console.log(`⚠️  Response: ${response.statusCode}`);
-            console.log(`Data: ${response.data}`);
-        }
-        
-        console.log('\n📝 IndexNow notification complete');
-        
-    } catch (error) {
-        console.error('❌ Error submitting to IndexNow:', error.message);
-        process.exit(1);
+/** IndexNow: one POST carrying the whole list + the key. 200|202 = success. */
+async function notifyIndexNow(urls) {
+    const res = await httpsJson('api.indexnow.org', INDEXNOW_PATH, {
+        host: HOST,
+        key: INDEXNOW_KEY,
+        keyLocation: `https://${HOST}/${INDEXNOW_KEY}.txt`,
+        urlList: urls,
+    });
+    if (res.statusCode === 200 || res.statusCode === 202) return true;
+    throw new Error(`HTTP ${res.statusCode} ${res.data.slice(0, 200)}`);
+}
+
+/** Bing Webmaster API: SubmitUrlBatch in <=500-URL chunks (API limit). */
+async function notifyBing(urls) {
+    const apiKey = process.env.BWT_API_KEY;
+    if (!apiKey) {
+        console.log('   (BWT_API_KEY not set — skipping Bing SubmitUrlBatch)');
+        return;
+    }
+    for (let i = 0; i < urls.length; i += 500) {
+        const batch = urls.slice(i, i + 500);
+        const res = await httpsJson('ssl.bing.com', `${BWT_PATH}?apikey=${apiKey}`, {
+            siteUrl: `https://${HOST}`,
+            urlList: batch,
+        });
+        const ok = res.statusCode === 200 && /"d"\s*:\s*null/.test(res.data);
+        console.log(`   SubmitUrlBatch[${i + 1}-${i + batch.length}]: ${ok ? 'OK' : `HTTP ${res.statusCode} ${res.data.slice(0, 180)}`}`);
+        if (!ok) throw new Error(`HTTP ${res.statusCode}`);
     }
 }
 
-// Run if called directly
+async function main() {
+    console.log('🔍 RightSpend search-engine notification');
+    console.log('==========================================');
+    const urls = getUrlsFromSitemap();
+    console.log(`📄 ${urls.length} URLs (dist/sitemap.xml + ${EXTRAS.length} extras)`);
+
+    console.log('\n[1/2] IndexNow (Bing/Yandex/Naver/Seznam)...');
+    try {
+        await notifyIndexNow(urls);
+        console.log('   ✅ submitted');
+    } catch (e) {
+        console.error(`   ❌ ${e.message}`);
+    }
+
+    console.log('\n[2/2] Bing Webmaster SubmitUrlBatch...');
+    try {
+        await notifyBing(urls);
+        console.log('   ✅ done');
+    } catch (e) {
+        console.error(`   ❌ ${e.message}`);
+    }
+
+    console.log('\n📝 notification complete');
+}
+
 if (require.main === module) {
     main();
 }
 
-module.exports = { submitToIndexNow, getAllPages };
+module.exports = { getUrlsFromSitemap, notifyIndexNow, notifyBing };
