@@ -54,7 +54,7 @@
 - /blog/aws-tools-comparison.html — AWS Cost Optimization Tools Comparison
 - /blog/cfd-explained.html — What Are Commitment Free Discounts?
 - /blog/7-aws-billing-mistakes-that-cost-companies-millions-2025.html — AWS Billing Mistakes
-- /blog/reduce-aws-costs-30-percent-30-days-2025.html — Cut AWS Costs 30% in 30 Days
+- /blog/reduce-aws-costs-30-percent-30-days-2026.html — Cut AWS Costs 30% in 30 Days
 - /blog/finops-automation-2025-eliminate-manual-cost-management.html — FinOps Automation Guide
 - /blog/aws-reserved-instances-vs-savings-plans-2026.html — RIs vs Savings Plans
 - /blog/reduce-aws-costs-immediately.html — 10 Ways to Reduce AWS Costs Immediately
